@@ -123,6 +123,7 @@
   <msg key="lt_Photo_Album_System__t">Fotoalbum System: %title%</msg>
   <msg key="lt_Save_this_photo_to_pr">Gem dette foto til senere print eller visning</msg>
   <msg key="lt_Save_this_photo_to_pr_1">Gem dette billede for senere print eller visning. Placer i mappen </msg>
+  <msg key="lt_Taken_child_photodate">Taget:  %child_photo.datetaken% %child_photo.camera_model% %child_photo.focal_length%mm %child_photo.aperture%</msg>
   <msg key="lt_There_are_no_items_in">Der er ingen emner i denne mappe.</msg>
   <msg key="lt_This_album_does_not_c">Dette album indeholder intet.</msg>
   <msg key="lt_This_photo_clipped_to">Dette billede kopieret til:</msg>
@@ -147,6 +148,7 @@
   <msg key="register">registrer</msg>
   <msg key="remove">fjern</msg>
   <msg key="screen"> skærmen.</msg>
+  <msg key="Sequence">Sekvens:</msg>
   <msg key="shutterflycom">shutterfly.com</msg>
   <msg key="Smallernbspimage">Mindre&amp;nbsp;billede</msg>
   <msg key="Story">Historie</msg>

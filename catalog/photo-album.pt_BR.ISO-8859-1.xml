@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<message_catalog package_key="photo-album" package_version="5.0d1" locale="pt_BR" charset="ISO-8859-1">
+
+  <msg key="Add_a_new_album">Criar novo álbum</msg>
+  <msg key="Add_a_new_folder">Criar nova pasta</msg>
+</message_catalog>

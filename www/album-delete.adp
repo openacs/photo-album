@@ -10,7 +10,7 @@
 
 <p>
 <center>
-<input type=submit value="<#Yes,_Delete_It Yes, Delete It>"
+<input type=submit value="#photo-album._Yes_Delete#">
 </center>
 
 </form>

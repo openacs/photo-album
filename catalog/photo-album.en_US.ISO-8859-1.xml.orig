@@ -5,7 +5,7 @@
   <msg key="_Album_1">Album Story</msg>
   <msg key="_Album_2">Album Name</msg>
   <msg key="_An">An error occurred while processing your input. Please let the system owner know about this.
-	  &lt;pre&gt;$errmsg&lt;/pre&gt;</msg>
+	  &lt;pre&gt;%errmsg%&lt;/pre&gt;</msg>
   <msg key="_An_1">An error occurred while processing your input. Please let the system owner know about this.</msg>
   <msg key="_Choose">Choose New Folder for Album</msg>
   <msg key="_Choose_1">Choose New Folder for Folder</msg>
@@ -19,20 +19,20 @@
   <msg key="_Edit">Edit Album Attributes</msg>
   <msg key="_Edit_1">Edit Folder Attributes</msg>
   <msg key="_Edit_2">Edit Photo Attributes</msg>
-  <msg key="_Edit_3">Edit page $page </msg>
-  <msg key="_Edit_4">Edit page $page</msg>
-  <msg key="_Either">Either there is already an album with the name \&quot;$name\&quot; 
-	          or you clicked on the button more than once. You can &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt;
+  <msg key="_Edit_3">Edit page %page% </msg>
+  <msg key="_Edit_4">Edit page %page%</msg>
+  <msg key="_Either">Either there is already an album with the name &quot;%name%&quot; 
+	          or you clicked on the button more than once. You can &lt;a href=&quot;index?parent_id=%parent_id%&quot;&gt;
 	          return to the directory listing&lt;/a&gt; to see if your album is there.</msg>
-  <msg key="_Either_1">Either there is already an album in the specified folder with the name \&quot;$folder_name\&quot; or you clicked on the button more than once.  You can &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt;return to the new folder&lt;/a&gt; to see if your album is there.</msg>
-  <msg key="_Either_2">Either there is already a folder with the name \&quot;$name\&quot; 
-	          or you clicked on the button more than once. You can &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt;
+  <msg key="_Either_1">Either there is already an album in the specified folder with the name &quot;%folder_name%&quot; or you clicked on the button more than once.  You can &lt;a href=&quot;?folder_id=%new_folder_id%&quot;&gt;return to the new folder&lt;/a&gt; to see if your album is there.</msg>
+  <msg key="_Either_2">Either there is already a folder with the name &quot;%name%&quot; 
+	          or you clicked on the button more than once. You can &lt;a href=&quot;index?parent_id=%parent_id%&quot;&gt;
 	          return to the directory listing&lt;/a&gt; to see if your folder is there.</msg>
-  <msg key="_Either_3">Either there is already an folder in the specified folder with the name \&quot;$folder_name\&quot; or you clicked on the button more than once.  You can &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt;return to the new folder&lt;/a&gt; to see if your folder is there.</msg>
-  <msg key="_Either_4">Either there is already a photo in the specified albumr with the name \&quot;$filename\&quot; or you clicked on the button more than once.  You can &lt;a href=\&quot;album?album_id=$new_album_id\&quot;&gt;return to the new album&lt;/a&gt; to see if your photo is there. </msg>
+  <msg key="_Either_3">Either there is already an folder in the specified folder with the name &quot;%folder_name%&quot; or you clicked on the button more than once.  You can &lt;a href=&quot;?folder_id=%new_folder_id%&quot;&gt;return to the new folder&lt;/a&gt; to see if your folder is there.</msg>
+  <msg key="_Either_4">Either there is already a photo in the specified album with the name &quot;%filename%&quot; or you clicked on the button more than once.  You can &lt;a href=&quot;album?album_id=%new_album_id%&quot;&gt;return to the new album&lt;/a&gt; to see if your photo is there. </msg>
   <msg key="_Folder">Folder Name</msg>
   <msg key="_Folder_1">Folder Description</msg>
-  <msg key="_For">For show this photo &lt;a href=photo-edit?photo_id=$photo_id&gt;edit the attributes&lt;/a&gt; an uncheck the option hide</msg>
+  <msg key="_For">For show this photo &lt;a href=photo-edit?photo_id=%photo_id%&gt;edit the attributes&lt;/a&gt; an uncheck the option hide</msg>
   <msg key="_Full">Full Size Image</msg>
   <msg key="_Hide">Hide the image html source</msg>
   <msg key="_Modify">Modify this package's parameters</msg>
@@ -58,17 +58,17 @@
   <msg key="_The_6">The parameter ConverttoJpgorPng is not in automatic mode </msg>
   <msg key="_This">This photo couldn't be showed because : </msg>
   <msg key="_Upload">Upload photos</msg>
-  <msg key="_Use">Use the \&quot;Browse...\&quot; button find a file</msg>
-  <msg key="_Use_1">Use the \&quot;Browse...\&quot; button to locate your file, then click \&quot;Open\&quot;</msg>
+  <msg key="_Use">Use the &quot;Browse...&quot; button find a file</msg>
+  <msg key="_Use_1">Use the &quot;Browse...&quot; button to locate your file, then click &quot;Open&quot;</msg>
   <msg key="_We">We got an error that we couldn't readily identify.  Please let the system owner know about this.
 
-	    &lt;pre&gt;$errmsg&lt;/pre&gt;</msg>
+	    &lt;pre&gt;%errmsg%&lt;/pre&gt;</msg>
   <msg key="_We_1">We got an error that we couldn't readily identify.  Please let the system owner know about this. </msg>
   <msg key="_Yes_Delete">Yes, Delete It</msg>
   <msg key="_You">You must provide a non-empty name for the clipboard</msg>
   <msg key="_You_1">You may not delete the root folder.</msg>
   <msg key="_You_2">You may not move the root folder.</msg>
-  <msg key="_Your">You can click &lt;a href=album?album_id=$old_album_id&gt; here &lt;/a&gt; to view all photos of the album </msg>
+  <msg key="_Your">You can click &lt;a href=album?album_id=%old_album_id%&gt; here &lt;/a&gt; to view all photos of the album </msg>
   <msg key="Add_a_new_album">Add a new album</msg>
   <msg key="Add_a_new_folder">Add a new folder</msg>
   <msg key="Album_Name">Album Name</msg>
@@ -123,7 +123,7 @@ printing or emailing on the individual photo display page.</msg>
   <msg key="lt_in_order_to_manage_cl">in order to manage clipboards.</msg>
   <msg key="lt_Make_this_photo_the_i">Make this photo the cover photo for this album</msg>
   <msg key="lt_Modify_album_permissi">Modify album permissions</msg>
-  <msg key="lt_Modify_this_albums_pe">Modify this albums permissions</msg>
+  <msg key="lt_Modify_this_albums_pe">Modify this album's permissions</msg>
   <msg key="lt_Modify_this_folders_p">Modify this folder's permissions</msg>
   <msg key="lt_Move_album_to_another">Move album to another folder</msg>
   <msg key="lt_Move_Album_to_new_fol">Move Album to new folder:</msg>
@@ -136,6 +136,7 @@ printing or emailing on the individual photo display page.</msg>
   <msg key="lt_Photo_Album_System__t">Photo Album System : %title%</msg>
   <msg key="lt_Save_this_photo_to_pr">Save this photo to print or view later</msg>
   <msg key="lt_Save_this_photo_to_pr_1">Save this photo to print or view later.  Place in folder</msg>
+  <msg key="lt_Taken_child_photodate">Taken: %child_photo.datetaken% %child_photo.camera_model% %child_photo.focal_length%mm %child_photo.aperture%</msg>
   <msg key="lt_There_are_no_items_in">There are no items in this folder.</msg>
   <msg key="lt_This_album_does_not_c">This album does not contain anything.</msg>
   <msg key="lt_This_photo_clipped_to">This photo clipped to:</msg>
@@ -164,6 +165,7 @@ currently being processed...</msg>
   <msg key="register">register</msg>
   <msg key="remove">remove</msg>
   <msg key="screen">screen.</msg>
+  <msg key="Sequence">Sequence:</msg>
   <msg key="shutterflycom">shutterfly.com</msg>
   <msg key="Smallernbspimage">Smaller&amp;nbsp;image</msg>
   <msg key="Story">Story</msg>

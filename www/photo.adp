@@ -7,7 +7,7 @@
     @photo_nav_html;noquote@
     <div style="text-align: center; margin: 1em;">
       <if @show_base_link@ eq "t">
-        <a href="base-photo?photo_id=@photo_id@"><img src="images/@path@/@title@" height="@height@" width="@width@" alt="@title@" /></a>
+        <a href="base-photo?photo_id=@photo_id@"><img src="images/@path@/@title@" height="@height@" width="@width@" alt="@title@" border="0" /></a>
       </if><else>
         <img src="images/@path@/@title@" height="@height@" width="@width@" alt="@title@" />
       </else>
