@@ -12,7 +12,7 @@ ad_page_contract {
 } -validate {
     valid_album -requires {album_id:integer} {
 	if [string equal [pa_is_album_p $album_id] "f"] {
-	    ad_complain "The specified album is not valid."
+	    ad_complain "[_ photo-album._The_4]"
 	}
     }
 } -properties {
@@ -23,7 +23,7 @@ ad_page_contract {
 # check for read permission on folder
 ad_require_permission $album_id pa_create_photo
 
-set context_list [pa_context_bar_list -final "Upload photos" $album_id]
+set context_list [pa_context_bar_list -final "[_ photo-album._Upload]" $album_id]
 
 set photo_id [db_string get_next_object_id "select acs_object_id_seq.nextval from dual"]
 
@@ -36,16 +36,16 @@ template::element create photo_upload photo_id  \
   -label "photo_id" -datatype integer -widget hidden
 
 template::element create photo_upload upload_file  \
-  -label "Choose a Photo to Upload" -help_text "Use the \"Browse...\" button find a file" -datatype text -widget file 
+  -label "[_ photo-album._Choose_2]" -help_text "[_ photo-album._Use]" -datatype text -widget file 
 
 template::element create photo_upload caption -html { size 30 } \
-  -label "Caption" -optional -help_text "OPTIONAL, Displayed on the thumbnail page" -datatype text 
+  -label "<#_Caption#>" -optional -help_text "[_ photo-album.lt_OPTIONAL_Displayed_on]" -datatype text 
 
 template::element create photo_upload description -html { size 50} \
-  -label "Photo Description" -optional -help_text "OPTIONAL, Displayed when viewing the photo" -datatype text
+  -label "[_ photo-album._Photo]" -optional -help_text "[_ photo-album.lt_OPTIONAL_Displayed_wh]" -datatype text
 
 template::element create photo_upload story -html { cols 50 rows 4 wrap soft } \
-  -label "Photo Story" -optional -help_text "OPTIONAL" -datatype text -widget textarea
+  -label "[_ photo-album._Photo_1]" -optional -help_text "[_ photo-album.OPTIONAL]" -datatype text -widget textarea
 
 template::element set_properties photo_upload album_id -value $album_id
 template::element set_properties photo_upload photo_id -value $photo_id

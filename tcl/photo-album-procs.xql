@@ -14,7 +14,7 @@
   ci.item_id
 from cr_items ci,
   cr_child_rels ccr
-where ci.live_revision is not null
+where ci.latest_revision is not null
   and ci.content_type = 'pa_photo'
   and ccr.parent_id = :album_id
   and ci.item_id = ccr.child_id

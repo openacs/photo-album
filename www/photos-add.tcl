@@ -12,7 +12,7 @@ ad_page_contract {
 } -validate {
     valid_album -requires {album_id:integer} {
 	if [string equal [pa_is_album_p $album_id] "f"] {
-	    ad_complain "The specified album is not valid."
+	    ad_complain "[_ photo-album._The_1]"
 	}
     }
 } -properties {
@@ -23,7 +23,7 @@ ad_page_contract {
 # check for read permission on folder
 ad_require_permission $album_id pa_create_photo
 
-set context [pa_context_bar_list -final "Upload photos" $album_id]
+set context [pa_context_bar_list -final "[_ photo-album._Upload]" $album_id]
 
 set photo_id [db_string get_next_object_id "select acs_object_id_seq.nextval from dual"]
 
@@ -35,12 +35,12 @@ template::element create photos_upload album_id  \
 template::form::section photos_upload Either
 
 template::element create photos_upload upload_file  \
-  -label "Choose a tar or zip file to upload" -help_text "Use the \"Browse...\" button to locate your file, then click \"Open\"" -datatype text -widget file
+  -label "[_ photo-album._Choose_3]" -help_text "[_ photo-album._Use_1]" -datatype text -widget file
 
 template::form::section photos_upload Or
 
 template::element create photos_upload directory -html { size 50} \
-  -label "Or choose a server directory to upload" -help_text "the directory must exist on server and be readable by the server process" -datatype text -widget text
+    -label "upload photos from the server directory" -help_text "[_ photo-album._the]" -datatype text -value "[parameter::get -parameter FullTempPhotoDir -package_id [ad_conn package_id]]" -widget text -mode display
 
 template::element set_properties photos_upload album_id -value $album_id
 

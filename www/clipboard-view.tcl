@@ -20,7 +20,7 @@ ad_page_contract {
 set user_id [ad_conn user_id]
 
 if {![db_0or1row collection {select first_names || ' ' || last_name as owner_name, owner_id, title from pa_collections, cc_users where collection_id = :collection_id and owner_id = user_id}] } {
-    ad_return_complaint 1 "<li> invalid clipboard"
+    ad_return_complaint 1 "<#_<li> invalid clipboard#>"
     ad_script_abort
 } 
 

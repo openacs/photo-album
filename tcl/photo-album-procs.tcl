@@ -581,11 +581,11 @@ ad_proc -public pa_pagination_bar {
     # append the 'prev' link
     append photo_nav_html "<div class=\"photo_album_nav\">\n"
     if { ![empty_string_p $prev_id] } {
-	append photo_nav_html "\t<div style=\"text-align: left; float: left; margin-right: 1em; margin-bottom: 1em\">\n\t\t<a href=\"${link}$prev_id\">&lt;&lt;&nbsp;Prev$what</a>\n\t</div>\n"
+	append photo_nav_html "\t<div style=\"text-align: left; float: left; margin-right: 1em; margin-bottom: 1em\">\n\t\t<a href=\"${link}$prev_id\">&lt;&lt;&nbsp;[_ photo-album.Prev]$what</a>\n\t</div>\n"
     }
     # append the 'next' link
     if { ![empty_string_p $next_id] } {
-	append photo_nav_html "\t<div style=\"text-align: right; float: right; margin-left: 1em; margin-bottom: 1em\">\n\t\t<a href=\"${link}$next_id\">Next$what&nbsp;&gt;&gt;</a>\n\t</div>\n"
+	append photo_nav_html "\t<div style=\"text-align: right; float: right; margin-left: 1em; margin-bottom: 1em\">\n\t\t<a href=\"${link}$next_id\">[_ photo-album.Netx]$what&nbsp;&gt;&gt;</a>\n\t</div>\n"
     }
 
     # append page number links for all pages except for this page
@@ -642,18 +642,22 @@ ad_proc -public pa_expand_archive {
         set type "Unknown type"
     }
 
+    # DRB: on Mac OS X the "verify" option to tar appears to return the file
+    # list on stderr rather than stdout, causing the catch to trigger.  Non-GNU
+    # versions of tar don't understand fancy options (those starting with --)
+
     switch $type { 
         tar {
-            set errp [ catch { exec tar --directory $tmp_dir -xvf $tmpfile } errMsg]
+            set errp [ catch { exec tar -xf $tmpfile -C $tmp_dir } errMsg]
         }
         tgZ { 
-            set errp [ catch { exec tar --directory $tmp_dir -xZvf $tmpfile } errMsg]
+            set errp [ catch { exec tar -xZf $tmpfile -C $tmp_dir } errMsg]
         }
         tgz { 
-            set errp [ catch { exec tar --directory $tmp_dir -xzvf $tmpfile } errMsg]
+            set errp [ catch { exec tar -xzf $tmpfile -C $tmp_dir } errMsg]
         }
         tbz2 { 
-            set errp [ catch { exec tar --directory $tmp_dir -xjvf $tmpfile } errMsg]
+            set errp [ catch { exec tar -xjf $tmpfile -C $tmp_dir } errMsg]
         }
         zip { 
             set errp [ catch { exec unzip -d $tmp_dir $tmpfile } errMsg]
@@ -785,6 +789,7 @@ ad_proc -public pa_load_images {
     {-description {}}
     {-story {}}
     {-caption {}}
+    {-feedback_mode 0}
     image_files 
     album_id 
     user_id
@@ -795,6 +800,7 @@ ad_proc -public pa_load_images {
     -client_name provide the name of the upload file (for individual uploads)
     -strip_prefix the prefix to remove from the filename (for expanded archives)
     image_files list of files to process
+    -feedback_mode to provide much info of the loading process on a bulk upload
 } { 
     set new_ids [list]
     set peeraddr [ad_conn peeraddr]
@@ -956,6 +962,38 @@ ad_proc -public pa_load_images {
 
                 db_dml update_photo_data {}
             }
+
+	    if $feedback_mode {
+		ns_write "
+                          <ul>
+                            <li>Loading image <b>$client_filename</b></li>
+                             <ul>
+                               <li>General information:</li>
+                                 <ul>
+                                   <li>Base Name: $base_image_name</li>
+                                   <li>Photo_id: $photo_id</li>
+                                   <li>Width: $base_width</li>
+                                   <li>Height: $base_height</li>
+                                   <li>Size: $base_bytes bytes</li>
+                                   <li>Base image name: $base_image_name</li>
+                                 </ul>
+                               <li>Thumbnail information:</li>
+                                 <ul>
+                                   <li>Thumnail name: $th_image_name</li>
+                                   <li>Width: $thumb_width</li>
+                                   <li>Height: $thumb_height</li>
+                                   <li>Size: $thumb_bytes bytes</li>
+                                 </ul>
+                               <li>Photo view information:</li>
+                                 <ul>
+                                   <li>View name: $vw_image_name</li>
+                                   <li>Width: $viewer_width</li>
+                                   <li>Height: $viewer_height</li>
+                                   <li>Size: $viewer_bytes bytes</li>
+                                 </ul>
+                             </ul>
+                          </ul>"
+	    }
 
             pa_insert_image $base_image_name $photo_id $base_item_id $base_rev_id $user_id $peeraddr $photo_id $base_image_name "original image" $base_mime "base" "t" $base_filename_relative $base_height $base_width $base_bytes 
             pa_insert_image $th_image_name $photo_id $thumb_item_id $thumb_rev_id $user_id $peeraddr $photo_id $th_image_name "thumbnail" $thumb_mime "thumb" "t" $thumb_filename_relative $thumb_height $thumb_width $thumb_bytes 

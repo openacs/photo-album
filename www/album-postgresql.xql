@@ -9,6 +9,7 @@
     select cr.title,
            cr.description,
            pa.story,
+           pa.photographer,
            ci.parent_id as parent_folder_id,
            case when acs_permission__permission_p(ci.item_id, :user_id, 'admin') = 't' then 1 else 0 end as admin_p,
            case when acs_permission__permission_p(ci.item_id, :user_id, 'pa_create_photo') = 't' then 1 else 0 end as photo_p,

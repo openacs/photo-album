@@ -1,24 +1,20 @@
   <master>
-    <property name="title">Your clipboards</property>
-    <property name="context">Clipboards</property>
+    <property name="title">#photo-album.Your_clipboards#</property>
+    <property name="context">#photo-album.Clipboards#</property>
     <if @user_id@ eq 0> 
-      You will have to <a href="/register/">log in</a> or
-      <a href="/register/">register</a>
-      in order to manage clipboards.
+      #photo-album.You_will_have_to# <a href="/register/">#photo-album.log_in#</a> #photo-album.or#
+      <a href="/register/">#photo-album.register#</a>
+      #photo-album.lt_in_order_to_manage_cl#
     </if>
     <else>
       <if @clipboards:rowcount@ eq 0>
-        You do not currently have any clipboards defined.  You will
-        need to browse the <a href="./">photos</a> and add them to a clipboard to use 
-        this part of the site.
+        #photo-album.lt_You_do_not_currently_# <a href="./">#photo-album.photos#</a> #photo-album.lt_and_add_them_to_a_cli#
       </if>
       <else> 
         <ul>
           <multiple name="clipboards">
             <li> <a href="clipboard-view?collection_id=@clipboards.collection_id@">@clipboards.title@</a>
-              (@clipboards.photos@ photos) 
-              [ <a href="clipboard-ae?collection_id=@clipboards.collection_id@">edit
-                name</a> | <a href="clipboard-delete?collection_id=@clipboards.collection_id@">delete clipboard</a> ]</li>
+              #photo-album.lt_clipboardsphotos_phot# <a href="clipboard-ae?collection_id=@clipboards.collection_id@">#photo-album.lt_edit________________n#</a> | <a href="clipboard-delete?collection_id=@clipboards.collection_id@">#photo-album.delete_clipboard#</a> ]</li>
           </multiple>
         </ul>
       </else>

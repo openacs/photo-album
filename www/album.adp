@@ -3,8 +3,8 @@
 <property name="context">@context@</property>
     <property name="header_suppress">1</property>
 @page_nav;noquote@
-@message@
-<h2>@title@</h2>
+@message;noquote@
+<h2>@photographer@</h2>
 <if @description@ not nil>
 <p>@description@</p>
 </if>
@@ -32,32 +32,30 @@
 </table>
 @page_nav;noquote@
 </if><else>
-<p>This album does not contain anything.</p>
+<p>#photo-album.lt_This_album_does_not_c#</p>
 </else>
 <ul>
 <if @photo_p@ eq 1>
-  <li><a href="photo-add?album_id=@album_id@">Add a single photo to this album</a></li>
-  <li><a href="photos-add?album_id=@album_id@">Add a collection of photos to this album</a></li>
-  <li><a href="photos-edit?album_id=@album_id@&page=@page@">Edit these photos</a></li>
+  <li><a href="photo-add?album_id=@album_id@">#photo-album.lt_Add_a_single_photo_to#</a></li>
+  <li><a href="photos-add?album_id=@album_id@">#photo-album.lt_Add_a_collection_of_p#</a></li>
+  <li><a href="photos-edit?album_id=@album_id@&page=@page@">#photo-album.Edit_these_photos#</a></li>
 </if>
 <if @write_p@ eq 1>
-  <li><a href="album-edit?album_id=@album_id@">Edit album attributes</a></li>
+  <li><a href="album-edit?album_id=@album_id@">#photo-album.lt_Edit_album_attributes#</a></li>
 </if>
 <if @move_p@ eq 1>
-  <li><a href="album-move?album_id=@album_id@">Move this album to another folder</a></li>
+  <li><a href="album-move?album_id=@album_id@">#photo-album.lt_Move_this_album_to_an#</a></li>
 </if>
 <if @admin_p@ eq 1>
-  <li><a href="/permissions/one?object_id=@album_id@">Modify this albums permissions</a></li>
+  <li><a href="/permissions/one?object_id=@album_id@">#photo-album.lt_Modify_this_albums_pe#</a></li>
 </if>
 <if @delete_p@ eq 1>
-  <li><a href="album-delete?album_id=@album_id@">Delete this album</a></li>
+  <li><a href="album-delete?album_id=@album_id@">#photo-album.Delete_this_album#</a></li>
 </if>
 </ul>
-<p style="color: #999999;">Click on the small photos to see a bigger
-version, the numbers to see different pages, or the Next or Previous
-page links to move back and forth.  You can also pick photos for
-printing or emailing on the individual photo display page.
+<p style="color: #999999;">#photo-album.lt_Click_on_the_small_ph#
 </p>
 <if @collections@ gt 0>
-<p><a href="clipboards">View all of your clipboards</a>.</p>
+<p><a href="clipboards">#photo-album.lt_View_all_of_your_clip#</a>.</p>
 </if>
+

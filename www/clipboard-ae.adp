@@ -1,5 +1,6 @@
 <master>
-<property name="title">Photo clipboard</property>
-<property name="context">"Clipboard add/edit"</property>
+<property name="title">#photo-album.Photo_clipboard#</property>
+<property name="context">#photo-album.Clipboard_addedit#</property>
 
 <formtemplate id="clip_ae"></formtemplate>
+

@@ -2,7 +2,7 @@
 <property name="title">@title@</property>
 <property name="context">@context_list@</property>
 
-<p>Name: @title@ 
+<p>#photo-album.Name#: @title@ 
 <if @description@ not nil>
 <p>Description: @description@
 </if>
@@ -11,22 +11,22 @@
 </if>
 <ul>
 <if @photo_p@ eq 1>
-  <li><a href="photo-add?album_id=@album_id@">Add a single photo to this album</a>
+  <li><a href="photo-add?album_id=@album_id@">#photo-album.lt_Add_a_single_photo_to#</a>
 </if>
 <if @photo_p@ eq 1>
-  <li><a href="photos-add?album_id=@album_id@">Add a collection of photos to this album</a>
+  <li><a href="photos-add?album_id=@album_id@">#photo-album.lt_Add_a_collection_of_p#</a>
 </if>
 <if @write_p@ eq 1>
-  <li><a href="album-edit?album_id=@album_id@">Edit album attributes</a>
+  <li><a href="album-edit?album_id=@album_id@">#photo-album.lt_Edit_album_attributes#</a>
 </if>
 <if @move_p@ eq 1>
-  <li><a href="album-move?album_id=@album_id@">Move album to another folder</a>
+  <li><a href="album-move?album_id=@album_id@">#photo-album.lt_Move_album_to_another#</a>
 </if>
 <if @delete_p@ eq 1>
-  <li><a href="album-delete?album_id=@album_id@">Delete this album</a>
+  <li><a href="album-delete?album_id=@album_id@">#photo-album.Delete_this_album#</a>
 </if>
 <if @admin_p@ eq 1>
-  <li><a href="/permissions/one?object_id=@album_id@">Modify album permissions</a>
+  <li><a href="/permissions/one?object_id=@album_id@">#photo-album.lt_Modify_album_permissi#</a>
 </if>
 </ul>
 <if @child_photo:rowcount@ gt 0>
@@ -43,10 +43,13 @@
               <td>&nbsp;</td>
               <td rowspan=3>
                     <table>
-                      <tr><td>Hide:</td><td><input type=checkbox name="hide.@child_photo.photo_id@" value=1></td></tr>
-                      <tr><td>Caption:</td><td><input type=text name="caption.@child_photo.photo_id@" value="@child_photo.caption@" size=60></td></tr>
-                      <tr><td>Story:</td><td><textarea name="story.@child_photo.photo_id@" cols="60" wrap="soft" rows="3">@child_photo.story@</textarea></td></tr>
-                    <if @child_photo.datetaken@ not nil><tr><td colspan="2">Taken: @child_photo.datetaken@ @child_photo.camera_model@ @child_photo.focal_length@mm @child_photo.aperture@ <if @child_photo.flash@>Flash</if></td></tr></if>
+                      <tr><td>#photo-album.Hide_1#</td><td><if @child_photo.hide_p@ ne 0><input type=checkbox name="hide.@child_photo.photo_id@" value=1></if><else><input checked type=checkbox name="hide.@child_photo.photo_id@" value=0></else></td></tr>
+                      <tr><td>#photo-album.Caption_1#</td><td><input type=text name="caption.@child_photo.photo_id@" value="@child_photo.caption@" size=60></td></tr>
+                      <tr><td>#photo-album.Title_1#</td><td><input type=text name="photo_title.@child_photo.photo_id@" value="@child_photo.photo_title@" size=60></td></tr>
+                      <tr><td>#photo-album.Story_1#</td><td><textarea name="photo_story.@child_photo.photo_id@" cols="60" wrap="soft" rows="3">@child_photo.photo_story@</textarea></td></tr>
+                      <tr><td>#photo-album.Description_1#</td><td><textarea name="photo_description.@child_photo.photo_id@" cols="60" wrap="soft" rows="3">@child_photo.photo_description@</textarea></td></tr>
+	
+                    <if @child_photo.datetaken@ not nil><tr><td colspan="2">Taken: @child_photo.datetaken@ @child_photo.camera_model@ @child_photo.focal_length@mm @child_photo.aperture@ <if @child_photo.flash@>#photo-album.Flash#</if></td></tr></if>
                     </table>
               </td>
             </tr>
@@ -66,7 +69,7 @@
         <input type=submit value=Submit>
     </form>
 </if><else>
-<p>This album does not contain anything.
+<p>#photo-album.lt_This_album_does_not_c#
 </else>
 <p>
 @page_nav;noquote@

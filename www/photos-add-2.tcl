@@ -10,7 +10,6 @@ ad_page_contract {
 } {
     upload_file:trim,optional
     upload_file.tmpfile:optional,tmpfile
-    directory:trim,optional
     album_id:integer,notnull
 } -validate {
     valid_album -requires {album_id:integer} {
@@ -23,23 +22,12 @@ ad_page_contract {
 	    ad_complain "The upload failed or the file was empty"
 	}
     }
-    directory_exists -requires {directory:notnull} {
-        if {![empty_string_p $directory] && ![file isdirectory $directory]} { 
+    directory_exists {
+        if {([info exists $upload_file] && ![empty_string_p $upload_file]) && ![file isdirectory [parameter::get -parameter FullTempPhotoDir -package_id [ad_conn package_id]]]} { 
             ad_complain "The directory file does not exist"
         }
     }
-    directory_tmp -requires {directory:notnull} {
-        if {![empty_string_p $directory] && !([ad_conn user_id] == 287 || [ad_conn user_id] == 2601) && ( ![string match "/tmp/pa-tmp" $directory ] || [string match ".." $directory]) } { 
-            ad_complain "You can currently only load images from /tmp/pa-tmp for security"
-        }
-    }
-    one_or_other { 
-        if {[empty_string_p $upload_file] && [empty_string_p $directory]} { 
-	    ad_complain "Either upload a file or specify a directory to load"
-        }
-    }
 } 
-
 
 #check permission
 set user_id [ad_conn user_id]
@@ -55,20 +43,17 @@ ReturnHeaders text/html
 ns_write "<html><head><title>Upload Log</title></head><body><h1>Upload Log</h1><hr>\n"
 
 if {![empty_string_p $upload_file]} { 
-    if {[info exists directory] && ![empty_string_p $directory]} {
-        ns_write "Uploading file only...please submit your directory-based upload separately<br>"
-    }
     ns_write "starting to load images from file $upload_file<br>\n"
     ns_log Debug "made directory $tmp_dir to extract from ${upload_file.tmpfile} ($upload_file)\n"
     set allfiles [pa_walk $tmp_dir]
     set remove 1
 } else { 
-    ns_write "starting to load images from directory $directory<br>\n"
-    set allfiles [pa_walk $directory]
+    ns_write "starting to load images from directory [parameter::get -parameter FullTempPhotoDir -package_id [ad_conn package_id]]<br>\n"
+    set allfiles [pa_walk [parameter::get -parameter FullTempPhotoDir -package_id [ad_conn package_id]]]
     set remove 0
 }     
 
-set new_photo_ids [pa_load_images -remove $remove $allfiles $album_id $user_id]
+set new_photo_ids [pa_load_images -feedback_mode 1 -remove $remove $allfiles $album_id $user_id]
 
 pa_flush_photo_in_album_cache $album_id 
 

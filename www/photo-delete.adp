@@ -7,10 +7,11 @@
 <input type=hidden name=photo_id value=@photo_id@>
 <input type=hidden name=confirmed_p value="t">
 
-<p>Are you sure you want to delete the photo "@title@"?  This action cannot be undone.
+<p>#photo-album.lt_Are_you_sure_you_want_2#
 <p>
 <center>
-<input type=submit value="Yes, Delete It">
+<input type=submit value="#photo-album._Yes_Delete#">
 </center>
 
 </form>
+

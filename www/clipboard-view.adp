@@ -4,7 +4,7 @@
 
 
     <p>
-      Clipboard: <strong>@title@</strong> <if @owner_id@ ne
+      #photo-album.Clipboard# <strong>@title@</strong> <if @owner_id@ ne
         @user_id@>(<a href="/shared/community-member?user_id=@owner_id@">@owner_name@</a>)</if>
     </p>
 
@@ -33,7 +33,7 @@
 
     </p>
     <if @images:rowcount@ lt 1> 
-      <p><em>No photos in the clipboard.</em></p>
+      <p><em>#photo-album.lt_No_photos_in_the_clip#</em></p>
     </if>
     <else>
       <multiple name="images"> 
@@ -42,6 +42,7 @@
         </div>
       </multiple>
     </else> 
+
 
 
 

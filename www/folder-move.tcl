@@ -11,18 +11,18 @@ ad_page_contract {
 } -validate {
     valid_folder -requires {folder_id:integer} {
 	if [string equal [pa_is_folder_p $folder_id] "f"] {
-	    ad_complain "The specified folder is not valid."
+	    ad_complain "[_ photo-album._The_3]"
 	}
     }
 
     not_root_folder -requires {folder_id} {
 	if { $folder_id == [pa_get_root_folder] } {
-	    ad_complain "You may not move the root folder."
+	    ad_complain "[_ photo-album._You_2]"
 	}
     }
 }
 
-set context_list [pa_context_bar_list -final "Move Folder" $folder_id]
+set context_list [pa_context_bar_list -final "[_ photo-album._Move_1]" $folder_id]
 set user_id [ad_conn user_id]
 
 # to move an folder need write on folder, and old parent folder
@@ -45,7 +45,7 @@ template::element create move_folder folder_id -label "folder ID" \
 # options query retreive all folders in package that user can add an folder to
 set root_folder_id [pa_get_root_folder]
 
-template::element create move_folder new_folder_id -label "Choose New Folder for Folder" \
+template::element create move_folder new_folder_id -label "[_ photo-album._Choose_1]" \
   -datatype integer -widget select \
   -options [db_list_of_lists get_folders "select padded_name, folder_id from (select
     ci.item_id,
@@ -104,11 +104,9 @@ if { [template::form is_valid move_folder] } {
 	from   cr_items
 	where  name = :folder_name
 	and    parent_id = :new_folder_id"] {
-	    ad_return_complaint 1 "Either there is already an folder in the specified folder with the name \"$folder_name\" or you clicked on the button more than once.  You can <a href=\"?folder_id=$new_folder_id\">return to the new folder</a> to see if your folder is there."
+	    ad_return_complaint 1 "[_ photo-album._Either_3]"
 	} else {
-	    ad_return_complaint 1 "We got an error that we couldn't readily identify.  Please let the system owner know about this.
-
-	    <pre>$errmsg</pre>"
+	    ad_return_complaint 1 "[_ photo-album._We]"
 	}
 	
 	ad_script_abort

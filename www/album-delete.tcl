@@ -13,13 +13,13 @@ ad_page_contract {
 } -validate {
     valid_album -requires {album_id:integer} {
 	if [string equal [pa_is_album_p $album_id] "f"] {
-	    ad_complain "The specified album is not valid."
+	    ad_complain "[_ photo-album._The_1]"
 	}
     }
 
     no_children -requires {album_id:integer} {
 	if { [pa_count_photos_in_album $album_id] > 0 } {
-	    ad_complain "We're sorry, but you cannot delete albums unless they are already empty."
+	    ad_complain "<#_We're sorry, but you cannot delete albums unless they are already empty.#>"
 	}
     }
 } -properties {

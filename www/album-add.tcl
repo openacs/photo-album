@@ -12,7 +12,7 @@ ad_page_contract {
 } -validate {
     valid_parent_folder -requires {parent_id:integer} {
 	if [string equal [pa_is_folder_p $parent_id] "f"] {
-	    ad_complain "The specified parent folder is not valid."
+	    ad_complain "[_ photo-album._The]"
 	}
     }
 } -properties {
@@ -21,7 +21,7 @@ ad_page_contract {
 
 ad_require_permission $parent_id "pa_create_album"
 
-set context_list [pa_context_bar_list -final "Create a New Album" $parent_id]
+set context_list [pa_context_bar_list -final "[_ photo-album._Create]" $parent_id]
 
 template::form create album_add
 
@@ -32,16 +32,16 @@ template::element create album_add parent_id -label "Parent ID" \
   -datatype integer -widget hidden
 
 template::element create album_add title -html { size 30 } \
-  -label "Album Name" -datatype text
+    -label "[_ photo-album.Album_Name]" -datatype text
 
 template::element create album_add photographer -html { size 50} \
-  -label "Photographer"  -datatype text -optional
+  -label "[_ photo-album.Photographer_]"  -datatype text -optional
 
 template::element create album_add description -html { size 50 } \
-  -label "Album Description" -datatype text -optional
+  -label "[_ photo-album._Album]" -datatype text -optional
 
 template::element create album_add story -html {cols 50 rows 4 wrap soft} \
-  -label "Album Story" -datatype text -widget textarea -optional
+  -label "[_ photo-album._Album_1]" -datatype text -widget textarea -optional
 
 if { [template::form is_request album_add] } {
     set album_id [db_nextval acs_object_id_seq]
@@ -77,13 +77,9 @@ if { [template::form is_valid album_add] } {
 	  from   cr_items
 	  where  (item_id = :album_id or name = :name)
 	  and    parent_id = :parent_id"] {
-	      ad_return_complaint 1 "Either there is already an album with the name \"$name\" 
-	          or you clicked on the button more than once. You can <a href=\"index?parent_id=$parent_id\">
-	          return to the directory listing</a> to see if your album is there."
+	      ad_return_complaint 1 "[_ photo-album._Either]"
 	} else {
-	    ad_return_complaint 1 "We got an error that we couldn't readily identify.  Please let the system owner know about this.
-
-	    <pre>$errmsg</pre>"
+	    ad_return_complaint 1 "[_ photo-album._We]"
 	}
     
 	ad_script_abort

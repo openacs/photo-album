@@ -14,12 +14,13 @@ ad_page_contract {
 } -validate {
     valid_album -requires {album_id:integer} {
 	if [string equal [pa_is_album_p $album_id] "f"] {
-	    ad_complain "The specified album is not valid."
+	    ad_complain "[_ photo-album._The_1]"
 	}
     }
 } -properties {
     album_id:onevalue
     title:onevalue
+    photographer:onevalue
     description:onevalue
     story:onevalue
     context:onevalue
@@ -37,6 +38,14 @@ set user_id [ad_conn user_id]
 
 # check for read permission on album
 ad_require_permission $album_id read
+
+# These lines are to uncache the image in Netscape, Mozilla. 
+# IE6 & Safari (mac) have a bug with the images cache
+ns_set put [ns_conn outputheaders] "Expires" "-"
+ns_set put [ns_conn outputheaders] "Last-Modified" "-"
+ns_set put [ns_conn outputheaders] "Pragma" "no-cache"
+ns_set put [ns_conn outputheaders] "Cache-Control" "no-cache"
+
 
 set context [pa_context_bar_list $album_id]
 

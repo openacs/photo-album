@@ -16,7 +16,7 @@ ad_page_contract {
 } -validate {
     valid_photo -requires {photo_id:integer} {
 	if [string equal [pa_is_photo_p $photo_id] "f"] {
-	    ad_complain "The specified photo is not valid."
+	    ad_complain "[_ photo-album._The_2]"
 	}
     }
 } -properties {
@@ -50,7 +50,7 @@ if { [string equal $confirmed_p "t"]  } {
 } else {
     # they still need to confirm
 
-    set context_list [pa_context_bar_list -final "Delete Photo" $photo_id]
+    set context_list [pa_context_bar_list -final "[_ photo-album._Delete_1]" $photo_id]
     db_1row get_photo_info {select 
       cr.title,
       i.height as height,
