@@ -20,9 +20,9 @@
 --  creates new pa_photo
 --  associated pa_images must be created by calling script
 */
--- drop function pa_photo__new (varchar,integer,integer,integer,timestamp, integer, varchar, varchar, integer, varchar, varchar, boolean, timestamp, varchar, varchar, text);
+-- drop function pa_photo__new (varchar,integer,integer,integer,timestamptz, integer, varchar, varchar, integer, varchar, varchar, boolean, timestamptz, varchar, varchar, text);
 
-create or replace function pa_photo__new (varchar,integer,integer,integer,timestamp, integer, varchar, varchar, integer, varchar, varchar, boolean, timestamp, varchar, varchar, text
+create or replace function pa_photo__new (varchar,integer,integer,integer,timestamptz, integer, varchar, varchar, integer, varchar, varchar, boolean, timestamptz, varchar, varchar, text
   ) returns integer as '
   declare 
     new__name		alias for $1;
@@ -145,9 +145,9 @@ end; ' language 'plpgsql';
 /*
 -- Creates a new pa_album
 */
--- drop function pa_album__new (varchar, integer, integer, boolean, integer, varchar, varchar, varchar, text, integer, timestamp, varchar, integer, timestamp, varchar);
+-- drop function pa_album__new (varchar, integer, integer, boolean, integer, varchar, varchar, varchar, text, integer, timestamptz, varchar, integer, timestamptz, varchar);
 
-create or replace function pa_album__new (varchar, integer, integer, boolean, integer, varchar, varchar, varchar, text, varchar, integer, timestamp, varchar, integer, timestamp, varchar) 
+create or replace function pa_album__new (varchar, integer, integer, boolean, integer, varchar, varchar, varchar, text, varchar, integer, timestamptz, varchar, integer, timestamptz, varchar) 
 returns integer as '
   declare
     new__name		alias for $1;
