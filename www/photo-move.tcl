@@ -17,6 +17,7 @@ ad_page_contract {
 }
 set context_list [pa_context_bar_list -final "Move Photo" $photo_id]
 set user_id [ad_conn user_id]
+set root_folder_id [pa_get_root_folder]
 
 # to move a photo need write on photo, and old parent album
 # and pa_create_photo on new parent album (which is check in the is_valid block)
