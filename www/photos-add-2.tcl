@@ -29,7 +29,6 @@ ad_page_contract {
     }
 } 
 
-ns_log Notice "Huh? in photo-add-2..."
 #check permission
 set user_id [ad_conn user_id]
 ad_require_permission $album_id "pa_create_photo"
