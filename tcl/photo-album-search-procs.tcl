@@ -46,16 +46,16 @@ ad_proc -private  photo_album::search::album::url { album_id } {
     @creation-date 2004-06-01
     @author Jeff Davis davis@xarg.net
 } {
-    set node [db_string package {
-        SELECT n.node_id
+    db_0or1row package {
+        SELECT n.node_id, i1.item_id
         FROM cr_items i1, cr_items i2, pa_package_root_folder_map m, site_nodes n
         WHERE m.folder_id = i2.item_id
-          and i1.item_id = :album_id
+          and i1.item_id = coalesce((select item_id from cr_revisions where revision_id = :album_id),:album_id)
           and n.object_id = m.package_id
           and i1.tree_sortkey between i2.tree_sortkey and tree_right(i2.tree_sortkey)
-    }]
+    }
 
-    return "[ad_url][site_node::get_element -node_id $node -element url]album?album_id=$album_id"
+    return "[ad_url][site_node::get_element -node_id $node_id -element url]album?album_id=$item_id"
 }
 
 
@@ -79,23 +79,40 @@ ad_proc -private photo_album::search::photo::datasource { photo_id } {
     @creation-date 2004-06-01
     @author Jeff Davis davis@xarg.net
 } {
-    # get the best revision to show if it's an item_id otherwise assume we got a pa_album revision.
-    set revision_id [db_string best_revision {select coalesce(live_revision, latest_revision) from cr_items where item_id = :photo_id} -default $photo_id]
+    # get the item_id if we got a revision_id
+    set item_id [db_string item_id {select item_id from cr_revisions where revision_id = :photo_id} -default $photo_id]
 
-    db_0or1row album_datasource {
-        select r.title,
-        r.title || ' ' || r.description || ' caption: ' || p.caption || ' story: ' || p.story || ' filename: ' || p.user_filename as content,
-          'text/html' as mime, 
-          '' as keywords,
-          'text' as storage_type
-        from cr_revisions r, pa_photos p
-        where r.revision_id = :revision_id 
-          and p.pa_photo_id = r.revision_id
-    } -column_array datasource
+    photo_album::photo::get -photo_id $item_id -array photo
 
-    set datasource(object_id) $photo_id
+    # get the base url
+    set base [photo_album::photo::package_url -photo_id $item_id]
+    set full "[ad_url]$base"
 
-    return [array get datasource]
+    set ::lev [info level]
+    namespace eval ::template { 
+        variable parse_level 
+        lappend parse_level $::lev
+    }
+    set body [template::adp_include /packages/photo-album/lib/one-photo [list &photo "photo" base $base style feed]]
+    namespace eval ::template { 
+        variable parse_level 
+        template::util::lpop parse_level
+    }
+
+
+    return [list object_id $photo_id \
+                title $photo(title) \
+                mime "text/html" \
+                keywords {} \
+                storage_type text \
+                content $body \
+                syndication [list link "${full}photo/photo_id=$item_id" \
+                                 description "$photo(description) $photo(caption)" \
+                                 author $photo(username) \
+                                 category photos \
+                                 guid "[ad_url]/o/$item_id" \
+                                 pubDate $photo(created_ansi)] \
+            ]
 }
 
 ad_proc -private  photo_album::search::photo::url { photo_id } {
@@ -106,16 +123,16 @@ ad_proc -private  photo_album::search::photo::url { photo_id } {
     @creation-date 2004-06-01
     @author Jeff Davis davis@xarg.net
 } {
-    set node [db_string package {
-        SELECT n.node_id
+    db_0or1row package {
+        SELECT n.node_id, i1.item_id
         FROM cr_items i1, cr_items i2, pa_package_root_folder_map m, site_nodes n
         WHERE m.folder_id = i2.item_id
-          and i1.item_id = :photo_id
+          and i1.item_id = coalesce((select item_id from cr_revisions where revision_id = :photo_id),:photo_id)
           and n.object_id = m.package_id
           and i1.tree_sortkey between i2.tree_sortkey and tree_right(i2.tree_sortkey)
-    }]
+    }
 
-    return "[ad_url][site_node::get_element -node_id $node -element url]photo?photo_id=$photo_id"
+    return "[ad_url][site_node::get_element -node_id $node_id -element url]photo?photo_id=$item_id"
 }
 
 

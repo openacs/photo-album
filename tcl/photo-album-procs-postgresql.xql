@@ -177,4 +177,33 @@
       </querytext>
 </fullquery>
 
+<fullquery name="photo_album::photo::get.basic">      
+    <querytext>
+      SELECT
+        ci.item_id as photo_id,
+        u.user_id,
+        u.first_names || ' ' || u.last_name as username,
+        pp.caption,
+        pp.story,
+        cr.title,
+        cr.description,
+        ci.parent_id as album_id,
+        to_char(o.creation_date,'YYYY-MM-DD HH24:MI:SS') as created_ansi,
+        case when acs_permission__permission_p(ci.item_id, :user_id, 'admin') ='t' then 1 else 0 end as admin_p,
+        case when acs_permission__permission_p(ci.item_id, :user_id, 'write') = 't' then 1 else 0 end as write_p,
+        case when acs_permission__permission_p(ci.parent_id, :user_id, 'write') = 't' then 1 else 0 end as album_write_p,
+        case when acs_permission__permission_p(ci.item_id, :user_id, 'delete') = 't' then 1 else 0 end as photo_delete_p
+      FROM cr_items ci,
+           cr_revisions cr,
+           pa_photos pp,
+           acs_objects o,
+           acs_users_all u
+      WHERE cr.revision_id = pp.pa_photo_id
+        and ci.live_revision = cr.revision_id
+        and o.object_id = ci.item_id
+        and u.user_id = o.creation_user 
+        and ci.item_id = :photo_id
+    </querytext>
+</fullquery>
+
 </queryset>

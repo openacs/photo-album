@@ -1192,4 +1192,86 @@ ad_proc pa_rotate {id rotation} {
     }
 }
 
-        
+# JCD -- support procs for searching and such
+
+namespace eval photo_album {}
+namespace eval photo_album::photo {}
+namespace eval photo_album::album {}
+
+ad_proc -public photo_album::photo::get {
+    -photo_id:required
+    -array:required
+    {-user_id {}}
+} {
+    return an array with the photo data.
+
+    elements are: 
+
+    photo_delete_p
+    admin_p
+    write_p
+    album_write_p
+
+    album_id
+    caption
+    description
+    photo_id
+    story
+    title
+
+    image_types (list of available related images "base" "viewer" "thumb")
+
+    For each image type there is (eg viewer here):
+
+    viewer_content
+    viewer_content_length
+    viewer_height
+
+    viewer_image_id
+    viewer_latest_revision
+    viewer_live_revision
+    viewer_name
+    viewer_relation_tag
+    viewer_width
+} {
+    upvar $array row
+
+    if {[empty_string_p $user_id]} {
+        if {[ad_conn isconnected]} { 
+            set user_id [ad_conn user_id]
+        } else {
+            set user_id 0
+        }
+    }
+
+    db_1row basic {} -column_array row
+
+    db_foreach images {} -column_set img {
+        set rel [ns_set iget $img relation_tag]
+        lappend row(image_types) $rel
+        for { set i 0 } { $i < [ns_set size $img] } { incr i } {
+            set row(${rel}_[ns_set key $img $i]) [ns_set value $img $i]
+        }
+    }
+}
+
+ad_proc -public photo_album::photo::package_url {
+    -photo_id
+} { 
+    given a photo_id (can be an item or revision_id)
+    return the package_url for the corresponding photo.
+
+    does not include the site part just the path.
+} { 
+    db_0or1row package {
+        SELECT n.node_id, i1.item_id
+        FROM cr_items i1, cr_items i2, pa_package_root_folder_map m, site_nodes n
+        WHERE m.folder_id = i2.item_id
+          and i1.item_id = coalesce((select item_id from cr_revisions where revision_id = :photo_id),:photo_id)
+          and n.object_id = m.package_id
+          and i1.tree_sortkey between i2.tree_sortkey and tree_right(i2.tree_sortkey)
+        limit 1
+    }
+
+    return [site_node::get_element -node_id $node_id -element url]
+}

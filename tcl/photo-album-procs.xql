@@ -34,5 +34,20 @@ order by ccr.order_n
       </querytext>
 </fullquery>
 
+<fullquery name="photo_album::photo::get.images">      
+     <querytext>
+    SELECT ccr.relation_tag, image_items.name, image_items.live_revision, image_items.latest_revision, i.*, image_revs.content, image_revs.content_length
+      FROM cr_items photo,
+           cr_items image_items,
+           cr_revisions image_revs,
+           cr_child_rels ccr,
+           images i
+     WHERE ccr.parent_id = photo.item_id
+       and image_items.item_id = ccr.child_id
+       and image_items.live_revision = i.image_id
+       and image_revs.revision_id = image_items.live_revision
+       and photo.item_id = :photo_id;
+     </querytext>
+</fullquery>
 
 </queryset>
