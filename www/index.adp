@@ -1,6 +1,6 @@
 <master>
-<property name="title">@folder_name@</property>
-<property name="context">@context@</property>
+<property name="title">@folder_name;noquote@</property>
+<property name="context">@context;noquote@</property>
 
 <if @folder_description@ not nil>
 <p>@folder_description;noquote@</p>
