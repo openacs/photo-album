@@ -1,5 +1,3 @@
-# /packages/photo-album/www/index.tcl
-
 ad_page_contract {
 
     Photo album front page.  List the albums and subfolders in the folder specified
