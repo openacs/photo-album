@@ -2,7 +2,7 @@
 <property name="title">@title@</property>
 <property name="context">@context@</property>
 <property name="header_suppress">1</property>
-
+<property name="displayed_object_id">@photo_id@</property>
 @photo_nav_html;noquote@
 <div style="text-align: center">
 <img src="images/@path@/@title@" height="@height@" width="@width@" alt="@title@" />

@@ -1,7 +1,8 @@
 <master>
 <property name="title">@title@</property>
 <property name="context">@context@</property>
-    <property name="header_suppress">1</property>
+<property name="header_suppress">1</property>
+<property name="displayed_object_id">@album_id@</property>
 @page_nav;noquote@
 @message;noquote@
 <h2>@photographer@</h2>
