@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="photo-album" package_version="5.0d1" locale="en_US" charset="ISO-8859-1">
+<message_catalog package_key="photo-album" package_version="5.2.2" locale="en_US" charset="ISO-8859-1">
 
   <msg key="_Album">Album Description</msg>
   <msg key="_Album_1">Album Story</msg>
@@ -95,9 +95,9 @@
   <msg key="Hide">Hide</msg>
   <msg key="Hide_1">Hide:</msg>
   <msg key="hide_html">Hide the html source code of the image</msg>
-  <msg key="log_in">log in</msg>
   <msg key="image_only">Image only: </msg>
   <msg key="image_with_link">Image with link: </msg>
+  <msg key="log_in">log in</msg>
   <msg key="lt_Add_a_collection_of_p">Add a collection of photos to this album</msg>
   <msg key="lt_Add_a_single_photo_to">Add a single photo to this album</msg>
   <msg key="lt_and_add_them_to_a_cli">and add them to a clipboard to use 
@@ -176,10 +176,11 @@ currently being processed...</msg>
   <msg key="Story_1">Story:</msg>
   <msg key="Story_story">Story: %story%</msg>
   <msg key="Submit">Submit</msg>
+  <msg key="thumbnail_with_link">Thumbnail with link:</msg>
   <msg key="Title">Title</msg>
   <msg key="Title_1">Title:</msg>
-  <msg key="thumbnail_with_link">Thumbnail with link:</msg>
   <msg key="Upload_a_Photo">Upload a Photo</msg>
+  <msg key="Upload_photos">Upload photos from the server directory</msg>
   <msg key="You_will_have_to">You will have to</msg>
   <msg key="Your_clipboards">Your clipboards</msg>
 </message_catalog>
