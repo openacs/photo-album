@@ -47,7 +47,7 @@ comment on column pa_albums.story is '
 ';
 
 comment on column pa_albums.iconic is '
-        The photo to use as an icon for this album.  If it is null a
+        The photo to use as the cover photo for this album.  If it is null a
         default icon is chosen
 ';
 

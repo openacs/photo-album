@@ -1,5 +1,5 @@
 ad_page_contract { 
-    Make a given photo the iconic photo for the album.
+    Make a given photo the cover photo for the album.
 } { 
     photo_id:integer,notnull
 } -validate {
