@@ -7,7 +7,7 @@
     <initial-install-p>f</initial-install-p>
     <singleton-p>f</singleton-p>
     
-    <version name="5.2.1" url="http://xarg.net/download/photo-album-5.2.1.apm">
+    <version name="5.2.2" url="http://xarg.net/download/photo-album-5.2.2.apm">
         <owner url="mailto:davis@xarg.net">Jeff Davis</owner>
         <owner url="mailto:wtem@olywa.net">Walter McGinnis</owner>
         <owner>Tom Baginski</owner>
@@ -24,12 +24,15 @@ Requires installation of ImageMagick and jhead on host machine.  See design doc
 for details.
 </description>
 
-        <provides url="photo-album" version="5.2.1"/>
-        <requires url="acs-content-repository" version="5.2.0d1"/>
-        <requires url="acs-kernel" version="5.2.0d1"/>
+        <provides url="photo-album" version="5.2.2"/>
+        <requires url="acs-content-repository" version="5.2.0d2"/>
+        <requires url="acs-kernel" version="5.2.0d2"/>
         <requires url="acs-templating" version="4.1"/>
 
         <callbacks>
+            <callback type="after-install"  proc="photo_album::install::package_install"/>
+            <callback type="before-uninstall"  proc="photo_album::install::package_uninstall"/>
+            <callback type="before-upgrade"  proc="photo_album::install::package_upgrade"/>
         </callbacks>
         <parameters>
             <parameter datatype="string"  min_n_values="1"  max_n_values="1"  name="AcceptableUploadMIMETypes"  default="image/jpeg,image/gif" description="CSV of acceptable MIME Types for Photo Upload"/>
