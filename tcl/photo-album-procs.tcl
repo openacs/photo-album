@@ -713,7 +713,7 @@ ad_proc -public  pa_file_info {
     if { [catch {set size [file size $file]} errMsg] } { 
         return -code error $errMsg
     } 
-    if { [ catch {set out [exec [ad_parameter ImageMagickPath]/identify -ping -format "%w %h %m %k %q %#" $file]} errMsg]} { 
+    if { [ catch {set out [exec [ad_parameter ImageMagickPath]/identify -format "%w %h %m %k %q %#" $file]} errMsg]} { 
         return -code error $errMsg
     }            
     
