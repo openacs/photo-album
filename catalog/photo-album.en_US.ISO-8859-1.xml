@@ -21,15 +21,15 @@
   <msg key="_Edit_2">Edit Photo Attributes</msg>
   <msg key="_Edit_3">Edit page %page% </msg>
   <msg key="_Edit_4">Edit page %page%</msg>
-  <msg key="_Either">Either there is already an album with the name \&quot;$name\&quot; 
-	          or you clicked on the button more than once. You can &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt;
+  <msg key="_Either">Either there is already an album with the name &quot;$name&quot; 
+	          or you clicked on the button more than once. You can &lt;a href=&quot;index?parent_id=$parent_id&quot;&gt;
 	          return to the directory listing&lt;/a&gt; to see if your album is there.</msg>
-  <msg key="_Either_1">Either there is already an album in the specified folder with the name \&quot;$folder_name\&quot; or you clicked on the button more than once.  You can &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt;return to the new folder&lt;/a&gt; to see if your album is there.</msg>
-  <msg key="_Either_2">Either there is already a folder with the name \&quot;$name\&quot; 
-	          or you clicked on the button more than once. You can &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt;
+  <msg key="_Either_1">Either there is already an album in the specified folder with the name &quot;$folder_name&quot; or you clicked on the button more than once.  You can &lt;a href=&quot;?folder_id=$new_folder_id&quot;&gt;return to the new folder&lt;/a&gt; to see if your album is there.</msg>
+  <msg key="_Either_2">Either there is already a folder with the name &quot;$name&quot; 
+	          or you clicked on the button more than once. You can &lt;a href=&quot;index?parent_id=$parent_id&quot;&gt;
 	          return to the directory listing&lt;/a&gt; to see if your folder is there.</msg>
-  <msg key="_Either_3">Either there is already an folder in the specified folder with the name \&quot;$folder_name\&quot; or you clicked on the button more than once.  You can &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt;return to the new folder&lt;/a&gt; to see if your folder is there.</msg>
-  <msg key="_Either_4">Either there is already a photo in the specified album with the name \&quot;$filename\&quot; or you clicked on the button more than once.  You can &lt;a href=\&quot;album?album_id=$new_album_id\&quot;&gt;return to the new album&lt;/a&gt; to see if your photo is there. </msg>
+  <msg key="_Either_3">Either there is already an folder in the specified folder with the name &quot;$folder_name&quot; or you clicked on the button more than once.  You can &lt;a href=&quot;?folder_id=$new_folder_id&quot;&gt;return to the new folder&lt;/a&gt; to see if your folder is there.</msg>
+  <msg key="_Either_4">Either there is already a photo in the specified album with the name &quot;$filename&quot; or you clicked on the button more than once.  You can &lt;a href=&quot;album?album_id=$new_album_id&quot;&gt;return to the new album&lt;/a&gt; to see if your photo is there. </msg>
   <msg key="_Folder">Folder Name</msg>
   <msg key="_Folder_1">Folder Description</msg>
   <msg key="_For">To show this photo &lt;a href=photo-edit?photo_id=%photo_id%&gt;edit the attributes&lt;/a&gt; and uncheck the hide option</msg>
@@ -58,8 +58,8 @@
   <msg key="_The_6">The parameter ConverttoJpgorPng is not in automatic mode </msg>
   <msg key="_This">This photo couldn't be shown because : </msg>
   <msg key="_Upload">Upload photos</msg>
-  <msg key="_Use">Use the \&quot;Browse...\&quot; button find a file</msg>
-  <msg key="_Use_1">Use the \&quot;Browse...\&quot; button to locate your file, then click \&quot;Open\&quot;</msg>
+  <msg key="_Use">Use the &quot;Browse...&quot; button find a file</msg>
+  <msg key="_Use_1">Use the &quot;Browse...&quot; button to locate your file, then click &quot;Open&quot;</msg>
   <msg key="_We">We got an error that we couldn't readily identify.  Please let the system owner know about this.
 
 	    &lt;pre&gt;%errmsg%&lt;/pre&gt;</msg>
@@ -94,7 +94,10 @@
   <msg key="Flash">Flash</msg>
   <msg key="Hide">Hide</msg>
   <msg key="Hide_1">Hide:</msg>
+  <msg key="hide_html">Hide the html source code of the image</msg>
   <msg key="log_in">log in</msg>
+  <msg key="image_only">Image only: </msg>
+  <msg key="image_with_link">Image with link: </msg>
   <msg key="lt_Add_a_collection_of_p">Add a collection of photos to this album</msg>
   <msg key="lt_Add_a_single_photo_to">Add a single photo to this album</msg>
   <msg key="lt_and_add_them_to_a_cli">and add them to a clipboard to use 
@@ -166,6 +169,7 @@ currently being processed...</msg>
   <msg key="remove">remove</msg>
   <msg key="screen">screen.</msg>
   <msg key="Sequence">Sequence:</msg>
+  <msg key="show_html">Show the html source code of the image for copy and paste</msg>
   <msg key="shutterflycom">shutterfly.com</msg>
   <msg key="Smallernbspimage">Smaller&amp;nbsp;image</msg>
   <msg key="Story">Story</msg>
@@ -174,6 +178,7 @@ currently being processed...</msg>
   <msg key="Submit">Submit</msg>
   <msg key="Title">Title</msg>
   <msg key="Title_1">Title:</msg>
+  <msg key="thumbnail_with_link">Thumbnail with link:</msg>
   <msg key="Upload_a_Photo">Upload a Photo</msg>
   <msg key="You_will_have_to">You will have to</msg>
   <msg key="Your_clipboards">Your clipboards</msg>

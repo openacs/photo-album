@@ -43,13 +43,14 @@ ad_require_permission $photo_id "read"
 set user_id [ad_conn user_id]
 set context [pa_context_bar_list $photo_id]
 set root_folder_id [pa_get_root_folder]
+set package_id [ad_conn package_id]
+set photo_base_url [site_node::get_url_from_object_id -object_id $package_id]
 
 set system_url [ad_url]
 set node_url [site_node::get_url -node_id [ad_conn node_id]]
 
 # to move a photo need write on photo, and old parent album
 # and pa_create_photo on new parent album (which is check in the is_valid block)
-
 
 set old_album_id [db_string get_parent_album {}]
 
@@ -84,7 +85,19 @@ if {![db_0or1row get_photo_info { *SQL* }]} {
                                  <li>[_ photo-album._For]</li>
                                  <li>[_ photo-album._Your]</li>
                              </ul>"
+} else {
+    set thumb_image_id ""
+    set thumb_photo_id ""
+    set thumb_height   ""
+    set thumb_width    ""
+    if {$show_html_p} {
+        # if we did get a photo, and we need html source, get some info about the thumbnail
+        db_0or1row get_thumbnail_info { *SQL* }
+    }
 }
+
+
+
 
 
 set path $image_id
@@ -145,7 +158,7 @@ if $move_p {
 	    if [db_string duplicate_check {}] {
 		ad_return_complaint 1 "[_ photo-album._Either_4]"
 	    } else {
-		ad_return_complaint 1 "[_ photo-album._We_1]"
+		ad_return_complaint 1 "[_ photo-album._We_1]
 
 	    <pre>$errmsg</pre>"
 	    }

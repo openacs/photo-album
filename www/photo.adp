@@ -12,11 +12,14 @@
         <img src="images/@path@/@title@" height="@height@" width="@width@" alt="@title@" />
       </else>
 	<if @show_html_p@ eq 1>
-		<center>
-			&lt;img src="@system_url@@node_url@images/@path@/@title@" height="@height@" width="@width@" alt="@title@"/&gt;
-		</center>
+          <ul style="text-align:left">
+            <li>#photo-album.thumbnail_with_link# <code>&lt;a href="@photo_base_url@photo?photo_id=@photo_id@"&gt;&lt;img src="@photo_base_url@images/@thumb_image_id@" height="@thumb_height@" width="@thumb_width@" alt="@caption@" /&gt;&lt;/a&gt;</code>
+ 
+            <li>#photo-album.image_only# <code>&lt;img src="/images/@path@/@title@" height="@height@" width="@width@" alt="@title@"/&gt;</code>
+ 
+            <li>#photo-album.image_with_link# <code>&lt;a href="@photo_base_url@photo?photo_id=@photo_id@"&gt;&lt;img src="/images/@path@/@title@" height="@height@" width="@width@" alt="@title@"/&gt;&lt;/a&gt;</code>
+         </ul>
 	</if>
-       <center></center>
       <if @caption@ not nil>
         <p>@caption@</p>
       </if>
@@ -29,10 +32,10 @@
     </if>
     <if @write_p@ eq 1 or @move_p@ eq 1 or @delete_p@ eq 1><ul>
 	<if @show_html_p@ eq 1>
-        	<li><a href="photo.tcl?photo_id=@photo_id@&show_html_p=0">Hide the html source code of the image</a></li>  
+          <li><a href="photo.tcl?photo_id=@photo_id@&show_html_p=0">#photo-album.hide_html#</a></li>  
 	</if>
 	<else>
-        	<li><a href="photo.tcl?photo_id=@photo_id@&show_html_p=1">Show the html source code of the image for copy&paste</a></li>  
+          <li><a href="photo.tcl?photo_id=@photo_id@&show_html_p=1">#photo-album.show_html#</a></li>  
 	</else>
         <if @write_p@ eq 1>
           <li><a href="photo-iconic?photo_id=@photo_id@">#photo-album.lt_Make_this_photo_the_i#</a>
