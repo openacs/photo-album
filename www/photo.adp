@@ -13,7 +13,7 @@
       </else>
 	<if @show_html_p@ eq 1>
 		<center>
-			&lt;img src="images/@path@/@title@" height="@height@" width="@width@" alt="@title@"/&gt;
+			&lt;img src="@system_url@@node_url@images/@path@/@title@" height="@height@" width="@width@" alt="@title@"/&gt;
 		</center>
 	</if>
        <center></center>

@@ -44,6 +44,9 @@ set user_id [ad_conn user_id]
 set context [pa_context_bar_list $photo_id]
 set root_folder_id [pa_get_root_folder]
 
+set system_url [ad_url]
+set node_url [site_node::get_url -node_id [ad_conn node_id]]
+
 # to move a photo need write on photo, and old parent album
 # and pa_create_photo on new parent album (which is check in the is_valid block)
 
