@@ -27,22 +27,22 @@ set context [pa_context_bar_list -final "[_ photo-album._Upload]" $album_id]
 
 set photo_id [db_string get_next_object_id "select acs_object_id_seq.nextval from dual"]
 
-template::form create photos_upload -action photos-add-2 -html {enctype multipart/form-data}
+form create photos_upload -action photos-add-2 -html {enctype multipart/form-data}
 
-template::element create photos_upload album_id  \
+element create photos_upload album_id  \
   -label "album_id" -datatype integer -widget hidden
 
-template::form::section photos_upload Either
+form::section photos_upload Either
 
-template::element create photos_upload upload_file  \
+element create photos_upload upload_file  \
   -label "[_ photo-album._Choose_3]" -help_text "[_ photo-album._Use_1]" -datatype text -widget file -optional
 
-template::form::section photos_upload Or
+form::section photos_upload Or
 
-template::element create photos_upload directory -html { size 50} \
-    -label "upload photos from the server directory" -help_text "[_ photo-album._the]" -datatype text -value "[parameter::get -parameter FullTempPhotoDir -package_id [ad_conn package_id]]" -widget text -mode display
+element create photos_upload directory -html { size 50} \
+    -label "Upload photos from the server directory" -help_text "[_ photo-album._the]" -datatype text -value "[parameter::get -parameter FullTempPhotoDir -package_id [ad_conn package_id]]" -widget text -mode display
 
-template::element set_properties photos_upload album_id -value $album_id
+element set_properties photos_upload album_id -value $album_id
 
 ad_return_template
 
