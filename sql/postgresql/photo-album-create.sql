@@ -307,15 +307,17 @@ create table pa_package_root_folder_map (
 		   constraint pa_pack_fldr_map_pk
 		   primary key
                    constraint pa_pack_fldr_map_pack_id_fk
-		   references apm_packages,
+		   references apm_packages on delete cascade,
   folder_id	   integer
 		   constraint pa_pack_fldr_map_fldr_id_fk
-		   references cr_folders
+        	   references cr_folders on delete cascade
 		   constraint pa_pack_fldr_map_fldr_id_unq
 		   unique
 );
 
-create index pa_package_folder_map_by_pack on pa_package_root_folder_map (package_id, folder_id);
+--There cannot be much if any benefit from this index.  
+--create index pa_package_folder_map_by_pack on pa_package_root_folder_map (package_id, folder_id);
+
 
 comment on table pa_package_root_folder_map is '
   Table to keep track of root folder for each instance of the photo-album

@@ -19,8 +19,8 @@
   <msg key="_Edit">Edit Album Attributes</msg>
   <msg key="_Edit_1">Edit Folder Attributes</msg>
   <msg key="_Edit_2">Edit Photo Attributes</msg>
-  <msg key="_Edit_3">Edit page $page </msg>
-  <msg key="_Edit_4">Edit page $page</msg>
+  <msg key="_Edit_3">Edit page %page% </msg>
+  <msg key="_Edit_4">Edit page %page%</msg>
   <msg key="_Either">Either there is already an album with the name \&quot;$name\&quot; 
 	          or you clicked on the button more than once. You can &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt;
 	          return to the directory listing&lt;/a&gt; to see if your album is there.</msg>
@@ -32,7 +32,7 @@
   <msg key="_Either_4">Either there is already a photo in the specified album with the name \&quot;$filename\&quot; or you clicked on the button more than once.  You can &lt;a href=\&quot;album?album_id=$new_album_id\&quot;&gt;return to the new album&lt;/a&gt; to see if your photo is there. </msg>
   <msg key="_Folder">Folder Name</msg>
   <msg key="_Folder_1">Folder Description</msg>
-  <msg key="_For">For show this photo &lt;a href=photo-edit?photo_id=$photo_id&gt;edit the attributes&lt;/a&gt; an uncheck the option hide</msg>
+  <msg key="_For">To show this photo &lt;a href=photo-edit?photo_id=%photo_id%&gt;edit the attributes&lt;/a&gt; and uncheck the hide option</msg>
   <msg key="_Full">Full Size Image</msg>
   <msg key="_Hide">Hide the image html source</msg>
   <msg key="_Modify">Modify this package's parameters</msg>
@@ -56,19 +56,19 @@
   <msg key="_The_4">The specified album is not valid. </msg>
   <msg key="_The_5">The parameter AcceptableUploadMIMETypes is not satisfied </msg>
   <msg key="_The_6">The parameter ConverttoJpgorPng is not in automatic mode </msg>
-  <msg key="_This">This photo couldn't be showed because : </msg>
+  <msg key="_This">This photo couldn't be shown because : </msg>
   <msg key="_Upload">Upload photos</msg>
   <msg key="_Use">Use the \&quot;Browse...\&quot; button find a file</msg>
   <msg key="_Use_1">Use the \&quot;Browse...\&quot; button to locate your file, then click \&quot;Open\&quot;</msg>
   <msg key="_We">We got an error that we couldn't readily identify.  Please let the system owner know about this.
 
-	    &lt;pre&gt;$errmsg&lt;/pre&gt;</msg>
+	    &lt;pre&gt;%errmsg%&lt;/pre&gt;</msg>
   <msg key="_We_1">We got an error that we couldn't readily identify.  Please let the system owner know about this. </msg>
   <msg key="_Yes_Delete">Yes, Delete It</msg>
   <msg key="_You">You must provide a non-empty name for the clipboard</msg>
   <msg key="_You_1">You may not delete the root folder.</msg>
   <msg key="_You_2">You may not move the root folder.</msg>
-  <msg key="_Your">You can click &lt;a href=album?album_id=$old_album_id&gt; here &lt;/a&gt; to view all photos of the album </msg>
+  <msg key="_Your">You can click &lt;a href=album?album_id=%old_album_id%&gt; here &lt;/a&gt; to view all photos of the album </msg>
   <msg key="Add_a_new_album">Add a new album</msg>
   <msg key="Add_a_new_folder">Add a new folder</msg>
   <msg key="Album_Name">Album Name</msg>
