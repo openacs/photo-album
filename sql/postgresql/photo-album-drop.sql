@@ -4,6 +4,8 @@
 
 \i pa-clip-drop.sql
 
+drop view all_photo_images;
+
 create function tmp_pa_revoke () 
 returns integer as '
 declare
