@@ -354,7 +354,11 @@ ad_proc -public pa_make_new_image {
     be used for both width and height.
 
     ImageMagick will retain the aspect ratio of the base_image when creating the new_image
-    
+     
+     jhead -dt is called to delete any embeded thumbnail since digital camera thumbnails
+     can be quite large and imagemagick does not remove them when converting (so thumbnails
+     can end up being 8k for the thumbnail + 32k for the embeded thumbnail). 
+
     @param base_image original image filename 
     @param new_image new image filename 
     @param geometry string as passed to convert 
@@ -365,7 +369,8 @@ ad_proc -public pa_make_new_image {
         set geometry ${geometry}x${geometry}
     }
     ns_log debug "pa_make_new_image: Start convert, making $new_image geometry $geometry"
-    exec convert -interlace NONE -geometry $geometry $base_image $new_image
+    exec convert -geometry $geometry -interlace None -sharpen 1x2 $base_image $new_image
+    exec jhead -dt $new_image
     ns_log debug "pa_make_new_image: Done convert for $new_image"
 }
 
@@ -820,7 +825,12 @@ ad_proc -public pa_load_images {
             set client_filename $upload_name
         }
 
-        foreach {base_bytes base_width base_height base_type base_mime base_colors base_quantum base_sha256} [pa_file_info $image_file] {}
+        if {[catch {set base_info [pa_file_info $image_file]} errMsg]} {
+            ns_log Warning "Error parsing file data $image_file Error: $errMsg"
+            continue
+        }
+
+        foreach {base_bytes base_width base_height base_type base_mime base_colors base_quantum base_sha256} $base_info { break }
         
         # If we don't have a mime type we like we try to make a jpg or png 
         #
@@ -851,13 +861,13 @@ ad_proc -public pa_load_images {
             }
 
             # get info again
-            foreach {base_bytes base_width base_height base_type base_mime base_colors base_quantum base_sha256} [pa_file_info $image_file] {}
+            foreach {base_bytes base_width base_height base_type base_mime base_colors base_quantum base_sha256} [pa_file_info $image_file] { break }
         }
         
         if {[string equal $base_mime image/jpeg]} { 
             array set exif [pa_get_exif_data ${image_file}]
         } else { 
-            array set exif {}
+            array unset exif
         }
 
         set BaseExt [string tolower $base_type]
