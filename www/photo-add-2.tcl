@@ -23,7 +23,7 @@ ad_page_contract {
     }
     valid_mime_type {
  
-        if ![parameter::get -parameter ConverttoJpgorPng -package_id [ad_conn package_id]] {  
+        if { ![parameter::get -parameter ConverttoJpgorPng -package_id [ad_conn package_id] -default 1] } {
     
 	    if { [catch {set photo_info [pa_file_info ${upload_file.tmpfile}]}  errMsg] } { 
             ns_log Warning "Error parsing file data Error: $errMsg" 
