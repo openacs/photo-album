@@ -32,7 +32,7 @@
   <msg key="_Either_4">Either there is already a photo in the specified albumr with the name \&quot;$filename\&quot; or you clicked on the button more than once.  You can &lt;a href=\&quot;album?album_id=$new_album_id\&quot;&gt;return to the new album&lt;/a&gt; to see if your photo is there. </msg>
   <msg key="_Folder">Folder Name</msg>
   <msg key="_Folder_1">Folder Description</msg>
-  <msg key="_For">For show this foto &lt;a href=photo-edit?photo_id=$photo_id&gt;edit the attributes&lt;/a&gt; an uncheck the option hide</msg>
+  <msg key="_For">For show this photo &lt;a href=photo-edit?photo_id=$photo_id&gt;edit the attributes&lt;/a&gt; an uncheck the option hide</msg>
   <msg key="_Full">Full Size Image</msg>
   <msg key="_Hide">Hide the image html source</msg>
   <msg key="_Modify">Modify this package's parameters</msg>
