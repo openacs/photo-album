@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<message_catalog package_key="photo-album" package_version="5.0d1" locale="es_ES" charset="ISO-8859-1">
+
+  <msg key="Add_a_new_album">Agregar un nuevo album</msg>
+  <msg key="Add_a_new_folder">Agregar un nuevo folder</msg>
+  <msg key="Album_Name">Nombre del Album</msg>
+  <msg key="Caption">Subtítulo</msg>
+  <msg key="Caption_1">Subtítulo:</msg>
+  <msg key="Clipboard">Sujetapapeles:</msg>
+  <msg key="Create_a_New_Album">Crear un Nuevo Album</msg>
+  <msg key="Create_a_New_Folder">Crear un Nuevo Folder</msg>
+  <msg key="Delete_this_album">Borrar éste Album</msg>
+  <msg key="Delete_this_folder">Borrar éste folder</msg>
+</message_catalog>
