@@ -28,24 +28,24 @@
   <msg key="_Either_2">Either there is already a folder with the name \&quot;$name\&quot; 
 	          or you clicked on the button more than once. You can &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt;
 	          return to the directory listing&lt;/a&gt; to see if your folder is there.</msg>
-  <msg key="_Either_3">there is already an folder in the specified folder with the name \&quot;$folder_name\&quot; or you clicked on the button more than once.  You can &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt;return to the new folder&lt;/a&gt; to see if your folder is there.</msg>
-  <msg key="_Either_4">there is already a photo in the specified albumr with the name \&quot;$filename\&quot; or you clicked on the button more than once.  You can &lt;a href=\&quot;album?album_id=$new_album_id\&quot;&gt;return to the new album&lt;/a&gt; to see if your photo is there. </msg>
-  <msg key="_Folder">Name</msg>
-  <msg key="_Folder_1">Description</msg>
-  <msg key="_For">show this photo &lt;a href=photo-edit?photo_id=$photo_id&gt;edit the attributes&lt;/a&gt; an uncheck the option hide</msg>
-  <msg key="_Full">Size Image</msg>
-  <msg key="_Hide">the image html source</msg>
-  <msg key="_Modify">this package's parameters</msg>
-  <msg key="_Move">Album</msg>
-  <msg key="_Move_1">Folder</msg>
+  <msg key="_Either_3">Either there is already an folder in the specified folder with the name \&quot;$folder_name\&quot; or you clicked on the button more than once.  You can &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt;return to the new folder&lt;/a&gt; to see if your folder is there.</msg>
+  <msg key="_Either_4">Either there is already a photo in the specified albumr with the name \&quot;$filename\&quot; or you clicked on the button more than once.  You can &lt;a href=\&quot;album?album_id=$new_album_id\&quot;&gt;return to the new album&lt;/a&gt; to see if your photo is there. </msg>
+  <msg key="_Folder">Folder Name</msg>
+  <msg key="_Folder_1">Folder Description</msg>
+  <msg key="_For">For show this foto &lt;a href=photo-edit?photo_id=$photo_id&gt;edit the attributes&lt;/a&gt; an uncheck the option hide</msg>
+  <msg key="_Full">Full Size Image</msg>
+  <msg key="_Hide">Hide the image html source</msg>
+  <msg key="_Modify">Modify this package's parameters</msg>
+  <msg key="_Move">Move Album</msg>
+  <msg key="_Move_1">Move Folder</msg>
   <msg key="_Move_photo_to_album">Move photo to album: </msg>
-  <msg key="_No">Access&gt;&quot; &quot;&lt;#_The Administrator of this sub-site has restricted access base photos.</msg>
-  <msg key="_Or">choose a server directory to upload</msg>
-  <msg key="_Photo">Description</msg>
-  <msg key="_photo">not found</msg>
-  <msg key="_Photo_1">Story</msg>
-  <msg key="_Photo_2">not found or photo is hidden </msg>
-  <msg key="_Please">select album</msg>
+  <msg key="_No">No Access. The Administrator of this sub-site has restricted access base photos.</msg>
+  <msg key="_Or">Or choose a server directory to upload</msg>
+  <msg key="_Photo">Photo Description</msg>
+  <msg key="_photo">photo not found</msg>
+  <msg key="_Photo_1">Photo Story</msg>
+  <msg key="_Photo_2">Photo not found or photo is hidden </msg>
+  <msg key="_Please">Please select album</msg>
   <msg key="_Save">Save </msg>
   <msg key="_Show">Show the image html source for copy&amp;amp;paste</msg>
   <msg key="_The">The specified parent folder is not valid.</msg>
