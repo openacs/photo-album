@@ -14,6 +14,7 @@ ad_page_contract {
     user_id:onevalue
     base_url:onevalue
     images:multirow
+    shutterfly_p:onevalue
 }
 
 set user_id [ad_conn user_id]
@@ -39,6 +40,8 @@ db_multirow images get_images {
    and f.item_id = m.photo_id
    and f.relation_tag = 'base'
 }
+
+set shutterfly_p [parameter::get -parameter ShowShutterflyLinkP -default f]
 
 set returnurl "[ad_url][ad_conn package_url]"
 set base_url  "[ad_url][ad_conn package_url]images/"

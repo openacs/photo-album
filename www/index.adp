@@ -56,9 +56,12 @@
 <p><a href="clipboards">View all of your clipboards</a>.</p>
 </if>
 
+<if @shutterfly_p@ eq "t">
     <p class="hint">
       To order prints of these photos you will first need to add them
       to a clipboard (you can do this when viewing an individual
       photo).  Once they are in a clipboard you can send them off to
       <a href="http://shutterfly.com">shutterfly.com</a> for
       printing from a <a href="clipboards">clipboard</a> screen.
+    </p>
+</if>

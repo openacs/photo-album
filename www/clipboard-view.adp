@@ -4,9 +4,14 @@
 
 
     <p>
-    <form action="http://www.shutterfly.com/c4p/UpdateCart.jsp" method="POST">
       Clipboard: <strong>@title@</strong> <if @owner_id@ ne
         @user_id@>(<a href="/shared/community-member?user_id=@owner_id@">@owner_name@</a>)</if>
+    </p>
+
+    <p>
+
+    <if @shutterfly_p@ eq "t">
+    <form action="http://www.shutterfly.com/c4p/UpdateCart.jsp" method="POST">
       <input type="hidden" name="addim" value="1" />
       <input type="hidden" name="protocol" value="SFP,100" />
       <input type="hidden" name="pid" value="C4PP" />
@@ -24,6 +29,7 @@
       <input type="hidden" name="returl" value="@returnurl@">
       <input type="submit" value="Order prints">
     </form>
+    </if>
 
     </p>
     <if @images:rowcount@ lt 1> 

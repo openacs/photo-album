@@ -26,6 +26,7 @@ ad_page_contract {
     move_p:onevalue
     delete_p:onevalue
     child:multirow
+    shutterfly_p:onevalue
 }
 
 
@@ -54,3 +55,4 @@ if $has_children_p {
 
 set collections [db_string collections {select count(*) from pa_collections where owner_id = :user_id}]
 
+set shutterfly_p [parameter::get -parameter ShowShutterflyLinkP -default f]
