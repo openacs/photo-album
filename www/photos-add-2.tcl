@@ -8,7 +8,7 @@ ad_page_contract {
     @creation-date 6/28/2002
     @cvs_id $Id$
 } {
-    upload_file:trim,optional
+    {upload_file:optional,trim ""}
     upload_file.tmpfile:optional,tmpfile
     album_id:integer,notnull
 } -validate {
@@ -23,7 +23,7 @@ ad_page_contract {
 	}
     }
     directory_exists {
-        if {([info exists $upload_file] && ![empty_string_p $upload_file]) && ![file isdirectory [parameter::get -parameter FullTempPhotoDir -package_id [ad_conn package_id]]]} { 
+        if {([info exists upload_file] && ![empty_string_p $upload_file]) && ![file isdirectory [parameter::get -parameter FullTempPhotoDir -package_id [ad_conn package_id]]]} { 
             ad_complain "The directory file does not exist"
         }
     }

@@ -35,7 +35,7 @@ template::element create photos_upload album_id  \
 template::form::section photos_upload Either
 
 template::element create photos_upload upload_file  \
-  -label "[_ photo-album._Choose_3]" -help_text "[_ photo-album._Use_1]" -datatype text -widget file
+  -label "[_ photo-album._Choose_3]" -help_text "[_ photo-album._Use_1]" -datatype text -widget file -optional
 
 template::form::section photos_upload Or
 
