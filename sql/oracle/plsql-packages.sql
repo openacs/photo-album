@@ -32,7 +32,7 @@ as
     creation_ip		in acs_objects.creation_ip%TYPE default null, 
     locale		in cr_items.locale%TYPE default null,
     context_id		in acs_objects.context_id%TYPE default null,
-    title		in cr_revisions.title%TYPE default null,
+    title		in cr_revisions.title%TYPE default 'photo',
     description		in cr_revisions.description%TYPE default null,
     relation_tag	in cr_child_rels.relation_tag%TYPE default null,
     is_live		in char default 'f',
