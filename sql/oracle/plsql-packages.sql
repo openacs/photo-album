@@ -418,7 +418,8 @@ as
 	v_folder_id := content_folder.new (
 	name        => v_package_key || '_' || new_root_folder.package_id,
 	label       => v_package_name || ' Home',
-	description => 'Home for ' || v_package_name
+	description => 'Home for ' || v_package_name,
+        context_id  => new_root_folder.package_id
 	);
 
 	insert into pa_package_root_folder_map 

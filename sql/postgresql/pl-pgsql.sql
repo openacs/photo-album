@@ -308,7 +308,12 @@ begin
  v_package_key || ''_'' || v_package_id, -- name
  v_package_name || '' Home'', -- label 
  ''Home for '' || v_package_name, -- description 
- null -- parent_id
+ null,         -- parent_id
+ v_package_id, --context_id,
+ null,         --folder_id
+ now(),        --creation_date
+ null,         --creation_user
+ null          --creation_ip
  );
 
  insert into pa_package_root_folder_map 
