@@ -3,7 +3,7 @@
 <property name="context">@context@</property>
 
 <if @folder_description@ not nil>
-<p>@folder_description@</p>
+<p>@folder_description;noquote@</p>
 </if>
 <div style="float: right"><ul>
 <if @subfolder_p@ eq 1>

@@ -2,7 +2,7 @@
 <property name="title">@title@</property>
 <property name="context">@context@</property>
     <property name="header_suppress">1</property>
-@page_nav@
+@page_nav;noquote@
 @message@
 <h2>@title@</h2>
 <if @description@ not nil>
@@ -30,7 +30,7 @@
 </if>
 </grid>
 </table>
-@page_nav@
+@page_nav;noquote@
 </if><else>
 <p>This album does not contain anything.</p>
 </else>

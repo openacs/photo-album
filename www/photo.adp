@@ -3,7 +3,7 @@
     <property name="context">@context@</property>
     <property name="header_suppress">1</property>
 
-    @photo_nav_html@
+    @photo_nav_html;noquote@
     <div style="text-align: center; margin: 1em;">
       <if @show_base_link@ eq "t">
         <a href="base-photo?photo_id=@photo_id@"><img src="images/@path@/@title@" height="@height@" width="@width@" alt="@title@" /></a>
@@ -36,7 +36,7 @@
 
 
 
-    @photo_nav_html@
+    @photo_nav_html;noquote@
     <div style="text-align: center">
       <a href="album?album_id=@album_id@&amp;page=@page_num@">Image thumbnail index</a>
     </div>

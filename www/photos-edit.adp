@@ -69,4 +69,4 @@
 <p>This album does not contain anything.
 </else>
 <p>
-@page_nav@
+@page_nav;noquote@
