@@ -218,25 +218,23 @@ ad_proc -private pa_assert_dir {
     mkdir because it will make all the directories leading up to dirname
     borrowed from 3.4 download code
 } {  
-    ns_log Debug "Checking dir, pa_assert_dir"
     if { $check_base_path_p } {
 	set dir_path "[acs_root_dir]/[ad_parameter PhotoDir]/$dir_path"
 	set needed_dir ""
     } else {
 	set needed_dir "[acs_root_dir]/[ad_parameter PhotoDir]"
     }
-    ns_log Debug "dir_path: $dir_path \n needed_dir: $needed_dir"
     
     set dir_list [split $dir_path /]
     
     foreach dir $dir_list {
-	ns_log Debug "Checking: $dir"
+	ns_log Debug "pa_assert_dir: Checking: $dir"
         if [empty_string_p $dir] {
             continue
         }
         append needed_dir "/$dir"
         if ![file exists $needed_dir] {
-	    ns_log Debug "Making: $dir"
+	    ns_log Debug "pa_assert_dir: ns_mkdir $dir"
             ns_mkdir $needed_dir
         }
     }
@@ -371,7 +369,7 @@ ad_proc -public pa_make_new_image {
     ns_log debug "pa_make_new_image: Start convert, making $new_image geometry $geometry"
     exec convert -geometry $geometry -interlace None -sharpen 1x2 $base_image $new_image
     if {[catch {exec jhead -dt $new_image} errmsg]} { 
-        ns_log warning "pa_make_new_image: jhead failed with error - $errmsg"
+        ns_log Warning "pa_make_new_image: jhead failed with error - $errmsg"
     }
     ns_log debug "pa_make_new_image: Done convert for $new_image"
 }
@@ -624,8 +622,8 @@ ad_proc -public pa_expand_archive {
 } {
     set tmp_dir [file join [file dirname $tmpfile] [ns_mktemp "$dest_dir_base-XXXXXX"]]
     if [catch { ns_mkdir $tmp_dir } errMsg ] {
-        ns_log Notice "expand_archive: Error creating directory $tmp_dir: $errMsg"
-        return -code error "expand_archive: Error creating directory $tmp_dir: $errMsg"
+        ns_log Warning "pa_expand_archive: Error creating directory $tmp_dir: $errMsg"
+        return -code error "pa_expand_archive: Error creating directory $tmp_dir: $errMsg"
     }
 
     set upload_file [string trim [string tolower $upload_file]]
@@ -668,8 +666,8 @@ ad_proc -public pa_expand_archive {
     
     if {$errp} { 
         file delete -force $tmp_dir
-        ns_log Notice "expand_archive: extract type $type failed $errMsg"
-        return -code error "expand_archive: extract type $type failed $errMsg"
+        ns_log Warning "pa_expand_archive: extract type $type failed $errMsg"
+        return -code error "pa_expand_archive: extract type $type failed $errMsg"
     } 
     return $tmp_dir
 }
@@ -804,7 +802,7 @@ ad_proc -public pa_load_images {
     # Create the tmp dir if needed 
     set tmp_path [ad_parameter FullTempPhotoDir]
     if ![file exists $tmp_path] {
-        ns_log Debug "Making: tmp_photo_album_dir_path $tmp_path"
+        ns_log Debug "pa_load_images: Making: tmp_photo_album_dir_path $tmp_path"
         ns_mkdir $tmp_path
     }
 
@@ -828,7 +826,7 @@ ad_proc -public pa_load_images {
         }
 
         if {[catch {set base_info [pa_file_info $image_file]} errMsg]} {
-            ns_log Warning "Error parsing file data $image_file Error: $errMsg"
+            ns_log Warning "pa_load_images: error parsing file data $image_file Error: $errMsg"
             continue
         }
 
@@ -841,7 +839,7 @@ ad_proc -public pa_load_images {
             if {![empty_string_p $base_colors] && $base_colors < 257} { 
                 # convert it to a png
                 if {[catch {exec convert $image_file PNG:$new_image.png} errMsg]} { 
-                    ns_log Notice "Failed convert to PNG for $image_file (magicktype $base_type)" 
+                    ns_log Warning "pa_load_images: Failed convert to PNG for $image_file (magicktype $base_type)" 
                 }
                 if { $remove } { 
                     file delete $image_file
@@ -851,7 +849,7 @@ ad_proc -public pa_load_images {
             } elseif {![empty_string_p $base_colors] && $base_colors > 256} { 
                 # convert it to a jpg
                 if {[catch {exec convert $image_file JPG:$new_image.jpg} errMsg]} { 
-                    ns_log Notice "Failed convert to JPG for $image_file (magicktype $base_type)" 
+                    ns_log Warning "pa_load_images: failed convert to JPG for $image_file (magicktype $base_type)" 
                 }
                 if { $remove } { 
                     file delete $image_file
@@ -859,7 +857,7 @@ ad_proc -public pa_load_images {
                 set image_file $new_image.jpg
                 set remove 1
             } else { 
-                ns_log Notice "Is it even an image: $image_file $base_type"
+                ns_log Warning "pa_load_images: is this file even an image: $image_file $base_type"
             }
 
             # get info again
@@ -875,7 +873,7 @@ ad_proc -public pa_load_images {
         set BaseExt [string tolower $base_type]
         
         if [empty_string_p $base_mime] { 
-            ns_log Notice "Photo-Album: Invalid image type $image_file $type even after convert!"
+            ns_log Debug "pa_load_images: invalid image type $image_file $type even after convert!"
             continue 
         } 
           
@@ -1008,7 +1006,7 @@ ad_proc -public pa_get_exif_data {
 
     # try to get the data.
     if {[catch {set results [exec jhead $file]} errmsg]} { 
-        ns_log warning "pa_get_exif_data: jhead failed with error - $errmsg"
+        ns_log Warning "pa_get_exif_data: jhead failed with error - $errmsg"
         return {}
     } elseif {[string match {Not JPEG:*} $results]} { 
         return {}
@@ -1114,9 +1112,9 @@ ad_proc pa_rotate {id rotation} {
 
         # get a list of files to handle sorted by size...
         db_foreach get_image_files {} {
-            ns_log Notice "pa_rotate $id $rotation [cr_fs_path] $filename $image_id $width $height"
+            ns_log Debug "pa_rotate: rotate $id by $rotation [cr_fs_path] $filename $image_id $width $height"
             if {[catch {exec convert -rotate $rotation [cr_fs_path]$filename [cr_fs_path]${filename}.new } errMsg]} { 
-                ns_log Notice "Failed rotation of image $image_id -- $errMsg"
+                ns_log Warning "pa_rotate: failed rotation of image $image_id -- $errMsg"
             }
             lappend flop $image_id
             lappend files [cr_fs_path]$filename
