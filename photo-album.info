@@ -11,24 +11,18 @@
         <owner url="mailto:davis@xarg.net">Jeff Davis</owner>
         <owner url="mailto:wtem@olywa.net">Walter McGinnis</owner>
         <owner>Tom Baginski</owner>
-        <summary>A photo album application that provides photo display
-and grouping functionality using the ACS Content Repository.</summary>
+        <summary>Organization, editing and display of user uploaded photos.</summary>
         <release-date>2003-09-26</release-date>
         <vendor url="http://xarg.net/">OpenACS</vendor>
         <description format="text/plain">A photo album application that provides photo display and grouping
 functionality using the ACS Content Repository.
-
+&lt;p&gt;
 Allows users to upload photos, store and edit attributes, and group
-photos into albums and folders.  Allows site administrators to set
-permissions that control who can do and see what within a photo album
-application.  Includes sub-site support.
-
+photos into albums and folders.  Supports permissioning, exif data, and user clipboards.
+&lt;p&gt;
 Requires installation of ImageMagick and jhead on host machine.  See design doc
-
 for details.
-
-Heavily modified from the original Ars Digita version by
-davis@xarg.net.</description>
+</description>
 
         <provides url="photo-album" version="5.0d1"/>
         <requires url="acs-content-repository" version="5.0d1"/>
