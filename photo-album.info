@@ -7,7 +7,7 @@
     <initial-install-p>f</initial-install-p>
     <singleton-p>f</singleton-p>
     
-    <version name="4.6.3" url="http://xarg.net/download/photo-album-4.6.3.apm">
+    <version name="5.0d1" url="http://xarg.net/download/photo-album-5.0d1.apm">
         <owner url="mailto:davis@xarg.net">Jeff Davis</owner>
         <owner url="mailto:wtem@olywa.net">Walter McGinnis</owner>
         <owner>Tom Baginski</owner>
@@ -30,9 +30,9 @@ for details.
 Heavily modified from the original Ars Digita version by
 davis@xarg.net.</description>
 
-        <provides url="photo-album" version="4.6.3"/>
-        <requires url="acs-content-repository" version="4.1"/>
-        <requires url="acs-kernel" version="4.6.2"/>
+        <provides url="photo-album" version="5.0d1"/>
+        <requires url="acs-content-repository" version="5.0d1"/>
+        <requires url="acs-kernel" version="5.0d13"/>
         <requires url="acs-templating" version="4.1"/>
 
         <callbacks>
