@@ -30,13 +30,13 @@
 <if @child:rowcount@ gt 0>
 
 <table border="0">
- <tr bgcolor="#C9D7DC">
+ <tr class="list-header">
   <td align=center>#photo-album.Name#</td>
   <td align=center>#photo-album.Description#</td>
  </tr>
 
 <multiple name="child">
- <if @child.rownum@ odd><tr bgcolor="#F0F0F0"></if><else><tr bgcolor="#FFFFFF"></else>
+ <if @child.rownum@ odd><tr class="list-odd"></if><else><tr class="list-even"></else>
   <if @child.type@ eq "Folder">
    <td align="center"><a href="./?folder_id=@child.item_id@"><img src="graphics/folder.gif" alt="@child.name@" border="0" /></a></td>
   </if><else>

@@ -4,10 +4,10 @@
 
 <p>#photo-album.Name#: @title@ 
 <if @description@ not nil>
-<p>Description: @description@
+<p>#photo-album.lt_Description_descripti#
 </if>
 <if @story@ not nil>
-<p>Story: @story@
+<p>#photo-album.Story_story#
 </if>
 <ul>
 <if @photo_p@ eq 1>
@@ -44,12 +44,13 @@
               <td rowspan=3>
                     <table>
                       <tr><td>#photo-album.Hide_1#</td><td><if @child_photo.hide_p@ ne 0><input type=checkbox name="hide.@child_photo.photo_id@" value=1></if><else><input checked type=checkbox name="hide.@child_photo.photo_id@" value=0></else></td></tr>
+                      <tr><td>#photo-album.Sequence#</td><td><input type="text" name="sequence.@child_photo.photo_id@" value="@child_photo.sequence@" size="4"></td></tr>
                       <tr><td>#photo-album.Caption_1#</td><td><input type=text name="caption.@child_photo.photo_id@" value="@child_photo.caption@" size=60></td></tr>
                       <tr><td>#photo-album.Title_1#</td><td><input type=text name="photo_title.@child_photo.photo_id@" value="@child_photo.photo_title@" size=60></td></tr>
                       <tr><td>#photo-album.Story_1#</td><td><textarea name="photo_story.@child_photo.photo_id@" cols="60" wrap="soft" rows="3">@child_photo.photo_story@</textarea></td></tr>
                       <tr><td>#photo-album.Description_1#</td><td><textarea name="photo_description.@child_photo.photo_id@" cols="60" wrap="soft" rows="3">@child_photo.photo_description@</textarea></td></tr>
 	
-                    <if @child_photo.datetaken@ not nil><tr><td colspan="2">Taken: @child_photo.datetaken@ @child_photo.camera_model@ @child_photo.focal_length@mm @child_photo.aperture@ <if @child_photo.flash@>#photo-album.Flash#</if></td></tr></if>
+                    <if @child_photo.datetaken@ not nil><tr><td colspan="2">#photo-album.lt_Taken_child_photodate# <if @child_photo.flash@>#photo-album.Flash#</if></td></tr></if>
                     </table>
               </td>
             </tr>
@@ -73,3 +74,4 @@
 </else>
 <p>
 @page_nav;noquote@
+

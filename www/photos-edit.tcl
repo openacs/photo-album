@@ -86,6 +86,7 @@ if {$has_children_p && [llength $photos_on_page] > 0} {
       pp.caption,
       pp.story as photo_story,
       to_char(pp.date_taken, 'MM/DD/YYYY HH:MI') as datetaken,
+      ccra.order_n as sequence,
       pp.camera_model,
       pp.focal_length, 
       pp.aperture,
@@ -107,7 +108,8 @@ if {$has_children_p && [llength $photos_on_page] > 0} {
       cr_child_rels ccrv,
       images iv,
       pa_photos pp,
-      cr_revisions cr
+      cr_revisions cr,
+      cr_child_rels ccra
       where 
           ccrt.relation_tag = 'thumb'
       and cr.revision_id = ci.latest_revision
@@ -119,31 +121,34 @@ if {$has_children_p && [llength $photos_on_page] > 0} {
       and ci.item_id = ccrv.parent_id
       and ccrv.child_id = civ.item_id
       and civ.latest_revision = iv.image_id
+      and ccra.parent_id = :album_id
+      and ccra.child_id = ci.item_id
       and pp.pa_photo_id = ci.latest_revision
       and ci.item_id in ([join $photos_on_page ","])"
 
     db_foreach get_child_photos $photo_sql {
-	set val(hide_p) $hide_p
+        set val(hide_p) $hide_p
         set val(photo_id) $photo_id
-	set val(caption) $caption
-	set val(photo_story) $photo_story
-	set val(photo_description) $photo_description
-	set val(photo_title) $photo_title
-	set val(datetaken) $datetaken
+        set val(sequence) $sequence
+        set val(caption) $caption
+        set val(photo_story) $photo_story
+        set val(photo_description) $photo_description
+        set val(photo_title) $photo_title
+        set val(datetaken) $datetaken
         set val(camera_model) $camera_model
         set val(focal_length) $focal_length
         set val(aperture) $aperture
         set val(flash) $flash
         set val(exposure_time) $exposure_time
-	set val(thumb_path) $thumb_path
-	set val(thumb_height) $thumb_height
-	set val(thumb_width) $thumb_width
-	set val(viewer_path) $viewer_path
-	set val(viewer_height) $viewer_height
-	set val(viewer_width) $viewer_width
-	set val(window_height) [expr $viewer_height + 28]
-	set val(window_width) [expr $viewer_width + 24]
-	set child($photo_id) [array get val]
+        set val(thumb_path) $thumb_path
+        set val(thumb_height) $thumb_height
+        set val(thumb_width) $thumb_width
+        set val(viewer_path) $viewer_path
+        set val(viewer_height) $viewer_height
+        set val(viewer_width) $viewer_width
+        set val(window_height) [expr $viewer_height + 28]
+        set val(window_width) [expr $viewer_width + 24]
+        set child($photo_id) [array get val]
     }
     
     # if the structure of the multirow datasource ever changes, this needs to be rewritten    

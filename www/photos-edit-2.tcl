@@ -9,6 +9,7 @@ ad_page_contract {
     photo_story:array
     photo_description:array
     photo_title:array
+    sequence:array,integer
 } -validate {
     valid_album -requires {album_id:integer} {
 	if [string equal [pa_is_album_p $album_id] "f"] {
@@ -34,11 +35,12 @@ foreach id [array names caption] {
     } else { 
         lappend shows $id
     }
-        
+    
     set acaption $caption($id)
     set aphoto_story $photo_story($id)
     set aphoto_description $photo_description($id)
     set aphoto_title $photo_title($id)
+    set asequence $sequence($id)
     set aphoto_id $id
     set arevision_id [db_string get_rev_id "select coalesce(live_revision,latest_revision) from cr_items where item_id = :id"]
     set auser_id [ad_conn user_id]
@@ -52,6 +54,13 @@ foreach id [array names caption] {
         set caption = :acaption, 
         story = :aphoto_story
         where pa_photo_id = (select latest_revision from cr_items where item_id = :id)
+    }
+
+    db_dml update_sequence {
+        update cr_child_rels 
+        set order_n = :asequence 
+        where child_id = :id 
+        and parent_id = :album_id 
     }
 
     if {[llength $hides]} { 
