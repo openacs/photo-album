@@ -16,7 +16,7 @@ ad_page_contract {
 	}
     }
 }
-
+   
 # These lines are to uncache the image in Netscape, Mozilla. 
 # IE6 & Safari (mac) have a bug with the images cache
 ns_set put [ns_conn outputheaders] "Expires" "-"
@@ -45,7 +45,7 @@ foreach id [array names caption] {
     set apeeraddr [ad_conn peeraddr]
     
 
-    db_dml update_photo_attributes { *SQL* }
+    db_dml update_photo_attributes { update cr_revisions set description = :aphoto_description, title = :aphoto_title where revision_id = :arevision_id  }
 
     db_dml update_photo { 
         update pa_photos
