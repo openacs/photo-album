@@ -12,7 +12,7 @@ ad_page_contract {
 } -validate {
     valid_album -requires {album_id:integer} {
 	if [string equal [pa_is_album_p $album_id] "f"] {
-	    ad_complain "The specified album is not valid."
+	    ad_complain "[_ photo-album._The_1]"
 	}
     }
 } -properties {
@@ -41,7 +41,7 @@ set user_id [ad_conn user_id]
 # check for read permission on album
 ad_require_permission $album_id read
 
-set context_list [pa_context_bar_list -final "Edit page $page" $album_id]
+set context_list [pa_context_bar_list -final "[_ photo-album.Edit_page] $page" $album_id]
 
 
 db_1row get_album_info {

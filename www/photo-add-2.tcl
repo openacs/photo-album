@@ -37,8 +37,8 @@ ad_page_contract {
 	    }   
  
 	    if ![regexp  $base_mime [parameter::get -parameter AcceptableUploadMIMETypes -package_id [ad_conn package_id]]] { 
-            ad_complain "The parameter AcceptableUploadMIMETypes is not satisfied" 
-            ad_complain "The parameter ConverttoJpgorPng is not in automatic mode" 
+            ad_complain "[_ photo-album._The_5]" 
+            ad_complain "[_ photo-album._The_6]" 
 	    } 
 	} 
     }

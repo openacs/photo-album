@@ -37,7 +37,7 @@
           <li><a href="photo-iconic?photo_id=@photo_id@">#photo-album.lt_Make_this_photo_the_i#</a>
             <li><a href="photo-edit?photo_id=@photo_id@">#photo-album.lt_Edit_photo_attributes#</a>
         </if>
-        <if @move_p@ eq 1>
+        <if @move_p@ eq 1 and @albums_list@ ne "">
           <li>
 	    <formtemplate id="move_photo">
 	      #photo-album._Move_photo_to_album#

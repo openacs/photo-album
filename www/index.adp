@@ -23,7 +23,7 @@
 </if>
 <if @admin_p@ eq 1>
   <li><a href="/permissions/one?object_id=@folder_id@">#photo-album.lt_Modify_this_folders_p#</a></li>
-  <li><a href="/shared/parameters?@parameter_url_vars@">Modify this package's parameters</a> </li>
+  <li><a href="/shared/parameters?@parameter_url_vars@">#photo-album.Modify_this_pack#</a> </li>
 </if>
 </ul>
 </div>

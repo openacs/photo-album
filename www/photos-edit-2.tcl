@@ -45,7 +45,7 @@ foreach id [array names caption] {
     set apeeraddr [ad_conn peeraddr]
     
 
-    db_dml update_photo_attributes { update cr_revisions set description = :aphoto_description, title = :aphoto_title where revision_id = :arevision_id }
+    db_dml update_photo_attributes { *SQL* }
 
     db_dml update_photo { 
         update pa_photos

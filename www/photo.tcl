@@ -72,10 +72,10 @@ set show_base_link [ad_parameter AllowBasePhotoAccessP]
 
 # query all the photo and permission info with a single trip to database
 if {![db_0or1row get_photo_info { *SQL* }]} { 
-    ad_return_complaint 1 "<li><#_This photo couldn't be showed because : #>
-                             <ul><li><#_Photo not found or photo is hidden #></li>
-                                 <li><#_For show this foto <a href=photo-edit?photo_id=$photo_id>edit the attributes</a> an uncheck the option hide#></li>
-                                 <li><#_Your can click <a href=album?album_id=$old_album_id> here </a> to view all photos of the album #></li>
+    ad_return_complaint 1 "<li>[_ photo-album._This]
+                             <ul><li>[_ photo-album._Photo_2]</li>
+                                 <li>[_ photo-album._For]</li>
+                                 <li>[_ photo-album._Your]</li>
                              </ul>"
 }
 
@@ -84,7 +84,6 @@ set path $image_id
 
 # to move a photo need write on photo and write on parent album
 set move_p [expr $write_p && $album_write_p]
-
 # build form to move the photo if move_p is 1
 if $move_p {
 
@@ -93,9 +92,12 @@ if $move_p {
     template::element create move_photo photo_id -label "photo ID" \
 	-datatype integer -widget hidden
 
+
+    set albums_list [db_list_of_lists get_albums { *SQL* }]
+    
     template::element create move_photo new_album_id -label "[_ photo-album._Please]" \
 	-datatype integer -widget select \
-	-options [db_list_of_lists get_albums {}]
+	-options $albums_list
 
 
     if { [template::form is_request move_photo] } {
@@ -106,7 +108,6 @@ if $move_p {
 
     if { [template::form is_valid move_photo] } {
 	set new_album_id [template::element::get_value move_photo new_album_id]
-
 	ad_require_permission $new_album_id "pa_create_photo"
 
 	if [string equal [pa_is_album_p $new_album_id] "f"] {
@@ -120,7 +121,7 @@ if $move_p {
 
 	    # not using content_item move because is only accepts 
 	    # a folder_id as target not another content_item
-
+7
 	    set rel_id [db_string photo_rel_id {}]
 
 	    db_dml photo_move {}
@@ -146,6 +147,7 @@ if $move_p {
 	}
 	pa_flush_photo_in_album_cache $old_album_id
 	pa_flush_photo_in_album_cache $new_album_id
+ 
 
 
 	#page used to redirect user to the page of new album containing moved photos

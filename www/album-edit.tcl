@@ -42,7 +42,7 @@ template::element create edit_album title -html { size 30 } \
   -label "[_ photo-album._Album_2]" -datatype text
 
 template::element create edit_album photographer -html { size 50} \
-  -label "<#_ Photographer#>"  -datatype text -optional
+  -label "[_ photo-album.Photographer]"  -datatype text -optional
 
 template::element create edit_album description -html { size 50} \
   -label "[_ photo-album._Album]"  -datatype text -optional

@@ -2,7 +2,7 @@
 <property name="title">@title@</property>
 <property name="context">@context_list@</property>
 
-Your text updates have been made and any rotations are
-currently being processed...
+#photo-album.lt_Your_text_updates_hav#
 <p>
 @page_nav@
+
