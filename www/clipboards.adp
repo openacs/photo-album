@@ -1,6 +1,6 @@
   <master>
     <property name="title">Your clipboards</property>
-    <property name="context">clipboards</property>
+    <property name="context">Clipboards</property>
     <if @user_id@ eq 0> 
       You will have to <a href="/register/">log in</a> or
       <a href="/register/">register</a>
@@ -18,7 +18,7 @@
             <li> <a href="clipboard-view?collection_id=@clipboards.collection_id@">@clipboards.title@</a>
               (@clipboards.photos@ photos) 
               [ <a href="clipboard-ae?collection_id=@clipboards.collection_id@">edit
-                name</a> ]</li>
+                name</a> | <a href="clipboard-delete?collection_id=@clipboards.collection_id@">delete clipboard</a> ]</li>
           </multiple>
         </ul>
       </else>
