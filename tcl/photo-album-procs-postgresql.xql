@@ -12,7 +12,7 @@
  
 <fullquery name="pa_new_root_folder.make_new_root">      
       <querytext>
-      select photo_album__new_root_folder(:package_id) 	
+      select photo_album__new_root_folder(:package_id)  
       </querytext>
 </fullquery>
 
@@ -55,7 +55,7 @@
 <fullquery name="pa_context_bar_list.context_bar">      
       <querytext>
       select case
-	   when content_item__get_content_type(i.item_id) = 'content_folder'
+           when content_item__get_content_type(i.item_id) = 'content_folder'
            then 'index?folder_id='
            when content_item__get_content_type(i.item_id) = 'pa_album'
            then 'album?album_id='
@@ -75,12 +75,12 @@
 <fullquery name="pa_is_type_in_package.check_is_type_in_package">      
       <querytext>
       select exists (select 1 
-	             from cr_items i, cr_items i2
-	             where i.item_id = :item_id
+                     from cr_items i, cr_items i2
+                     where i.item_id = :item_id
                        and i.tree_sortkey between i2.tree_sortkey and tree_right(i2.tree_sortkey)
                        and i2.item_id = :root_folder
                     )
-	     and content_item__get_content_type(:item_id) = :content_type
+             and content_item__get_content_type(:item_id) = :content_type
 
       </querytext>
 </fullquery>
@@ -88,13 +88,13 @@
  
 <fullquery name="pa_grant_privilege_to_creator.grant_privilege">      
       <querytext>
-	
-	select acs_permission__grant_permission (
-	:object_id, -- object_id 
-	:user_id, -- grantee_id
-	:privilege -- privilege  
-	)
-	
+        
+        select acs_permission__grant_permission (
+        :object_id, -- object_id 
+        :user_id, -- grantee_id
+        :privilege -- privilege  
+        )
+        
       </querytext>
 </fullquery>
 
@@ -151,7 +151,7 @@
         UPDATE pa_photos 
         SET camera_model = :tmp_exif_Cameramodel,
             user_filename = :upload_name,
-            date_taken = datetime(:tmp_exif_DateTime),
+            date_taken = to_timestamp(:tmp_exif_DateTime,'YYYY-MM-DD HH24:MI:SS'),
             flash = :tmp_exif_Flashused,
             aperture = :tmp_exif_Aperture,
             metering = :tmp_exif_MeteringMode,
@@ -173,7 +173,7 @@
               and crr.revision_id = cri.latest_revision
               and i.image_id = cri.latest_revision
             order by crr.content_length desc
-	
+        
       </querytext>
 </fullquery>
 

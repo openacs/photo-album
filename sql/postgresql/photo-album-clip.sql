@@ -16,10 +16,10 @@
 
 create table pa_collections ( 
     collection_id     integer 
-		      constraint pa_collection_id_fk
-		      references acs_objects(object_id)
-		      constraint pa_collections_pk
-		      primary key,
+                      constraint pa_collection_id_fk
+                      references acs_objects(object_id)
+                      constraint pa_collections_pk
+                      primary key,
     owner_id          integer
                       constraint pa_collections_owner_id_fk
                       references users(user_id) on delete cascade
@@ -64,7 +64,7 @@ select acs_object_type__create_type(
     );
 
 
-create or replace function pa_collection__new (integer,integer,varchar,timestamp,integer,varchar,integer)
+create or replace function pa_collection__new (integer,integer,varchar,timestamptz,integer,varchar,integer)
 returns integer as '
 declare
   p_collection_id                       alias for $1;       -- default null

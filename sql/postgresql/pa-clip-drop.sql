@@ -27,7 +27,7 @@ drop function tmp_pa_delete ();
 
 select acs_object_type__drop_type('photo_collection', 'f');
 
-drop function pa_collection__new (integer,integer,varchar,timestamp,integer,varchar,integer);
+drop function pa_collection__new (integer,integer,varchar,timestamptz,integer,varchar,integer);
 drop function pa_collection__delete (integer);
 drop function pa_collection__title (integer);
 

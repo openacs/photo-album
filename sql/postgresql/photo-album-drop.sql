@@ -189,13 +189,13 @@ drop function photo_album__get_root_folder (integer);
 -- drop package pa_album;
 drop function pa_album__delete_revision (integer);
 drop function pa_album__delete (integer);
-drop function pa_album__new (varchar, integer, integer, boolean, integer, varchar, varchar, varchar, text, varchar, integer, timestamp, varchar, integer, timestamp, varchar) ;
+drop function pa_album__new (varchar, integer, integer, boolean, integer, varchar, varchar, varchar, text, varchar, integer, timestamptz, varchar, integer, timestamptz, varchar) ;
 
 -- this needs to drop the pa_photo__ functions
 -- drop package pa_photo;  
 drop function pa_photo__delete (integer);
 drop function pa_photo__delete_revision (integer);
-drop function pa_photo__new (varchar,integer,integer,integer,timestamp, integer, varchar, varchar, integer, varchar, varchar, boolean, timestamp, varchar, varchar, text);
+drop function pa_photo__new (varchar,integer,integer,integer,timestamptz, integer, varchar, varchar, integer, varchar, varchar, boolean, timestamptz, varchar, varchar, text);
 
 -- these drop tables as well
 select content_type__drop_type('pa_photo','f','t');
