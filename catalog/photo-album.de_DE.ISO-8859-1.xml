@@ -25,7 +25,7 @@
   <msg key="_Either_2">Entweder gibt es schon einen Ordner namens  \&quot;$name\&quot; oder Sie haben mehrmals auf die Schaltfläche geklickt. Sie können &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt;zum Inhaltsverzeichnis zurückkehren&lt;/a&gt; um zu überprüfen, ob der Ordner dort liegt.</msg>
   <msg key="_Either_3">Entweder es gibt schon einen Ordner im angegebenen Ordner mit dem Namen \&quot;$folder_name\&quot;, oder Sie haben mehrmals auf die Schaltfläche geklickt. Sie können &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt;zu dem neuen Ordner zurückkehren&lt;/a&gt; um zu überprüfen, ob Ihr Ordner dort liegt.</msg>
   <msg key="_Either_4">Entweder gibt es schon ein Foto im angegebenen Album mit dem Namen \&quot;$filename\&quot;, oder Sie haben die Schaltfläche mehrmals angeklickt. Sie können &lt;a href=\&quot;album?album_id=$new_album_id\&quot;&gt;zu dem neuen Album&lt;/a&gt; zurückkehren um zu überprüfen, ob Ihr Foto dort liegt.</msg>
-  <msg key="_Folder">Ordnername</msg>
+  <msg key="_Folder">Name des Ordners</msg>
   <msg key="_Folder_1">Beschreibung des Ordners</msg>
   <msg key="_For">&lt;a href=photo-edit?photo_id=$photo_id&gt;Attribute bearbeiten&lt;/a&gt; und die Option &quot;Ausblenden&quot; deaktivieren, um dieses Foto anzuzeigen</msg>
   <msg key="_Full">Bild in voller Größe</msg>

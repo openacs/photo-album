@@ -2,7 +2,7 @@
 <message_catalog package_key="photo-album" package_version="5.0d1" locale="nl_NL" charset="ISO-8859-1">
 
   <msg key="_Album">Albumbeschrijving</msg>
-  <msg key="_Album_1">Albumverhaal</msg>
+  <msg key="_Album_1">Albumrelaas</msg>
   <msg key="_Album_2">Albumnaam</msg>
   <msg key="_An">Er is een fout bij het verwerken van de input. Breng de systeembeheerder hiervan op de hoogte. &lt;pre&gt;$errmsg&lt;/pre&gt;</msg>
   <msg key="_An_1">Er is een fout bij het verwerken van de input. Breng de systeembeheerder hiervan op de hoogte.</msg>
@@ -15,11 +15,11 @@
   <msg key="_Create_1">Nieuwe map aanmaken</msg>
   <msg key="_Delete">Map verwijderen</msg>
   <msg key="_Delete_1">Foto verwijderen</msg>
-  <msg key="_Edit">Album instellingen wijzigen</msg>
-  <msg key="_Edit_1">Map instellingen wijzigen</msg>
-  <msg key="_Edit_2">Album instellingen wijzigen</msg>
-  <msg key="_Edit_3">Pagina $page wijzigen</msg>
-  <msg key="_Edit_4">Pagina $page wijzigen</msg>
+  <msg key="_Edit">Album instellingen bewerken</msg>
+  <msg key="_Edit_1">Map instellingen bewerken</msg>
+  <msg key="_Edit_2">Album instellingen bewerken</msg>
+  <msg key="_Edit_3">Pagina $page bewerken</msg>
+  <msg key="_Edit_4">Pagina $page bewerken</msg>
   <msg key="_Either">Er bestaat al een album met de naam \&quot;$name\&quot; of er werd meer dan één keer op de knop geklikt. &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt;Keer terug naar het mapoverzicht&lt;/a&gt; om te zien of het album is aangemaakt.</msg>
   <msg key="_Either_1">Er bestaat al een album in de gekozen map met de naam \&quot;$folder_name\&quot; of er werd meer dan één keer op de knop geklikt. &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt;Keer terug naar de nieuwe map&lt;/a&gt; om te zien of het album is aangemaakt.</msg>
   <msg key="_Either_2">Er bestaat al een map met de naam \&quot;$name\&quot; of er werd meer dan één keer op de knop geklikt. &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt;Keer terug naar het mapoverzicht&lt;/a&gt; om te zien of de map is aangemaakt.</msg>
@@ -27,7 +27,7 @@
   <msg key="_Either_4">Er bestaat al een foto in het gekozen album met de naam \&quot;$filename\&quot; of er werd meer dan één keer op de knop geklikt. &lt;a href=\&quot;album?album_id=$new_album_id\&quot;&gt;Keer terug naar het nieuwe album&lt;/a&gt; om te zien of de foto is aangemaakt.</msg>
   <msg key="_Folder">Mapnaam</msg>
   <msg key="_Folder_1">Mapbeschrijving</msg>
-  <msg key="_For">Om deze foto te tonen:&lt;a href=photo-edit?photo_id=$photo_id&gt;wijzig de instelling&lt;/a&gt; en demarkeer de optie verbergen </msg>
+  <msg key="_For">Om deze foto te tonen:&lt;a href=photo-edit?photo_id=$photo_id&gt;de instelling bewerken&lt;/a&gt; en de optie verbergen demarkeren </msg>
   <msg key="_Full">Afbeelding op ware grootte</msg>
   <msg key="_Hide">HTML bron van de afbeelding verbergen</msg>
   <msg key="_Modify">De parameters van dit pakket wijzigen</msg>
@@ -38,9 +38,9 @@
   <msg key="_Or">Of in een map op de server aanbieden</msg>
   <msg key="_Photo">Fotobeschrijving</msg>
   <msg key="_photo">foto niet beschikbaar</msg>
-  <msg key="_Photo_1">Fotoverhaal</msg>
+  <msg key="_Photo_1">Fotorelaas</msg>
   <msg key="_Photo_2">Foto niet beschikbaar of verborgen</msg>
-  <msg key="_Please">Selecteer een album</msg>
+  <msg key="_Please">Een album selecteren</msg>
   <msg key="_Save">Opslaan</msg>
   <msg key="_Show">HTML bron van de afbeelding tonen voor knippen&amp;amp;plakken</msg>
   <msg key="_The">De gekozen bovenliggende map is niet geldig</msg>
@@ -61,7 +61,7 @@
   <msg key="_You">De naam van het klembord mag niet leeg zijn.</msg>
   <msg key="_You_1">De hoofdmap mag niet worden verwijderd.</msg>
   <msg key="_You_2">De hoofdmap mag niet worden verplaatst</msg>
-  <msg key="_Your">Klik &lt;a href=album?album_id=$old_album_id&gt;hier&lt;/a&gt; om alle foto's van het album te bekijken</msg>
+  <msg key="_Your">&lt;a href=album?album_id=$old_album_id&gt;hier&lt;/a&gt; klikken om alle foto's van het album te bekijken</msg>
   <msg key="Add_a_new_album">Nieuw album toevoegen</msg>
   <msg key="Add_a_new_folder">Nieuwe map toevoegen</msg>
   <msg key="Album_Name">Albumnaam</msg>
@@ -80,10 +80,10 @@
   <msg key="Descriptio">Beschrijving</msg>
   <msg key="Description">Beschrijving</msg>
   <msg key="Description_1">Beschrijving:</msg>
-  <msg key="Edit_page">Pagina wijzigen</msg>
-  <msg key="Edit_the_Album">Het album wijzigen</msg>
-  <msg key="Edit_the_Folder">De map wijzigen</msg>
-  <msg key="Edit_these_photos">Deze foto's wijzigen</msg>
+  <msg key="Edit_page">Pagina bewerken</msg>
+  <msg key="Edit_the_Album">Het album bewerken</msg>
+  <msg key="Edit_the_Folder">De map bewerken</msg>
+  <msg key="Edit_these_photos">Deze foto's bewerken</msg>
   <msg key="Flash">Flits</msg>
   <msg key="Hide">Verbergen</msg>
   <msg key="Hide_1">Verbergen:</msg>
@@ -91,16 +91,16 @@
   <msg key="lt_Add_a_collection_of_p">Een fotocollectie aan dit album toevoegen</msg>
   <msg key="lt_Add_a_single_photo_to">Een enkele foto aan dit album toevoegen</msg>
   <msg key="lt_and_add_them_to_a_cli">en voeg ze toe aan een klembord om te gebruiken op dit deel van de website.</msg>
-  <msg key="lt_Are_you_sure_you_want">Weet u zeker dat u het album &quot;%title%&quot; wilt verwijderen? Deze handeling kan niet ongedaan worden gemaakt.</msg>
-  <msg key="lt_Are_you_sure_you_want_1">Weet u zeker dat u de map &quot;%title%&quot; wilt verwijderen? Deze handeling kan niet ongedaan worden gemaakt.</msg>
-  <msg key="lt_Are_you_sure_you_want_2">Weet u zeker dat u de foto &quot;%title%&quot; wilt verwijderen? Deze handeling kan niet ongedaan worden gemaakt.</msg>
-  <msg key="lt_Click_on_the_small_ph">Klik op de kleine foto's om een grotere versie te zien, op de nummers om andere pagina's te zien of op Volgende Vorige om tussen pagina's te switchen. Op de pagina met individuele fotoweergave kunnen foto's worden gekozen om te afdrukken of te e-mailen.  </msg>
+  <msg key="lt_Are_you_sure_you_want">Het album &quot;%title%&quot; echt verwijderen? Deze handeling kan niet ongedaan worden gemaakt!</msg>
+  <msg key="lt_Are_you_sure_you_want_1">De map &quot;%title%&quot; echt verwijderen? Deze handeling kan niet ongedaan worden gemaakt!</msg>
+  <msg key="lt_Are_you_sure_you_want_2">De foto &quot;%title%&quot; echt verwijderen? Deze handeling kan niet ongedaan worden gemaakt!</msg>
+  <msg key="lt_Click_on_the_small_ph">Klik op de kleine foto's om een grotere versie te zien, op de nummers om andere pagina's te zien of op Volgende-Vorige om tussen pagina's te switchen. Op de pagina met individuele fotoweergave kunnen foto's worden gekozen om te afdrukken of te e-mailen.  </msg>
   <msg key="lt_clipboardsphotos_phot">(%clipboards.photos% foto's) [ </msg>
   <msg key="lt_Description_descripti">Beschrijving: %description% </msg>
-  <msg key="lt_edit________________n">naam wijzigen</msg>
-  <msg key="lt_Edit_album_attributes">Albuminstellingen wijzigen</msg>
-  <msg key="lt_Edit_folder_informati">Mapinformatie wijzigen</msg>
-  <msg key="lt_Edit_photo_attributes">Fotoinstellingen wijzigen</msg>
+  <msg key="lt_edit________________n">naam bewerken</msg>
+  <msg key="lt_Edit_album_attributes">Albuminstellingen bewerken</msg>
+  <msg key="lt_Edit_folder_informati">Mapinformatie bewerken</msg>
+  <msg key="lt_Edit_photo_attributes">Fotoinstellingen bewerken</msg>
   <msg key="lt_for______printing_fro">om af te drukken op een</msg>
   <msg key="lt_Image_removed_from_cl">Afbeelding van klembord verwijderen</msg>
   <msg key="lt_Image_saved_to_clipbo">Afbeelding op klembord bewaren</msg>
@@ -117,18 +117,18 @@
   <msg key="lt_Move_this_album_to_an">Dit album naar andere map verplaatsen:</msg>
   <msg key="lt_Move_this_folder_to_a">Deze map naar andere map verplaatsen</msg>
   <msg key="lt_No_photos_in_the_clip">Geen foto's op dit klembord</msg>
-  <msg key="lt_OPTIONAL_Displayed_on">Optioneel, wordt op miniatuurweergave pagina getoond</msg>
-  <msg key="lt_OPTIONAL_Displayed_wh">Optioneel, wordt getoond tijdens het bekijken van de foto</msg>
+  <msg key="lt_OPTIONAL_Displayed_on">Facultatief, wordt op miniatuurweergave pagina getoond</msg>
+  <msg key="lt_OPTIONAL_Displayed_wh">Facultatief, wordt getoond tijdens het bekijken van de foto</msg>
   <msg key="lt_Photo_Album_System__t">Fotoalbumsysteem: %title%</msg>
   <msg key="lt_Save_this_photo_to_pr">Deze foto bewaren om later af te drukken of te bekijken</msg>
   <msg key="lt_Save_this_photo_to_pr_1">Deze foto bewaren om later af te drukken of bekijken. Bewaar in map </msg>
   <msg key="lt_There_are_no_items_in">In deze map zitten geen bestanden.</msg>
   <msg key="lt_This_album_does_not_c">Deze map bevat niets.</msg>
   <msg key="lt_This_photo_clipped_to">Deze foto is verbonden met:</msg>
-  <msg key="lt_To_order_prints_of_th">Om afdrukken deze foto's te bestellen moeten ze eerst worden toegevoegd aan een klembord (dan kan op de weergavepagina voor individuele foto's). Vanaf het klembord kunnen ze worden verstuurd aan</msg>
+  <msg key="lt_To_order_prints_of_th">Om deze foto's af te drukken of te bestellen moeten ze eerst worden toegevoegd aan een klembord (dan kan via de weergavepagina voor individuele foto's). Vanaf het klembord kunnen ze worden verstuurd aan</msg>
   <msg key="lt_Upload_a_Photo_collec">Fotocollectie aanbieden</msg>
-  <msg key="lt_View_all_of_your_clip">Bekijk alle klemborden</msg>
-  <msg key="lt_View_all_your_clipboa">Bekijk alle klemborden</msg>
+  <msg key="lt_View_all_of_your_clip">Alle klemborden bekijken</msg>
+  <msg key="lt_View_all_your_clipboa">Alle klemborden bekijken</msg>
   <msg key="lt_You_do_not_currently_">Er zijn momenteel geen klemborden aanwezig. Blader door de</msg>
   <msg key="lt_Your_text_updates_hav">De vernieuwingen in de tekst hebben plaatsgevonden en momenteel vinden de rotaties plaats.. </msg>
   <msg key="Modify_this_pack">De parameters van dit pakket wijzigen</msg>
@@ -136,7 +136,7 @@
   <msg key="Name">Naam</msg>
   <msg key="Name_title">Naam: %title% </msg>
   <msg key="Netx">Volgende</msg>
-  <msg key="OPTIONAL">Optioneel</msg>
+  <msg key="OPTIONAL">Facultatief</msg>
   <msg key="or">of</msg>
   <msg key="Photo_clipboard">Fotoklembord</msg>
   <msg key="Photographer">Fotograaf</msg>
