@@ -1,0 +1,18 @@
+# /packages/photo-album/www/images/index.vuh
+# @author Tom Baginski, bags@arsdigita.com
+# #cvs-id $Id$
+#
+# serves images
+#
+# expecting a image_id as path_info
+
+# wtem@olywa.net, 2001-09-24
+# fully reworked
+
+regexp {^([0-9]+)} [ad_conn path_info] match image_id
+
+if {[string equal [ad_parameter CheckPermissionOnImageServeP] "t"]} {
+    ad_require_permission $image_id "read"
+} 
+
+cr_write_content -revision_id $image_id

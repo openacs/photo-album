@@ -1,0 +1,27 @@
+-- PL/SQL to set up permissions/privileges for photo-album
+--
+-- author: Tom Baginski, bags@arsdigita.com
+-- creation date: 12/12/2000
+--
+-- $Id$
+
+-- uses standard read, write, delete, and admin 
+-- for most permission checks.
+--
+-- Added custom create privileges so that creation
+-- of folders, albums, and photos can be controlled
+-- independantly.  Allows one user to control folder
+-- structure while other users add albums and photos
+
+begin
+  acs_privilege.create_privilege('pa_create_album');
+  acs_privilege.create_privilege('pa_create_folder');
+  acs_privilege.create_privilege('pa_create_photo');
+
+  acs_privilege.add_child('create', 'pa_create_photo');
+  acs_privilege.add_child('create', 'pa_create_album');
+  acs_privilege.add_child('create', 'pa_create_folder');
+end;
+/
+show errors;
+
