@@ -140,7 +140,8 @@
           :path, -- path
           :size, -- file_size
           :height, -- height
-          :width -- width
+          :width, -- width
+          :package_id
         )    
       </querytext>
 </fullquery>

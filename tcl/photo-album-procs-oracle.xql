@@ -159,7 +159,8 @@
             filename        => :path,
             height          => :height,
             width           => :width,
-            context_id      => :context_id
+            context_id      => :context_id,
+            package_id      => :package_id
         );
         end;
     

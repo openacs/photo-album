@@ -758,32 +758,12 @@ ad_proc -public pa_insert_image {
     width
     size
 } { 
-    db_exec_plsql pa_insert_image {
-        declare 
-        dummy  integer;
-        begin
-
-        dummy := image.new (
-                            name            => :name,
-                            parent_id       => :photo_id,
-                            item_id         => :item_id,
-                            revision_id     => :rev_id,
-                            creation_date   => sysdate,
-                            creation_user   => :user_id,
-                            creation_ip     => :peeraddr,
-                            context_id      => :context_id,
-                            title           => :title,
-                            description     => :description,
-                            mime_type       => :mime_type,
-                            relation_tag    => :relation,
-                            is_live         => :is_live,
-                            path            => :path,
-                            height          => :height,
-                            width           => :width,
-                            file_size       => :size
-                            );
-        end;
+    if { [ad_conn isconnected] } {
+        set package_id [ad_conn package_id]
+    } else {
+        set package_id ""
     }
+    db_exec_plsql pa_insert_image {}
 }
 
 ad_proc -public pa_load_images {
