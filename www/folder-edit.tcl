@@ -55,7 +55,7 @@ if { [template::form is_valid folder_edit] } {
 
 	db_exec_plsql edit_folder {
 	    begin
-	    content_folder.rename (
+	    content_folder.edit_name (
             folder_id  => :folder_id,
             label => :label,
             description  => :description
