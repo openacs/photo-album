@@ -39,7 +39,7 @@ if { [string equal $confirmed_p "t"]  } {
 
     db_exec_plsql album_delete "
     begin
-        pa_album.delete(:album_id);
+        pa_album.del(:album_id);
     end;"
 
     pa_flush_photo_in_album_cache $album_id

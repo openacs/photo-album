@@ -56,7 +56,7 @@ as
   --
   --  Be careful, cannot be undone (easily)
   --*/
-  procedure delete (
+  procedure del (
     item_id             in acs_objects.object_id%TYPE
   );
 
@@ -145,13 +145,13 @@ as
     -- the on delete cascade will take care of this
     -- during the content_revision.delete
   begin
-    content_revision.delete (
+    content_revision.del (
       revision_id    => revision_id
     );
 
   end delete_revision;
 
-  procedure delete (
+  procedure del (
     item_id             in acs_objects.object_id%TYPE
   )
   is
@@ -161,13 +161,13 @@ as
       from
         cr_child_rels
       where
-        parent_id = pa_photo.delete.item_id;
+        parent_id = pa_photo.del.item_id;
 
   begin
     
     -- delete all the images associated with the photo
     for v_pa_image_val in pa_image_cur loop
-      image.delete (
+      image.del (
         item_id => v_pa_image_val.child_id
       );
     end loop;
@@ -175,11 +175,11 @@ as
     -- content_item.delete takes care of all revision
     -- on delete cascades take care of rest
 
-    content_item.delete (
+    content_item.del (
       item_id   =>  item_id
     );
 
-  end delete;
+  end del;
 
 end pa_photo;
 /
@@ -225,7 +225,7 @@ as
   -- Album must be empty to be deleted,
   -- otherwise delete throws error
   --*/
-  procedure delete (
+  procedure del (
      album_id	    in cr_items.item_id%TYPE
   );
 
@@ -308,13 +308,13 @@ as
   -- the on delete cascade will take care of this
   -- during the content_revision.delete
   begin
-    content_revision.delete (
+    content_revision.del (
       revision_id    => revision_id
     );
 
   end delete_revision;
 
-  procedure delete (
+  procedure del (
      album_id	    in cr_items.item_id%TYPE
   )
   is
@@ -323,7 +323,7 @@ as
     -- check if album is empty (no rm -r *)
     select count(*) into v_num_children
     from cr_items 
-    where parent_id = pa_album.delete.album_id;
+    where parent_id = pa_album.del.album_id;
 
     if v_num_children > 0 then
            raise_application_error(-20000,
@@ -334,11 +334,11 @@ as
     -- content_item.delete takes care of all revision
     -- on delete cascades take care of rest
 
-    content_item.delete (
+    content_item.del (
       item_id   =>  album_id
     );
 
-  end delete;
+  end del;
 
 end pa_album;
 /

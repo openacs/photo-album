@@ -77,7 +77,7 @@ as
         p_context_id    in acs_objects.context_id%TYPE default null
     ) return pa_collections.collection_id%TYPE;
 
-    procedure delete (
+    procedure del (
         p_collection_id       in pa_collections.collection_id%TYPE
     );
 
@@ -127,7 +127,7 @@ as
     end new;
 
 
-    procedure delete (
+    procedure del (
         p_collection_id in pa_collections.collection_id%TYPE
     )
     is
@@ -138,8 +138,8 @@ as
         delete from pa_collections
            where collection_id = p_collection_id;
 
-        acs_object.delete(p_collection_id);
-    end delete;
+        acs_object.del(p_collection_id);
+    end del;
 
 
     function title (

@@ -7,7 +7,7 @@
       <querytext>
       
 	begin
-	pa_photo.delete (:photo_id);
+	pa_photo.del (:photo_id);
 	end;
     
       </querytext>

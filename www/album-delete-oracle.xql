@@ -7,7 +7,7 @@
       <querytext>
       
     begin
-        pa_album.delete(:album_id);
+        pa_album.del(:album_id);
     end;
       </querytext>
 </fullquery>

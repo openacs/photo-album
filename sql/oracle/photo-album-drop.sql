@@ -112,7 +112,7 @@ show errors
 --begin
 --  for image_val in image_cursor
 --    loop
---      image.delete (
+--      image.del (
 --        item_id  => image_val.item_id
 --      );
 --    end loop;
@@ -130,7 +130,7 @@ declare
 begin
   for photo_val in photo_cursor
     loop
-      pa_photo.delete (
+      pa_photo.del (
         item_id  => photo_val.item_id
       );
     end loop;
@@ -148,7 +148,7 @@ declare
 begin
   for album_val in album_cursor
     loop
-      pa_album.delete (
+      pa_album.del (
         album_id  => album_val.item_id
       );
     end loop;
@@ -212,7 +212,7 @@ begin
         -- folder is a root folder, delete it from maping table to avoid fk constraint violation
         delete from pa_package_root_folder_map where folder_id = folder_val.folder_id;
       end if;
-      content_folder.delete (folder_id => folder_val.folder_id);
+      content_folder.del (folder_id => folder_val.folder_id);
     end loop;
 end;
 /

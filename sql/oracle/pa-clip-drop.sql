@@ -14,7 +14,7 @@ declare
 begin
   for coll_val in coll_cursor
     loop
-      acs_object.delete (object_id  => coll_val.object_id);
+      acs_object.del (object_id  => coll_val.object_id);
     end loop;
 end;
 /

@@ -38,7 +38,7 @@ if { [string equal $confirmed_p "t"]  } {
 
     db_exec_plsql drop_image {
 	begin
-	pa_photo.delete (:photo_id);
+	pa_photo.del (:photo_id);
 	end;
     }
 
