@@ -39,7 +39,7 @@ template::element create photo_upload upload_file  \
   -label "[_ photo-album._Choose_2]" -help_text "[_ photo-album._Use]" -datatype text -widget file 
 
 template::element create photo_upload caption -html { size 30 } \
-  -label "<#_Caption#>" -optional -help_text "[_ photo-album.lt_OPTIONAL_Displayed_on]" -datatype text 
+    -label "[_ photo-album.Caption]" -optional -help_text "[_ photo-album.lt_OPTIONAL_Displayed_on]" -datatype text 
 
 template::element create photo_upload description -html { size 50} \
   -label "[_ photo-album._Photo]" -optional -help_text "[_ photo-album.lt_OPTIONAL_Displayed_wh]" -datatype text
