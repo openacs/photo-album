@@ -185,7 +185,7 @@ drop function photo_album__get_root_folder (integer);
 -- drop package pa_album;
 drop function pa_album__delete_revision (integer);
 drop function pa_album__delete (integer);
-drop function pa_album__new (varchar, integer, integer, boolean, integer, varchar, varchar, varchar, text, integer, timestamp, varchar, integer, timestamp, varchar);
+drop function pa_album__new (varchar, integer, integer, boolean, integer, varchar, varchar, varchar, text, varchar, integer, timestamp, varchar, integer, timestamp, varchar);
 
 -- this needs to drop the pa_photo__ functions
 -- drop package pa_photo;  
@@ -214,7 +214,7 @@ begin
         -- folder is a root folder, delete it from maping table to avoid fk constraint violation
         delete from pa_package_root_folder_map where folder_id = folder_rec.item_id;
       end if;
-      PERFORM content_folder__delete (folder_rec.folder_id);
+      PERFORM content_folder__delete (folder_rec.item_id);
     end loop;
     return 0;
 end; ' language 'plpgsql';
@@ -222,5 +222,17 @@ end; ' language 'plpgsql';
 select tmp_pa_folder_delete2 ();
 
 drop function tmp_pa_folder_delete2 ();
-  
+
 drop table pa_package_root_folder_map;
+
+-- jarkko: this does NOT delete the table, so we do it
+-- below
+select acs_object_type__drop_type('photo_collection', 'f');
+
+drop table pa_collections;
+drop table pa_collection_photo_map;
+drop view all_photo_images;
+
+drop function pa_collection__new (integer, integer, varchar, timestamp, integer, varchar, integer);
+drop function pa_collection__delete (integer);
+drop function pa_collection__title (integer);
