@@ -7,7 +7,7 @@
     <initial-install-p>f</initial-install-p>
     <singleton-p>f</singleton-p>
     
-    <version name="4.6" url="http://xarg.net/download/photo-album-4.6.apm">
+    <version name="4.6.1" url="http://xarg.net/download/photo-album-4.6.1.apm">
     <database-support>
         <database>oracle</database>
         <database>postgresql</database>
@@ -28,162 +28,17 @@ permissions that control who can do and see what within a photo album
 application.  Includes sub-site support.
 
 Requires installation of ImageMagick and jhead on host machine.  See design doc
+
 for details.
 
 Heavily modified from the original Ars Digita version by
 davis@xarg.net.</description>
 
+        <provides url="photo-album" version="4.6.1" />
         <requires url="acs-content-repository" version="4.1"/>
         <requires url="acs-kernel" version="4.6.2"/>
         <requires url="acs-templating" version="4.1"/>
-        <provides url="photo-album" version="4.6"/>
 
-        <files>
-            <file type="package_spec" path="photo-album.info"/>
-            <file type="data_model" db_type="oracle" path="sql/oracle/pa-clip-drop.sql"/>
-            <file type="data_model" db_type="oracle" path="sql/oracle/permissions.sql"/>
-            <file type="data_model" db_type="oracle" path="sql/oracle/photo-album-clip.sql"/>
-            <file type="data_model_create" db_type="oracle" path="sql/oracle/photo-album-create.sql"/>
-            <file type="data_model_drop" db_type="oracle" path="sql/oracle/photo-album-drop.sql"/>
-            <file type="data_model" db_type="oracle" path="sql/oracle/plsql-packages.sql"/>
-            <file type="data_model_upgrade" db_type="oracle" path="sql/oracle/upgrade/upgrade-4.0.1-4.5.sql"/>
-            <file type="data_model" db_type="postgresql" path="sql/postgresql/pa-clip-drop.sql"/>
-            <file type="data_model" db_type="postgresql" path="sql/postgresql/permissions.sql"/>
-            <file type="data_model" db_type="postgresql" path="sql/postgresql/photo-album-clip.sql"/>
-            <file type="data_model_create" db_type="postgresql" path="sql/postgresql/photo-album-create.sql"/>
-            <file type="data_model_drop" db_type="postgresql" path="sql/postgresql/photo-album-drop.sql"/>
-            <file type="data_model" db_type="postgresql" path="sql/postgresql/pl-pgsql.sql"/>
-            <file type="data_model_upgrade" db_type="postgresql" path="sql/postgresql/upgrade/upgrade-4.0.1-4.5.sql"/>
-            <file type="query_file" db_type="oracle" path="tcl/photo-album-procs-oracle.xql"/>
-            <file type="query_file" db_type="postgresql" path="tcl/photo-album-procs-postgresql.xql"/>
-            <file type="tcl_procs" path="tcl/photo-album-procs.tcl"/>
-            <file type="query_file" path="tcl/photo-album-procs.xql"/>
-            <file type="query_file" db_type="oracle" path="www/album-add-oracle.xql"/>
-            <file type="query_file" db_type="postgresql" path="www/album-add-postgresql.xql"/>
-            <file type="content_page" path="www/album-add.adp"/>
-            <file type="content_page" path="www/album-add.tcl"/>
-            <file type="query_file" path="www/album-add.xql"/>
-            <file type="query_file" db_type="oracle" path="www/album-delete-oracle.xql"/>
-            <file type="query_file" db_type="postgresql" path="www/album-delete-postgresql.xql"/>
-            <file type="content_page" path="www/album-delete.adp"/>
-            <file type="content_page" path="www/album-delete.tcl"/>
-            <file type="query_file" path="www/album-delete.xql"/>
-            <file type="query_file" db_type="oracle" path="www/album-edit-oracle.xql"/>
-            <file type="query_file" db_type="postgresql" path="www/album-edit-postgresql.xql"/>
-            <file type="content_page" path="www/album-edit.adp"/>
-            <file type="content_page" path="www/album-edit.tcl"/>
-            <file type="query_file" path="www/album-edit.xql"/>
-            <file type="query_file" db_type="oracle" path="www/album-move-oracle.xql"/>
-            <file type="query_file" db_type="postgresql" path="www/album-move-postgresql.xql"/>
-            <file type="content_page" path="www/album-move.adp"/>
-            <file type="content_page" path="www/album-move.tcl"/>
-            <file type="query_file" path="www/album-move.xql"/>
-            <file type="query_file" db_type="oracle" path="www/album-oracle.xql"/>
-            <file type="query_file" db_type="postgresql" path="www/album-postgresql.xql"/>
-            <file type="content_page" path="www/album.adp"/>
-            <file type="content_page" path="www/album.tcl"/>
-            <file type="query_file" path="www/album.xql"/>
-            <file type="content_page" path="www/base-photo.adp"/>
-            <file type="content_page" path="www/base-photo.tcl"/>
-            <file type="query_file" path="www/base-photo.xql"/>
-            <file type="query_file" db_type="oracle" path="www/clipboard-ae-oracle.xql"/>
-            <file type="query_file" db_type="postgresql" path="www/clipboard-ae-postgresql.xql"/>
-            <file type="content_page" path="www/clipboard-ae.adp"/>
-            <file type="content_page" path="www/clipboard-ae.tcl"/>
-            <file type="query_file" db_type="oracle" path="www/clipboard-attach-oracle.xql"/>
-            <file type="query_file" db_type="postgresql" path="www/clipboard-attach-postgresql.xql"/>
-            <file type="content_page" path="www/clipboard-attach.tcl"/>
-            <file type="query_file" db_type="oracle" path="www/clipboard-remove-oracle.xql"/>
-            <file type="query_file" db_type="postgresql" path="www/clipboard-remove-postgresql.xql"/>
-            <file type="content_page" path="www/clipboard-remove.tcl"/>
-            <file type="content_page" path="www/clipboard-view.adp"/>
-            <file type="content_page" path="www/clipboard-view.tcl"/>
-            <file type="query_file" db_type="oracle" path="www/clipboards-oracle.xql"/>
-            <file type="query_file" db_type="postgresql" path="www/clipboards-postgresql.xql"/>
-            <file type="content_page" path="www/clipboards.adp"/>
-            <file type="content_page" path="www/clipboards.tcl"/>
-            <file type="documentation" path="www/doc/acs-admin-guide.html"/>
-            <file type="documentation" path="www/doc/ad-doc.css"/>
-            <file type="documentation" path="www/doc/design.html"/>
-            <file type="documentation" path="www/doc/dev-guide.html"/>
-            <file type="documentation" path="www/doc/for-everyone.html"/>
-            <file type="documentation" path="www/doc/index.html"/>
-            <file type="documentation" path="www/doc/release-notes.html"/>
-            <file type="documentation" path="www/doc/xml/design.xml"/>
-            <file type="documentation" path="www/doc/xml/index.xml"/>
-            <file type="documentation" path="www/doc/xml/requirements.xml"/>
-            <file type="query_file" db_type="oracle" path="www/folder-add-oracle.xql"/>
-            <file type="query_file" db_type="postgresql" path="www/folder-add-postgresql.xql"/>
-            <file type="content_page" path="www/folder-add.adp"/>
-            <file type="content_page" path="www/folder-add.tcl"/>
-            <file type="query_file" path="www/folder-add.xql"/>
-            <file type="query_file" db_type="oracle" path="www/folder-delete-oracle.xql"/>
-            <file type="query_file" db_type="postgresql" path="www/folder-delete-postgresql.xql"/>
-            <file type="content_page" path="www/folder-delete.adp"/>
-            <file type="content_page" path="www/folder-delete.tcl"/>
-            <file type="query_file" path="www/folder-delete.xql"/>
-            <file type="query_file" db_type="oracle" path="www/folder-edit-oracle.xql"/>
-            <file type="query_file" db_type="postgresql" path="www/folder-edit-postgresql.xql"/>
-            <file type="content_page" path="www/folder-edit.adp"/>
-            <file type="content_page" path="www/folder-edit.tcl"/>
-            <file type="query_file" db_type="oracle" path="www/folder-move-oracle.xql"/>
-            <file type="query_file" db_type="postgresql" path="www/folder-move-postgresql.xql"/>
-            <file type="content_page" path="www/folder-move.adp"/>
-            <file type="content_page" path="www/folder-move.tcl"/>
-            <file type="query_file" path="www/folder-move.xql"/>
-            <file type="content_page" path="www/graphics/album.gif"/>
-            <file type="content_page" path="www/graphics/folder.gif"/>
-            <file type="content_page" path="www/images/1x1.jpg"/>
-            <file type="content_page" path="www/images/index.vuh"/>
-            <file type="query_file" db_type="oracle" path="www/index-oracle.xql"/>
-            <file type="query_file" db_type="postgresql" path="www/index-postgresql.xql"/>
-            <file type="content_page" path="www/index.adp"/>
-            <file type="content_page" path="www/index.tcl"/>
-            <file type="content_page" path="www/pa_master.adp"/>
-            <file type="content_page" path="www/pa_master.tcl"/>
-            <file type="query_file" db_type="oracle" path="www/photo-add-2-oracle.xql"/>
-            <file type="query_file" db_type="postgresql" path="www/photo-add-2-postgresql.xql"/>
-            <file type="content_page" path="www/photo-add-2.tcl"/>
-            <file type="query_file" path="www/photo-add-2.xql"/>
-            <file type="query_file" db_type="oracle" path="www/photo-add-oracle.xql"/>
-            <file type="query_file" db_type="postgresql" path="www/photo-add-postgresql.xql"/>
-            <file type="content_page" path="www/photo-add.adp"/>
-            <file type="content_page" path="www/photo-add.tcl"/>
-            <file type="query_file" db_type="oracle" path="www/photo-delete-oracle.xql"/>
-            <file type="query_file" db_type="postgresql" path="www/photo-delete-postgresql.xql"/>
-            <file type="content_page" path="www/photo-delete.adp"/>
-            <file type="content_page" path="www/photo-delete.tcl"/>
-            <file type="query_file" path="www/photo-delete.xql"/>
-            <file type="query_file" db_type="oracle" path="www/photo-edit-oracle.xql"/>
-            <file type="query_file" db_type="postgresql" path="www/photo-edit-postgresql.xql"/>
-            <file type="content_page" path="www/photo-edit.adp"/>
-            <file type="content_page" path="www/photo-edit.tcl"/>
-            <file type="query_file" path="www/photo-edit.xql"/>
-            <file type="query_file" db_type="oracle" path="www/photo-iconic-oracle.xql"/>
-            <file type="query_file" db_type="postgresql" path="www/photo-iconic-postgresql.xql"/>
-            <file type="content_page" path="www/photo-iconic.tcl"/>
-            <file type="query_file" db_type="oracle" path="www/photo-move-oracle.xql"/>
-            <file type="query_file" db_type="postgresql" path="www/photo-move-postgresql.xql"/>
-            <file type="content_page" path="www/photo-move.adp"/>
-            <file type="content_page" path="www/photo-move.tcl"/>
-            <file type="query_file" path="www/photo-move.xql"/>
-            <file type="query_file" db_type="oracle" path="www/photo-oracle.xql"/>
-            <file type="query_file" db_type="postgresql" path="www/photo-postgresql.xql"/>
-            <file type="content_page" path="www/photo.adp"/>
-            <file type="content_page" path="www/photo.tcl"/>
-            <file type="query_file" path="www/photo.xql"/>
-            <file type="content_page" path="www/photos-add-2.adp"/>
-            <file type="content_page" path="www/photos-add-2.tcl"/>
-            <file type="content_page" path="www/photos-add.adp"/>
-            <file type="content_page" path="www/photos-add.tcl"/>
-            <file type="query_file" path="www/photos-add.xql"/>
-            <file type="content_page" path="www/photos-edit-2.adp"/>
-            <file type="content_page" path="www/photos-edit-2.tcl"/>
-            <file type="query_file" db_type="oracle" path="www/photos-edit-oracle.xql"/>
-            <file type="query_file" db_type="postgresql" path="www/photos-edit-postgresql.xql"/>
-            <file type="content_page" path="www/photos-edit.adp"/>
-            <file type="content_page" path="www/photos-edit.tcl"/>
-        </files>
         <callbacks>
         </callbacks>
         <parameters>
