@@ -12,7 +12,7 @@ ad_page_contract {
     collection_id:integer,notnull
 }
 
-ad_maybe_redirect_for_registration
+auth::require_login
 
 set user_id [ad_conn user_id]
 set peeraddr [ad_conn peeraddr]
