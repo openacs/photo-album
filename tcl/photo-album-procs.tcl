@@ -146,7 +146,7 @@ ad_proc pa_context_bar_list {
     set root_folder_id [pa_get_root_folder]
 
     if {$item_id == $root_folder_id} {
-	return
+	return [list $final]
     }
 
     if [empty_string_p $final] {
