@@ -45,7 +45,7 @@ ad_proc -private pa_get_root_folder_internal {
 } {
     set folder_id [db_string pa_root_folder "select photo_album.get_root_folder(:package_id) from dual"]
 
-    if [empty_string_p $folder_id] {
+    if { [empty_string_p $folder_id] } {
 	set folder_id [pa_new_root_folder $package_id]
     }
     return $folder_id
@@ -790,24 +790,35 @@ ad_proc -public pa_load_images {
     {-story {}}
     {-caption {}}
     {-feedback_mode 0}
+    {-package_id {}}
     image_files 
     album_id 
     user_id
 } { 
     load a list of files to the provided album owned by user_id
 
-    -remove 1 to delete the file after moving to the content repository
-    -client_name provide the name of the upload file (for individual uploads)
-    -strip_prefix the prefix to remove from the filename (for expanded archives)
-    image_files list of files to process
-    -feedback_mode to provide much info of the loading process on a bulk upload
+    @param remove 1 to delete the file after moving to the content repository
+
+    @param client_name provide the name of the upload file (for individual uploads)
+
+    @param strip_prefix the prefix to remove from the filename (for expanded archives)
+
+    @param image_files list of files to process
+
+    @param feedback_mode to provide much info of the loading process on a bulk upload
+
+    @param package_id Optionally specify the package_id owning the album, if this is not called
+                      from a page within the photo-album package itself.
 } { 
     set new_ids [list]
     set peeraddr [ad_conn peeraddr]
 
     # Create the tmp dir if needed 
-    set tmp_path [ad_parameter FullTempPhotoDir]
-    if ![file exists $tmp_path] {
+    if { [empty_string_p $package_id] } {
+        set package_id [ad_conn package_id]
+    }
+    set tmp_path [parameter::get -parameter FullTempPhotoDir -package_id $package_id]
+    if { ![file exists $tmp_path] } {
         ns_log Debug "pa_load_images: Making: tmp_photo_album_dir_path $tmp_path"
         ns_mkdir $tmp_path
     }
@@ -833,6 +844,7 @@ ad_proc -public pa_load_images {
 
         if {[catch {set base_info [pa_file_info $image_file]} errMsg]} {
             ns_log Warning "pa_load_images: error parsing file data $image_file Error: $errMsg"
+            error "pa_load_images: error parsing file data $image_file Error: $errMsg"
             continue
         }
 
@@ -899,7 +911,7 @@ ad_proc -public pa_load_images {
         
         # Handle viewer file 
         #
-        set viewer_size [ad_parameter ViewerSize]
+        set viewer_size [parameter::get -parameter ViewerSize -package_id $package_id]
         set viewer_filename [pa_make_file_name -ext $BaseExt $viewer_rev_id]
         set full_viewer_filename [file join ${tmp_path} ${viewer_filename}]
         pa_make_new_image $image_file ${full_viewer_filename} $viewer_size
@@ -907,7 +919,7 @@ ad_proc -public pa_load_images {
 
         # Handle thumb file 
         #
-        set thumb_size [ad_parameter ThumbnailSize]
+        set thumb_size [parameter::get -parameter ThumbnailSize -package_id $package_id]
         set thumb_filename [pa_make_file_name -ext $BaseExt $thumb_rev_id]
         set full_thumb_filename [file join $tmp_path $thumb_filename]
         pa_make_new_image ${full_viewer_filename} ${full_thumb_filename} $thumb_size
