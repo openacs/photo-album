@@ -53,7 +53,7 @@ and root.item_id = :root_folder_id
 
 	<partialquery name="size_clause_normal">
 		<querytext>
-      ccr2.relation_tag = 'normal'
+      ccr2.relation_tag = 'viewer'
 		</querytext>
 	</partialquery>
 

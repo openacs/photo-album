@@ -15,7 +15,7 @@
 # Expects:
 #  package_id:optional
 #  url:optional
-#  size:optional (thumb, normal) (thumb is default)
+#  size:optional (thumb, viewer) (thumb is default)
 #
 
 
@@ -52,7 +52,7 @@ if { ![info exists size] } {
 }
 
 switch -exact $size {
-    normal {
+    viewer {
 	# Get the normal size photo
 	set size_clause [db_map size_clause_normal]
     }
