@@ -50,9 +50,13 @@ set root_folder_id [pa_get_root_folder]
 
 set old_album_id [db_string get_parent_album {}]
 
-ad_require_permission $photo_id write
-ad_require_permission $old_album_id write
+set write_p [permission::permission_p -object_id $photo_id \
+                                      -party_id $user_id \
+		 -privilege "write"]
 
+set album_write_p [permission::permission_p -object_id $old_album_id \
+                                      -party_id $user_id \
+		 -privilege "write"]
 
 # These lines are to uncache the image in Netscape, Mozilla. 
 # IE6 & Safari (mac) have a bug with the images cache
@@ -121,13 +125,13 @@ if $move_p {
 
 	    # not using content_item move because is only accepts 
 	    # a folder_id as target not another content_item
-7
+
 	    set rel_id [db_string photo_rel_id {}]
 
 	    db_dml photo_move {}
-	    
+
 	    db_dml photo_move2 {}
-	    
+
 	    db_dml context_update {}
 	    
 	} on_error {
