@@ -10,10 +10,14 @@
 #  <include src="/packages/photo-album/www/random-photo" package_id="1473"> where 1473
 #    is the package_id of your photo-album instance.
 # or
-#  <include src="/packages/photo-album/www/random-photo" photo_id="1473"> where 9912
+#  <include src="/packages/photo-album/www/random-photo" photo_id="9912"> where 9912
 #    is the photo_id of a photo in one of your albums.
+# or
+#  <include src="/packages/photo-album/www/random-photo" album_id="2983"> where 2983
+#    is the album_id of an album in one of your packages. 
+#  It is not possible to give package_id and album_id at the same time (as it would not make sense anyway).
 
-# If neither package_id nor url is defined, the random photo is taken from all photos
+# If neither package_id, album_id nor url is defined, the random photo is taken from all photos
 # in the system.
 
 # Expects:
@@ -70,15 +74,19 @@ switch -exact $size {
 # If they supplied neither url nor package_id, the random photo
 # is shuffled across all the photos in the system.
 
-if {![info exists package_id]} {
-    if {![info exists photo_id]} {
-	set photo_clause ""
-    } else {
+if {[info exists album_id]} {
+    set photo_clause "and ci.parent_id = :album_id"
+} else {
+    set photo_clause ""
+}
 
+if {![info exists package_id]} {
+    if {[info exists photo_id]} {
 	# A photo ID was provided. Limit the query to that photo.
 
 	set photo_clause [db_map photo_clause]
     }
+
     if {[catch {db_1row get_random_photo_all {}} err_msg]} {
 	ns_log error "No random photo found: $err_msg"
 	set found_p 0
