@@ -59,8 +59,8 @@ select acs_object_type__create_type(
         'collection_id',
         'photo_album',
         'f',
-        'pa_collection__name',
-        null
+        null,
+        'pa_collection__title'
     );
 
 
