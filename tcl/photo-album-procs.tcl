@@ -370,7 +370,9 @@ ad_proc -public pa_make_new_image {
     }
     ns_log debug "pa_make_new_image: Start convert, making $new_image geometry $geometry"
     exec convert -geometry $geometry -interlace None -sharpen 1x2 $base_image $new_image
-    exec jhead -dt $new_image
+    if {[catch {exec jhead -dt $new_image} errmsg]} { 
+        ns_log warning "pa_make_new_image: jhead failed with error - $errmsg"
+    }
     ns_log debug "pa_make_new_image: Done convert for $new_image"
 }
 
@@ -1006,7 +1008,8 @@ ad_proc -public pa_get_exif_data {
 
     # try to get the data.
     if {[catch {set results [exec jhead $file]} errmsg]} { 
-        return -code error $errmsg
+        ns_log warning "pa_get_exif_data: jhead failed with error - $errmsg"
+        return {}
     } elseif {[string match {Not JPEG:*} $results]} { 
         return {}
     }
