@@ -4,7 +4,7 @@
   <msg key="_Album">Albumsbeskrivelse</msg>
   <msg key="_Album_1">Albumets historie</msg>
   <msg key="_Album_2">Albumnavn</msg>
-  <msg key="_An">Vi fikk en feil når vi skulle behandle det du har lagt inn. Vennligst informer systemeier om dette. &lt;pre&gt;$errmsg&lt;/pre&gt;</msg>
+  <msg key="_An">Vi fikk en feil når vi skulle behandle det du har lagt inn. Vennligst informer systemeier om dette. &lt;pre&gt;%errmsg%&lt;/pre&gt;</msg>
   <msg key="_An_1">Vi fikk en feil når vi skulle behandle det du har lagt inn. Vennligst informer systemeier om dette.</msg>
   <msg key="_Choose">Velg Ny mappe for Album</msg>
   <msg key="_Choose_1">Velg Ny mappe for Mappe</msg>
@@ -18,16 +18,16 @@
   <msg key="_Edit">Rediger egenskaper for Album</msg>
   <msg key="_Edit_1">Rediger egenskaper for Mappe</msg>
   <msg key="_Edit_2">Rediger egenskaper for Bilde</msg>
-  <msg key="_Edit_3">Rediger siden $page </msg>
-  <msg key="_Edit_4">Rediger siden $page </msg>
-  <msg key="_Either">Enten er det allerede et album med navnet \&quot;$name\&quot; eller så har du klikket på knappen mer enn en gang. Du kan &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt; gå tilbake til innholdsfortegnelsen&lt;/a&gt; for å se om albumet ditt er der.</msg>
-  <msg key="_Either_1">Enten er det allerede et album i den spesifiserte mappen med navn \&quot;$folder_name\&quot; eller så har du klikket knappen mer enn en gang. Du kan &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt;gå tilbake til den nye mappen&lt;/a&gt; og se om albumet ditt er der.</msg>
-  <msg key="_Either_2">Enten er det allerede en mappe som heter \&quot;$name\&quot; eller så har du klikket på knappen mer enn en gang. Du kan a href=\&quot;index?parent_id=$parent_id\&quot;&gt; gå tilbake til oversikten&lt;/a&gt; og se om mappen din er der.</msg>
-  <msg key="_Either_3">Enten er det allerede en mappe i den spesifiserte mappen \&quot;$folder_name\&quot; eller så har du klikket på knappen mer enn en gang. Du kan &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt;gå tilbake til den nye mappen&lt;/a&gt; og se om mappen din er der.</msg>
-  <msg key="_Either_4">Enten er det allerede et bilde i den spesifiserte mappen som heter \&quot;$filename\&quot; eller så har du klikket på knappen mer enn en gang. Du kan &lt;a href=\&quot;album?album_id=$new_album_id\&quot;&gt;gå tilbake til det nye albumet&lt;/a&gt; og se om bildet ditt er der.</msg>
+  <msg key="_Edit_3">Rediger siden %page% </msg>
+  <msg key="_Edit_4">Rediger siden %page% </msg>
+  <msg key="_Either">Enten er det allerede et album med navnet \&quot;%name%\&quot; eller så har du klikket på knappen mer enn en gang. Du kan &lt;a href=\&quot;index?parent_id=%parent_id%\&quot;&gt; gå tilbake til innholdsfortegnelsen&lt;/a&gt; for å se om albumet ditt er der.</msg>
+  <msg key="_Either_1">Enten er det allerede et album i den spesifiserte mappen med navn \&quot;%folder_name%\&quot; eller så har du klikket knappen mer enn en gang. Du kan &lt;a href=\&quot;?folder_id=%new_folder_id%\&quot;&gt;gå tilbake til den nye mappen&lt;/a&gt; og se om albumet ditt er der.</msg>
+  <msg key="_Either_2">Enten er det allerede en mappe som heter \&quot;%name%\&quot; eller så har du klikket på knappen mer enn en gang. Du kan a href=\&quot;index?parent_id=%parent_id%\&quot;&gt; gå tilbake til oversikten&lt;/a&gt; og se om mappen din er der.</msg>
+  <msg key="_Either_3">Enten er det allerede en mappe i den spesifiserte mappen \&quot;%folder_name%\&quot; eller så har du klikket på knappen mer enn en gang. Du kan &lt;a href=\&quot;?folder_id=%new_folder_id%\&quot;&gt;gå tilbake til den nye mappen&lt;/a&gt; og se om mappen din er der.</msg>
+  <msg key="_Either_4">Enten er det allerede et bilde i den spesifiserte mappen som heter \&quot;%filename%\&quot; eller så har du klikket på knappen mer enn en gang. Du kan &lt;a href=\&quot;album?album_id=%new_album_id%\&quot;&gt;gå tilbake til det nye albumet&lt;/a&gt; og se om bildet ditt er der.</msg>
   <msg key="_Folder">Mappenavn</msg>
   <msg key="_Folder_1">Mappebeskrivelse</msg>
-  <msg key="_For">For å vise dette bildet &lt;a href=photo-edit?photo_id=$photo_id&gt;rediger egenskapene&lt;/a&gt; og ta bort avmerkingen for valget skjul.</msg>
+  <msg key="_For">For å vise dette bildet &lt;a href=photo-edit?photo_id=%photo_id%&gt;rediger egenskapene&lt;/a&gt; og ta bort avmerkingen for valget skjul.</msg>
   <msg key="_Full">Bilde i full størrelse</msg>
   <msg key="_Hide">Skjul html-kilde for bildet</msg>
   <msg key="_Modify">Endre parametre på denne pakken</msg>
@@ -55,13 +55,13 @@
   <msg key="_Upload">Last opp bilder</msg>
   <msg key="_Use">Bruk \&quot;søk...\&quot;-knappen for å finne en fil</msg>
   <msg key="_Use_1">Bruk \&quot;søk...\&quot;-knappen for å finne din fil, så klikker du \&quot;Åpne\&quot;</msg>
-  <msg key="_We">Vi har fått en feil vi ikke kunne identifisere. Vennligst informer systemeier om dette. &lt;pre&gt;$errmsg&lt;/pre&gt;</msg>
+  <msg key="_We">Vi har fått en feil vi ikke kunne identifisere. Vennligst informer systemeier om dette. &lt;pre&gt;%errmsg%&lt;/pre&gt;</msg>
   <msg key="_We_1">Vi har fått en feil vi ikke kunne identifisere. Vennligst informer systemeier om dette.</msg>
   <msg key="_Yes_Delete">Ja, slett det</msg>
   <msg key="_You">Du må gi klippebordet et navn</msg>
   <msg key="_You_1">Du kan ikke slette rotmappen.</msg>
   <msg key="_You_2">Du kan ikke flytte rotmappen.</msg>
-  <msg key="_Your">Du kan klikke&lt;a href=album?album_id=$old_album_id&gt; her &lt;/a&gt; for å se alle bildene i albumet</msg>
+  <msg key="_Your">Du kan klikke&lt;a href=album?album_id=%old_album_id%&gt; her &lt;/a&gt; for å se alle bildene i albumet</msg>
   <msg key="Add_a_new_album">Legg inn et nytt album</msg>
   <msg key="Add_a_new_folder">Legg inn en ny mappe</msg>
   <msg key="Album_Name">Albumnavn</msg>

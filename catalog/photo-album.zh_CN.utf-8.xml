@@ -4,7 +4,7 @@
   <msg key="_Album">相册描述</msg>
   <msg key="_Album_1">相册故事</msg>
   <msg key="_Album_2">相册名称</msg>
-  <msg key="_An">处理输入时出错，请将有关情况通知系统所有人。&lt;pre&gt;$errmsg&lt;/pre&gt; </msg>
+  <msg key="_An">处理输入时出错，请将有关情况通知系统所有人。&lt;pre&gt;%errmsg%&lt;/pre&gt; </msg>
   <msg key="_An_1">处理输入时出错，请将有关情况通知系统所有人。</msg>
   <msg key="_Choose">为相册选择新文件夹</msg>
   <msg key="_Choose_1">为文件夹选择新文件夹</msg>
@@ -18,16 +18,16 @@
   <msg key="_Edit">编辑相册属性</msg>
   <msg key="_Edit_1">编辑文件夹属性</msg>
   <msg key="_Edit_2">编辑照片属性</msg>
-  <msg key="_Edit_3">编辑页面$page</msg>
-  <msg key="_Edit_4">编辑页面$page</msg>
-  <msg key="_Either">已有一个名为\&quot;$name\&quot;的相册存在，或重复点击了按钮。你可以&lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt;返回目录列表&lt;/a&gt;查看该相册是否已存在。</msg>
-  <msg key="_Either_1">在名为\&quot;$folder_name\&quot; 文件夹中已有一个相册存在或你重复点击了此按钮。你可以&lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt;返回此文件夹&lt;/a&gt;查看该相册是否存在。 </msg>
-  <msg key="_Either_2">名为\&quot;$name\&quot; 文件夹已存在或你重复点击了此按钮。你可以&lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt;返回目录列表&lt;/a&gt;查看该文件夹是否存在。 </msg>
-  <msg key="_Either_3">在名为\&quot;$folder_name\&quot; 文件夹中已有一个文件夹存在或你重复点击了此按钮。你可以&lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt;返回此文件夹&lt;/a&gt;查看文件夹是否存在。</msg>
-  <msg key="_Either_4">在名为\&quot;$filename\&quot; 相册中已有一个照片存在或你重复点击了此按钮。你可以&lt;a href=\&quot;album?album_id=$new_album_id\&quot;&gt;返回此相册&lt;/a&gt;查看照片是否存在。</msg>
+  <msg key="_Edit_3">编辑页面%page%</msg>
+  <msg key="_Edit_4">编辑页面%page%</msg>
+  <msg key="_Either">已有一个名为\&quot;%name%\&quot;的相册存在，或重复点击了按钮。你可以&lt;a href=\&quot;index?parent_id=%parent_id%\&quot;&gt;返回目录列表&lt;/a&gt;查看该相册是否已存在。</msg>
+  <msg key="_Either_1">在名为\&quot;%folder_name%\&quot; 文件夹中已有一个相册存在或你重复点击了此按钮。你可以&lt;a href=\&quot;?folder_id=%new_folder_id%\&quot;&gt;返回此文件夹&lt;/a&gt;查看该相册是否存在。 </msg>
+  <msg key="_Either_2">名为\&quot;%name%\&quot; 文件夹已存在或你重复点击了此按钮。你可以&lt;a href=\&quot;index?parent_id=%parent_id%\&quot;&gt;返回目录列表&lt;/a&gt;查看该文件夹是否存在。 </msg>
+  <msg key="_Either_3">在名为\&quot;%folder_name%\&quot; 文件夹中已有一个文件夹存在或你重复点击了此按钮。你可以&lt;a href=\&quot;?folder_id=%new_folder_id%\&quot;&gt;返回此文件夹&lt;/a&gt;查看文件夹是否存在。</msg>
+  <msg key="_Either_4">在名为\&quot;%filename%\&quot; 相册中已有一个照片存在或你重复点击了此按钮。你可以&lt;a href=\&quot;album?album_id=%new_album_id%\&quot;&gt;返回此相册&lt;/a&gt;查看照片是否存在。</msg>
   <msg key="_Folder">文件夹名</msg>
   <msg key="_Folder_1">文件夹描述</msg>
-  <msg key="_For">显示照片&lt;a href=photo-edit?photo_id=$photo_id&gt;编辑属性&lt;/a&gt;未选择选项隐藏</msg>
+  <msg key="_For">显示照片&lt;a href=photo-edit?photo_id=%photo_id%&gt;编辑属性&lt;/a&gt;未选择选项隐藏</msg>
   <msg key="_Full">原大小图片</msg>
   <msg key="_Hide">隐藏图片的html源</msg>
   <msg key="_Modify">修改打包参数</msg>
@@ -55,13 +55,13 @@
   <msg key="_Upload">上传照片</msg>
   <msg key="_Use">使用\&quot;Browse...\&quot;定位文件</msg>
   <msg key="_Use_1">使用\&quot;Browse...\&quot;定位文件，然后单击\&quot;Open\&quot;</msg>
-  <msg key="_We">发现不知名错误。请通知系统所有者。&lt;pre&gt;$errmsg&lt;/pre&gt;</msg>
+  <msg key="_We">发现不知名错误。请通知系统所有者。&lt;pre&gt;%errmsg%&lt;/pre&gt;</msg>
   <msg key="_We_1">发现不知名错误。请通知系统所有者。</msg>
   <msg key="_Yes_Delete">是，删除</msg>
   <msg key="_You">必须为剪贴板输入非空名称</msg>
   <msg key="_You_1">不许删除根文件夹</msg>
   <msg key="_You_2">不能移动根文件夹。</msg>
-  <msg key="_Your">可以单击&lt;a href=album?album_id=$old_album_id&gt;这里&lt;/a&gt;浏览相册中所有照片</msg>
+  <msg key="_Your">可以单击&lt;a href=album?album_id=%old_album_id%&gt;这里&lt;/a&gt;浏览相册中所有照片</msg>
   <msg key="Add_a_new_album">增加新相册</msg>
   <msg key="Add_a_new_folder">增加新文件夹</msg>
   <msg key="Album_Name">相册名称</msg>

@@ -4,7 +4,7 @@
   <msg key="_Album">Descripció de l'àlbum </msg>
   <msg key="_Album_1">Història de l'àlbum</msg>
   <msg key="_Album_2">Nom de l'àlbum </msg>
-  <msg key="_An">S'ha produït un error mentre es processava la informació. Per favor, feu-ho saber a l'administrador del sistema. &lt;pre&gt;$errmsg&lt;/pre&gt; </msg>
+  <msg key="_An">S'ha produït un error mentre es processava la informació. Per favor, feu-ho saber a l'administrador del sistema. &lt;pre&gt;%errmsg%&lt;/pre&gt; </msg>
   <msg key="_An_1">S'ha produït un error mentre es processava la informació. Per favor, feu-ho saber a l'administrador del sistema. 
 
 
@@ -28,14 +28,14 @@
   <msg key="_Edit_2">Editar els atributs de les fotos</msg>
   <msg key="_Edit_3">Editar la pàgina %page%</msg>
   <msg key="_Edit_4">Editar la pàgina %page%</msg>
-  <msg key="_Either">Potser que ja hi haja un àlbum amb el nom \&quot;$name\&quot; o potser hàgeu clicat en el botó més d'una vegada. Podeu &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt; tornar al directori principal&lt;/a&gt; per veure si el vostre àlbum s'hi troba.</msg>
-  <msg key="_Either_1">Potser que ja hi haja un àlbum en la carpeta especificada amb el nom \&quot;$folder_name\&quot; o potser que hàgeu clicat en el botó més d'una vegada. Podeu &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt; tornar a la nova carpeta&lt;/a&gt; per veure si hi és el vostre àlbum. </msg>
-  <msg key="_Either_2">Potser que ja hi haja una carpeta amb el nom \&quot;$name\&quot; o potser hàgeu clicat en el botó més d'una vegada. Podeu &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt; tornar al directori principal&lt;/a&gt; per veure si hi és la carpeta. </msg>
-  <msg key="_Either_3">Potser que ja hi haja una carpeta en la carpeta especificada amb el nom \&quot;$folder_name\&quot; o potser que hàgeu clicat en el botó més d'una vegada. Podeu &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt; tornar a la nova carpeta&lt;/a&gt; per veure si hi és la carpeta.</msg>
-  <msg key="_Either_4">Potser que ja hi haja una foto en l'àlbum especificat amb el nom \&quot;$filename\&quot; o potser hàgeu clicat en el botó més d'una vegada. Podeu &lt;a href=\&quot;album?album_id=$new_album_id\&quot;&gt; tornar al nou àlbum&lt;/a&gt; per veure si hi és la foto. </msg>
+  <msg key="_Either">Potser que ja hi haja un àlbum amb el nom \&quot;%name%\&quot; o potser hàgeu clicat en el botó més d'una vegada. Podeu &lt;a href=\&quot;index?parent_id=%parent_id%\&quot;&gt; tornar al directori principal&lt;/a&gt; per veure si el vostre àlbum s'hi troba.</msg>
+  <msg key="_Either_1">Potser que ja hi haja un àlbum en la carpeta especificada amb el nom \&quot;%folder_name%\&quot; o potser que hàgeu clicat en el botó més d'una vegada. Podeu &lt;a href=\&quot;?folder_id=%new_folder_id%\&quot;&gt; tornar a la nova carpeta&lt;/a&gt; per veure si hi és el vostre àlbum. </msg>
+  <msg key="_Either_2">Potser que ja hi haja una carpeta amb el nom \&quot;%name%\&quot; o potser hàgeu clicat en el botó més d'una vegada. Podeu &lt;a href=\&quot;index?parent_id=%parent_id%\&quot;&gt; tornar al directori principal&lt;/a&gt; per veure si hi és la carpeta. </msg>
+  <msg key="_Either_3">Potser que ja hi haja una carpeta en la carpeta especificada amb el nom \&quot;%folder_name%\&quot; o potser que hàgeu clicat en el botó més d'una vegada. Podeu &lt;a href=\&quot;?folder_id=%new_folder_id%\&quot;&gt; tornar a la nova carpeta&lt;/a&gt; per veure si hi és la carpeta.</msg>
+  <msg key="_Either_4">Potser que ja hi haja una foto en l'àlbum especificat amb el nom \&quot;%filename%\&quot; o potser hàgeu clicat en el botó més d'una vegada. Podeu &lt;a href=\&quot;album?album_id=%new_album_id%\&quot;&gt; tornar al nou àlbum&lt;/a&gt; per veure si hi és la foto. </msg>
   <msg key="_Folder">Nom de la carpeta</msg>
   <msg key="_Folder_1">Descripció de la carpeta</msg>
-  <msg key="_For">Per a mostrar esta foto &lt;a href=photo-edit?photo_id=$photo_id&gt; edite els atributs&lt;/a&gt; i desmarcatge l'opció &quot;amagar&quot; </msg>
+  <msg key="_For">Per a mostrar esta foto &lt;a href=photo-edit?photo_id=%photo_id%&gt; edite els atributs&lt;/a&gt; i desmarcatge l'opció &quot;amagar&quot; </msg>
   <msg key="_Full">Imatge en grandària real</msg>
   <msg key="_Hide">Ocultar el codi html de la imatge </msg>
   <msg key="_Modify">Modificar els paràmetres d'aquest paquet </msg>
@@ -63,13 +63,13 @@
   <msg key="_Upload">Pujar fotos </msg>
   <msg key="_Use">Useu el botó \&quot;Browse..\&quot; per a buscar un arxiu </msg>
   <msg key="_Use_1">Useu el botó \&quot;Browse...\&quot; per a buscar el vostre arxiu i després feu clic en \&quot;Open\&quot; </msg>
-  <msg key="_We">S'ha produït un error que no hem pogut identificar. Per favor, feu-ho saber a l'administrador del sistema. &lt;pre&gt;$errmsg&lt;/pre&gt; </msg>
+  <msg key="_We">S'ha produït un error que no hem pogut identificar. Per favor, feu-ho saber a l'administrador del sistema. &lt;pre&gt;%errmsg%&lt;/pre&gt; </msg>
   <msg key="_We_1">S'ha produït un error que no hem pogut identificar. Per favor, feu-ho saber a l'administrador del sistema. </msg>
   <msg key="_Yes_Delete">Si, eliminar </msg>
   <msg key="_You">Heu de proveir un nom no buit per al clips </msg>
   <msg key="_You_1">No hauríeu d'eliminar la carpeta arrel. </msg>
   <msg key="_You_2">No hauríeu de moure la carpeta arrel.</msg>
-  <msg key="_Your">Podeu fer clic &lt;a href=album?album_id=$old_album_id&gt;aquí&lt;/a&gt; per a veure totes les fotos de l'àlbum</msg>
+  <msg key="_Your">Podeu fer clic &lt;a href=album?album_id=%old_album_id%&gt;aquí&lt;/a&gt; per a veure totes les fotos de l'àlbum</msg>
   <msg key="Add_a_new_album">Agregar un nou àlbum </msg>
   <msg key="Add_a_new_folder">Afegir una nova carpeta</msg>
   <msg key="Album_Name">Nom de l'àlbum</msg>

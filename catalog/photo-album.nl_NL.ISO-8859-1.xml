@@ -4,7 +4,7 @@
   <msg key="_Album">Albumbeschrijving</msg>
   <msg key="_Album_1">Albumrelaas</msg>
   <msg key="_Album_2">Albumnaam</msg>
-  <msg key="_An">Er is een fout bij het verwerken van de input. Breng de systeembeheerder hiervan op de hoogte. &lt;pre&gt;$errmsg&lt;/pre&gt;</msg>
+  <msg key="_An">Er is een fout bij het verwerken van de input. Breng de systeembeheerder hiervan op de hoogte. &lt;pre&gt;%errmsg%&lt;/pre&gt;</msg>
   <msg key="_An_1">Er is een fout bij het verwerken van de input. Breng de systeembeheerder hiervan op de hoogte.</msg>
   <msg key="_Choose">Nieuwe map voor het album kiezen</msg>
   <msg key="_Choose_1">Nieuwe map voor de map kiezen</msg>
@@ -18,16 +18,16 @@
   <msg key="_Edit">Album instellingen bewerken</msg>
   <msg key="_Edit_1">Map instellingen bewerken</msg>
   <msg key="_Edit_2">Album instellingen bewerken</msg>
-  <msg key="_Edit_3">Pagina $page bewerken</msg>
-  <msg key="_Edit_4">Pagina $page bewerken</msg>
-  <msg key="_Either">Er bestaat al een album met de naam \&quot;$name\&quot; of er werd meer dan één keer op de knop geklikt. &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt;Keer terug naar het mapoverzicht&lt;/a&gt; om te zien of het album is aangemaakt.</msg>
-  <msg key="_Either_1">Er bestaat al een album in de gekozen map met de naam \&quot;$folder_name\&quot; of er werd meer dan één keer op de knop geklikt. &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt;Keer terug naar de nieuwe map&lt;/a&gt; om te zien of het album is aangemaakt.</msg>
-  <msg key="_Either_2">Er bestaat al een map met de naam \&quot;$name\&quot; of er werd meer dan één keer op de knop geklikt. &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt;Keer terug naar het mapoverzicht&lt;/a&gt; om te zien of de map is aangemaakt.</msg>
-  <msg key="_Either_3">Er bestaat al een map in de gekozen map met de naam \&quot;$folder_name\&quot; of er werd meer dan één keer op de knop geklikt. &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt;Keer terug naar de nieuwe map&lt;/a&gt; om te zien of de map is aangemaakt.</msg>
-  <msg key="_Either_4">Er bestaat al een foto in het gekozen album met de naam \&quot;$filename\&quot; of er werd meer dan één keer op de knop geklikt. &lt;a href=\&quot;album?album_id=$new_album_id\&quot;&gt;Keer terug naar het nieuwe album&lt;/a&gt; om te zien of de foto is aangemaakt.</msg>
+  <msg key="_Edit_3">Pagina %page% bewerken</msg>
+  <msg key="_Edit_4">Pagina %page% bewerken</msg>
+  <msg key="_Either">Er bestaat al een album met de naam \&quot;%name%\&quot; of er werd meer dan één keer op de knop geklikt. &lt;a href=\&quot;index?parent_id=%parent_id%\&quot;&gt;Keer terug naar het mapoverzicht&lt;/a&gt; om te zien of het album is aangemaakt.</msg>
+  <msg key="_Either_1">Er bestaat al een album in de gekozen map met de naam \&quot;%folder_name%\&quot; of er werd meer dan één keer op de knop geklikt. &lt;a href=\&quot;?folder_id=%new_folder_id%\&quot;&gt;Keer terug naar de nieuwe map&lt;/a&gt; om te zien of het album is aangemaakt.</msg>
+  <msg key="_Either_2">Er bestaat al een map met de naam \&quot;%name%\&quot; of er werd meer dan één keer op de knop geklikt. &lt;a href=\&quot;index?parent_id=%parent_id%\&quot;&gt;Keer terug naar het mapoverzicht&lt;/a&gt; om te zien of de map is aangemaakt.</msg>
+  <msg key="_Either_3">Er bestaat al een map in de gekozen map met de naam \&quot;%folder_name%\&quot; of er werd meer dan één keer op de knop geklikt. &lt;a href=\&quot;?folder_id=%new_folder_id%\&quot;&gt;Keer terug naar de nieuwe map&lt;/a&gt; om te zien of de map is aangemaakt.</msg>
+  <msg key="_Either_4">Er bestaat al een foto in het gekozen album met de naam \&quot;%filename%\&quot; of er werd meer dan één keer op de knop geklikt. &lt;a href=\&quot;album?album_id=%new_album_id%\&quot;&gt;Keer terug naar het nieuwe album&lt;/a&gt; om te zien of de foto is aangemaakt.</msg>
   <msg key="_Folder">Mapnaam</msg>
   <msg key="_Folder_1">Mapbeschrijving</msg>
-  <msg key="_For">Om deze foto te tonen:&lt;a href=photo-edit?photo_id=$photo_id&gt;de instelling bewerken&lt;/a&gt; en de optie verbergen demarkeren </msg>
+  <msg key="_For">Om deze foto te tonen:&lt;a href=photo-edit?photo_id=%photo_id%&gt;de instelling bewerken&lt;/a&gt; en de optie verbergen demarkeren </msg>
   <msg key="_Full">Afbeelding op ware grootte</msg>
   <msg key="_Hide">HTML bron van de afbeelding verbergen</msg>
   <msg key="_Modify">De parameters van deze module wijzigen</msg>
@@ -55,13 +55,13 @@
   <msg key="_Upload">Foto's aanbieden</msg>
   <msg key="_Use">De knop \&quot;Bladeren\&quot; gebruiken om een bestand te vinden.</msg>
   <msg key="_Use_1">De knop \&quot;Bladeren\&quot; gebruiken om een bestand te vinden en dan op \&quot;Openen\&quot; klikken</msg>
-  <msg key="_We">We ontvingen een fout die we niet direct kunnen thuisbrengen. Informeer de systeembeheerder hierover. &lt;pre&gt;$errmsg&lt;/pre&gt; </msg>
+  <msg key="_We">We ontvingen een fout die we niet direct kunnen thuisbrengen. Informeer de systeembeheerder hierover. &lt;pre&gt;%errmsg%&lt;/pre&gt; </msg>
   <msg key="_We_1">We ontvingen een fout die we niet direct kunnen thuisbrengen. Informeer de systeembeheerder hierover. </msg>
   <msg key="_Yes_Delete">Ja, verwijderen</msg>
   <msg key="_You">De naam van het klembord mag niet leeg zijn.</msg>
   <msg key="_You_1">De hoofdmap mag niet worden verwijderd.</msg>
   <msg key="_You_2">De hoofdmap mag niet worden verplaatst</msg>
-  <msg key="_Your">&lt;a href=album?album_id=$old_album_id&gt;hier&lt;/a&gt; klikken om alle foto's van het album te bekijken</msg>
+  <msg key="_Your">&lt;a href=album?album_id=%old_album_id%&gt;hier&lt;/a&gt; klikken om alle foto's van het album te bekijken</msg>
   <msg key="Add_a_new_album">Nieuw album toevoegen</msg>
   <msg key="Add_a_new_folder">Nieuwe map toevoegen</msg>
   <msg key="Album_Name">Albumnaam</msg>

@@ -4,7 +4,7 @@
   <msg key="_Album">Descripción del Álbum</msg>
   <msg key="_Album_1">Historia del Álbum</msg>
   <msg key="_Album_2">Nombre del Álbum</msg>
-  <msg key="_An">Un error ocurrio mientras se procesaba su información. Por favor hágaselo saber al administrador del sistema. &lt;pre&gt;$errmsg&lt;/pre&gt;</msg>
+  <msg key="_An">Un error ocurrio mientras se procesaba su información. Por favor hágaselo saber al administrador del sistema. &lt;pre&gt;%errmsg%&lt;/pre&gt;</msg>
   <msg key="_An_1">Un error ocurrio mientras se procesaba su información. Por favor hágaselo saber al administrador del sistema.</msg>
   <msg key="_Choose">Escoja un Nuevo folder para el álbum</msg>
   <msg key="_Choose_1">Escoja un nuevo Folder para el Folder</msg>
@@ -18,16 +18,16 @@
   <msg key="_Edit">Editar los Atributos del Álbum</msg>
   <msg key="_Edit_1">Editar los Atributos del Folder</msg>
   <msg key="_Edit_2">Editar los Atributos de las fotos</msg>
-  <msg key="_Edit_3">Editar la página $page</msg>
-  <msg key="_Edit_4">Editar la página $page</msg>
-  <msg key="_Either">Puede que exista ya un álmbum con el nombre  \&quot;$name\&quot; o usted presiono el botón más de una vez. Usted puede &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt;regresar al directorio principal&lt;/a&gt; para ver si su álbum se encuentra en ese lugar. </msg>
-  <msg key="_Either_1">Puede que exista ya un álmbum en el folder especificado con el nombre \&quot;$folder_name\&quot; o usted presiono el botón más de una vez. Usted puede &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt;regresar al nuevo folder&lt;/a&gt; para ver si su álbum se encuentra en ese lugar.</msg>
-  <msg key="_Either_2">Puede que exista ya un folder con el nombre \&quot;$name\&quot; o usted presiono el botón más de una vez. Usted puede &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt;regresar al directorio principal&lt;/a&gt; para ver si su folder se encuentra en ese lugar.</msg>
-  <msg key="_Either_3">Puede que exista ya un folder en el folder especificado con el nombre \&quot;$folder_name\&quot; o usted presiono el botón más de una vez. Usted puede &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt;regresar al nuevo folder&lt;/a&gt; para ver si su folder se encuentra en ese lugar.</msg>
-  <msg key="_Either_4">Puede que exista ya una foto en el álbum especificado con el nombre \&quot;$filename\&quot; o usted hizo presiono el botón más de una vez. Usted puede &lt;a href=\&quot;album?album_id=$new_album_id\&quot;&gt;regresar al nuevo álbum&lt;/a&gt; para ver si su foto se encuentra en ese lugar.</msg>
+  <msg key="_Edit_3">Editar la página %page%</msg>
+  <msg key="_Edit_4">Editar la página %page%</msg>
+  <msg key="_Either">Puede que exista ya un álmbum con el nombre  \&quot;%name%\&quot; o usted presiono el botón más de una vez. Usted puede &lt;a href=\&quot;index?parent_id=%parent_id%\&quot;&gt;regresar al directorio principal&lt;/a&gt; para ver si su álbum se encuentra en ese lugar. </msg>
+  <msg key="_Either_1">Puede que exista ya un álmbum en el folder especificado con el nombre \&quot;%folder_name%\&quot; o usted presiono el botón más de una vez. Usted puede &lt;a href=\&quot;?folder_id=%new_folder_id%\&quot;&gt;regresar al nuevo folder&lt;/a&gt; para ver si su álbum se encuentra en ese lugar.</msg>
+  <msg key="_Either_2">Puede que exista ya un folder con el nombre \&quot;%name%\&quot; o usted presiono el botón más de una vez. Usted puede &lt;a href=\&quot;index?parent_id=%parent_id%\&quot;&gt;regresar al directorio principal&lt;/a&gt; para ver si su folder se encuentra en ese lugar.</msg>
+  <msg key="_Either_3">Puede que exista ya un folder en el folder especificado con el nombre \&quot;%folder_name%\&quot; o usted presiono el botón más de una vez. Usted puede &lt;a href=\&quot;?folder_id=%new_folder_id%\&quot;&gt;regresar al nuevo folder&lt;/a&gt; para ver si su folder se encuentra en ese lugar.</msg>
+  <msg key="_Either_4">Puede que exista ya una foto en el álbum especificado con el nombre \&quot;%filename%\&quot; o usted hizo presiono el botón más de una vez. Usted puede &lt;a href=\&quot;album?album_id=%new_album_id%\&quot;&gt;regresar al nuevo álbum&lt;/a&gt; para ver si su foto se encuentra en ese lugar.</msg>
   <msg key="_Folder">Nombre del Folder</msg>
   <msg key="_Folder_1">Descripción del Folder</msg>
-  <msg key="_For">Para mostrar ésta foto &lt;a href=photo-edit?photo_id=$photo_id&gt;edite los atributos&lt;/a&gt; y desmarque la opción &quot;esconder&quot;</msg>
+  <msg key="_For">Para mostrar ésta foto &lt;a href=photo-edit?photo_id=%photo_id%&gt;edite los atributos&lt;/a&gt; y desmarque la opción &quot;esconder&quot;</msg>
   <msg key="_Full">Imagen en tamaño real</msg>
   <msg key="_Hide">Ocultar el código html de la imagen</msg>
   <msg key="_Modify">Modificar los parámetros del paquete</msg>
@@ -55,13 +55,13 @@
   <msg key="_Upload">Subir fotos</msg>
   <msg key="_Use">Use el botón \&quot;Examinar...\&quot; para buscar un archivo</msg>
   <msg key="_Use_1">Use el botón \&quot;Examinar...\&quot; para buscar su archivo y después haca click en \&quot;Abrir\&quot; </msg>
-  <msg key="_We">Tuvimos un error que no pudimos identificar. Por favor comuníquele al administrador del sistema sobre ésto.  &lt;pre&gt;$errmsg&lt;/pre&gt;</msg>
+  <msg key="_We">Tuvimos un error que no pudimos identificar. Por favor comuníquele al administrador del sistema sobre ésto.  &lt;pre&gt;%errmsg%&lt;/pre&gt;</msg>
   <msg key="_We_1">Tuvimos un error que no pudimos identificar. Por favor comuníquele al administrador del sistema sobre ésto.</msg>
   <msg key="_Yes_Delete">Si, Eliminar</msg>
   <msg key="_You">Usted debe de proveer un nombre para el sujetapapeles</msg>
   <msg key="_You_1">Usted no debe de eliminar el folder raíz.</msg>
   <msg key="_You_2">Usted no debe mover el folder raíz</msg>
-  <msg key="_Your">Puede presionar &lt;a href=album?album_id=$old_album_id&gt;aquí&lt;/a&gt; para ver todas las fotos del álbum</msg>
+  <msg key="_Your">Puede presionar &lt;a href=album?album_id=%old_album_id%&gt;aquí&lt;/a&gt; para ver todas las fotos del álbum</msg>
   <msg key="Add_a_new_album">Agregar un nuevo álbum</msg>
   <msg key="Add_a_new_folder">Agregar un nuevo folder</msg>
   <msg key="Album_Name">Nombre del Álbum</msg>

@@ -4,7 +4,7 @@
   <msg key="_Album">Beschreibung</msg>
   <msg key="_Album_1">Hintergrund</msg>
   <msg key="_Album_2">Name</msg>
-  <msg key="_An">Während der Bearbeitung Ihrer Eingabe ist ein Fehler aufgetreten. Bitte benachrichtigen Sie die Systemadministratoren. &lt;pre&gt;$errmsg&lt;/pre&gt;</msg>
+  <msg key="_An">Während der Bearbeitung Ihrer Eingabe ist ein Fehler aufgetreten. Bitte benachrichtigen Sie die Systemadministratoren. &lt;pre&gt;%errmsg%&lt;/pre&gt;</msg>
   <msg key="_An_1">Während der Bearbeitung Ihrer Eingabe ist ein Fehler aufgetreten. Bitte benachrichtigen Sie den Systemadministratoren.</msg>
   <msg key="_Choose">Wählen Sie ein neues Verzeichnis aus</msg>
   <msg key="_Choose_1">Wählen Sie ein neues Verzeichnis aus</msg>
@@ -18,16 +18,16 @@
   <msg key="_Edit">Attribute des Albums bearbeiten</msg>
   <msg key="_Edit_1">Ordner-Attribute bearbeiten</msg>
   <msg key="_Edit_2">Foto-Attribute bearbeiten</msg>
-  <msg key="_Edit_3">Seite $page bearbeiten</msg>
-  <msg key="_Edit_4">Seite $page bearbeiten</msg>
-  <msg key="_Either">Entweder gibt es schon ein Album mit dem Namen \&quot;$name\&quot; oder Sie haben mehrmals auf die Schalftfläche geklickt. Sie können &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt;zum Inhaltsverzeichnis zurückkehren&lt;/a&gt; um zu überprüfen, ob das Album dort liegt.</msg>
-  <msg key="_Either_1">Entweder gibt es im angegebenen Ordner  \&quot;$folder_name\&quot; schon ein Album oder Sie haben mehrmals auf die Schaltfläche geklickt. Sie können &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt;zu dem neuen Ordner zurückkehren&lt;/a&gt; um zu überprüfen, ob das Album dort liegt.</msg>
-  <msg key="_Either_2">Entweder gibt es schon einen Ordner namens  \&quot;$name\&quot; oder Sie haben mehrmals auf die Schaltfläche geklickt. Sie können &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt;zum Inhaltsverzeichnis zurückkehren&lt;/a&gt; um zu überprüfen, ob der Ordner dort liegt.</msg>
-  <msg key="_Either_3">Entweder es gibt schon einen Ordner im angegebenen Ordner mit dem Namen \&quot;$folder_name\&quot;, oder Sie haben mehrmals auf die Schaltfläche geklickt. Sie können &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt;zu dem neuen Ordner zurückkehren&lt;/a&gt; um zu überprüfen, ob Ihr Ordner dort liegt.</msg>
-  <msg key="_Either_4">Entweder gibt es schon ein Foto im angegebenen Album mit dem Namen \&quot;$filename\&quot;, oder Sie haben die Schaltfläche mehrmals angeklickt. Sie können &lt;a href=\&quot;album?album_id=$new_album_id\&quot;&gt;zu dem neuen Album&lt;/a&gt; zurückkehren um zu überprüfen, ob Ihr Foto dort liegt.</msg>
+  <msg key="_Edit_3">Seite %page% bearbeiten</msg>
+  <msg key="_Edit_4">Seite %page% bearbeiten</msg>
+  <msg key="_Either">Entweder gibt es schon ein Album mit dem Namen \&quot;%name%\&quot; oder Sie haben mehrmals auf die Schalftfläche geklickt. Sie können &lt;a href=\&quot;index?parent_id=%parent_id%\&quot;&gt;zum Inhaltsverzeichnis zurückkehren&lt;/a&gt; um zu überprüfen, ob das Album dort liegt.</msg>
+  <msg key="_Either_1">Entweder gibt es im angegebenen Ordner  \&quot;%folder_name%\&quot; schon ein Album oder Sie haben mehrmals auf die Schaltfläche geklickt. Sie können &lt;a href=\&quot;?folder_id=%new_folder_id%\&quot;&gt;zu dem neuen Ordner zurückkehren&lt;/a&gt; um zu überprüfen, ob das Album dort liegt.</msg>
+  <msg key="_Either_2">Entweder gibt es schon einen Ordner namens  \&quot;%name%\&quot; oder Sie haben mehrmals auf die Schaltfläche geklickt. Sie können &lt;a href=\&quot;index?parent_id=%parent_id%\&quot;&gt;zum Inhaltsverzeichnis zurückkehren&lt;/a&gt; um zu überprüfen, ob der Ordner dort liegt.</msg>
+  <msg key="_Either_3">Entweder es gibt schon einen Ordner im angegebenen Ordner mit dem Namen \&quot;%folder_name%\&quot;, oder Sie haben mehrmals auf die Schaltfläche geklickt. Sie können &lt;a href=\&quot;?folder_id=%new_folder_id%\&quot;&gt;zu dem neuen Ordner zurückkehren&lt;/a&gt; um zu überprüfen, ob Ihr Ordner dort liegt.</msg>
+  <msg key="_Either_4">Entweder gibt es schon ein Foto im angegebenen Album mit dem Namen \&quot;%filename%\&quot;, oder Sie haben die Schaltfläche mehrmals angeklickt. Sie können &lt;a href=\&quot;album?album_id=%new_album_id%\&quot;&gt;zu dem neuen Album&lt;/a&gt; zurückkehren um zu überprüfen, ob Ihr Foto dort liegt.</msg>
   <msg key="_Folder">Name des Ordners</msg>
   <msg key="_Folder_1">Beschreibung des Ordners</msg>
-  <msg key="_For">&lt;a href=photo-edit?photo_id=$photo_id&gt;Attribute bearbeiten&lt;/a&gt; und die Option &quot;Ausblenden&quot; deaktivieren, um dieses Foto anzuzeigen</msg>
+  <msg key="_For">&lt;a href=photo-edit?photo_id=%photo_id%&gt;Attribute bearbeiten&lt;/a&gt; und die Option &quot;Ausblenden&quot; deaktivieren, um dieses Foto anzuzeigen</msg>
   <msg key="_Full">Bild in voller Größe</msg>
   <msg key="_Hide">HTML-Quelltext für das Bild ausblenden</msg>
   <msg key="_Modify">Parameter des Programmpakets ändern</msg>
@@ -55,13 +55,13 @@
   <msg key="_Upload">Fotos hochladen</msg>
   <msg key="_Use">Benutzen Sie die Schaltfläche &quot;Durchsuchen...&quot; um eine Datei aufzufinden</msg>
   <msg key="_Use_1">Klicken Sie auf 'Durchsuchen...', wählen Sie die gewünschte Datei aus und klicken Sie auf 'Öffnen'. </msg>
-  <msg key="_We">Es ist ein Fehler aufgetreten, der nicht ohne Weiteres genauer bestimmt werden kann. Bitte melden Sie dies dem Systembetreiber. &lt;pre&gt;$errmsg&lt;/pre&gt; </msg>
+  <msg key="_We">Es ist ein Fehler aufgetreten, der nicht ohne Weiteres genauer bestimmt werden kann. Bitte melden Sie dies dem Systembetreiber. &lt;pre&gt;%errmsg%&lt;/pre&gt; </msg>
   <msg key="_We_1">Es ist ein Fehler aufgetreten, der nicht ohne Weiteres genauer bestimmt werden kann. Bitte melden Sie dies dem Systembetreiber. </msg>
   <msg key="_Yes_Delete">Ja, löschen</msg>
   <msg key="_You">Sie müssen einen nichtleeren Namen für die Zwischenablage angeben.</msg>
   <msg key="_You_1">Sie dürfen den Ordner der höchsten Ebene (root) nicht löschen.</msg>
   <msg key="_You_2">Sie dürfen den Ordner der höchsten Ebene nicht verschieben.</msg>
-  <msg key="_Your">Sie können &lt;a href=album?album_id=$old_album_id&gt;hier&lt;/a&gt; klicken um alle Fotos aus dem Album zu betrachten</msg>
+  <msg key="_Your">Sie können &lt;a href=album?album_id=%old_album_id%&gt;hier&lt;/a&gt; klicken um alle Fotos aus dem Album zu betrachten</msg>
   <msg key="Add_a_new_album">Neues Album erstellen</msg>
   <msg key="Add_a_new_folder">Neuen Ordner erstellen</msg>
   <msg key="Album_Name">Name des Albums</msg>

@@ -4,7 +4,7 @@
   <msg key="_Album">Perihal Album</msg>
   <msg key="_Album_1">Cerita Album</msg>
   <msg key="_Album_2">Nama Album</msg>
-  <msg key="_An">Suatu ralat terjadi semasa memproseskan input anda. Sila beritahu pemilik sistem berkenaannya. &lt;pre&gt;$errmsg&lt;/pre&gt;</msg>
+  <msg key="_An">Suatu ralat terjadi semasa memproseskan input anda. Sila beritahu pemilik sistem berkenaannya. &lt;pre&gt;%errmsg%&lt;/pre&gt;</msg>
   <msg key="_An_1">Suatu ralat terjadi semasa memproseskan input anda. Sila beritahu pemilik sistem berkenaannya.</msg>
   <msg key="_Choose">Pilih Folder Baru untuk Album</msg>
   <msg key="_Choose_1">Pilih Folder Baru untuk Folder</msg>
@@ -18,16 +18,16 @@
   <msg key="_Edit">Edit Atribut Album</msg>
   <msg key="_Edit_1">Edit Atribut Folder</msg>
   <msg key="_Edit_2">Edit Atribut Foto</msg>
-  <msg key="_Edit_3">Edit halaman $page </msg>
-  <msg key="_Edit_4">Edit halaman $page </msg>
-  <msg key="_Either">Sama ada sudah terdapat suatu album yang mempunyai nama \&quot;$name\&quot; atau anda telah klik pada butang tersebut lebih daripada sekali. Anda boleh &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt; kembali ke senarai direktori&lt;/a&gt; untuk melihat sekiranya album anda berada di situ.</msg>
-  <msg key="_Either_1">Sama ada sudah terdapat suatu album di dalam folder yang dispesifikasikan  yang mempunyai nama \&quot;$folder_name\&quot; atau anda telah klik pada butang tersebut lebih daripada sekali. Anda boleh &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt; kembali ke folder baru&lt;/a&gt; untuk melihat sekiranya album anda berada di situ.</msg>
-  <msg key="_Either_2">Sama ada sudah terdapat suatu folder yang mempunyai nama \&quot;$name\&quot; atau anda telah klik pada butang tersebut lebih daripada sekali. Anda boleh &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt; kembali ke senarai direktori&lt;/a&gt; untuk melihat sekiranya folder anda berada di situ.</msg>
-  <msg key="_Either_3">Sama ada sudah terdapat suatu folder di dalam folder yang dispesifikasikan yang mempunyai nama \&quot;$folder_name\&quot; atau anda telah klik pada butang tersebut lebih daripada sekali. Anda boleh &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt; kembali ke folder baru&lt;/a&gt; untuk melihat sekiranya folder anda berada di situ. </msg>
-  <msg key="_Either_4">Sama ada sudah terdapat suatu album di dalam folder yang dispesifikasikan yang mempunyai nama \&quot;$filename\&quot; atau anda telah klik pada butang tersebut lebih daripada sekali. Anda boleh &lt;a href=\&quot;album?album_id=$new_album_id\&quot;&gt; kembali ke album baru&lt;/a&gt; untuk melihat sekiranya album anda berada di situ. </msg>
+  <msg key="_Edit_3">Edit halaman %page% </msg>
+  <msg key="_Edit_4">Edit halaman %page% </msg>
+  <msg key="_Either">Sama ada sudah terdapat suatu album yang mempunyai nama \&quot;%name%\&quot; atau anda telah klik pada butang tersebut lebih daripada sekali. Anda boleh &lt;a href=\&quot;index?parent_id=%parent_id%\&quot;&gt; kembali ke senarai direktori&lt;/a&gt; untuk melihat sekiranya album anda berada di situ.</msg>
+  <msg key="_Either_1">Sama ada sudah terdapat suatu album di dalam folder yang dispesifikasikan  yang mempunyai nama \&quot;%folder_name%\&quot; atau anda telah klik pada butang tersebut lebih daripada sekali. Anda boleh &lt;a href=\&quot;?folder_id=%new_folder_id%\&quot;&gt; kembali ke folder baru&lt;/a&gt; untuk melihat sekiranya album anda berada di situ.</msg>
+  <msg key="_Either_2">Sama ada sudah terdapat suatu folder yang mempunyai nama \&quot;%name%\&quot; atau anda telah klik pada butang tersebut lebih daripada sekali. Anda boleh &lt;a href=\&quot;index?parent_id=%parent_id%\&quot;&gt; kembali ke senarai direktori&lt;/a&gt; untuk melihat sekiranya folder anda berada di situ.</msg>
+  <msg key="_Either_3">Sama ada sudah terdapat suatu folder di dalam folder yang dispesifikasikan yang mempunyai nama \&quot;%folder_name%\&quot; atau anda telah klik pada butang tersebut lebih daripada sekali. Anda boleh &lt;a href=\&quot;?folder_id=%new_folder_id%\&quot;&gt; kembali ke folder baru&lt;/a&gt; untuk melihat sekiranya folder anda berada di situ. </msg>
+  <msg key="_Either_4">Sama ada sudah terdapat suatu album di dalam folder yang dispesifikasikan yang mempunyai nama \&quot;%filename%\&quot; atau anda telah klik pada butang tersebut lebih daripada sekali. Anda boleh &lt;a href=\&quot;album?album_id=%new_album_id%\&quot;&gt; kembali ke album baru&lt;/a&gt; untuk melihat sekiranya album anda berada di situ. </msg>
   <msg key="_Folder">Nama Folder</msg>
   <msg key="_Folder_1">Perihal Folder</msg>
-  <msg key="_For">Untuk menunjukkan foto ini &lt;a href=photo-edit?photo_id=$photo_id&gt;edit atribut-atribut&lt;/a&gt; dan kosongkan kotak semak untuk opsyen sorok</msg>
+  <msg key="_For">Untuk menunjukkan foto ini &lt;a href=photo-edit?photo_id=%photo_id%&gt;edit atribut-atribut&lt;/a&gt; dan kosongkan kotak semak untuk opsyen sorok</msg>
   <msg key="_Full">Imej Saiz Penuh</msg>
   <msg key="_Hide">Sorok sumber imej html</msg>
   <msg key="_Modify">Ubahsuai parameter-parameter pakej ini</msg>
@@ -53,13 +53,13 @@
   <msg key="_Upload">Muat naik foto-foto</msg>
   <msg key="_Use">Gunakan butang \&quot;Browse...\&quot; untuk mencari fail</msg>
   <msg key="_Use_1">Gunakan butang \&quot;Browse...\&quot; untuk mencari fail anda, kemudian klik \&quot;Open\&quot;</msg>
-  <msg key="_We">Kami medapati suatu ralat yang kami tidak boleh sedia kenal pasti. Sila beritahu pemilik sistem berkenaan ini.&lt;pre&gt;$errmsg&lt;/pre&gt;</msg>
+  <msg key="_We">Kami medapati suatu ralat yang kami tidak boleh sedia kenal pasti. Sila beritahu pemilik sistem berkenaan ini.&lt;pre&gt;%errmsg%&lt;/pre&gt;</msg>
   <msg key="_We_1">Kami medapati suatu ralat yang kami tidak boleh sedia kenal pasti. Sila beritahu pemilik sistem berkenaan ini.</msg>
   <msg key="_Yes_Delete">Ya, Buangkannya</msg>
   <msg key="_You">Anda perlu menyediakan nama yang tidak kosong untuk papan keratan tersebut</msg>
   <msg key="_You_1">Anda tidak boleh membuang pangkal folder.</msg>
   <msg key="_You_2">Anda tidak boleh mengalih pangkal folder.</msg>
-  <msg key="_Your">Anda boleh klik &lt;a href=album?album_id=$old_album_id&gt; di sini &lt;/a&gt; untuk melihat semua foto pada album</msg>
+  <msg key="_Your">Anda boleh klik &lt;a href=album?album_id=%old_album_id%&gt; di sini &lt;/a&gt; untuk melihat semua foto pada album</msg>
   <msg key="Add_a_new_album">Tambah album baru</msg>
   <msg key="Add_a_new_folder">Tambah folder baru</msg>
   <msg key="Album_Name">Nama Album</msg>

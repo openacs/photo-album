@@ -4,7 +4,7 @@
   <msg key="_Album">앨범 설명</msg>
   <msg key="_Album_1">앨범 이야기</msg>
   <msg key="_Album_2">앨범 이름</msg>
-  <msg key="_An">입력을 처리하전 중에 에러가 발생하였습니다. 시스템 소유자에게 이를 알리기 바랍니다. &lt;pre&gt;$errmsg&lt;/pre&gt;</msg>
+  <msg key="_An">입력을 처리하전 중에 에러가 발생하였습니다. 시스템 소유자에게 이를 알리기 바랍니다. &lt;pre&gt;%errmsg%&lt;/pre&gt;</msg>
   <msg key="_An_1">입력을 처리하전 중에 에러가 발생하였습니다. 시스템 소유자에게 이를 알리기 바랍니다. </msg>
   <msg key="_Choose">앨범을 위한 새 폴더 선택</msg>
   <msg key="_Choose_1">폴더를 위한 새 폴더 선택</msg>
@@ -18,16 +18,16 @@
   <msg key="_Edit">앨범 속성 편집</msg>
   <msg key="_Edit_1">폴더 속성 편집</msg>
   <msg key="_Edit_2">사진 속성 편집</msg>
-  <msg key="_Edit_3">페이지 $page 편집</msg>
-  <msg key="_Edit_4">페이지 $page 편집</msg>
-  <msg key="_Either">\&quot;$name\&quot;라는 이름의 앨범이 이미 있거나 버튼을 한번 이상 클릭하였습니다. 당신의 앨범이 있는지 확인하기 위해&lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt; 디렉토리 리스팅으로 복귀&lt;/a&gt;할 수 있습니다.</msg>
-  <msg key="_Either_1">\&quot;$folder_name\&quot; 폴더 하에 앨범이 이미 있거나 버튼을 한번 이상 클릭하였습니다. 당신의 앨범이 있는지 확인하기 위해 &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt;새 폴더로 복귀&lt;/a&gt;할 수 있습니다.</msg>
-  <msg key="_Either_2">\&quot;$name\&quot; 라는 이름의 폴더가 이미 있거나 버튼을 한번 이상 클릭하였습니다. 당신의 폴더가 있는지 확인하기 위해 &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt; 디렉토리 리스팅으로 복귀&lt;/a&gt;할 수 있습니다.</msg>
-  <msg key="_Either_3">\&quot;$folder_name\&quot; 라고 지정된 폴더 안에 폴더가 이미 있거나 버튼을 한번 이상 클릭하였습니다. 당신의 폴더가 있는지 확인하기 위해 &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt; 디렉토리 리스팅으로 복귀&lt;/a&gt;할 수 있습니다.</msg>
-  <msg key="_Either_4">\&quot;$filename\&quot;라는 이름의 앨범이 이미 있거나 버튼을 한번 이상 클릭하였습니다. 당신의 사진이 있는지 확인하기 위해 &lt;a href=\&quot;album?album_id=$new_album_id\&quot;&gt; 새 앨범으로 복귀&lt;/a&gt;할 수 있습니다.</msg>
+  <msg key="_Edit_3">페이지 %page% 편집</msg>
+  <msg key="_Edit_4">페이지 %page% 편집</msg>
+  <msg key="_Either">\&quot;%name%\&quot;라는 이름의 앨범이 이미 있거나 버튼을 한번 이상 클릭하였습니다. 당신의 앨범이 있는지 확인하기 위해&lt;a href=\&quot;index?parent_id=%parent_id%\&quot;&gt; 디렉토리 리스팅으로 복귀&lt;/a&gt;할 수 있습니다.</msg>
+  <msg key="_Either_1">\&quot;%folder_name%\&quot; 폴더 하에 앨범이 이미 있거나 버튼을 한번 이상 클릭하였습니다. 당신의 앨범이 있는지 확인하기 위해 &lt;a href=\&quot;?folder_id=%new_folder_id%\&quot;&gt;새 폴더로 복귀&lt;/a&gt;할 수 있습니다.</msg>
+  <msg key="_Either_2">\&quot;%name%\&quot; 라는 이름의 폴더가 이미 있거나 버튼을 한번 이상 클릭하였습니다. 당신의 폴더가 있는지 확인하기 위해 &lt;a href=\&quot;index?parent_id=%parent_id%\&quot;&gt; 디렉토리 리스팅으로 복귀&lt;/a&gt;할 수 있습니다.</msg>
+  <msg key="_Either_3">\&quot;%folder_name%\&quot; 라고 지정된 폴더 안에 폴더가 이미 있거나 버튼을 한번 이상 클릭하였습니다. 당신의 폴더가 있는지 확인하기 위해 &lt;a href=\&quot;?folder_id=%new_folder_id%\&quot;&gt; 디렉토리 리스팅으로 복귀&lt;/a&gt;할 수 있습니다.</msg>
+  <msg key="_Either_4">\&quot;%filename%\&quot;라는 이름의 앨범이 이미 있거나 버튼을 한번 이상 클릭하였습니다. 당신의 사진이 있는지 확인하기 위해 &lt;a href=\&quot;album?album_id=%new_album_id%\&quot;&gt; 새 앨범으로 복귀&lt;/a&gt;할 수 있습니다.</msg>
   <msg key="_Folder">폴더 이름</msg>
   <msg key="_Folder_1">폴더 설명</msg>
-  <msg key="_For">For show this photo &lt;a href=photo-edit?photo_id=$photo_id&gt;속성 편집&lt;/a&gt; an uncheck the option hide</msg>
+  <msg key="_For">For show this photo &lt;a href=photo-edit?photo_id=%photo_id%&gt;속성 편집&lt;/a&gt; an uncheck the option hide</msg>
   <msg key="_Full">원래 크기의 이미지</msg>
   <msg key="_Hide">이미지의 html 소스 숨기기</msg>
   <msg key="_Modify">새 패키지의 매개변수 수정</msg>
@@ -55,13 +55,13 @@
   <msg key="_Upload">사진 업로드</msg>
   <msg key="_Use">\&quot;Browse...\&quot; 버튼을 사용하여 파일 찾기</msg>
   <msg key="_Use_1">\&quot;Browse...\&quot; 버튼을 사용하여 파일을 찾으 후에 \&quot;Open\&quot; 클릭</msg>
-  <msg key="_We">우리가 확인할 수 없는 에러가 발생하였습니다. 시스템 소유자에게 알리십시오. &lt;pre&gt;$errmsg&lt;/pre&gt;</msg>
+  <msg key="_We">우리가 확인할 수 없는 에러가 발생하였습니다. 시스템 소유자에게 알리십시오. &lt;pre&gt;%errmsg%&lt;/pre&gt;</msg>
   <msg key="_We_1">우리가 확인할 수 없는 에러가 발생하였습니다. 시스템 소유자에게 알리십시오. </msg>
   <msg key="_Yes_Delete">네, 지우세요</msg>
   <msg key="_You">클립보드에 이름을 제공해야 합니다.</msg>
   <msg key="_You_1">루트 폴더를 지우면 안 됩니다.</msg>
   <msg key="_You_2">루트 폴더를 이동하면 안 됩니다.</msg>
-  <msg key="_Your">앨범의 모든 사진을 보기 위해 &lt;a href=album?album_id=$old_album_id&gt; 여기&lt;/a&gt;를 클릭하세요</msg>
+  <msg key="_Your">앨범의 모든 사진을 보기 위해 &lt;a href=album?album_id=%old_album_id%&gt; 여기&lt;/a&gt;를 클릭하세요</msg>
   <msg key="Add_a_new_album">새 앨범 추가</msg>
   <msg key="Add_a_new_folder">새 폴더 추가</msg>
   <msg key="Album_Name">앨범</msg>

@@ -4,7 +4,7 @@
   <msg key="_Album">Albumomtale</msg>
   <msg key="_Album_1">Historia til albumet</msg>
   <msg key="_Album_2">Almumnavn</msg>
-  <msg key="_An">Vi fekk ein feil når vi skulle behandle det du har lagt inn. Informer systemeigar om dette. &lt;pre&gt;$errmsg&lt;/pre&gt;</msg>
+  <msg key="_An">Vi fekk ein feil når vi skulle behandle det du har lagt inn. Informer systemeigar om dette. &lt;pre&gt;%errmsg%&lt;/pre&gt;</msg>
   <msg key="_An_1">Vi fekk ein feil når vi skulle behandle det du har lagt inn. Informer systemeigar om dette. </msg>
   <msg key="_Choose">Vel Ny mappe for album</msg>
   <msg key="_Choose_1">Vel Ny mappe for mappe</msg>
@@ -18,16 +18,16 @@
   <msg key="_Edit">Rediger eigenskapar for album</msg>
   <msg key="_Edit_1">Rediger eigenskapar for mappe</msg>
   <msg key="_Edit_2">Rediger eigenskapar for bilete</msg>
-  <msg key="_Edit_3">Rediger side $page</msg>
-  <msg key="_Edit_4">Rediger side $page</msg>
-  <msg key="_Either">Enten er det alt eit album med navnet \&quot;$name\&quot; eller så har du klikka på knappen meir enn ein gong. Du kan &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt; gå attende til innhaldslista&lt;/a&gt; for å jå om albumet ditt er der. </msg>
-  <msg key="_Either_1">Enten er det alt eit album i den spesifiserte mappa med navn \&quot;$folder_name\&quot; eller så har du klikka knappen meir enn ein gong. Du kan &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt;gå attende til den nye mappa&lt;/a&gt; og jå om albumet ditt er der. </msg>
-  <msg key="_Either_2">Enten er det alt ei mappe som heiter \&quot;$name\&quot; eller så har du klikka på knappen meir enn ein gong. Du kan a href=\&quot;index?parent_id=$parent_id\&quot;&gt; gå attende til oversikta&lt;/a&gt; og sjå om mappa di er der. </msg>
-  <msg key="_Either_3">Enten er det alt ei mappe i den spesifiserte mappa \&quot;$folder_name\&quot; eller så har du klikka på knappen meir enn ein gong. Du kan &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt;gå attende til den nye mappa&lt;/a&gt; og sjå om mappa din er der. </msg>
-  <msg key="_Either_4">Enten er det alt eit bilete i den spesifiserte mappa som heiter \&quot;$filename\&quot; eller så har du klikka på knappen meir enn ein gong. Du kan &lt;a href=\&quot;album?album_id=$new_album_id\&quot;&gt;gå tattende til det nye albumet&lt;/a&gt; og sjå om biletet ditt er der. </msg>
+  <msg key="_Edit_3">Rediger side %page%</msg>
+  <msg key="_Edit_4">Rediger side %page%</msg>
+  <msg key="_Either">Enten er det alt eit album med navnet \&quot;%name%\&quot; eller så har du klikka på knappen meir enn ein gong. Du kan &lt;a href=\&quot;index?parent_id=%parent_id%\&quot;&gt; gå attende til innhaldslista&lt;/a&gt; for å jå om albumet ditt er der. </msg>
+  <msg key="_Either_1">Enten er det alt eit album i den spesifiserte mappa med navn \&quot;%folder_name%\&quot; eller så har du klikka knappen meir enn ein gong. Du kan &lt;a href=\&quot;?folder_id=%new_folder_id%\&quot;&gt;gå attende til den nye mappa&lt;/a&gt; og jå om albumet ditt er der. </msg>
+  <msg key="_Either_2">Enten er det alt ei mappe som heiter \&quot;%name%\&quot; eller så har du klikka på knappen meir enn ein gong. Du kan a href=\&quot;index?parent_id=%parent_id%\&quot;&gt; gå attende til oversikta&lt;/a&gt; og sjå om mappa di er der. </msg>
+  <msg key="_Either_3">Enten er det alt ei mappe i den spesifiserte mappa \&quot;%folder_name%\&quot; eller så har du klikka på knappen meir enn ein gong. Du kan &lt;a href=\&quot;?folder_id=%new_folder_id%\&quot;&gt;gå attende til den nye mappa&lt;/a&gt; og sjå om mappa din er der. </msg>
+  <msg key="_Either_4">Enten er det alt eit bilete i den spesifiserte mappa som heiter \&quot;%filename%\&quot; eller så har du klikka på knappen meir enn ein gong. Du kan &lt;a href=\&quot;album?album_id=%new_album_id%\&quot;&gt;gå tattende til det nye albumet&lt;/a&gt; og sjå om biletet ditt er der. </msg>
   <msg key="_Folder">Mappenavn</msg>
   <msg key="_Folder_1">Mappeomtale</msg>
-  <msg key="_For">For å vise dette biletet &lt;a href=photo-edit?photo_id=$photo_id&gt;rediger eigenskapane&lt;/a&gt; og ta bort avmerkinga for valet skjul. </msg>
+  <msg key="_For">For å vise dette biletet &lt;a href=photo-edit?photo_id=%photo_id%&gt;rediger eigenskapane&lt;/a&gt; og ta bort avmerkinga for valet skjul. </msg>
   <msg key="_Full">Bilete i full storleik</msg>
   <msg key="_Hide">Gøym HTML-kjelde for biletet</msg>
   <msg key="_Modify">Endre parametrar på denne pakka</msg>
@@ -55,13 +55,13 @@
   <msg key="_Upload">Last opp bilete</msg>
   <msg key="_Use">Bruk \&quot;Bla...\&quot;-knappen for å finne ei fil</msg>
   <msg key="_Use_1">Bruk \&quot;Bla...\&quot;-knappen for å finne fila di, og klikk \&quot;Opne\&quot;</msg>
-  <msg key="_We">Vi har fått ein feil vi ikkje kunne identifisere. Informer systemeigar om dette. &lt;pre&gt;$errmsg&lt;/pre&gt;</msg>
+  <msg key="_We">Vi har fått ein feil vi ikkje kunne identifisere. Informer systemeigar om dette. &lt;pre&gt;%errmsg%&lt;/pre&gt;</msg>
   <msg key="_We_1">Vi har fått ein feil vi ikkje kunne identifisere. Informer systemeigar om dette.</msg>
   <msg key="_Yes_Delete">Ja, slett det</msg>
   <msg key="_You">Du må gje klippebordet eit navn</msg>
   <msg key="_You_1">Du kan ikkje slette rotmappa.</msg>
   <msg key="_You_2">Du kan ikkje flytte rotmappa.</msg>
-  <msg key="_Your">Du kan klikke&lt;a href=album?album_id=$old_album_id&gt; her &lt;/a&gt; for å sjå alle bileta i albumet </msg>
+  <msg key="_Your">Du kan klikke&lt;a href=album?album_id=%old_album_id%&gt; her &lt;/a&gt; for å sjå alle bileta i albumet </msg>
   <msg key="Add_a_new_album">Legg inn eit nytt album</msg>
   <msg key="Add_a_new_folder">Legg inn ei ny mappe</msg>
   <msg key="Album_Name">Albumnavn</msg>

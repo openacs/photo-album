@@ -4,7 +4,7 @@
   <msg key="_Album">Album Deskribapena</msg>
   <msg key="_Album_1">Albumaren istorioa</msg>
   <msg key="_Album_2">Albumaren Izena</msg>
-  <msg key="_An">Errore bat egon da zure sarrera prozesatzean. Mesedez, jakinaraziozu sistemaren jabeari. &lt;pre&gt;$errmsg&lt;/pre&gt;</msg>
+  <msg key="_An">Errore bat egon da zure sarrera prozesatzean. Mesedez, jakinaraziozu sistemaren jabeari. &lt;pre&gt;%errmsg%&lt;/pre&gt;</msg>
   <msg key="_An_1">Errore bat egon da zure sarrera prozesatzean. Mesedez, jakinaraziozu sistemaren jabeari. </msg>
   <msg key="_Choose">Albumerako karpeta berria aukeratu</msg>
   <msg key="_Choose_1">Karpetarako karpeta berria aukeratu</msg>
@@ -18,13 +18,13 @@
   <msg key="_Edit">Albumaren atributoak aldatu</msg>
   <msg key="_Edit_1">Karpetaren atributoak aldatu</msg>
   <msg key="_Edit_2">Argazkiaren atributoak aldatu</msg>
-  <msg key="_Edit_3">$page orria aldatu</msg>
-  <msg key="_Edit_4">$page orria aldatu</msg>
-  <msg key="_Either">\&quot;$name\&quot; izeneko albuma badago jadanik edo botoian behin baino gehiagotan sakatu duzu botoian. &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt;Direktorioen zerrendara bueltatu zaitezke&lt;/a&gt; ikusteko zure albuma or dagoen</msg>
-  <msg key="_Either_1">Jadanik badago album bat karpeta honetan \&quot;$folder_name\&quot; izenarekin edo botoia sakatu duzu behin baino gehiagotan. &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt;Karpeta berrira&lt;/a&gt; bueltatu zaitezke ikusteko zure albuma hor dagoen.</msg>
-  <msg key="_Either_2">Jadanik karpeta bat dago \&quot;$name\&quot; izenarekin edo behin baino gehiagotan sakatu duzu botoia. &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt;Direktorioen zerrendara bueltatu zaitezke&lt;/a&gt; ikusteko zure karpeta or dagoen</msg>
-  <msg key="_Either_3">Jadanik karpetaren bat dago \&quot;$folder_name\&quot; izenarekin karpeta honetan edo behin baino gehiagotan sakatu duzu botoia. &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt;Karpeta berrira&lt;/a&gt; bueltatu zaitezke ikusteko zure karpeta hor dagoen.</msg>
-  <msg key="_Either_4">Jadanik argazkiren bat dago album honetan \&quot;$filename\&quot; izenarekin edo botoian sakatu duzu behin baino gehiagotan. &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt;Karpeta berrira&lt;/a&gt; bueltatu zaitezke ikusteko zure argazkia hor dagoen.</msg>
+  <msg key="_Edit_3">%page% orria aldatu</msg>
+  <msg key="_Edit_4">%page% orria aldatu</msg>
+  <msg key="_Either">\&quot;%name%\&quot; izeneko albuma badago jadanik edo botoian behin baino gehiagotan sakatu duzu botoian. &lt;a href=\&quot;index?parent_id=%parent_id%\&quot;&gt;Direktorioen zerrendara bueltatu zaitezke&lt;/a&gt; ikusteko zure albuma or dagoen</msg>
+  <msg key="_Either_1">Jadanik badago album bat karpeta honetan \&quot;%folder_name%\&quot; izenarekin edo botoia sakatu duzu behin baino gehiagotan. &lt;a href=\&quot;?folder_id=%new_folder_id%\&quot;&gt;Karpeta berrira&lt;/a&gt; bueltatu zaitezke ikusteko zure albuma hor dagoen.</msg>
+  <msg key="_Either_2">Jadanik karpeta bat dago \&quot;%name%\&quot; izenarekin edo behin baino gehiagotan sakatu duzu botoia. &lt;a href=\&quot;index?parent_id=%parent_id%\&quot;&gt;Direktorioen zerrendara bueltatu zaitezke&lt;/a&gt; ikusteko zure karpeta or dagoen</msg>
+  <msg key="_Either_3">Jadanik karpetaren bat dago \&quot;%folder_name%\&quot; izenarekin karpeta honetan edo behin baino gehiagotan sakatu duzu botoia. &lt;a href=\&quot;?folder_id=%new_folder_id%\&quot;&gt;Karpeta berrira&lt;/a&gt; bueltatu zaitezke ikusteko zure karpeta hor dagoen.</msg>
+  <msg key="_Either_4">Jadanik argazkiren bat dago album honetan \&quot;%filename%\&quot; izenarekin edo botoian sakatu duzu behin baino gehiagotan. &lt;a href=\&quot;?folder_id=%new_folder_id%\&quot;&gt;Karpeta berrira&lt;/a&gt; bueltatu zaitezke ikusteko zure argazkia hor dagoen.</msg>
   <msg key="_Folder">Karpetaren izena</msg>
   <msg key="_Folder_1">Karpetaren deskribapena</msg>
   <msg key="_Full">Tamaina handiko argazkia</msg>
@@ -54,13 +54,13 @@
   <msg key="_Upload">Argazkiak igo</msg>
   <msg key="_Use">Erabili \&quot;Browse...\&quot; botoia fitxategia topatzeko</msg>
   <msg key="_Use_1">Erabili \&quot;Browse...\&quot; botoia zure fitxategia topatzeko, orduan \&quot;Open\&quot; sakatu</msg>
-  <msg key="_We">Errore bat egon da identifikatu ezin duguna. Mesedez, sistemaren kudeatzailearen jakinean jar ezazu. &lt;pre&gt;$errmsg&lt;/pre&gt;</msg>
+  <msg key="_We">Errore bat egon da identifikatu ezin duguna. Mesedez, sistemaren kudeatzailearen jakinean jar ezazu. &lt;pre&gt;%errmsg%&lt;/pre&gt;</msg>
   <msg key="_We_1">Errore bat egon da identifikatu ezin duguna. Mesedez, sistemaren kudeatzailearen jakinean jar ezazu.</msg>
   <msg key="_Yes_Delete">Bai, ezabatu</msg>
   <msg key="_You">Izen bat eman behar diozu arbelari</msg>
   <msg key="_You_1">Ezin duzu karpeta nagusia ezabatu.</msg>
   <msg key="_You_2">Ezin duzu karpeta nagusia mugitu</msg>
-  <msg key="_Your">Klikatu &lt;a href=album?album_id=$old_album_id&gt;hemen&lt;/a&gt; album honen argazki guztiak ikusteko</msg>
+  <msg key="_Your">Klikatu &lt;a href=album?album_id=%old_album_id%&gt;hemen&lt;/a&gt; album honen argazki guztiak ikusteko</msg>
   <msg key="Add_a_new_album">Album berria eratu</msg>
   <msg key="Add_a_new_folder">Karpeta berria eratu</msg>
   <msg key="Album_Name">Albumaren Izena</msg>

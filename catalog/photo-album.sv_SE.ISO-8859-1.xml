@@ -4,7 +4,7 @@
   <msg key="_Album">Beskrivning</msg>
   <msg key="_Album_1">Historia</msg>
   <msg key="_Album_2">Namn</msg>
-  <msg key="_An">Ett fel uppstod vid behandlingen av dina inmatade uppgifter. Var god meddela systemägaren detta. &lt;pre&gt;$errmsg&lt;/pre&gt;</msg>
+  <msg key="_An">Ett fel uppstod vid behandlingen av dina inmatade uppgifter. Var god meddela systemägaren detta. &lt;pre&gt;%errmsg%&lt;/pre&gt;</msg>
   <msg key="_An_1">Ett fel uppstod vid behandlingen av dina inmatade uppgifter. Var god meddela systemägaren detta.</msg>
   <msg key="_Choose">Välj en ny mapp för albumet</msg>
   <msg key="_Choose_1">Välj en ny mapp för mappen</msg>
@@ -18,16 +18,16 @@
   <msg key="_Edit">Redigera albumets attribut</msg>
   <msg key="_Edit_1">Redigera mappens attribut</msg>
   <msg key="_Edit_2">Redigera fotots attribut</msg>
-  <msg key="_Edit_3">Redigera sidan $page</msg>
-  <msg key="_Edit_4">Redigera sidan $page</msg>
-  <msg key="_Either">Antingen finns det redan ett album med namnet \&quot;$name\&quot; eller så klickade du på knappen mer än en gång. Du kan &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt; återvända till kataloglistan&lt;/a&gt; för att se om ditt album finns där.</msg>
-  <msg key="_Either_1">Antingen finns det redan ett album i den angivna mappen med namnet \&quot;$folder_name\&quot; eller så klickade du på knappen mer än en gång. Du kan &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt; återvända till den nya mappen&lt;/a&gt; för att se om ditt album finns där.</msg>
-  <msg key="_Either_2">Antingen finns det redan en mapp med namnet \&quot;$name\&quot; eller så klickade du på knappen mer än en gång. Du kan &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt; återvända till kataloglistan&lt;/a&gt; för att se om din mapp finns där.</msg>
-  <msg key="_Either_3">Antingen finns det redan en mapp med namnet \&quot;$folder_name\&quot; eller så klickade du på knappen mer än en gång. Du kan &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt; återvända till den nya mappen&lt;/a&gt; för att se om din mapp finns där.</msg>
-  <msg key="_Either_4">Antingen finns det redan ett foto i det angivna albumet med namnet \&quot;$filename\&quot; eller så klickade du på knappen mer än en gång. Du kan &lt;a href=\&quot;album?album_id=$new_album_id\&quot;&gt; återvända till det nya albumet&lt;/a&gt; för att se om ditt foto finns där.</msg>
+  <msg key="_Edit_3">Redigera sidan %page%</msg>
+  <msg key="_Edit_4">Redigera sidan %page%</msg>
+  <msg key="_Either">Antingen finns det redan ett album med namnet \&quot;%name%\&quot; eller så klickade du på knappen mer än en gång. Du kan &lt;a href=\&quot;index?parent_id=%parent_id%\&quot;&gt; återvända till kataloglistan&lt;/a&gt; för att se om ditt album finns där.</msg>
+  <msg key="_Either_1">Antingen finns det redan ett album i den angivna mappen med namnet \&quot;%folder_name%\&quot; eller så klickade du på knappen mer än en gång. Du kan &lt;a href=\&quot;?folder_id=%new_folder_id%\&quot;&gt; återvända till den nya mappen&lt;/a&gt; för att se om ditt album finns där.</msg>
+  <msg key="_Either_2">Antingen finns det redan en mapp med namnet \&quot;%name%\&quot; eller så klickade du på knappen mer än en gång. Du kan &lt;a href=\&quot;index?parent_id=%parent_id%\&quot;&gt; återvända till kataloglistan&lt;/a&gt; för att se om din mapp finns där.</msg>
+  <msg key="_Either_3">Antingen finns det redan en mapp med namnet \&quot;%folder_name%\&quot; eller så klickade du på knappen mer än en gång. Du kan &lt;a href=\&quot;?folder_id=%new_folder_id%\&quot;&gt; återvända till den nya mappen&lt;/a&gt; för att se om din mapp finns där.</msg>
+  <msg key="_Either_4">Antingen finns det redan ett foto i det angivna albumet med namnet \&quot;%filename%\&quot; eller så klickade du på knappen mer än en gång. Du kan &lt;a href=\&quot;album?album_id=%new_album_id%\&quot;&gt; återvända till det nya albumet&lt;/a&gt; för att se om ditt foto finns där.</msg>
   <msg key="_Folder">Namn</msg>
   <msg key="_Folder_1">Beskrivning</msg>
-  <msg key="_For">För att visa detta foto &lt;a href=photo-edit?photo_id=$photo_id&gt;redigera attributen&lt;/a&gt; och avchecka alternativet &quot;Dölj&quot;.</msg>
+  <msg key="_For">För att visa detta foto &lt;a href=photo-edit?photo_id=%photo_id%&gt;redigera attributen&lt;/a&gt; och avchecka alternativet &quot;Dölj&quot;.</msg>
   <msg key="_Full">Bilden i full storlek</msg>
   <msg key="_Hide">Dölj bildens HTML-källa</msg>
   <msg key="_Modify">Modifiera detta pakets parametrar</msg>
@@ -55,13 +55,13 @@
   <msg key="_Upload">Ladda upp foton</msg>
   <msg key="_Use">Använd &quot;Bläddra&quot;-knappen för att hitta filen</msg>
   <msg key="_Use_1">Använd &quot;Bläddra&quot;-knappen för att lokalisera din fil, klicka sedan på &quot;Öppna&quot;</msg>
-  <msg key="_We">Vi fick ett fel som vi inte automatiskt kunde identifiera. Var god meddela systemägaren detta. &lt;pre&gt;$errmsg&lt;/pre&gt;</msg>
+  <msg key="_We">Vi fick ett fel som vi inte automatiskt kunde identifiera. Var god meddela systemägaren detta. &lt;pre&gt;%errmsg%&lt;/pre&gt;</msg>
   <msg key="_We_1">Vi fick ett fel som vi inte automatiskt kunde identifiera. Var god meddela systemägaren detta.</msg>
   <msg key="_Yes_Delete">Ja, radera det</msg>
   <msg key="_You">Du måste ge klippbordet ett namn</msg>
   <msg key="_You_1">Du får inte radera rotmappen</msg>
   <msg key="_You_2">Du får inte radera rotmappen.</msg>
-  <msg key="_Your">Du kan klicka &lt;a href=album?album_id=$old_album_id&gt; här &lt;/a&gt; för att betrakta albumets alla foton</msg>
+  <msg key="_Your">Du kan klicka &lt;a href=album?album_id=%old_album_id%&gt; här &lt;/a&gt; för att betrakta albumets alla foton</msg>
   <msg key="Add_a_new_album">Lägg till ett nytt album</msg>
   <msg key="Add_a_new_folder">Lägg till en ny mapp</msg>
   <msg key="Album_Name">Namn</msg>

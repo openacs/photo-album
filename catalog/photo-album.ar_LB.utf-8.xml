@@ -4,7 +4,7 @@
   <msg key="_Album">وصف  الالبوم</msg>
   <msg key="_Album_1">قصة  الالبوم</msg>
   <msg key="_Album_2">اسم  الالبوم</msg>
-  <msg key="_An">حدث خط عند معالجة مدخلاتك الرجاء اعلام مالك النظام بهذا &lt;pre&gt;$errmsg&lt;/pre&gt;</msg>
+  <msg key="_An">حدث خط عند معالجة مدخلاتك الرجاء اعلام مالك النظام بهذا &lt;pre&gt;%errmsg%&lt;/pre&gt;</msg>
   <msg key="_An_1">حدث خط عند معالجة مدخلاتك الرجاء اعلام مالك النظام بهذا </msg>
   <msg key="_Choose">إختار حافظة جديدة للالبوم</msg>
   <msg key="_Choose_1">إختار حافظة جديدة للحافظة</msg>
@@ -18,21 +18,21 @@
   <msg key="_Edit">تحرير خواص الالبوم</msg>
   <msg key="_Edit_1">تحرير خواص الحافظة</msg>
   <msg key="_Edit_2">تحرير خواص الصورة</msg>
-  <msg key="_Edit_3">تحرير صفحة $page</msg>
-  <msg key="_Edit_4">تحرير صفحة $page</msg>
-  <msg key="_Either">إما أنه يوجد حاليا ألبوم إسمه\&quot;$name\&quot; أو انك ضغطت على الكبسة اكثر من مرة 
-بإستطاعتك العودة الى &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt;  لائحة الحافظات&lt;/a&gt;حتى ترى ان ألبومك هناك أم لا </msg>
-  <msg key="_Either_1">إما أنه يوجد حاليا ألبوم إسمه\&quot;$folder_name\&quot;أو انك ضغطت على الكبسة اكثر من مرة 
-بإستطاعتك العودة الى&lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt;الحافظة الجديدة&lt;/a&gt;  حتى ترى ان ألبومك هناك أم لا</msg>
-  <msg key="_Either_2">إما أنه يوجد حاليا حافظة  إسمه\&quot;$name\&quot; أو انك ضغطت على الكبسة اكثر من مرة 
-بإستطاعتك  &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt;  العودة الى لائحة الحافظات&lt;/a&gt; حتى ترى ان حافظتك هناك أم لا </msg>
-  <msg key="_Either_3">إما أنه يوجد حاليا حافظة داخل الحافظة الختارة  إسمه\&quot;$folder_name\&quot; أو انك ضغطت على الكبسة اكثر من مرة 
-بإستطاعتك العودة &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt; للحافظة الجديدة&lt;/a&gt; حتى ترى ان حافظتك هناك أم لا </msg>
-  <msg key="_Either_4">إما أنه يوجد حاليا  صورة في الالبوم المختار  إسمه \&quot;$filename\&quot; or أو انك ضغطت على الكبسة اكثر من مرة 
-بإستطاعتك &lt;a href=\&quot;album?album_id=$new_album_id\&quot;&gt;  العودة الى الالبوم الجديد&lt;/a&gt; حتى ترى ان صورتك هناك أم لا </msg>
+  <msg key="_Edit_3">تحرير صفحة %page%</msg>
+  <msg key="_Edit_4">تحرير صفحة %page%</msg>
+  <msg key="_Either">إما أنه يوجد حاليا ألبوم إسمه\&quot;%name%\&quot; أو انك ضغطت على الكبسة اكثر من مرة 
+بإستطاعتك العودة الى &lt;a href=\&quot;index?parent_id=%parent_id%\&quot;&gt;  لائحة الحافظات&lt;/a&gt;حتى ترى ان ألبومك هناك أم لا </msg>
+  <msg key="_Either_1">إما أنه يوجد حاليا ألبوم إسمه\&quot;%folder_name%\&quot;أو انك ضغطت على الكبسة اكثر من مرة 
+بإستطاعتك العودة الى&lt;a href=\&quot;?folder_id=%new_folder_id%\&quot;&gt;الحافظة الجديدة&lt;/a&gt;  حتى ترى ان ألبومك هناك أم لا</msg>
+  <msg key="_Either_2">إما أنه يوجد حاليا حافظة  إسمه\&quot;%name%\&quot; أو انك ضغطت على الكبسة اكثر من مرة 
+بإستطاعتك  &lt;a href=\&quot;index?parent_id=%parent_id%\&quot;&gt;  العودة الى لائحة الحافظات&lt;/a&gt; حتى ترى ان حافظتك هناك أم لا </msg>
+  <msg key="_Either_3">إما أنه يوجد حاليا حافظة داخل الحافظة الختارة  إسمه\&quot;%folder_name%\&quot; أو انك ضغطت على الكبسة اكثر من مرة 
+بإستطاعتك العودة &lt;a href=\&quot;?folder_id=%new_folder_id%\&quot;&gt; للحافظة الجديدة&lt;/a&gt; حتى ترى ان حافظتك هناك أم لا </msg>
+  <msg key="_Either_4">إما أنه يوجد حاليا  صورة في الالبوم المختار  إسمه \&quot;%filename%\&quot; or أو انك ضغطت على الكبسة اكثر من مرة 
+بإستطاعتك &lt;a href=\&quot;album?album_id=%new_album_id%\&quot;&gt;  العودة الى الالبوم الجديد&lt;/a&gt; حتى ترى ان صورتك هناك أم لا </msg>
   <msg key="_Folder">إسم الحافظة</msg>
   <msg key="_Folder_1">وصف الحافظة</msg>
-  <msg key="_For">لعرض هذة الصورة &lt;a href=photo-edit?photo_id=$photo_id&gt;تحرير الصفات&lt;/a&gt; لا تفعل إختيار عدم الظهور</msg>
+  <msg key="_For">لعرض هذة الصورة &lt;a href=photo-edit?photo_id=%photo_id%&gt;تحرير الصفات&lt;/a&gt; لا تفعل إختيار عدم الظهور</msg>
   <msg key="_Full">الحجم الكامل للصورة</msg>
   <msg key="_Hide">إخفاء عنوان مصدر   الصورة</msg>
   <msg key="_Modify">تعديل خصائص هذه الحزمة</msg>
@@ -60,13 +60,13 @@
   <msg key="_Upload">تحميل الصور</msg>
   <msg key="_Use">استعمل كبسة  التصفح لايجاد الملف</msg>
   <msg key="_Use_1">استعمل كبسة  التصفح لايجاد الملف ثم إضغط على كبسة الفتح</msg>
-  <msg key="_We">بوجد خطأ لم نتمكن من تحديدة الرجاء إعلام مالك النظام بهذا&lt;pre&gt;$errmsg&lt;/pre&gt;</msg>
+  <msg key="_We">بوجد خطأ لم نتمكن من تحديدة الرجاء إعلام مالك النظام بهذا&lt;pre&gt;%errmsg%&lt;/pre&gt;</msg>
   <msg key="_We_1">بوجد خطأ لم نتمكن من تحديدة الرجاء إعلام مالك النظام بهذا</msg>
   <msg key="_Yes_Delete">نعم نفذ عملية الحذف</msg>
   <msg key="_You">يجب ان توفر إسم غير فارغ للحافظة المؤقتة</msg>
   <msg key="_You_1">لا يمكنك حذف دليل الاصل</msg>
   <msg key="_You_2">لا يمكنك تحريك دليل الاصل</msg>
-  <msg key="_Your">يمكنك الضغط &lt;a href=album?album_id=$old_album_id&gt; هنا &lt;/a&gt; لتشاهد  جميع الصور داخل الالبوم</msg>
+  <msg key="_Your">يمكنك الضغط &lt;a href=album?album_id=%old_album_id%&gt; هنا &lt;/a&gt; لتشاهد  جميع الصور داخل الالبوم</msg>
   <msg key="Add_a_new_album">إضافة البوم جديد</msg>
   <msg key="Add_a_new_folder">إضافة حافظة جديدة</msg>
   <msg key="Album_Name">اسم  الالبوم</msg>
