@@ -7,7 +7,7 @@
     <initial-install-p>f</initial-install-p>
     <singleton-p>f</singleton-p>
     
-    <version name="4.5" url="http://xarg.net/download/photo-album-4.5.apm">
+    <version name="4.6" url="http://xarg.net/download/photo-album-4.6.apm">
     <database-support>
         <database>oracle</database>
         <database>postgresql</database>
@@ -17,7 +17,7 @@
         <owner>Tom Baginski</owner>
         <summary>A photo album application that provides photo display
 and grouping functionality using the ACS Content Repository.</summary>
-        <release-date>2003-04-30</release-date>
+        <release-date>2003-06-16</release-date>
         <vendor url="http://xarg.net/">OpenACS</vendor>
         <description format="text/plain">A photo album application that provides photo display and grouping
 functionality using the ACS Content Repository.
