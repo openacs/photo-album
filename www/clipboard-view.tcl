@@ -26,7 +26,7 @@ if {![db_0or1row collection {select first_names || ' ' || last_name as owner_nam
 # Check that the user is permissioned for this collection.
 permission::require_permission -party_id $user_id -object_id $collection_id -privilege read
 
-set context [list [list clipboards clipboards] $title]
+set context [list [list clipboards Clipboards] $title]
 
 db_multirow images get_images {
     select m.photo_id, p.image_id, p.height, p.width, p.caption, to_char(p.date_taken, 'Mon FMDD, YYYY') as taken, f.width as base_width, f.image_id as base_id, f.height as base_height

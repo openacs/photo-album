@@ -1,6 +1,6 @@
 <master>
 <property name="title">@title@</property>
-<property name="context_list">@context_list@</property>
+<property name="context">@context_list@</property>
 
 <image src="images/@path@" height=@height@ width=@width@>
 <form method=POST action=photo-delete>
