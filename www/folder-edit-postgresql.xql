@@ -5,7 +5,7 @@
 
 <fullquery name="edit_folder">      
       <querytext>
-      select content_folder__rename (
+      select content_folder__edit_name (
             :folder_id, -- folder_id 
 	    null, -- name
             :label, -- label 
