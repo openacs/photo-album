@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <message_catalog package_key="photo-album" package_version="5.0d1" locale="en_US" charset="ISO-8859-1">
 
-  <msg key="_Album">Description</msg>
-  <msg key="_Album_1">Story</msg>
-  <msg key="_Album_2">Name</msg>
-  <msg key="_An">error occurred while processing your input. Please let the system owner know about this.
+  <msg key="_Album">Album Description</msg>
+  <msg key="_Album_1">Album Story</msg>
+  <msg key="_Album_2">Album Name</msg>
+  <msg key="_An">An error occurred while processing your input. Please let the system owner know about this.
 	  &lt;pre&gt;$errmsg&lt;/pre&gt;</msg>
-  <msg key="_An_1">error occurred while processing your input. Please let the system owner know about this.</msg>
-  <msg key="_Choose">New Folder for Album</msg>
-  <msg key="_Choose_1">New Folder for Folder</msg>
-  <msg key="_Choose_2">a Photo to Upload </msg>
-  <msg key="_Choose_3">a tar or zip file to upload</msg>
-  <msg key="_Clipboard">name</msg>
-  <msg key="_Create">a New Album</msg>
-  <msg key="_Create_1">New Folder</msg>
-  <msg key="_Delete">Folder</msg>
-  <msg key="_Delete_1">Photo</msg>
-  <msg key="_Edit">Album Attributes</msg>
-  <msg key="_Edit_1">Folder Attributes</msg>
-  <msg key="_Edit_2">Photo Attributes</msg>
-  <msg key="_Edit_3">page $page </msg>
-  <msg key="_Edit_4">page $page</msg>
-  <msg key="_Either">there is already an album with the name \&quot;$name\&quot; 
+  <msg key="_An_1">An error occurred while processing your input. Please let the system owner know about this.</msg>
+  <msg key="_Choose">Choose New Folder for Album</msg>
+  <msg key="_Choose_1">Choose New Folder for Folder</msg>
+  <msg key="_Choose_2">Choose a Photo to Upload </msg>
+  <msg key="_Choose_3">Choose a tar or zip file to upload</msg>
+  <msg key="_Clipboard">Clipboard name</msg>
+  <msg key="_Create">Create a New Album</msg>
+  <msg key="_Create_1">Create New Folder</msg>
+  <msg key="_Delete">Delete Folder</msg>
+  <msg key="_Delete_1">Delete Photo</msg>
+  <msg key="_Edit">Edit Album Attributes</msg>
+  <msg key="_Edit_1">Edit Folder Attributes</msg>
+  <msg key="_Edit_2">Edit Photo Attributes</msg>
+  <msg key="_Edit_3">Edit page $page </msg>
+  <msg key="_Edit_4">Edit page $page</msg>
+  <msg key="_Either">Either there is already an album with the name \&quot;$name\&quot; 
 	          or you clicked on the button more than once. You can &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt;
 	          return to the directory listing&lt;/a&gt; to see if your album is there.</msg>
-  <msg key="_Either_1">there is already an album in the specified folder with the name \&quot;$folder_name\&quot; or you clicked on the button more than once.  You can &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt;return to the new folder&lt;/a&gt; to see if your album is there.</msg>
-  <msg key="_Either_2">there is already a folder with the name \&quot;$name\&quot; 
+  <msg key="_Either_1">Either there is already an album in the specified folder with the name \&quot;$folder_name\&quot; or you clicked on the button more than once.  You can &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt;return to the new folder&lt;/a&gt; to see if your album is there.</msg>
+  <msg key="_Either_2">Either there is already a folder with the name \&quot;$name\&quot; 
 	          or you clicked on the button more than once. You can &lt;a href=\&quot;index?parent_id=$parent_id\&quot;&gt;
 	          return to the directory listing&lt;/a&gt; to see if your folder is there.</msg>
   <msg key="_Either_3">there is already an folder in the specified folder with the name \&quot;$folder_name\&quot; or you clicked on the button more than once.  You can &lt;a href=\&quot;?folder_id=$new_folder_id\&quot;&gt;return to the new folder&lt;/a&gt; to see if your folder is there.</msg>
@@ -47,28 +47,28 @@
   <msg key="_Photo_2">not found or photo is hidden </msg>
   <msg key="_Please">select album</msg>
   <msg key="_Save">Save </msg>
-  <msg key="_Show">the image html source for copy&amp;amp;paste</msg>
-  <msg key="_The">specified parent folder is not valid.</msg>
-  <msg key="_the">directory must exist on server and be readable by the server process</msg>
-  <msg key="_The_1">specified album is not valid.</msg>
-  <msg key="_The_2">specified photo is not valid.</msg>
-  <msg key="_The_3">specified folder is not valid.</msg>
-  <msg key="_The_4">specified album is not valid. </msg>
-  <msg key="_The_5">parameter AcceptableUploadMIMETypes is not satisfied </msg>
-  <msg key="_The_6">parameter ConverttoJpgorPng is not in automatic mode </msg>
-  <msg key="_This">photo couldn't be showed because : </msg>
-  <msg key="_Upload">photos</msg>
-  <msg key="_Use">the \&quot;Browse...\&quot; button find a file</msg>
-  <msg key="_Use_1">the \&quot;Browse...\&quot; button to locate your file, then click \&quot;Open\&quot;</msg>
-  <msg key="_We">got an error that we couldn't readily identify.  Please let the system owner know about this.
+  <msg key="_Show">Show the image html source for copy&amp;amp;paste</msg>
+  <msg key="_The">The specified parent folder is not valid.</msg>
+  <msg key="_the">the directory must exist on server and be readable by the server process</msg>
+  <msg key="_The_1">The specified album is not valid.</msg>
+  <msg key="_The_2">The specified photo is not valid.</msg>
+  <msg key="_The_3">The specified folder is not valid.</msg>
+  <msg key="_The_4">The specified album is not valid. </msg>
+  <msg key="_The_5">The parameter AcceptableUploadMIMETypes is not satisfied </msg>
+  <msg key="_The_6">The parameter ConverttoJpgorPng is not in automatic mode </msg>
+  <msg key="_This">This photo couldn't be showed because : </msg>
+  <msg key="_Upload">Upload photos</msg>
+  <msg key="_Use">Use the \&quot;Browse...\&quot; button find a file</msg>
+  <msg key="_Use_1">Use the \&quot;Browse...\&quot; button to locate your file, then click \&quot;Open\&quot;</msg>
+  <msg key="_We">We got an error that we couldn't readily identify.  Please let the system owner know about this.
 
 	    &lt;pre&gt;$errmsg&lt;/pre&gt;</msg>
-  <msg key="_We_1">got an error that we couldn't readily identify.  Please let the system owner know about this. </msg>
+  <msg key="_We_1">We got an error that we couldn't readily identify.  Please let the system owner know about this. </msg>
   <msg key="_Yes_Delete">Yes, Delete It</msg>
-  <msg key="_You">must provide a non-empty name for the clipboard</msg>
-  <msg key="_You_1">may not delete the root folder.</msg>
-  <msg key="_You_2">may not move the root folder.</msg>
-  <msg key="_Your">can click &lt;a href=album?album_id=$old_album_id&gt; here &lt;/a&gt; to view all photos of the album </msg>
+  <msg key="_You">You must provide a non-empty name for the clipboard</msg>
+  <msg key="_You_1">You may not delete the root folder.</msg>
+  <msg key="_You_2">You may not move the root folder.</msg>
+  <msg key="_Your">You can click &lt;a href=album?album_id=$old_album_id&gt; here &lt;/a&gt; to view all photos of the album </msg>
   <msg key="Add_a_new_album">Add a new album</msg>
   <msg key="Add_a_new_folder">Add a new folder</msg>
   <msg key="Album_Name">Album Name</msg>
