@@ -29,6 +29,31 @@
 </fullquery>
 
 
+<fullquery name="update_photo_user_filename">      
+      <querytext>
+	 UPDATE pa_photos
+ 	    SET user_filename = prev.user_filename,
+                camera_model = prev.camera_model,
+                date_taken   = prev.date_taken,
+                flash        = prev.flash, 
+                aperture     = prev.aperture,
+                metering     = prev.metering,   
+                focal_length = prev.focal_length,
+                exposure_time  = prev.exposure_time,
+                focus_distance = prev.focus_distance,
+                sha256         = prev.sha256,
+                photographer   = prev.photographer
+           FROM (
+             SELECT user_filename,camera_model,date_taken,flash, 
+                    aperture,metering,focal_length,exposure_time,
+                    focus_distance,sha256,photographer
+               FROM pa_photos prev
+              WHERE prev.pa_photo_id = :previous_revision
+              ) prev
+           WHERE pa_photo_id = :revision_id
+      </querytext>
+</fullquery>
+
 <fullquery name="set_live_revision">      
       <querytext>
 	    select content_item__set_live_revision (:revision_id)

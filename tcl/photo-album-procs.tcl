@@ -3,7 +3,7 @@ ad_library {
     TCL library for the photo-album system
 
     @author Tom Baginski (bags@arsdigita.com)
-    @author Jeff Davis (davis@xarg.net)
+    @author Jeff Davis (davis@xorch.net)
 
     @creation-date December 14, 2000
     @cvs-id $Id$
@@ -335,7 +335,7 @@ ad_proc -public pa_image_width_height {
     Sets height to the variable named in height_var in the calling level.
     Sets width_var to the variable named in width_var in the calling level.
 
-    I Use ImageMagick instead of aolsever funcition because it can handle more than
+    I Use ImageMagick instead of aolserver function because it can handle more than
     just gifs and jpegs.  
 } {
     set identify_string [exec identify $filename]
@@ -354,11 +354,7 @@ ad_proc -public pa_make_new_image {
     be used for both width and height.
 
     ImageMagick will retain the aspect ratio of the base_image when creating the new_image
-
-    jhead -dt is called to delete any embeded thumbnail since digital camera thumbnails
-    can be quite large and imagemagick does not remove them when converting (so thumbnails 
-    can end up being 8k for the thumbnail + 32k for the embeded thumbnail).                                                                             
-
+    
     @param base_image original image filename 
     @param new_image new image filename 
     @param geometry string as passed to convert 
@@ -369,8 +365,7 @@ ad_proc -public pa_make_new_image {
         set geometry ${geometry}x${geometry}
     }
     ns_log debug "pa_make_new_image: Start convert, making $new_image geometry $geometry"
-    exec convert -geometry $geometry -interlace None -sharpen 1x2  $base_image $new_image
-    exec jhead -dt $new_image
+    exec convert -interlace NONE -geometry $geometry $base_image $new_image
     ns_log debug "pa_make_new_image: Done convert for $new_image"
 }
 
@@ -639,7 +634,7 @@ ad_proc -public pa_expand_archive {
     } elseif {[regexp {.zip$} $upload_file]} { 
         set type zip
     } else { 
-        set type "Uknown type"
+        set type "Unknown type"
     }
 
     switch $type { 
@@ -660,7 +655,7 @@ ad_proc -public pa_expand_archive {
         }
         default { 
             set errp 1 
-            set errMsg "Unknown file type.  Dont know how to extract $upload_file"
+            set errMsg "don't know how to extract $upload_file"
         }
     }
     
@@ -728,7 +723,7 @@ ad_proc -public  pa_file_info {
         }
     }
     
-    return [list $size $width $height $type $mime $colors $quantum $sha256]
+    return [list $size $width $height $type $mime $colors $quantum [string trim $sha256]]
 }           
 
 
@@ -825,12 +820,7 @@ ad_proc -public pa_load_images {
             set client_filename $upload_name
         }
 
-        if {[catch {set base_info [pa_file_info $image_file]} errMsg]} { 
-            ns_log Warning "Error parsing file data $image_file Error: $errMsg"
-            continue
-        }
-
-        foreach {base_bytes base_width base_height base_type base_mime base_colors base_quantum base_sha256} $base_info { break }
+        foreach {base_bytes base_width base_height base_type base_mime base_colors base_quantum base_sha256} [pa_file_info $image_file] {}
         
         # If we don't have a mime type we like we try to make a jpg or png 
         #
@@ -861,13 +851,13 @@ ad_proc -public pa_load_images {
             }
 
             # get info again
-            foreach {base_bytes base_width base_height base_type base_mime base_colors base_quantum base_sha256} [pa_file_info $image_file] { break }
+            foreach {base_bytes base_width base_height base_type base_mime base_colors base_quantum base_sha256} [pa_file_info $image_file] {}
         }
         
         if {[string equal $base_mime image/jpeg]} { 
             array set exif [pa_get_exif_data ${image_file}]
         } else { 
-            array unset exif
+            array set exif {}
         }
 
         set BaseExt [string tolower $base_type]
@@ -953,21 +943,8 @@ ad_proc -public pa_load_images {
                 if {[catch {clock scan $tmp_exif_DateTime}]} { 
                     set tmp_exif_DateTime {}
                 }
-                
-                db_dml update_photo_data { 
-                    UPDATE pa_photos 
-                    SET camera_model = :tmp_exif_Cameramodel,
-                    user_filename = :upload_name,
-                    date_taken = datetime(:tmp_exif_DateTime),
-                    flash = :tmp_exif_Flashused,
-                    aperture = :tmp_exif_Aperture,
-                    metering = :tmp_exif_MeteringMode,
-                    focal_length = :tmp_exif_Focallength,
-                    exposure_time = :tmp_exif_Exposuretime,
-                    focus_distance = :tmp_exif_FocusDist,
-                    sha256 = :base_sha256
-                    WHERE pa_photo_id = :photo_rev_id
-                }
+
+                db_dml update_photo_data {}
             }
 
             pa_insert_image $base_image_name $photo_id $base_item_id $base_rev_id $user_id $peeraddr $photo_id $base_image_name "original image" $base_mime "base" "t" $base_filename_relative $base_height $base_width $base_bytes 
@@ -1086,7 +1063,7 @@ ad_proc -public pa_clipboards_multirow {
     @param create_new add a "Create new folder" entry to list 
     @param force_default create the datasource with a default folder even if none exist
     @param user_id the owner id for the folders 
-    @param the datasource name to use.
+    @param datasource the datasource name to use.
 
     @author Jeff Davis davis@xarg.net
     @creation-date 2002-10-30
@@ -1108,3 +1085,50 @@ ad_proc -public pa_clipboards_multirow {
     return [template::multirow size $datasource]
 }
 
+ad_proc pa_rotate {id rotation} {
+    Rotate a pic
+
+    @param id the photo_id to rotate
+    @param rotation the number of degrees to rotate
+
+    @author Jeff Davis davis@xarg.net
+    @creation-date 2002-10-30
+
+} {
+    if {![empty_string_p $rotation] && ![string equal $rotation 0]} { 
+        set flop [list]
+        set files [list]
+
+        # get a list of files to handle sorted by size...
+        db_foreach get_image_files {} {
+            ns_log Notice "pa_rotate $id $rotation [cr_fs_path] $filename $image_id $width $height"
+            if {[catch {exec convert -rotate $rotation [cr_fs_path]$filename [cr_fs_path]${filename}.new } errMsg]} { 
+                ns_log Notice "Failed rotation of image $image_id -- $errMsg"
+            }
+            lappend flop $image_id
+            lappend files [cr_fs_path]$filename
+        }
+
+        # rename files in catch.
+        if { [catch { 
+            foreach fnm $files {
+                file rename -force $fnm ${fnm}.old 
+                file rename -force ${fnm}.new $fnm
+            } } errMsg ] } { 
+            # problem with the renaming.  Make an attempt to rename them back 
+            catch { 
+                foreach fnm $files {
+                    file rename -force ${fnm}.old $fnm
+                    file delete -force ${fnm}.new
+                }
+            } errMsg
+        } else { 
+            # flop images that need flopping.
+            if {[string equal $rotation 90] || [string equal $rotation 270]} { 
+                db_dml flop_image_size "update images set width = height, height = width where image_id in ([join $flop ,])"
+            }
+        }
+    }
+}
+
+        

@@ -110,32 +110,29 @@
 </fullquery>
 
  
-<fullquery name="pa_load_images.insert_photo">      
+<fullquery name="pa_load_images.new_photo">      
       <querytext>
-      
-                declare 
-                dummy  integer;
-                begin
+        declare 
+            dummy  integer;
+        begin
 
-                dummy := pa_photo.new (
-                                       name            => :image_name,
-                                       parent_id       => :album_id,
-                                       item_id         => :photo_id,
-                                       revision_id     => :photo_rev_id,
-                                       creation_date   => sysdate,
-                                       creation_user   => :user_id,
-                                       creation_ip     => :peeraddr,
-                                       context_id      => :album_id,
-                                       title           => :client_filename,
-                                       description     => :description,
-                                       is_live         => 't',
-                                       caption         => :caption,
-                                       story           => :story,
-                                       user_filename   => :client_filename
-                                       );
-                end;
-            
-      </querytext>
+        dummy := pa_photo.new (
+            name            => :image_name,
+            parent_id       => :album_id,
+            item_id         => :photo_id,
+            revision_id     => :photo_rev_id,
+            creation_user   => :user_id,
+            creation_ip     => :peeraddr,
+            context_id      => :album_id,
+            title           => :client_filename,
+            description     => :description,
+            is_live         => 't',
+            caption         => :caption,
+            story           => :story
+         );
+         end;
+
+    </querytext>
 </fullquery>
 
  
@@ -143,30 +140,61 @@
       <querytext>
       
         declare 
-        dummy  integer;
+            dummy  integer;
         begin
 
         dummy := image.new (
-                            name            => :name,
-                            parent_id       => :photo_id,
-                            item_id         => :item_id,
-                            revision_id     => :rev_id,
-                            creation_date   => sysdate,
-                            creation_user   => :user_id,
-                            creation_ip     => :peeraddr,
-                            context_id      => :context_id,
-                            title           => :title,
-                            description     => :description,
-                            mime_type       => :mime_type,
-                            relation_tag    => :relation,
-                            is_live         => :is_live,
-                            path            => :path,
-                            height          => :height,
-                            width           => :width,
-                            file_size       => :size
-                            );
+            name            => :name,
+            parent_id       => :photo_id,
+            item_id         => :item_id,
+            revision_id     => :rev_id,
+            mime_type       => :mime_type,
+            creation_user   => :user_id,
+            creation_ip     => :peeraddr,
+            relation_tag    => :relation,
+            title           => :title,
+            description     => :description,
+            is_live         => :is_live,
+            file_size       => :size,
+            filename        => :path,
+            height          => :height,
+            width           => :width,
+            context_id      => :context_id
+        );
         end;
     
+      </querytext>
+</fullquery>
+
+<fullquery name="pa_load_images.update_photo_data">      
+    <querytext>
+
+        UPDATE pa_photos 
+        SET camera_model = :tmp_exif_Cameramodel,
+            user_filename = :upload_name,
+            date_taken = to_date(:tmp_exif_DateTime, 'YYYY-MM-DD HH24:MI:SS'),
+            flash = :tmp_exif_Flashused,
+            aperture = :tmp_exif_Aperture,
+            metering = :tmp_exif_MeteringMode,
+            focal_length = :tmp_exif_Focallength,
+            exposure_time = :tmp_exif_Exposuretime,
+            focus_distance = :tmp_exif_FocusDist,
+            sha256 = :base_sha256
+        WHERE pa_photo_id = :photo_rev_id
+
+    </querytext>
+</fullquery>
+
+<fullquery name="pa_rotate.get_image_files">      
+      <querytext>
+      
+            select i.image_id, crr.filename, i.width, i.height
+            from cr_items cri, cr_revisions crr, images i
+            where cri.parent_id = :id
+              and crr.revision_id = cri.latest_revision
+              and i.image_id = cri.latest_revision
+            order by crr.content_length desc
+	
       </querytext>
 </fullquery>
 

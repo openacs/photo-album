@@ -49,38 +49,7 @@ set move_p [expr $write_p && !($folder_id == $root_folder_id) && $parent_folder_
 set delete_p [expr !($has_children_p) && !($folder_id == $root_folder_id) && $folder_delete_p && $parent_folder_write_p]
 
 if $has_children_p {
-    db_multirow child get_childrenX "
-    select * from (
-      select i.item_id,
-        r.title as name,
-        r.description,
-        'Album' as type,
-        1 as ordering_key,
-        ic.image_id as iconic,
-        ic.width,
-        ic.height
-      from   cr_items i,
-        cr_revisions r,
-        pa_albums a left outer join all_photo_images ic
-          on (ic.item_id = a.iconic and ic.relation_tag='thumb')
-      where i.content_type = 'pa_album'
-        and i.parent_id     = :folder_id
-        and i.live_revision = r.revision_id
-        and a.pa_album_id = i.live_revision
-      UNION ALL
-      select i.item_id,
-        f.label as name,
-        f.description,
-        'Folder',
-        0,
-        null as iconic,0,0
-      from cr_items i,
-        cr_folders f
-      where i.parent_id = :folder_id      
-        and i.item_id = f.folder_id
-      ) as x 
-    where acs_permission__permission_p(item_id, :user_id, 'read') = 't'
-    order by ordering_key,name"
+    db_multirow child get_children {}
 } else {
     set child:rowcount 0
 }

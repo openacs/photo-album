@@ -64,7 +64,7 @@ select acs_object_type__create_type(
     );
 
 
-create function pa_collection__new (integer,integer,varchar,timestamp,integer,varchar,integer)
+create or replace function pa_collection__new (integer,integer,varchar,timestamp,integer,varchar,integer)
 returns integer as '
 declare
   p_collection_id                       alias for $1;       -- default null
@@ -100,7 +100,7 @@ begin
 
 end;' language 'plpgsql';
 
-create function pa_collection__delete (integer)
+create or replace function pa_collection__delete (integer)
 returns integer as '
 declare
   p_collection_id                             alias for $1;
@@ -119,7 +119,7 @@ begin
 end;' language 'plpgsql';
 
 
-create function pa_collection__title (integer)
+create or replace function pa_collection__title (integer)
 returns varchar as '
 declare
     p_collection_id        alias for $1;

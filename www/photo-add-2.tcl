@@ -23,7 +23,7 @@ ad_page_contract {
     }
     valid_photo_id -requires {photo_id:integer} {
 	# supplied photo_id must not already exist	
-	if {[db_string check_photo_id "select count(*) from cr_items where item_id = :photo_id"]} {
+        if {[db_string check_photo_id {}]} {
 	    ad_complain "The photo already exists.  Check if it is already in the <a href=\"album?album_id=$album_id\">album</a>."
 	}
     }

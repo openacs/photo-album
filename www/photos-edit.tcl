@@ -3,7 +3,7 @@
 ad_page_contract {
     Bulk edit photos in a given album
 
-    @author Jeff Davis (davis@xarg.net)
+    @author Jeff Davis (davis@xorch.net)
     @creation-date 7/1/2002
     @cvs-id $Id$
 } {

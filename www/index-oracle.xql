@@ -28,30 +28,43 @@
 <fullquery name="get_children">      
       <querytext>
       
-    select * from (
-      select i.item_id,
+    select * from
+      (select i.item_id,
         r.title as name,
         r.description,
         'Album' as type,
-        1 as ordering_key
+        1 as ordering_key,
+        icon.image_id as iconic,
+        icon.width,
+        icon.height
       from   cr_items i,
-        cr_revisions r
+        cr_revisions r,
+        pa_albums a,
+        (select item_id, image_id, height, width 
+           from all_photo_images 
+          where relation_tag = 'thumb') icon 
       where i.content_type = 'pa_album'
         and i.parent_id     = :folder_id
         and i.live_revision = r.revision_id
+        and a.pa_album_id = i.live_revision
+        and icon.item_id(+) = a.iconic
       UNION ALL
       select i.item_id,
         f.label as name,
         f.description,
-        'Folder',
+        'Folder' as type,
+	0 as ordering_key,
+        0 as iconic,
+        0,
         0
       from cr_items i,
         cr_folders f
       where i.parent_id = :folder_id      
         and i.item_id = f.folder_id
-      )
+      ) x
     where acs_permission.permission_p(item_id, :user_id, 'read') = 't'
     order by ordering_key,name
+
       </querytext>
 </fullquery>
 

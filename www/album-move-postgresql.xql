@@ -3,13 +3,6 @@
 <queryset>
    <rdbms><type>postgresql</type><version>7.1</version></rdbms>
 
-<fullquery name="get_album_info">      
-      <querytext>
-      select title, description, story from pa_albumsx where object_id = content_item__get_live_revision(:album_id)
-      </querytext>
-</fullquery>
-
- 
 <fullquery name="get_folders">      
       <querytext>
       select 

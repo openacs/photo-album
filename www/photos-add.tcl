@@ -4,7 +4,7 @@ ad_page_contract {
     Upload a collection of photos from a tar or zip file.
     Initial form data
 
-    @author Jeff Davis (davis@xarg.net)
+    @author Jeff Davis (davis@xorch.net)
     @creation-date 6/28/2002
     @cvs_id $Id$
 } {

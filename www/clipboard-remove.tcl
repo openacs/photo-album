@@ -23,7 +23,7 @@ if {$collection_id < 0} {
 } 
 
 if {$collection_id > 0} { 
-    if {[catch {db_dml unmap_photo {delete from pa_collection_photo_map where collection_id = :collection_id and photo_id = :photo_id and acs_permission__permission_p(:collection_id, :user_id, 'write') = 't'}} errMsg]} {
+    if {[catch {db_dml unmap_photo {}} errMsg]} {
         ad_return_error "Clipboard Remove error" "Error removing photo from clipboard<pre>$errMsg</pre>"
         ad_script_abort
     }

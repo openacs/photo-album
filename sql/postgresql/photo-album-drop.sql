@@ -1,4 +1,8 @@
--- postgresql/photo-album-drop.sql
+-- /packages/photo-album/sql/postgresql/photo-album-drop.sql
+
+-- @cvs-id $Id$
+
+\i pa-clip-drop.sql
 
 create function tmp_pa_revoke () 
 returns integer as '
@@ -11,8 +15,8 @@ begin
     loop
       PERFORM acs_permission__revoke_permission (
         priv_rec.object_id,
-	priv_rec.grantee_id,
-	priv_rec.privilege
+        priv_rec.grantee_id,
+        priv_rec.privilege
       );
     end loop;
     return 1;
@@ -33,8 +37,8 @@ begin
     loop
       PERFORM acs_permission__revoke_permission (
         priv_rec.object_id,
-	priv_rec.grantee_id,
-	priv_rec.privilege
+        priv_rec.grantee_id,
+        priv_rec.privilege
       );
     end loop;
     return 1;
@@ -55,8 +59,8 @@ begin
     loop
       PERFORM acs_permission__revoke_permission (
         priv_rec.object_id,
-	priv_rec.grantee_id,
-	priv_rec.privilege
+        priv_rec.grantee_id,
+        priv_rec.privilege
       );
     end loop;
     return 1;
@@ -166,7 +170,7 @@ begin
     loop
       PERFORM content_folder__unregister_content_type (
         folder_rec.folder_id,
-	folder_rec.content_type,
+    folder_rec.content_type,
         ''t''
       );
     end loop;
@@ -185,7 +189,7 @@ drop function photo_album__get_root_folder (integer);
 -- drop package pa_album;
 drop function pa_album__delete_revision (integer);
 drop function pa_album__delete (integer);
-drop function pa_album__new (varchar, integer, integer, boolean, integer, varchar, varchar, varchar, text, varchar, integer, timestamp, varchar, integer, timestamp, varchar);
+drop function pa_album__new (varchar, integer, integer, boolean, integer, varchar, varchar, varchar, text, varchar, integer, timestamp, varchar, integer, timestamp, varchar) ;
 
 -- this needs to drop the pa_photo__ functions
 -- drop package pa_photo;  
@@ -204,14 +208,15 @@ create function tmp_pa_folder_delete2 () returns integer as '
 declare
   folder_rec RECORD;
 begin
-  for folder_rec in select i1.item_id, tree_level(i1.tree_sortkey) - tree_level(i2.tree_sortkey) as level
-                      from cr_items i1, cr_items i2
-                     where i1.tree_sortkey between i2.tree_sortkey and tree_right(i2.tree_sortkey)
-                           and i2.item_id in (select folder_id from pa_package_root_folder_map)
-                  order by i2.item_id, level desc
+  for folder_rec in select i1.item_id, 
+        tree_level(i1.tree_sortkey) - tree_level(i2.tree_sortkey) as level
+      from cr_items i1, cr_items i2
+      where i1.tree_sortkey between i2.tree_sortkey and tree_right(i2.tree_sortkey)
+        and i2.item_id in (select folder_id from pa_package_root_folder_map)
+      order by i2.item_id, level desc
     loop
       if folder_rec.level = 0 then
-        -- folder is a root folder, delete it from maping table to avoid fk constraint violation
+      -- folder is a root folder, delete it from maping table to avoid fk constraint violation
         delete from pa_package_root_folder_map where folder_id = folder_rec.item_id;
       end if;
       PERFORM content_folder__delete (folder_rec.item_id);
@@ -222,17 +227,5 @@ end; ' language 'plpgsql';
 select tmp_pa_folder_delete2 ();
 
 drop function tmp_pa_folder_delete2 ();
-
+  
 drop table pa_package_root_folder_map;
-
--- jarkko: this does NOT delete the table, so we do it
--- below
-select acs_object_type__drop_type('photo_collection', 'f');
-
-drop table pa_collections;
-drop table pa_collection_photo_map;
-drop view all_photo_images;
-
-drop function pa_collection__new (integer, integer, varchar, timestamp, integer, varchar, integer);
-drop function pa_collection__delete (integer);
-drop function pa_collection__title (integer);

@@ -29,7 +29,7 @@ ad_form -name clip_ae -export {photo_id} -form {
         "You must provide a non-empty name for the clipboard"
     }
 } -new_data {
-    db_0or1row new_collection {select pa_collection__new(:collection_id, :user_id, :title, now(), :user_id, :peeraddr, :context);}
+    db_exec_plsql new_collection {}
 } -edit_data {
     db_dml do_update "
             update pa_collections 

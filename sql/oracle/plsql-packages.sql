@@ -40,8 +40,7 @@ as
     mime_type		in cr_revisions.mime_type%TYPE default null,
     nls_language	in cr_revisions.nls_language%TYPE default null,
     caption		in pa_photos.caption%TYPE default null,
-    story		in pa_photos.story%TYPE default null,
-    user_filename	in pa_photos.user_filename%TYPE default null
+    story		in pa_photos.story%TYPE default null
   ) return cr_items.item_id%TYPE;
 
   --/**
@@ -86,8 +85,7 @@ as
     mime_type		in cr_revisions.mime_type%TYPE default null,
     nls_language	in cr_revisions.nls_language%TYPE default null,
     caption		in pa_photos.caption%TYPE default null,
-    story		in pa_photos.story%TYPE default null,
-    user_filename	in pa_photos.user_filename%TYPE default null
+    story		in pa_photos.story%TYPE default null
   ) return cr_items.item_id%TYPE
   is
     v_item_id		cr_items.item_id%TYPE;
@@ -123,7 +121,7 @@ as
     insert into pa_photos
     (pa_photo_id, caption, story, user_filename)
     values
-    (v_revision_id, caption, story, user_filename);
+    (v_revision_id, caption, story, title);
 
     -- is_live => 't' not used as part of content_item.new
     -- because content_item.new does not let developer specify revision_id and doesn't return revision_id,
@@ -185,7 +183,7 @@ as
 
 end pa_photo;
 /
-show errors;
+show errors
 
 
 create or replace package pa_album
@@ -197,21 +195,22 @@ as
      name           in cr_items.name%TYPE,
      album_id       in cr_items.item_id%TYPE default null,
      parent_id	    in cr_items.parent_id%TYPE default null,
-     revision_id    in cr_revisions.revision_id%TYPE default null,
-     content_type   in acs_object_types.object_type%TYPE default 'pa_album',
      is_live	    in char default 'f',
-     creation_date  in acs_objects.creation_date%TYPE default sysdate, 
      creation_user  in acs_objects.creation_user%TYPE default null, 
      creation_ip    in acs_objects.creation_ip%TYPE default null, 
-     locale	    in cr_items.locale%TYPE default null,
-     context_id	    in acs_objects.context_id%TYPE default null,
-     relation_tag   in cr_child_rels.relation_tag%TYPE default null,
-     publish_date   in cr_revisions.publish_date%TYPE default sysdate,
-     mime_type      in cr_revisions.mime_type%TYPE default null,
-     nls_language   in cr_revisions.nls_language%TYPE default null,
-     title	    in cr_revisions.title%TYPE default null,
+     title  	    in cr_revisions.title%TYPE default null,
      description    in cr_revisions.description%TYPE default null,
-     story	    in pa_albums.story%TYPE default null
+     story  	    in pa_albums.story%TYPE default null,
+     photographer   in pa_albums.photographer%TYPE default null,
+     revision_id    in cr_revisions.revision_id%TYPE default null,
+     creation_date  in acs_objects.creation_date%TYPE default sysdate, 
+     locale 	    in cr_items.locale%TYPE default null,
+     context_id	    in acs_objects.context_id%TYPE default null,
+     publish_date   in cr_revisions.publish_date%TYPE default sysdate,
+     nls_language   in cr_revisions.nls_language%TYPE default null,
+     content_type   in acs_object_types.object_type%TYPE default 'pa_album',
+     relation_tag   in cr_child_rels.relation_tag%TYPE default null,
+     mime_type	    in cr_revisions.mime_type%TYPE default null
   ) return cr_items.item_id%TYPE;
 
   --/**
@@ -232,7 +231,7 @@ as
 
 end pa_album;
 /
-show errors;
+show errors
 
 create or replace package body pa_album
 as
@@ -240,21 +239,22 @@ as
      name           in cr_items.name%TYPE,
      album_id       in cr_items.item_id%TYPE default null,
      parent_id	    in cr_items.parent_id%TYPE default null,
-     revision_id    in cr_revisions.revision_id%TYPE default null,
-     content_type   in acs_object_types.object_type%TYPE default 'pa_album',
      is_live	    in char default 'f',
-     creation_date  in acs_objects.creation_date%TYPE default sysdate, 
      creation_user  in acs_objects.creation_user%TYPE default null, 
      creation_ip    in acs_objects.creation_ip%TYPE default null, 
-     locale	    in cr_items.locale%TYPE default null,
-     context_id	    in acs_objects.context_id%TYPE default null,
-     relation_tag   in cr_child_rels.relation_tag%TYPE default null,
-     publish_date   in cr_revisions.publish_date%TYPE default sysdate,
-     mime_type	    in cr_revisions.mime_type%TYPE default null,
-     nls_language   in cr_revisions.nls_language%TYPE default null,
-     title	    in cr_revisions.title%TYPE default null,
+     title  	    in cr_revisions.title%TYPE default null,
      description    in cr_revisions.description%TYPE default null,
-     story	    in pa_albums.story%TYPE default null
+     story  	    in pa_albums.story%TYPE default null,
+     photographer   in pa_albums.photographer%TYPE default null,
+     revision_id    in cr_revisions.revision_id%TYPE default null,
+     creation_date  in acs_objects.creation_date%TYPE default sysdate, 
+     locale 	    in cr_items.locale%TYPE default null,
+     context_id	    in acs_objects.context_id%TYPE default null,
+     publish_date   in cr_revisions.publish_date%TYPE default sysdate,
+     nls_language   in cr_revisions.nls_language%TYPE default null,
+     content_type   in acs_object_types.object_type%TYPE default 'pa_album',
+     relation_tag   in cr_child_rels.relation_tag%TYPE default null,
+     mime_type	    in cr_revisions.mime_type%TYPE default null
   ) return cr_items.item_id%TYPE
   is
     v_item_id       integer;
@@ -286,13 +286,9 @@ as
       creation_ip   => creation_ip
     );
 
-    insert into pa_albums (pa_album_id, story)
+    insert into pa_albums (pa_album_id, story, photographer)
     values 
-    (v_revision_id, story);
-
-    -- is_live => 't' not used as part of content_item.new
-    -- because content_item.new does not let developer specify revision_id and doesn't return revision_id,
-    -- revision_id needed for the insert to pa_albums
+    (v_revision_id, story, photographer);
 
     if is_live = 't' then
        content_item.set_live_revision (
@@ -346,7 +342,7 @@ as
 
 end pa_album;
 /
-show errors;
+show errors
 
 --/**
 --  Package does not contain new or delete procedure because

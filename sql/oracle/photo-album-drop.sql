@@ -1,3 +1,8 @@
+-- /packages/photo-album/sql/oracle/photo-album-drop.sql
+
+-- @cvs-id $Id$
+
+@@ pa-clip-drop.sql
 
 declare
   cursor priv_cursor is
@@ -10,12 +15,13 @@ begin
     loop
       acs_permission.revoke_permission (
         object_id  => priv_val.object_id,
-	grantee_id => priv_val.grantee_id,
-	privilege  => priv_val.privilege
+	    grantee_id => priv_val.grantee_id,
+	    privilege  => priv_val.privilege
       );
     end loop;
 end;
 /
+show errors
 
 declare
   cursor priv_cursor is
@@ -28,12 +34,13 @@ begin
     loop
       acs_permission.revoke_permission (
         object_id  => priv_val.object_id,
-	grantee_id => priv_val.grantee_id,
-	privilege  => priv_val.privilege
+    	grantee_id => priv_val.grantee_id,
+    	privilege  => priv_val.privilege
       );
     end loop;
 end;
 /
+show errors
 
 declare
   cursor priv_cursor is
@@ -52,6 +59,7 @@ begin
     end loop;
 end;
 /
+show errors
 
 begin
   -- kill stuff in permissions.sql
@@ -66,6 +74,7 @@ begin
 
 end;
 /
+show errors
 
 begin
   content_type.unregister_child_type (
@@ -76,30 +85,40 @@ begin
 
   content_type.unregister_child_type (
     parent_type => 'pa_photo',
-    child_type => 'pa_image',
+    child_type => 'image',
     relation_tag => 'generic'
   );
 end;
 /
+show errors
 
 -- clear out all the reference that cause key violations when droping type
 
 -- delete images
-declare
-  cursor image_cursor is
-    select item_id
-    from cr_items 
-    where content_type = 'pa_image';
-  image_val  image_cursor%ROWTYPE;
-begin
-  for image_val in image_cursor
-    loop
-      pa_image.delete (
-        item_id  => image_val.item_id
-      );
-    end loop;
-end;
-/
+-- now that pa_image is just image
+-- the query needs to be adjusted to be specific to photo-album
+-- this needs to be standardized with content-repository (clearing out files)
+-- there isn't currently a image__delete function
+-- so this bit won't work
+-- declare
+--   cursor image_cursor is
+--    select i.item_id
+--    from cr_items i, cr_child_rels rels, cr_items i2
+--    where i.content_type = 'image'
+--    and i2.content_type = 'pa_photo'
+--    and rels.child_id = i.item_id
+--    and rels.parent_id = i2.item_id;
+--  image_val  image_cursor%ROWTYPE;
+--begin
+--  for image_val in image_cursor
+--    loop
+--      image.delete (
+--        item_id  => image_val.item_id
+--      );
+--    end loop;
+--end;
+--/
+--show errors;
 
 -- delete photos
 declare
@@ -117,6 +136,7 @@ begin
     end loop;
 end;
 /
+show errors
 
 -- delete albums
 declare
@@ -134,6 +154,7 @@ begin
     end loop;
 end;
 /
+show errors
 
 declare
   cursor folder_cursor is
@@ -145,11 +166,12 @@ begin
     loop
       content_folder.unregister_content_type (
         folder_id    => folder_val.folder_id,
-	content_type => folder_val.content_type
+    	content_type => folder_val.content_type
       );
     end loop;
 end;
 /
+show errors
 
 drop package photo_album;
 
@@ -157,19 +179,11 @@ drop package pa_album;
 
 drop package pa_photo;  
 
-drop package pa_image;
-
-begin
-  acs_object_type.drop_type('pa_image');
-end;
-/
-
-drop table pa_images;
-
 begin
   acs_object_type.drop_type('pa_photo');
 end;
 /
+show errors
 
 drop table pa_photos;
 
@@ -177,6 +191,7 @@ begin
   acs_object_type.drop_type('pa_album');
 end;
 /
+show errors;
 
 drop table pa_albums;
 
@@ -187,7 +202,7 @@ declare
     from cr_items
     where content_type = 'content_folder'
     connect by prior item_id = parent_id
-    start with item_id in (select folder_id from pa_package_root_folder_map)	
+    start with item_id in (select folder_id from pa_package_root_folder_map)
     order by level desc;
   folder_val folder_cur%ROWTYPE;
 begin
@@ -201,12 +216,12 @@ begin
     end loop;
 end;
 /
+show errors;
   
 drop table pa_package_root_folder_map;
 
-drop table pa_files_to_delete;
+--drop table pa_files_to_delete;
 
-
-
+drop view all_photo_images;
 
 

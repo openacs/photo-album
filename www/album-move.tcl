@@ -25,7 +25,7 @@ set old_folder_id [db_string get_parent_folder "select parent_id from cr_items w
 ad_require_permission $album_id write
 ad_require_permission $old_folder_id write
 
-db_1row get_album_info {select title, description, story from pa_albumsx where object_id = content_item.get_live_revision(:album_id)}
+db_1row get_album_info {}
 
 # build form
 

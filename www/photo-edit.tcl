@@ -85,7 +85,7 @@ if { [template::form is_valid edit_photo] } {
 	# not allowing users to modify the binary yet
 	# will need to modify thumb and view binaries when photo binary is changed 
 
-	db_dml update_photo_user_filename {} 
+#	db_dml update_photo_user_filename {} 
 
 	db_exec_plsql set_live_revision {} 
     
@@ -97,7 +97,7 @@ if { [template::form is_valid edit_photo] } {
     }
 
     ad_returnredirect "photo?photo_id=$photo_id"
-    ad_abort_script
+    ad_script_abort
 }
 
 ad_return_template

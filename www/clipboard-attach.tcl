@@ -29,18 +29,16 @@ if {$collection_id == 0} {
     
     set collection_id [db_nextval acs_object_id_seq]
 
-    if {[catch {db_1row new_collection {select pa_collection__new(:collection_id, :user_id, :title, now(), :user_id, :peeraddr, :context)}} errMsg]} { 
-        ad_return_error "Clipboard Insert error" "Error putting photo into clipboard<pre>$errMsg</pre>"
+    if {[catch {db_exec_plsql new_collection {}} errMsg]} { 
+        ad_return_error "Clipboard Insert error" "Error putting photo into clipboard (query name new_collection)<pre>$errMsg</pre>"
     }
 }
 
 if {$collection_id > 0} { 
-    if {[catch {db_dml map_photo {insert into pa_collection_photo_map (collection_id, photo_id) select :collection_id, :photo_id where 
-        acs_permission__permission_p(:collection_id, :user_id, 'write') = 't'}} errMsg]} { 
+    if {[catch {db_dml map_photo {}} errMsg]} { 
         # Check if it was a pk violation (i.e. already inserted)
-        # JCD: should check if this works for oracle.  Might have case problem.
         if {![string match "*pa_collection_photo_map_pk*" $errMsg]} { 
-            ad_return_error "Clipboard Insert error" "Error putting photo into clipboard<pre>$errMsg</pre>"
+            ad_return_error "Clipboard Insert error" "Error putting photo into clipboard (query name map_photo)<pre>$errMsg</pre>"
             ad_script_abort
         }
     }

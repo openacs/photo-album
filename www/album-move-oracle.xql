@@ -3,13 +3,6 @@
 <queryset>
    <rdbms><type>oracle</type><version>8.1.6</version></rdbms>
 
-<fullquery name="get_album_info">      
-      <querytext>
-      select title, description, story from pa_albumsx where object_id = content_item.get_live_revision(:album_id)
-      </querytext>
-</fullquery>
-
- 
 <fullquery name="get_folders">      
       <querytext>
       select 

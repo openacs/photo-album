@@ -26,10 +26,6 @@ if {! $album_id } {
 
 ad_require_permission $album_id "write"
 
-db_dml photo_iconic {
-    UPDATE pa_albums 
-       SET iconic = :photo_id 
-     WHERE pa_album_id = content_item__get_live_revision(:album_id)
-}
+db_dml photo_iconic {}
 
 ad_returnredirect "album?album_id=$album_id"

@@ -386,5 +386,3 @@ create view all_photo_images as select i.item_id, ccr.relation_tag, im.*, p.*
 \i permissions.sql
 \i pl-pgsql.sql
 \i photo-album-clip.sql
-
-

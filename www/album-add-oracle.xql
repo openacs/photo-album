@@ -11,13 +11,13 @@
 	      name           => :name,
 	      album_id       => :album_id,
 	      parent_id	     => :parent_id,
-      	      is_live	     => 't',
+      	  is_live	     => 't',
 	      creation_user  => :user_id,
 	      creation_ip    => :peeraddr,
 	      title	     => :title,
 	      description    => :description,
-	      story	     => :story
-              photographer   => :photographer
+	      story	     => :story,
+          photographer   => :photographer
 	    );
 	    end;
 	
