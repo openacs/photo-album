@@ -32,6 +32,7 @@
   <msg key="_Either_4">there is already a photo in the specified albumr with the name \&quot;$filename\&quot; or you clicked on the button more than once.  You can &lt;a href=\&quot;album?album_id=$new_album_id\&quot;&gt;return to the new album&lt;/a&gt; to see if your photo is there. </msg>
   <msg key="_Folder">Name</msg>
   <msg key="_Folder_1">Description</msg>
+  <msg key="_For">show this foto &lt;a href=photo-edit?photo_id=$photo_id&gt;edit the attributes&lt;/a&gt; an uncheck the option hide</msg>
   <msg key="_Full">Size Image</msg>
   <msg key="_Hide">the image html source</msg>
   <msg key="_Modify">this package's parameters</msg>
@@ -43,6 +44,7 @@
   <msg key="_Photo">Description</msg>
   <msg key="_photo">not found</msg>
   <msg key="_Photo_1">Story</msg>
+  <msg key="_Photo_2">not found or photo is hidden </msg>
   <msg key="_Please">select albu</msg>
   <msg key="_Save">Save </msg>
   <msg key="_Show">the image html source for copy&amp;amp;paste</msg>
@@ -52,6 +54,9 @@
   <msg key="_The_2">specified photo is not valid.</msg>
   <msg key="_The_3">specified folder is not valid.</msg>
   <msg key="_The_4">specified album is not valid. </msg>
+  <msg key="_The_5">parameter AcceptableUploadMIMETypes is not satisfied </msg>
+  <msg key="_The_6">parameter ConverttoJpgorPng is not in automatic mode </msg>
+  <msg key="_This">photo couldn't be showed because : </msg>
   <msg key="_Upload">photos</msg>
   <msg key="_Use">the \&quot;Browse...\&quot; button find a file</msg>
   <msg key="_Use_1">the \&quot;Browse...\&quot; button to locate your file, then click \&quot;Open\&quot;</msg>
@@ -63,6 +68,7 @@
   <msg key="_You">must provide a non-empty name for the clipboard</msg>
   <msg key="_You_1">may not delete the root folder.</msg>
   <msg key="_You_2">may not move the root folder.</msg>
+  <msg key="_Your">can click &lt;a href=album?album_id=$old_album_id&gt; here &lt;/a&gt; to view all photos of the album </msg>
   <msg key="Add_a_new_album">Add a new album</msg>
   <msg key="Add_a_new_folder">Add a new folder</msg>
   <msg key="Album_Name">Album Name</msg>
@@ -81,9 +87,11 @@
   <msg key="Descriptio">Description</msg>
   <msg key="Description">Description</msg>
   <msg key="Description_1">Description:</msg>
+  <msg key="Edit_page">Edit page</msg>
   <msg key="Edit_the_Album">Edit the Album:</msg>
   <msg key="Edit_the_Folder">Edit the Folder:</msg>
   <msg key="Edit_these_photos">Edit these photos</msg>
+  <msg key="Flash">Flash</msg>
   <msg key="Hide">Hide</msg>
   <msg key="Hide_1">Hide:</msg>
   <msg key="log_in">log in</msg>
@@ -113,7 +121,7 @@ printing or emailing on the individual photo display page.</msg>
   <msg key="lt_Image_thumbnail_index">Image thumbnail index</msg>
   <msg key="lt_Imagenbspthumbnailnbs">Image&amp;nbsp;thumbnail&amp;nbsp;index</msg>
   <msg key="lt_in_order_to_manage_cl">in order to manage clipboards.</msg>
-  <msg key="lt_Make_this_photo_the_i">Make this photo the iconic photo for this album</msg>
+  <msg key="lt_Make_this_photo_the_i">Make this photo the cover photo for this album</msg>
   <msg key="lt_Modify_album_permissi">Modify album permissions</msg>
   <msg key="lt_Modify_this_albums_pe">Modify this albums permissions</msg>
   <msg key="lt_Modify_this_folders_p">Modify this folder's permissions</msg>
@@ -141,13 +149,15 @@ printing or emailing on the individual photo display page.</msg>
         need to browse the</msg>
   <msg key="lt_Your_text_updates_hav">Your text updates have been made and any rotations are
 currently being processed...</msg>
+  <msg key="Modify_this_pack">Modify this package's parameters</msg>
   <msg key="Move">Move</msg>
   <msg key="Name">Name</msg>
   <msg key="Name_title">Name: %title%</msg>
-  <msg key="Netx">Netx</msg>
+  <msg key="Netx">Next</msg>
   <msg key="OPTIONAL">OPTIONAL</msg>
   <msg key="or">or</msg>
   <msg key="Photo_clipboard">Photo clipboard</msg>
+  <msg key="Photographer">Photographer</msg>
   <msg key="Photographer_">Photographer </msg>
   <msg key="photos">photos</msg>
   <msg key="Prev">Prev</msg>
