@@ -642,18 +642,22 @@ ad_proc -public pa_expand_archive {
         set type "Unknown type"
     }
 
+    # DRB: on Mac OS X the "verify" option to tar appears to return the file
+    # list on stderr rather than stdout, causing the catch to trigger.  Non-GNU
+    # versions of tar don't understand fancy options (those starting with --)
+
     switch $type { 
         tar {
-            set errp [ catch { exec tar --directory $tmp_dir -xvf $tmpfile } errMsg]
+            set errp [ catch { exec tar -xf $tmpfile -C $tmp_dir } errMsg]
         }
         tgZ { 
-            set errp [ catch { exec tar --directory $tmp_dir -xZvf $tmpfile } errMsg]
+            set errp [ catch { exec tar -xZf $tmpfile -C $tmp_dir } errMsg]
         }
         tgz { 
-            set errp [ catch { exec tar --directory $tmp_dir -xzvf $tmpfile } errMsg]
+            set errp [ catch { exec tar -xzf $tmpfile -C $tmp_dir } errMsg]
         }
         tbz2 { 
-            set errp [ catch { exec tar --directory $tmp_dir -xjvf $tmpfile } errMsg]
+            set errp [ catch { exec tar -xjf $tmpfile -C $tmp_dir } errMsg]
         }
         zip { 
             set errp [ catch { exec unzip -d $tmp_dir $tmpfile } errMsg]
