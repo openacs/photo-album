@@ -53,8 +53,8 @@
   <msg key="_The_6">De paramater ConverttoJpgorPng staat niet op automatisch ingesteld</msg>
   <msg key="_This">Deze foto kan niet worden getoond, omdat:</msg>
   <msg key="_Upload">Foto's aanbieden</msg>
-  <msg key="_Use">Gebruik de knop \&quot;Bladeren...\&quot; om een bestand te vinden</msg>
-  <msg key="_Use_1">Gebruik de knop \&quot;Bladeren...\&quot; om een bestand te vinden en klik dan op \&quot;Openen\&quot;</msg>
+  <msg key="_Use">De knop \&quot;Bladeren\&quot; gebruiken om een bestand te vinden.</msg>
+  <msg key="_Use_1">De knop \&quot;Bladeren\&quot; gebruiken om een bestand te vinden en dan op \&quot;Openen\&quot; klikken</msg>
   <msg key="_We">We ontvingen een fout die we niet direct kunnen thuisbrengen. Informeer de systeembeheerder hierover. &lt;pre&gt;$errmsg&lt;/pre&gt; </msg>
   <msg key="_We_1">We ontvingen een fout die we niet direct kunnen thuisbrengen. Informeer de systeembeheerder hierover. </msg>
   <msg key="_Yes_Delete">Ja, verwijderen</msg>
@@ -122,6 +122,7 @@
   <msg key="lt_Photo_Album_System__t">Fotoalbumsysteem: %title%</msg>
   <msg key="lt_Save_this_photo_to_pr">Deze foto bewaren om later af te drukken of te bekijken</msg>
   <msg key="lt_Save_this_photo_to_pr_1">Deze foto bewaren om later af te drukken of bekijken. Bewaar in map </msg>
+  <msg key="lt_Taken_child_photodate">Genomen: %child_photo.datetaken% %child_photo.camera_model% %child_photo.focal_length%mm %child_photo.aperture% </msg>
   <msg key="lt_There_are_no_items_in">In deze map zitten geen bestanden.</msg>
   <msg key="lt_This_album_does_not_c">Deze map bevat niets.</msg>
   <msg key="lt_This_photo_clipped_to">Deze foto is verbonden met:</msg>
@@ -146,6 +147,7 @@
   <msg key="register">Inschrijven</msg>
   <msg key="remove">Verwijderen</msg>
   <msg key="screen">scherm.</msg>
+  <msg key="Sequence">Volgorde:</msg>
   <msg key="shutterflycom">shutterfly.com</msg>
   <msg key="Smallernbspimage">Kleinere&amp;nbsp;afbeelding</msg>
   <msg key="Story">Verhaal</msg>

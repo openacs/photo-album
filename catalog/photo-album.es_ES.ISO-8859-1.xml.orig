@@ -122,6 +122,7 @@
   <msg key="lt_Photo_Album_System__t">Sistema del Album de fotos: %title%</msg>
   <msg key="lt_Save_this_photo_to_pr">Guardar ésta foto para imprimirla o verla después</msg>
   <msg key="lt_Save_this_photo_to_pr_1">Guardar esta foto para imprimir o visualizar después. Colocar en el folder</msg>
+  <msg key="lt_Taken_child_photodate">Tomadas: %child_photo.datetaken% %child_photo.camera_model% %child_photo.focal_length%mm %child_photo.aperture%</msg>
   <msg key="lt_There_are_no_items_in">No hay elelmentos en éste folder.</msg>
   <msg key="lt_This_album_does_not_c">Este álbum no tiene contenido.</msg>
   <msg key="lt_This_photo_clipped_to">Ésta foto ésta sujetada a:</msg>
@@ -146,6 +147,7 @@
   <msg key="register">registrar</msg>
   <msg key="remove">remover</msg>
   <msg key="screen">pantalla.</msg>
+  <msg key="Sequence">Secuencia</msg>
   <msg key="shutterflycom">shutterfly.com</msg>
   <msg key="Smallernbspimage">Imagen más pequeña</msg>
   <msg key="Story">Historia</msg>
