@@ -30,7 +30,7 @@
   <msg key="_For">Om deze foto te tonen:&lt;a href=photo-edit?photo_id=$photo_id&gt;de instelling bewerken&lt;/a&gt; en de optie verbergen demarkeren </msg>
   <msg key="_Full">Afbeelding op ware grootte</msg>
   <msg key="_Hide">HTML bron van de afbeelding verbergen</msg>
-  <msg key="_Modify">De parameters van dit pakket wijzigen</msg>
+  <msg key="_Modify">De parameters van deze module wijzigen</msg>
   <msg key="_Move">Album verplaatsen</msg>
   <msg key="_Move_1">Map verplaatsen</msg>
   <msg key="_Move_photo_to_album">Foto verplaatsen naar album:</msg>
@@ -132,7 +132,7 @@
   <msg key="lt_View_all_your_clipboa">Alle klemborden bekijken</msg>
   <msg key="lt_You_do_not_currently_">Er zijn momenteel geen klemborden aanwezig. Blader door de</msg>
   <msg key="lt_Your_text_updates_hav">De vernieuwingen in de tekst hebben plaatsgevonden en momenteel vinden de rotaties plaats.. </msg>
-  <msg key="Modify_this_pack">De parameters van dit pakket wijzigen</msg>
+  <msg key="Modify_this_pack">De parameters van deze module wijzigen</msg>
   <msg key="Move">Verplaatsen</msg>
   <msg key="Name">Naam</msg>
   <msg key="Name_title">Naam: %title% </msg>

@@ -122,6 +122,7 @@
   <msg key="lt_Photo_Album_System__t">Fotoalbum-System: %title% </msg>
   <msg key="lt_Save_this_photo_to_pr">Dieses Foto speichern, um es auszudrucken oder später zu betrachten</msg>
   <msg key="lt_Save_this_photo_to_pr_1">Dieses Foto abspeichern, um es auszudrucken oder später zu betrachten. In folgenden Ordner legen:</msg>
+  <msg key="lt_Taken_child_photodate">Aufgenommen: %child_photo.datetaken% %child_photo.camera_model% %child_photo.focal_length%mm %child_photo.aperture% </msg>
   <msg key="lt_There_are_no_items_in">In diesem Ordner gibt es keine Alben.</msg>
   <msg key="lt_This_album_does_not_c">Dieses Album enthält gar nichts.</msg>
   <msg key="lt_This_photo_clipped_to">Dieses Foto ist zwischengespeichert unter:</msg>
@@ -146,6 +147,7 @@
   <msg key="register">registrieren</msg>
   <msg key="remove">entfernen</msg>
   <msg key="screen">Bildschirm.</msg>
+  <msg key="Sequence">Folge:</msg>
   <msg key="shutterflycom">shutterfly.com</msg>
   <msg key="Smallernbspimage">Kleineres&amp;nbsp;Bild</msg>
   <msg key="Story">Geschichte</msg>
