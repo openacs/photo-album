@@ -336,7 +336,7 @@ ad_proc -public pa_image_width_height {
     I Use ImageMagick instead of aolserver function because it can handle more than
     just gifs and jpegs.  
 } {
-    set identify_string [exec identify $filename]
+    set identify_string [exec [ad_parameter ImageMagickPath]/identify $filename]
     regexp {[ ]+([0-9]+)[x]([0-9]+)[\+]*} $identify_string x width height
     uplevel "set $width_var $width"
     uplevel "set $height_var $height"
@@ -367,7 +367,7 @@ ad_proc -public pa_make_new_image {
         set geometry ${geometry}x${geometry}
     }
     ns_log debug "pa_make_new_image: Start convert, making $new_image geometry $geometry"
-    exec convert -geometry $geometry -interlace None -sharpen 1x2 $base_image $new_image
+    exec [ad_parameter ImageMagickPath]/convert -geometry $geometry -interlace None -sharpen 1x2 $base_image $new_image
     if {[catch {exec jhead -dt $new_image} errmsg]} { 
         ns_log Warning "pa_make_new_image: jhead failed with error - $errmsg"
     }
@@ -709,7 +709,7 @@ ad_proc -public  pa_file_info {
     if { [catch {set size [file size $file]} errMsg] } { 
         return -code error $errMsg
     } 
-    if { [ catch {set out [exec identify -ping -format "%w %h %m %k %q %#" $file]} errMsg]} { 
+    if { [ catch {set out [exec [ad_parameter ImageMagickPath]/identify -ping -format "%w %h %m %k %q %#" $file]} errMsg]} { 
         return -code error $errMsg
     }            
     
@@ -844,7 +844,7 @@ ad_proc -public pa_load_images {
             set new_image [file join $tmp_path "tmp-[file rootname [file tail $image_file]]"]
             if {![empty_string_p $base_colors] && $base_colors < 257} { 
                 # convert it to a png
-                if {[catch {exec convert $image_file PNG:$new_image.png} errMsg]} { 
+                if {[catch {exec [ad_parameter ImageMagickPath]/convert $image_file PNG:$new_image.png} errMsg]} { 
                     ns_log Warning "pa_load_images: Failed convert to PNG for $image_file (magicktype $base_type)" 
                 }
                 if { $remove } { 
@@ -854,7 +854,7 @@ ad_proc -public pa_load_images {
                 set remove 1
             } elseif {![empty_string_p $base_colors] && $base_colors > 256} { 
                 # convert it to a jpg
-                if {[catch {exec convert $image_file JPG:$new_image.jpg} errMsg]} { 
+                if {[catch {exec [ad_parameter ImageMagickPath]/convert $image_file JPG:$new_image.jpg} errMsg]} { 
                     ns_log Warning "pa_load_images: failed convert to JPG for $image_file (magicktype $base_type)" 
                 }
                 if { $remove } { 
@@ -1151,7 +1151,7 @@ ad_proc pa_rotate {id rotation} {
         # get a list of files to handle sorted by size...
         db_foreach get_image_files {} {
             ns_log Debug "pa_rotate: rotate $id by $rotation [cr_fs_path] $filename $image_id $width $height"
-            if {[catch {exec convert -rotate $rotation [cr_fs_path]$filename [cr_fs_path]${filename}.new } errMsg]} { 
+            if {[catch {exec [ad_parameter ImageMagickPath]/convert -rotate $rotation [cr_fs_path]$filename [cr_fs_path]${filename}.new } errMsg]} { 
                 ns_log Warning "pa_rotate: failed rotation of image $image_id -- $errMsg"
             }
             lappend flop $image_id
