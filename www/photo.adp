@@ -13,11 +13,11 @@
       </else>
 	<if @show_html_p@ eq 1>
           <ul style="text-align:left">
-            <li>#photo-album.thumbnail_with_link# <code>&lt;a href="@photo_base_url@photo?photo_id=@photo_id@"&gt;&lt;img src="@photo_base_url@images/@thumb_image_id@" height="@thumb_height@" width="@thumb_width@" alt="@caption@" /&gt;&lt;/a&gt;</code>
+            <li>#photo-album.thumbnail_with_link# <code>&lt;a href="@photo_base_url@photo?photo_id=@photo_id@"&gt;&lt;img src="@photo_base_url@images/@path@/@thumb_image_id@" height="@thumb_height@" width="@thumb_width@" alt="@caption@" /&gt;&lt;/a&gt;</code>
  
-            <li>#photo-album.image_only# <code>&lt;img src="/images/@path@/@title@" height="@height@" width="@width@" alt="@title@"/&gt;</code>
+            <li>#photo-album.image_only# <code>&lt;img src="@photo_base_url@images/@path@/@title@" height="@height@" width="@width@" alt="@title@" /&gt;</code>
  
-            <li>#photo-album.image_with_link# <code>&lt;a href="@photo_base_url@photo?photo_id=@photo_id@"&gt;&lt;img src="/images/@path@/@title@" height="@height@" width="@width@" alt="@title@"/&gt;&lt;/a&gt;</code>
+            <li>#photo-album.image_with_link# <code>&lt;a href="@photo_base_url@photo?photo_id=@photo_id@"&gt;&lt;img src="@photo_base_url@images/@path@/@title@" height="@height@" width="@width@" alt="@title@" /&gt;&lt;/a&gt;</code>
          </ul>
 	</if>
       <if @caption@ not nil>
