@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<message_catalog package_key="photo-album" package_version="5.0d1" locale="ch_zh" charset="utf-8">
+
+  <msg key="_Create_1">新建文件夹</msg>
+  <msg key="_Delete">删除文件夹</msg>
+  <msg key="_Folder">文件夹名</msg>
+  <msg key="_Photo_1">照片故事</msg>
+  <msg key="_Save">存</msg>
+  <msg key="_Yes_Delete">是，删除</msg>
+  <msg key="_You_1">不许删除根文件夹</msg>
+  <msg key="Flash">闪光</msg>
+  <msg key="Hide">隐藏</msg>
+  <msg key="Hide_1">隐藏</msg>
+  <msg key="lt_There_are_no_items_in">这个文件夹是空的。</msg>
+  <msg key="Name">名</msg>
+  <msg key="Netx">下一个</msg>
+  <msg key="Story">故事</msg>
+  <msg key="Story_1">故事：</msg>
+  <msg key="Story_story">故事：%story%</msg>
+  <msg key="Title">题目</msg>
+  <msg key="Title_1">题目：</msg>
+  <msg key="Upload_a_Photo">上载照片</msg>
+  <msg key="You_will_have_to">你必须</msg>
+</message_catalog>
