@@ -14,20 +14,20 @@ ad_page_contract {
 } -validate {
     valid_folder -requires {folder_id:integer} {
 	if [string equal [pa_is_folder_p $folder_id] "f"] {
-	    ad_complain "The specified folder is not valid."
+	    ad_complain "[_ photo-album._The_3]"
 	}
     }
 
     not_root_folder -requires {folder_id} {
 	if { $folder_id == [pa_get_root_folder] } {
-	    ad_complain "You may not delete the root folder."
+	    ad_complain "[_ photo-album._You_1]"
 	}
     }
 
     no_children -requires {not_root_folder} {
 	if { [db_string child_count "
 	select count(*) from cr_items where parent_id = :folder_id"] > 0 } {
-	    ad_complain "We're sorry, but you cannot delete folders unless they are already empty."
+	    ad_complain "<#_We're sorry, but you cannot delete folders unless they are already empty.#>"
 	}
     }
 } -properties {
@@ -58,6 +58,6 @@ if { [string equal $confirmed_p "t"]  } {
     set title [db_string folder_name "
     select label from cr_folders where folder_id = :folder_id"]
 
-    set context_list [pa_context_bar_list -final "Delete Folder" $folder_id]
+    set context_list [pa_context_bar_list -final "[_ photo-album._Delete]" $folder_id]
 
 }

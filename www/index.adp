@@ -7,35 +7,36 @@
 </if>
 <div style="float: right"><ul>
 <if @subfolder_p@ eq 1>
-  <li><a href="folder-add?parent_id=@folder_id@">Add a new folder</a></li>
+  <li><a href="folder-add?parent_id=@folder_id@">#photo-album.Add_a_new_folder#</a></li>
 </if>
 <if @album_p@ eq 1>
-  <li><a href="album-add?parent_id=@folder_id@">Add a new album</a></li>
+  <li><a href="album-add?parent_id=@folder_id@">#photo-album.Add_a_new_album#</a></li>
 </if>
 <if @write_p@ eq 1>
-  <li><a href="folder-edit?folder_id=@folder_id@">Edit folder information</a></li>
+  <li><a href="folder-edit?folder_id=@folder_id@">#photo-album.lt_Edit_folder_informati#</a></li>
 </if>
 <if @move_p@ eq 1>
-  <li><a href="folder-move?folder_id=@folder_id@">Move this folder to another folder</a></li>
+  <li><a href="folder-move?folder_id=@folder_id@">#photo-album.lt_Move_this_folder_to_a#</a></li>
 </if>
 <if @delete_p@ eq 1>
-  <li><a href="folder-delete?folder_id=@folder_id@">Delete this folder</a></li>
+  <li><a href="folder-delete?folder_id=@folder_id@">#photo-album.Delete_this_folder#</a></li>
 </if>
 <if @admin_p@ eq 1>
-  <li><a href="/permissions/one?object_id=@folder_id@">Modify this folder's permissions</a></li>
+  <li><a href="/permissions/one?object_id=@folder_id@">#photo-album.lt_Modify_this_folders_p#</a></li>
+  <li><a href="/shared/parameters?@parameter_url_vars@">Modify this package's parameters</a> </li>
 </if>
 </ul>
 </div>
 <if @child:rowcount@ gt 0>
 
-<table border="1" cellpadding="2" cellspacing="2">
- <tr>
-  <td bgcolor="#cccccc">Name</td>
-  <td bgcolor="#cccccc">Description</td>
+<table border="0">
+ <tr bgcolor="#C9D7DC">
+  <td align=center>#photo-album.Name#</td>
+  <td align=center>#photo-album.Description#</td>
  </tr>
 
 <multiple name="child">
- <tr>
+ <if @child.rownum@ odd><tr bgcolor="#F0F0F0"></if><else><tr bgcolor="#FFFFFF"></else>
   <if @child.type@ eq "Folder">
    <td align="center"><a href="./?folder_id=@child.item_id@"><img src="graphics/folder.gif" alt="@child.name@" border="0" /></a></td>
   </if><else>
@@ -49,19 +50,17 @@
 </table>
 
 </if><else>
-<p>There are no items in this folder.</p>
+<p>#photo-album.lt_There_are_no_items_in#</p>
 </else>
 
 <if @collections@ gt 0>
-<p><a href="clipboards">View all of your clipboards</a>.</p>
+<p><a href="clipboards">#photo-album.lt_View_all_of_your_clip#</a>.</p>
 </if>
 
 <if @shutterfly_p@ eq "t">
     <p class="hint">
-      To order prints of these photos you will first need to add them
-      to a clipboard (you can do this when viewing an individual
-      photo).  Once they are in a clipboard you can send them off to
-      <a href="http://shutterfly.com">shutterfly.com</a> for
-      printing from a <a href="clipboards">clipboard</a> screen.
+      #photo-album.lt_To_order_prints_of_th#
+      <a href="http://shutterfly.com">#photo-album.shutterflycom#</a> #photo-album.lt_for______printing_fro# <a href="clipboards">#photo-album.clipboard#</a> #photo-album.screen#
     </p>
 </if>
+

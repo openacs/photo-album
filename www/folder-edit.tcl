@@ -12,7 +12,7 @@ ad_page_contract {
 } -validate {
     valid_folder -requires {folder_id:integer} {
 	if [string equal [pa_is_folder_p $folder_id] "f"] {
-	    ad_complain "The specified folder is not valid."
+	    ad_complain "[_ photo-album._The_3]"
 	}
     }
 } -properties {
@@ -22,7 +22,7 @@ ad_page_contract {
 # check for permission
 ad_require_permission $folder_id write
 
-set context_list [pa_context_bar_list -final "Edit Folder Attributes" $folder_id]
+set context_list [pa_context_bar_list -final "[_ photo-album._Edit_1]" $folder_id]
 
 template::form create folder_edit
 
@@ -30,10 +30,10 @@ template::element create folder_edit folder_id -label "Folder ID" \
   -datatype integer -widget hidden
 
 template::element create folder_edit label -html { size 30 } \
-  -label "Folder Name" -datatype text
+  -label "<_#Folder Name#>" -datatype text
 
 template::element create folder_edit description -html { size 50 } \
-  -label "Folder Description" -optional -datatype text 
+  -label "<_#Folder Description#>" -optional -datatype text 
 
 set title [pa_get_folder_name $folder_id]
 
@@ -64,8 +64,7 @@ if { [template::form is_valid folder_edit] } {
 	}
     
     } on_error {
-	ad_return_complaint 1 "An error occurred while processing your input. Please let the system owner know about this.
-	  <pre>$errmsg</pre>"
+	ad_return_complaint 1 "[_ photo-album._An]"
 	
 	ad_script_abort
     }

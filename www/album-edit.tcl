@@ -12,7 +12,7 @@ ad_page_contract {
 } -validate {
     valid_album -requires {album_id:integer} {
 	if [string equal [pa_is_album_p $album_id] "f"] {
-	    ad_complain "The specified album is not valid."
+	    ad_complain "[_ photo-album._The_1]"
 	}
     }
 } -properties {
@@ -22,7 +22,7 @@ ad_page_contract {
 ad_require_permission $album_id "write"
 
 set user_id [ad_conn user_id]
-set context_list [pa_context_bar_list -final "Edit Album Attributes" $album_id]
+set context_list [pa_context_bar_list -final "[_ photo-album._Edit]" $album_id]
 
 template::form create edit_album
 
@@ -39,16 +39,16 @@ template::element create edit_album iconic -label "Iconic" \
   -datatype integer -widget hidden -optional
 
 template::element create edit_album title -html { size 30 } \
-  -label "Album Name" -datatype text
+  -label "[_ photo-album._Album_2]" -datatype text
 
 template::element create edit_album photographer -html { size 50} \
-  -label "Photographer"  -datatype text -optional
+  -label "<#_ Photographer#>"  -datatype text -optional
 
 template::element create edit_album description -html { size 50} \
-  -label "Album Description"  -datatype text -optional
+  -label "[_ photo-album._Album]"  -datatype text -optional
 
 template::element create edit_album story -html { cols 50 rows 4 wrap soft } \
-  -label "Album Story" -datatype text -widget textarea -optional
+  -label "[_ photo-album._Album_1]" -datatype text -widget textarea -optional
 
 
 # this needs to be outside of the s_request block so title attribute
@@ -86,8 +86,7 @@ if { [template::form is_valid edit_album] } {
 
 	db_exec_plsql set_live_album {}
     } on_error {
-	ad_return_complaint 1 "An error occurred while processing your input. Please let the system owner know about this.
-	  <pre>$errmsg</pre>"
+	ad_return_complaint 1 "[_ photo-album._An]"
 	
 	ad_script_abort
     }

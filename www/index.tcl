@@ -11,7 +11,7 @@ ad_page_contract {
 } -validate {
     valid_folder -requires {folder_id:integer} {
 	if [string equal [pa_is_folder_p $folder_id] "f"] {
-	    ad_complain "The specified folder is not valid."
+	    ad_complain "[_ photo-album._The_3]"
 	}
     }
 } -properties {
@@ -40,6 +40,7 @@ set context [pa_context_bar_list $folder_id]
 db_1row get_folder_info {}
 
 set root_folder_id [pa_get_root_folder]
+set parameter_url_vars [export_url_vars package_id=[ad_conn package_id] return_url=[ad_conn url]]
 
 # to move an album need write on album and write on parent folder
 set move_p [expr $write_p && !($folder_id == $root_folder_id) && $parent_folder_write_p]

@@ -19,14 +19,14 @@ set context [ad_conn package_id]
 ad_form -name clip_ae -export {photo_id} -form {
     collection_id:key(acs_object_id_seq)
     
-    {title:text(text)             {label "Clipboard name"}
+    {title:text(text)             {label "[_ photo-album._Clipboard]"}
         {html {size 60}}}
 } -select_query {
     select title from pa_collections where collection_id = :collection_id
 } -validate {
     {title
         {![string is space $title]} 
-        "You must provide a non-empty name for the clipboard"
+        "[_ photo-album._You]"
     }
 } -new_data {
     db_exec_plsql new_collection {}

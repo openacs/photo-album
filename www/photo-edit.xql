@@ -1,10 +1,31 @@
 <?xml version="1.0"?>
 <queryset>
 
+<fullquery name="get_thumbnail_info">      
+  <querytext>	
+    select 
+      i.image_id as thumb_path,
+      i.height as thumb_height,
+      i.width as thumb_width
+    from cr_items ci,
+      cr_items ci2,
+      cr_child_rels ccr2,
+      images i
+    where ccr2.relation_tag = 'thumb'
+      and ci.item_id = ccr2.parent_id
+      and ccr2.child_id = ci2.item_id
+      and ci2.latest_revision = i.image_id
+      and ci.latest_revision is not null
+      and ci.item_id = :photo_id
+  </querytext>
+</fullquery>
+
 <fullquery name="get_photo_info">      
       <querytext>
       select 
-      ci.live_revision as previous_revision,
+      ci.item_id,	
+      ci.live_revision,
+      ci.latest_revision as previous_revision,
       pp.caption,
       pp.story,
       cr.title,
@@ -18,14 +39,21 @@
       cr_items ci2,
       cr_child_rels ccr2,
       images i
-    where ci.live_revision = pp.pa_photo_id
-      and ci.live_revision = cr.revision_id
+    where ci.latest_revision = pp.pa_photo_id
+      and ci.latest_revision = cr.revision_id
       and ci.item_id = ccr2.parent_id
       and ccr2.child_id = ci2.item_id
       and ccr2.relation_tag = 'viewer'
-      and ci2.live_revision = i.image_id
+      and ci2.latest_revision = i.image_id
       and ci.item_id = :photo_id
 
+      </querytext>
+</fullquery>
+
+
+<fullquery name="update_hides">      
+      <querytext>
+	 update cr_items set live_revision = null where item_id = :photo_id
       </querytext>
 </fullquery>
 

@@ -21,6 +21,27 @@ ad_page_contract {
 	    ad_complain "The specified album is not valid."
 	}
     }
+    valid_mime_type {
+ 
+        if ![parameter::get -parameter ConverttoJpgorPng -package_id [ad_conn package_id]] {  
+    
+	    if { [catch {set photo_info [pa_file_info ${upload_file.tmpfile}]}  errMsg] } { 
+            ns_log Warning "Error parsing file data Error: $errMsg" 
+            ad_complain "error" 
+	    } 
+         
+	    foreach {base_bytes base_width base_height base_type base_mime base_colors base_quantum base_sha256} $photo_info { break } 
+ 
+	    if [empty_string_p $base_mime] { 
+           set base_mime invalid 
+	    }   
+ 
+	    if ![regexp  $base_mime [parameter::get -parameter AcceptableUploadMIMETypes -package_id [ad_conn package_id]]] { 
+            ad_complain "The parameter AcceptableUploadMIMETypes is not satisfied" 
+            ad_complain "The parameter ConverttoJpgorPng is not in automatic mode" 
+	    } 
+	} 
+    }
     valid_photo_id -requires {photo_id:integer} {
 	# supplied photo_id must not already exist	
         if {[db_string check_photo_id {}]} {

@@ -6,7 +6,9 @@ ad_page_contract {
     d:array,integer,optional
     hide:array,optional
     caption:array
-    story:array
+    photo_story:array
+    photo_description:array
+    photo_title:array
 } -validate {
     valid_album -requires {album_id:integer} {
 	if [string equal [pa_is_album_p $album_id] "f"] {
@@ -14,6 +16,12 @@ ad_page_contract {
 	}
     }
 }
+
+# These lines are to uncache the image in Netscape, Mozilla. 
+# IE6 & Safari (mac) have a bug with the images cache
+ns_set put [ns_conn outputheaders] "Expires" "-"
+ns_set put [ns_conn outputheaders] "Last-Modified" "-"
+ns_set put [ns_conn outputheaders] "Cache-Control" "no-cache"
 
 set context_list [pa_context_bar_list -final "Edit page $page" $album_id]
 
@@ -28,12 +36,21 @@ foreach id [array names caption] {
     }
         
     set acaption $caption($id)
-    set astory $story($id)
+    set aphoto_story $photo_story($id)
+    set aphoto_description $photo_description($id)
+    set aphoto_title $photo_title($id)
+    set aphoto_id $id
+    set arevision_id [db_string get_rev_id "select coalesce(live_revision,latest_revision) from cr_items where item_id = :id"]
+    set auser_id [ad_conn user_id]
+    set apeeraddr [ad_conn peeraddr]
+    
+
+    db_dml update_photo_attributes { *SQL* }
 
     db_dml update_photo { 
         update pa_photos
         set caption = :acaption, 
-        story = :astory
+        story = :aphoto_story
         where pa_photo_id = (select latest_revision from cr_items where item_id = :id)
     }
 
@@ -46,14 +63,18 @@ foreach id [array names caption] {
         
 }
 
-pa_flush_photo_in_album_cache $album_id
 
-ad_returnredirect "album?album_id=$album_id&page=$page&msg=1"
 
 foreach id [array names d] { 
     if { $d($id) > 0 } { 
         pa_rotate $id $d($id)
     }
 }
+
+pa_flush_photo_in_album_cache $album_id
+
+ad_returnredirect "album?album_id=$album_id&page=$page&msg=1"
+
+
         
 ad_script_abort

@@ -1,5 +1,5 @@
 <master>
-<property name="title">Photo Album System : @title@</property>
+<property name="title">#photo-album.lt_Photo_Album_System__t#</property>
 
 <h2>@title@</h2>
 
@@ -8,3 +8,4 @@
 <hr>
 
 <slave>
+

@@ -12,9 +12,10 @@
 <p>@description@</p>
 </if>
 <if @story@ not nil>
-<p>Story: @story@</p>
+<p>#photo-album.Story_story#</p>
 </if>
 @photo_nav_html;noquote@
 <div style="text-align: center">
-<a href="album?album_id=@album_id@&amp;page=@page_num@">Image&nbsp;thumbnail&nbsp;index</a> 
-| <a href="photo?photo_id=@photo_id@">Smaller&nbsp;image</a></div>
+<a href="album?album_id=@album_id@&amp;page=@page_num@">#photo-album.lt_Imagenbspthumbnailnbs#</a> 
+| <a href="photo?photo_id=@photo_id@">#photo-album.Smallernbspimage#</a></div>
+

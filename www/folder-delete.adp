@@ -6,11 +6,12 @@
 <input type=hidden name=folder_id value=@folder_id@>
 <input type=hidden name=confirmed_p value="t">
 
-<p>Are you sure you want to delete the folder "@title@"?  This action cannot be reversed.
+<p>#photo-album.lt_Are_you_sure_you_want_1#
 
 <p>
 <center>
-<input type=submit value="Yes, Delete It">
+<input type=submit value="<#Yes,_Delete_It Yes, Delete It#>">
 </center>
 
 </form>
+

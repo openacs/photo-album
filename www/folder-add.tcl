@@ -12,7 +12,7 @@ ad_page_contract {
 } -validate {
     valid_parent -requires {parent_id:integer} {
 	if [string equal [pa_is_folder_p $parent_id] "f"] {
-	    ad_complain "The specified parent folder is not valid."
+	    ad_complain "[_ photo-album._The]"
 	}
     }
 } -properties {
@@ -23,7 +23,7 @@ ad_page_contract {
 ad_require_permission $parent_id pa_create_folder
 
  
-set context_list [pa_context_bar_list -final "Create New Folder" $parent_id]
+set context_list [pa_context_bar_list -final "[_ photo-album._Create_1]" $parent_id]
 
 template::form create folder_add
 
@@ -34,10 +34,10 @@ template::element create folder_add parent_id -label "Parent ID" \
   -datatype integer -widget hidden
 
 template::element create folder_add label -html { size 30 } \
-  -label "Folder Name" -datatype text
+  -label "[_ photo-album._Folder]" -datatype text
 
 template::element create folder_add description -html { size 50 } \
-  -label "Folder Description" -optional -datatype text
+  -label "[_ photo-album._Folder_1]" -optional -datatype text
 
 if { [template::form is_request folder_add] } {
 
@@ -96,13 +96,9 @@ if { [template::form is_valid folder_add] } {
 	  from   cr_items
 	  where  (item_id = :folder_id or name = :name)
 	  and    parent_id = :parent_id"] {
-	      ad_return_complaint 1 "Either there is already a folder with the name \"$name\" 
-	          or you clicked on the button more than once. You can <a href=\"index?parent_id=$parent_id\">
-	          return to the directory listing</a> to see if your folder is there."
+	      ad_return_complaint 1 "[_ photo-album._Either_2]"
 	} else {
-	    ad_return_complaint 1 "We got an error that we couldn't readily identify.  Please let the system owner know about this.
-
-	    <pre>$errmsg</pre>"
+	    ad_return_complaint 1 "[_ photo-album._We]"
 	}
     
 	ad_script_abort

@@ -13,7 +13,7 @@ ad_page_contract {
 } -validate {
     valid_photo -requires {photo_id:integer} {
 	if [string equal [pa_is_photo_p $photo_id] "f"] {
-	    ad_complain "The specified photo is not valid."
+	    ad_complain "[_ photo-album._The_2]"
 	}
     }
 } -properties {
@@ -28,14 +28,14 @@ ad_page_contract {
 }
 
 if {![string equal [ad_parameter AllowBasePhotoAccessP] "t"]} {
-    ad_return_forbidden "No Access" "The Administrator of this sub-site has restricted access base photos."
+    ad_return_forbidden "[_ photo-album._No]"
     ad_script_abort
 }
 
 ad_require_permission $photo_id "read"
 
 set user_id [ad_conn user_id]
-set context [pa_context_bar_list -final "Full Size Image" $photo_id]
+set context [pa_context_bar_list -final "[_ photo-album._Full]" $photo_id]
 
 # query all the photo and permission info with a single trip to database
 db_1row get_photo_info {select

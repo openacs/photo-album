@@ -8,23 +8,36 @@ ad_page_contract {
     @creation-date 12/11/2000
     @cvs-id $Id$
 } {
-    photo_id:integer,notnull
-} -validate {
-    valid_photo -requires {photo_id:integer} {
-	if [string equal [pa_is_photo_p $photo_id] "f"] {
-	    ad_complain "The specified photo is not valid."
-	}
-    }
+    {hide:integer 0}
+    {photo_id:integer 0}
+    d:array,integer,optional
 } -properties {
     path:onevalue
     height:onevalue
     width:onevalue
 }
 
+#  -validate {
+#     valid_photo -requires {photo_id:integer} {
+# 	if [string equal [pa_is_photo_p $photo_id] "f"] {
+# 	    ad_complain "[_ photo-album._The_2]"
+# 	}
+#     }
+# }
+
 ad_require_permission $photo_id "write"
 
 set user_id [ad_conn user_id]
-set context_list [pa_context_bar_list -final "Edit Photo Attributes" $photo_id]
+set context_list [pa_context_bar_list -final "[_ photo-album._Edit_2]" $photo_id]
+
+#clear the cached value 
+util_memoize_flush $photo_id
+
+foreach id [array names d] { 
+    if { $d($id) > 0 } { 
+        pa_rotate $photo_id $d($photo_id)
+    }
+}
 
 template::form create edit_photo
 
@@ -38,21 +51,32 @@ template::element create edit_photo previous_revision -label "previous_revision"
   -datatype integer -widget hidden
 
 template::element create edit_photo title -html { size 30 } \
-  -label "Photo Title" -optional -datatype text
+  -label "<#_Title#>" -optional -datatype text
 
 template::element create edit_photo caption -html { size 30 } \
-  -label "Caption" -help_text "Displayed on the thumbnail page" -optional -datatype text
+  -label "<#_Caption#>" -help_text "Displayed on the thumbnail page" -optional -datatype text
 
 template::element create edit_photo description -html { size 50} \
-  -label "Photo Description" -help_text "Displayed when viewing the photo" -optional -datatype text
+  -label "<#_Description#>" -help_text "Displayed when viewing the photo" -optional -datatype text
 
 template::element create edit_photo story -html { cols 50 rows 4 wrap soft } \
-  -label "Photo Story" -optional -datatype text  -help_text "Displayed when viewing the photo" -widget textarea
+  -label "<#_Story#>" -optional -datatype text  -help_text "Displayed when viewing the photo" -widget textarea
+
+template::element create edit_photo submit_b -widget submit \
+        -label submit -optional -datatype text
 
 # moved outside is_request_block so that vars exist during form error reply
 
-db_1row get_photo_info {}
 
+db_1row get_photo_info { *SQL* }
+db_1row get_thumbnail_info { *SQL* }
+
+if [empty_string_p $live_revision] {
+    set checked_string "checked"
+} else {
+    set checked_string ""
+}
+#ad_return_error $checked_string  "$live_revision"
 set path $image_id
 
 if { [template::form is_request edit_photo] } {
@@ -78,9 +102,8 @@ if { [template::form is_valid edit_photo] } {
     
     db_transaction {
 	db_exec_plsql update_photo_attributes {} 
+	db_dml insert_photo_attributes { *SQL* }
 
-	db_dml insert_photo_attributes {}
-	
 	# for now all the attributes about the specific binary file stay the same
 	# not allowing users to modify the binary yet
 	# will need to modify thumb and view binaries when photo binary is changed 
@@ -88,16 +111,26 @@ if { [template::form is_valid edit_photo] } {
 #	db_dml update_photo_user_filename {} 
 
 	db_exec_plsql set_live_revision {} 
-    
+
+	if $hide {
+	    db_dml update_hides { *SQL* }
+	} 
     } on_error {
-	ad_return_complaint 1 "An error occurred while processing your input. Please let the system owner know about this.
+	ad_return_complaint 1 "[_ photo-album._An_1]
 	  <pre>$errmsg</pre>"
 	
 	ad_script_abort
     }
-
+    
     ad_returnredirect "photo?photo_id=$photo_id"
     ad_script_abort
 }
+
+# These lines are to uncache the image in Netscape, Mozilla. 
+# IE6 & Safari (mac) have a bug with the images cache
+ns_set put [ns_conn outputheaders] "Expires" "-"
+ns_set put [ns_conn outputheaders] "Last-Modified" "-"
+ns_set put [ns_conn outputheaders] "Pragma" "no-cache"
+ns_set put [ns_conn outputheaders] "Cache-Control" "no-cache"
 
 ad_return_template
