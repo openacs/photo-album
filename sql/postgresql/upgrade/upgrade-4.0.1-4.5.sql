@@ -163,7 +163,6 @@ select content_type__create_attribute (
    'varchar(200)'	     -- column_spec
  );
 
-drop view all_photo_images;
 create view all_photo_images as select i.item_id, ccr.relation_tag, im.*, p.*
       from cr_items i,
            cr_items i2,
