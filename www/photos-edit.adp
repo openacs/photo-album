@@ -43,9 +43,12 @@
               <td>&nbsp;</td>
               <td rowspan=3>
                     <table>
-                      <tr><td>Hide:</td><td><input type=checkbox name="hide.@child_photo.photo_id@" value=1></td></tr>
+                      <tr><td>Hide:</td><td><if @child_photo.hide_p@ ne 0><input type=checkbox name="hide.@child_photo.photo_id@" value=1></if><else><input checked type=checkbox name="hide.@child_photo.photo_id@" value=0></else></td></tr>
                       <tr><td>Caption:</td><td><input type=text name="caption.@child_photo.photo_id@" value="@child_photo.caption@" size=60></td></tr>
-                      <tr><td>Story:</td><td><textarea name="story.@child_photo.photo_id@" cols="60" wrap="soft" rows="3">@child_photo.story@</textarea></td></tr>
+                      <tr><td>Title:</td><td><input type=text name="photo_title.@child_photo.photo_id@" value="@child_photo.photo_title@" size=60></td></tr>
+                      <tr><td>Story:</td><td><textarea name="photo_story.@child_photo.photo_id@" cols="60" wrap="soft" rows="3">@child_photo.photo_story@</textarea></td></tr>
+                      <tr><td>Description:</td><td><textarea name="photo_description.@child_photo.photo_id@" cols="60" wrap="soft" rows="3">@child_photo.photo_description@</textarea></td></tr>
+	
                     <if @child_photo.datetaken@ not nil><tr><td colspan="2">Taken: @child_photo.datetaken@ @child_photo.camera_model@ @child_photo.focal_length@mm @child_photo.aperture@ <if @child_photo.flash@>Flash</if></td></tr></if>
                     </table>
               </td>

@@ -30,12 +30,19 @@ ad_page_contract {
     delete_p:onevalue
 }
 
+# These lines are to uncache the image in Netscape, Mozilla. 
+# IE6 & Safari (mac) have a bug with the images cache
+ns_set put [ns_conn outputheaders] "Expires" "-"
+ns_set put [ns_conn outputheaders] "Last-Modified" "-"
+ns_set put [ns_conn outputheaders] "Cache-Control" "no-cache"
+
 set user_id [ad_conn user_id]
 
 # check for read permission on album
 ad_require_permission $album_id read
 
 set context_list [pa_context_bar_list -final "Edit page $page" $album_id]
+
 
 db_1row get_album_info {
 select cr.title,
@@ -71,10 +78,13 @@ if {$has_children_p && [llength $photos_on_page] > 0} {
     # query tuning showed that the order by doubled the query time while sorting a few rows in tcl was fast
 
     # wtem@olywa.net, 2001-09-24
+
+
     set photo_sql "
-    select ci.item_id as photo_id,
+    select  coalesce(ci.live_revision,0) as hide_p, 
+      ci.item_id as photo_id,
       pp.caption,
-      pp.story,
+      pp.story as photo_story,
       to_char(pp.date_taken, 'MM/DD/YYYY HH:MI') as datetaken,
       pp.camera_model,
       pp.focal_length, 
@@ -86,7 +96,9 @@ if {$has_children_p && [llength $photos_on_page] > 0} {
       it.width as thumb_width,
       iv.image_id as viewer_path,
       iv.height as viewer_height,
-      iv.width as viewer_width
+      iv.width as viewer_width,
+      cr.title as photo_title,
+      cr.description as photo_description
     from cr_items ci,
       cr_items cit,
       cr_child_rels ccrt,
@@ -94,23 +106,29 @@ if {$has_children_p && [llength $photos_on_page] > 0} {
       cr_items civ,
       cr_child_rels ccrv,
       images iv,
-      pa_photos pp
+      pa_photos pp,
+      cr_revisions cr
       where 
           ccrt.relation_tag = 'thumb'
+      and cr.revision_id = ci.latest_revision
+      and cr.item_id = ci.item_id
       and ci.item_id = ccrt.parent_id
       and ccrt.child_id = cit.item_id
-      and cit.live_revision = it.image_id
+      and cit.latest_revision = it.image_id
       and ccrv.relation_tag = 'viewer'
       and ci.item_id = ccrv.parent_id
       and ccrv.child_id = civ.item_id
-      and civ.live_revision = iv.image_id
-      and pp.pa_photo_id = ci.live_revision
+      and civ.latest_revision = iv.image_id
+      and pp.pa_photo_id = ci.latest_revision
       and ci.item_id in ([join $photos_on_page ","])"
 
     db_foreach get_child_photos $photo_sql {
-	set val(photo_id) $photo_id
+	set val(hide_p) $hide_p
+        set val(photo_id) $photo_id
 	set val(caption) $caption
-	set val(story) $story
+	set val(photo_story) $photo_story
+	set val(photo_description) $photo_description
+	set val(photo_title) $photo_title
 	set val(datetaken) $datetaken
         set val(camera_model) $camera_model
         set val(focal_length) $focal_length
