@@ -19,7 +19,7 @@ alter table pa_albums add iconic       integer
                                        references cr_items on delete set null;
 
 comment on column pa_albums.iconic is '
-        The photo to use as an icon for this album.  If it is null a
+        The photo to use as the cover photo for this album.  If it is null a
         default icon is chosen
 ';
 
