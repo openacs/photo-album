@@ -13,6 +13,12 @@ regexp {^([0-9]+)} [ad_conn path_info] match image_id
 
 if {[string equal [ad_parameter CheckPermissionOnImageServeP] "t"]} {
     ad_require_permission $image_id "read"
-} 
+}
 
-cr_write_content -revision_id $image_id
+if {[catch {cr_write_content -revision_id $image_id} errMsg]} {
+    if {[string equal $::errorCode NOT_FOUND]} {
+        ns_returnnotfound
+        ad_script_abort
+    }
+    error $errMsg $::errorInfo $::errorCode
+}
