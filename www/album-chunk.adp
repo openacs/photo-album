@@ -18,3 +18,4 @@
 </multiple>
 </table>
 
+<a href="@url@">#photo-album-portlet.Add_photos#</a>

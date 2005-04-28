@@ -30,10 +30,10 @@ template::element create folder_edit folder_id -label "Folder ID" \
   -datatype integer -widget hidden
 
 template::element create folder_edit label -html { size 30 } \
-  -label "<_#Folder Name#>" -datatype text
+    -label "[_ photo-album._Folder]" -datatype text
 
 template::element create folder_edit description -html { size 50 } \
-  -label "<_#Folder Description#>" -optional -datatype text 
+    -label "[_ photo-album._Folder_1]" -optional -datatype text 
 
 set title [pa_get_folder_name $folder_id]
 
