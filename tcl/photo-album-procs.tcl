@@ -1259,34 +1259,3 @@ ad_proc -public photo_album::photo::package_url {
 
     return [site_node::get_element -node_id $node_id -element url]
 }
-
-
-namespace eval photo_album::merge {
-    ad_proc -callback MergeShowUserInfo -impl photo_album {
-	-user_id:required
-    } {
-	Show the items of user_id
-    } {
-	set result [list "photo_album items of $user_id"]
-	set user_items [db_list_of_lists sel_collections { *SQL* }]
-	lappend result $user_items
-	return $result
-    }
-
-    ad_proc -callback MergePackageUser -impl photo_album {
-	-from_user_id:required
-	-to_user_id:required
-    } {
-	Merge the photo_album items of two users.
-    } {
-	set msg "Merging photo album"
-	set result [list $msg]
-	ns_log Notice $msg
-	
-	db_transaction {
-	    db_dml upd_collections { *SQL* }
-	    lappend result "Photo album merge is done"
-	} 
-	return $result
-    }
-}
