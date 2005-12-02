@@ -94,13 +94,14 @@ if {![db_0or1row get_photo_info { *SQL* }]} {
         # if we did get a photo, and we need html source, get some info about the thumbnail
         db_0or1row get_thumbnail_info { *SQL* }
     }
+    set path $image_id
 }
 
 
 
 
 
-set path $image_id
+
 
 # to move a photo need write on photo and write on parent album
 set move_p [expr $write_p && $album_write_p]
