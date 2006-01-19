@@ -49,7 +49,7 @@
       	  i.height as thumb_height,
       	  i.width as thumb_width,
       	  random() as seed
-      from cr_items ci, cr_items ci2, ci_items root, cr_child_rels ccr2, images i
+      from cr_items ci, cr_items ci2, cr_items root, cr_child_rels ccr2, images i
       where $size_clause
       and ci.item_id = ccr2.parent_id
       and ccr2.child_id = ci2.item_id
