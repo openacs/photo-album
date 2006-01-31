@@ -186,17 +186,63 @@
     </querytext>
 </fullquery>
 
-<fullquery name="pa_rotate.get_image_files">      
-      <querytext>
-      
-            select i.image_id, crr.filename, i.width, i.height
-            from cr_items cri, cr_revisions crr, images i
-            where cri.parent_id = :id
-              and crr.revision_id = cri.latest_revision
-              and i.image_id = cri.latest_revision
-            order by crr.content_length desc
-	
-      </querytext>
+<fullquery name="photo_album::photo::get.basic">      
+    <querytext>
+      SELECT
+        ci.item_id as photo_id,
+        u.user_id,
+        u.first_names || ' ' || u.last_name as username,
+        pp.caption,
+        pp.story,
+        cr.title,
+        cr.description,
+        ci.parent_id as album_id,
+        to_char(o.creation_date,'YYYY-MM-DD HH24:MI:SS') as created_ansi,
+        case when acs_permission.permission_p(ci.item_id, :user_id, 'admin') ='t' then 1 else 0 end as admin_p,
+        case when acs_permission.permission_p(ci.item_id, :user_id, 'write') = 't' then 1 else 0 end as write_p,
+        case when acs_permission.permission_p(ci.parent_id, :user_id, 'write') = 't' then 1 else 0 end as album_write_p,
+        case when acs_permission.permission_p(ci.item_id, :user_id, 'delete') = 't' then 1 else 0 end as photo_delete_p
+      FROM cr_items ci,
+           cr_revisions cr,
+           pa_photos pp,
+           acs_objects o,
+           acs_users_all u
+      WHERE cr.revision_id = pp.pa_photo_id
+        and ci.live_revision = cr.revision_id
+        and o.object_id = ci.item_id
+        and u.user_id = o.creation_user 
+        and ci.item_id = :photo_id
+    </querytext>
+</fullquery>
+
+<fullquery name="photo_album::photo::package_url.package_url">      
+    <querytext>
+        SELECT n.node_id, item_id
+        FROM cr_items, pa_package_root_folder_map m, site_nodes n
+        WHERE m.folder_id = item_id
+          and item_id = nvl((select item_id from cr_revisions where revision_id = :photo_id),:photo_id)
+          and n.object_id = m.package_id
+        connect by prior cr_items.parent_id = item_id
+        and rownum = 1
+    </querytext>
+</fullquery>
+
+<fullquery name="photo_album::list_albums_in_root_folder.list_albums">      
+    <querytext>
+        select cr.title, ci1.item_id as album_id
+    from cr_revisions cr, (select ci.item_id, ci.live_revision, level as level_num from
+          cr_items ci
+          where content_type = 'pa_album'
+          connect by prior ci.item_id=ci.parent_id
+          start with ci.item_id = :root_folder_id) ci1
+where ci1.live_revision = cr.revision_id
+and exists (select 1
+            from acs_object_party_privilege_map m
+            where m.object_id = cr.revision_id
+              and m.party_id = :user_id
+              and m.privilege = 'read')
+       order by level_num, cr.title
+   </querytext>
 </fullquery>
 
 </queryset>
