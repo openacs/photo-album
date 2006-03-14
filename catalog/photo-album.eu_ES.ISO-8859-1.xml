@@ -24,7 +24,7 @@
   <msg key="_Either_1">Jadanik badago album bat karpeta honetan \&quot;%folder_name%\&quot; izenarekin edo botoia sakatu duzu behin baino gehiagotan. &lt;a href=\&quot;?folder_id=%new_folder_id%\&quot;&gt;Karpeta berrira&lt;/a&gt; bueltatu zaitezke ikusteko zure albuma hor dagoen.</msg>
   <msg key="_Either_2">Jadanik karpeta bat dago \&quot;%name%\&quot; izenarekin edo behin baino gehiagotan sakatu duzu botoia. &lt;a href=\&quot;index?parent_id=%parent_id%\&quot;&gt;Direktorioen zerrendara bueltatu zaitezke&lt;/a&gt; ikusteko zure karpeta or dagoen</msg>
   <msg key="_Either_3">Jadanik karpetaren bat dago \&quot;%folder_name%\&quot; izenarekin karpeta honetan edo behin baino gehiagotan sakatu duzu botoia. &lt;a href=\&quot;?folder_id=%new_folder_id%\&quot;&gt;Karpeta berrira&lt;/a&gt; bueltatu zaitezke ikusteko zure karpeta hor dagoen.</msg>
-  <msg key="_Either_4">Jadanik argazkiren bat dago album honetan \&quot;%filename%\&quot; izenarekin edo botoian sakatu duzu behin baino gehiagotan. &lt;a href=\&quot;?folder_id=%new_folder_id%\&quot;&gt;Karpeta berrira&lt;/a&gt; bueltatu zaitezke ikusteko zure argazkia hor dagoen.</msg>
+  <msg key="_Either_4">Jadanik argazkiren bat dago album honetan \&quot;%filename%\&quot; izenarekin edo botoian sakatu duzu behin baino gehiagotan. &lt;a href=\&quot;?folder_id=%new_album_id%\&quot;&gt;Karpeta berrira&lt;/a&gt; bueltatu zaitezke ikusteko zure argazkia hor dagoen.</msg>
   <msg key="_Folder">Karpetaren izena</msg>
   <msg key="_Folder_1">Karpetaren deskribapena</msg>
   <msg key="_Full">Tamaina handiko argazkia</msg>
