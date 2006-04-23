@@ -133,6 +133,7 @@ printing or emailing on the individual photo display page.</msg>
   <msg key="lt_Move_folder_to_new_fo">Move folder to new folder:</msg>
   <msg key="lt_Move_this_album_to_an">Move this album to another folder</msg>
   <msg key="lt_Move_this_folder_to_a">Move this folder to another folder</msg>
+  <msg key="lt_No_Photo_was_found_fo">No Photo was found for this photo_id</msg>
   <msg key="lt_No_photos_in_the_clip">No photos in the clipboard.</msg>
   <msg key="lt_OPTIONAL_Displayed_on">OPTIONAL, Displayed on the thumbnail page</msg>
   <msg key="lt_OPTIONAL_Displayed_wh">OPTIONAL, Displayed when viewing the photo</msg>
@@ -158,6 +159,7 @@ currently being processed...</msg>
   <msg key="Name">Name</msg>
   <msg key="Name_title">Name: %title%</msg>
   <msg key="Netx">Next</msg>
+  <msg key="No_Photo">No Photo</msg>
   <msg key="OPTIONAL">OPTIONAL</msg>
   <msg key="or">or</msg>
   <msg key="Photo_clipboard">Photo clipboard</msg>

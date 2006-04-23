@@ -80,20 +80,20 @@ if {[info exists album_id]} {
     set photo_clause ""
 }
 
-if {![info exists package_id]} {
-    if {[info exists photo_id]} {
-	# A photo ID was provided. Limit the query to that photo.
+if {[info exists photo_id]} {
+    # A photo ID was provided. Limit the query to that photo.
+    
+    set photo_clause [db_map photo_clause]
+}
 
-	set photo_clause [db_map photo_clause]
-    }
-
-    if {[catch {db_1row get_random_photo_all {}} err_msg]} {
-	ns_log error "No random photo found: $err_msg"
-	set found_p 0
-    } else {
-	set found_p 1
-    }
+if {[catch {db_1row get_random_photo_all {}} err_msg]} {
+    ns_log error "No random photo found: $err_msg"
+    set found_p 0
 } else {
+    set found_p 1
+}
+
+if {[info exists package_id] && $found_p == 0} {
     set root_folder_id [pa_get_root_folder $package_id]
     if {[catch {db_1row get_random_photo_folder {}} err_msg]} {
 	ns_log error "No random photo found in folder $root_folder_id: $err_msg"
