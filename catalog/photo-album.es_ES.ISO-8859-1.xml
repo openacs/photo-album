@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="photo-album" package_version="5.0d1" locale="es_ES" charset="ISO-8859-1">
+<message_catalog package_key="photo-album" package_version="5.2.3" locale="es_ES" charset="ISO-8859-1">
 
   <msg key="_Album">Descripción del álbum</msg>
   <msg key="_Album_1">Historia</msg>
@@ -87,6 +87,9 @@
   <msg key="Flash">Flash</msg>
   <msg key="Hide">Esconder</msg>
   <msg key="Hide_1">Esconder:</msg>
+  <msg key="hide_html">Ocultar el código HTML de la imagen</msg>
+  <msg key="image_only">Sólo imagen:</msg>
+  <msg key="image_with_link">Imagen con enlace:</msg>
   <msg key="log_in">log in</msg>
   <msg key="lt_Add_a_collection_of_p">Agregar una colección de fotos a este álbum</msg>
   <msg key="lt_Add_a_single_photo_to">Agregar una sola foto a este álbum</msg>
@@ -148,15 +151,18 @@
   <msg key="remove">remover</msg>
   <msg key="screen">pantalla.</msg>
   <msg key="Sequence">Secuencia</msg>
+  <msg key="show_html">Mostrar el código HTML de la imagen para copiar y pegar</msg>
   <msg key="shutterflycom">shutterfly.com</msg>
   <msg key="Smallernbspimage">Imagen más pequeña</msg>
   <msg key="Story">Historia</msg>
   <msg key="Story_1">Historia:</msg>
   <msg key="Story_story">Historia:%story%</msg>
   <msg key="Submit">Cargar</msg>
+  <msg key="thumbnail_with_link">Miniatura con enlace:</msg>
   <msg key="Title">Título</msg>
   <msg key="Title_1">Nombre del archivo:</msg>
   <msg key="Upload_a_Photo">Subir una foto</msg>
+  <msg key="Upload_photos">Subir fotos desde el servidor</msg>
   <msg key="You_will_have_to">Usted tendrá que</msg>
   <msg key="Your_clipboards">Sus sujetapapeles</msg>
 </message_catalog>

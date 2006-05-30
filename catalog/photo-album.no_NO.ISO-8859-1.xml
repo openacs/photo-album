@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="photo-album" package_version="5.0d1" locale="no_NO" charset="ISO-8859-1">
+<message_catalog package_key="photo-album" package_version="5.2.3" locale="no_NO" charset="ISO-8859-1">
 
   <msg key="_Album">Albumsbeskrivelse</msg>
   <msg key="_Album_1">Albumets historie</msg>
@@ -122,6 +122,7 @@
   <msg key="lt_Photo_Album_System__t">Albumsystem: %title% </msg>
   <msg key="lt_Save_this_photo_to_pr">Lagre dette bildet for utskrift eller for å se senere</msg>
   <msg key="lt_Save_this_photo_to_pr_1">Lagre dette bildet for utskrift eller for å se senere. Legg i mappe</msg>
+  <msg key="lt_Taken_child_photodate">Tatt: %child_photo.datetaken% %child_photo.camera_model% %child_photo.focal_length%mm %child_photo.aperture%</msg>
   <msg key="lt_There_are_no_items_in">Det er ingen innlegg i denne mappen.</msg>
   <msg key="lt_This_album_does_not_c">Dette albumet inneholder ingenting.</msg>
   <msg key="lt_This_photo_clipped_to">Dette bilde er lagt opp på</msg>
@@ -146,6 +147,7 @@
   <msg key="register">registrer</msg>
   <msg key="remove">fjern</msg>
   <msg key="screen">skjerm.</msg>
+  <msg key="Sequence">Rekkefølge:</msg>
   <msg key="shutterflycom">shutterfly.com </msg>
   <msg key="Smallernbspimage">Mindre&amp;nbsp;bilde</msg>
   <msg key="Story">Historie</msg>

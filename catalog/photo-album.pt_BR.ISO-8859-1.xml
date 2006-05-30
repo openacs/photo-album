@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="photo-album" package_version="5.0d1" locale="pt_BR" charset="ISO-8859-1">
+<message_catalog package_key="photo-album" package_version="5.2.3" locale="pt_BR" charset="ISO-8859-1">
 
   <msg key="_Album">Descrição do Álbum</msg>
   <msg key="_Album_1">Estória do Álbum</msg>

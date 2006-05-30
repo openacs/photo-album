@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="photo-album" package_version="5.0d1" locale="nl_NL" charset="ISO-8859-1">
+<message_catalog package_key="photo-album" package_version="5.2.3" locale="nl_NL" charset="ISO-8859-1">
 
   <msg key="_Album">Albumbeschrijving</msg>
   <msg key="_Album_1">Albumrelaas</msg>
@@ -9,7 +9,7 @@
   <msg key="_Choose">Nieuwe map voor het album kiezen</msg>
   <msg key="_Choose_1">Nieuwe map voor de map kiezen</msg>
   <msg key="_Choose_2">Foto om aan te bieden kiezen</msg>
-  <msg key="_Choose_3">Tar of Zip bestand om aan te bieden kiezen</msg>
+  <msg key="_Choose_3">Tar- of Zipbestand om aan te bieden kiezen</msg>
   <msg key="_Clipboard">Klembordnaam</msg>
   <msg key="_Create">Nieuw album aanmaken</msg>
   <msg key="_Create_1">Nieuwe map aanmaken</msg>
@@ -87,6 +87,9 @@
   <msg key="Flash">Flits</msg>
   <msg key="Hide">Verbergen</msg>
   <msg key="Hide_1">Verbergen:</msg>
+  <msg key="hide_html">Verberg html-broncode van deze afbeelding</msg>
+  <msg key="image_only">Afbeelding alleen:</msg>
+  <msg key="image_with_link">Afbeelding met link:</msg>
   <msg key="log_in">Aanmelden</msg>
   <msg key="lt_Add_a_collection_of_p">Een fotocollectie aan dit album toevoegen</msg>
   <msg key="lt_Add_a_single_photo_to">Een enkele foto aan dit album toevoegen</msg>
@@ -148,15 +151,18 @@
   <msg key="remove">Verwijderen</msg>
   <msg key="screen">scherm.</msg>
   <msg key="Sequence">Volgorde:</msg>
+  <msg key="show_html">Toon de html-broncode van deze afbeelding voor kopiëren en plakken</msg>
   <msg key="shutterflycom">shutterfly.com</msg>
   <msg key="Smallernbspimage">Kleinere&amp;nbsp;afbeelding</msg>
   <msg key="Story">Verhaal</msg>
   <msg key="Story_1">Verhaal:</msg>
   <msg key="Story_story">Verhaal: %story%</msg>
   <msg key="Submit">Verzenden</msg>
+  <msg key="thumbnail_with_link">Duimnagel met link</msg>
   <msg key="Title">Titel</msg>
   <msg key="Title_1">Titel:</msg>
   <msg key="Upload_a_Photo">Een foto aanbieden</msg>
+  <msg key="Upload_photos">Laad foto's op uit de serverdirectory</msg>
   <msg key="You_will_have_to">Er moet</msg>
   <msg key="Your_clipboards">Mijn klemborden</msg>
 </message_catalog>
