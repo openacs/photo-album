@@ -20,8 +20,11 @@
   <msg key="_Edit_2">Edytuj Atrybuty Fotografii</msg>
   <msg key="_Edit_3">Edytuj stronę %page% </msg>
   <msg key="_Edit_4">Edytuj stronę %page% </msg>
+  <msg key="_Either">Albo album o nazwie &quot;%name% już istnieje, albo kliknięto przycisk powtórnie. Możesz &lt;a href=&quot;index?parent_id=%parent_id%&quot;&gt; powrócić do listingu&lt;/a&gt; by zobaczyć czy album faktycznie już jest.</msg>
   <msg key="_Folder">Nazwa Folderu </msg>
   <msg key="_Folder_1">Opis Folderu</msg>
+  <msg key="_Full">Ilustracja w pełnym rozmiarze</msg>
+  <msg key="_Hide">Ukryj źródło html ilustracji</msg>
   <msg key="_Modify">Zmień parametry tego pakietu</msg>
   <msg key="_Move">Przenieś Album</msg>
   <msg key="_Move_1">Przenieś Folder</msg>
@@ -56,6 +59,8 @@
   <msg key="Edit_the_Album">Edytuj Album:</msg>
   <msg key="Edit_the_Folder">Edytuj Folder:</msg>
   <msg key="Edit_these_photos">Edytuj te fotografie</msg>
+  <msg key="Flash">Flash</msg>
+  <msg key="Hide">Ukryj</msg>
   <msg key="Hide_1">Ukryj:</msg>
   <msg key="hide_html">Ukryj źródłowy kod html ilustracji</msg>
   <msg key="image_only">Tylko ilustracja:</msg>
@@ -63,8 +68,14 @@
   <msg key="log_in">zaloguj się:</msg>
   <msg key="lt_Add_a_collection_of_p">Dodaj kolekcję fotografii do tego albumu</msg>
   <msg key="lt_Add_a_single_photo_to">Dodaj jedną fotografię do tego albumu</msg>
+  <msg key="lt_and_add_them_to_a_cli">dodaj je do schowka by użyć tej części serwisu</msg>
   <msg key="lt_Are_you_sure_you_want">Czy na pewno usunąć album &quot;%title%&quot;? Tej operacji nie można cofnąć.</msg>
   <msg key="lt_Are_you_sure_you_want_1">Czy na pewno usunąć folder &quot;%title%&quot;? Tej operacji nie można cofnąć.</msg>
+  <msg key="lt_Description_descripti">Opis: %description%</msg>
+  <msg key="lt_edit________________n">edytuj nazwę</msg>
+  <msg key="lt_Edit_album_attributes">Edytuj atrybuty albumu</msg>
+  <msg key="lt_Edit_folder_informati">Edytuj informacje o folderze</msg>
+  <msg key="lt_Edit_photo_attributes">Edytuj atrybuty fotografii</msg>
   <msg key="lt_Image_thumbnail_index">Indeks miniatur </msg>
   <msg key="lt_Make_this_photo_the_i">Ustaw tę fotografię jako okładkę tego albumu</msg>
   <msg key="lt_Modify_album_permissi">Zmień prawa dostępu do albumu</msg>
