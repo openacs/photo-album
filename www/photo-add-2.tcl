@@ -1,5 +1,4 @@
 # /packages/photo-album/www/photo-add-2.tcl
-ns_log Notice "Huh? here we are..."
 
 ad_page_contract {
     adds a photo to an album

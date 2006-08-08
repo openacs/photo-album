@@ -5,7 +5,7 @@
     <version>7.2</version>
   </rdbms>
 
-  <fullquery name="get_random_photo_all">
+  <fullquery name="get_latest_photo_all">
     <querytext>
       select ci.item_id as photo_id,
           (select pp.caption 
@@ -14,7 +14,7 @@
       	  i.image_id as thumb_path,
       	  i.height as thumb_height,
       	  i.width as thumb_width,
-      	  random() as seed
+      	  latest() as seed
       from cr_items ci, cr_items ci2, cr_child_rels ccr2, images i
       where $size_clause
       and ci.item_id = ccr2.parent_id
@@ -39,7 +39,7 @@
     </querytext>
   </fullquery>
   
-  <fullquery name="get_random_photo_folder">
+  <fullquery name="get_latest_photo_folder">
     <querytext>
       select ci.item_id as photo_id,
           (select pp.caption 
@@ -47,8 +47,7 @@
           where pp.pa_photo_id = ci.live_revision) as caption,
       	  i.image_id as thumb_path,
       	  i.height as thumb_height,
-      	  i.width as thumb_width,
-      	  random() as seed
+      	  i.width as thumb_width
       from cr_items ci, cr_items ci2, cr_items root, cr_child_rels ccr2, images i
       where $size_clause
       and ci.item_id = ccr2.parent_id
@@ -57,7 +56,7 @@
       and ci.live_revision is not null
       and ci.tree_sortkey between root.tree_sortkey and tree_right(root.tree_sortkey)
       and root.item_id = :root_folder_id
-      order by seed limit 1
+      order by ci.item_id desc limit 1
     </querytext>
   </fullquery>
 

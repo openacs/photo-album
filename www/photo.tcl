@@ -94,102 +94,97 @@ if {![db_0or1row get_photo_info { *SQL* }]} {
         # if we did get a photo, and we need html source, get some info about the thumbnail
         db_0or1row get_thumbnail_info { *SQL* }
     }
-}
+    set path $image_id
 
-
-
-
-
-set path $image_id
-
-# to move a photo need write on photo and write on parent album
-set move_p [expr $write_p && $album_write_p]
-# build form to move the photo if move_p is 1
-if $move_p {
-
-    template::form create move_photo
-
-    template::element create move_photo photo_id -label "photo ID" \
-	-datatype integer -widget hidden
-
-
-    set albums_list [db_list_of_lists get_albums { *SQL* }]
-    
-    template::element create move_photo new_album_id -label "[_ photo-album._Please]" \
-	-datatype integer -widget select \
-	-options $albums_list
-
-
-    if { [template::form is_request move_photo] } {
-	template::element set_properties move_photo photo_id -value $photo_id
-	template::element create move_photo move_button -widget submit -label "[_ photo-album.Move]"	 
-    }
-
-
-    if { [template::form is_valid move_photo] } {
-	set new_album_id [template::element::get_value move_photo new_album_id]
-	ad_require_permission $new_album_id "pa_create_photo"
-
-	if [string equal [pa_is_album_p $new_album_id] "f"] {
-	    # may add some sort of error message
-	    # but this case only happens due to url hacking
-	    # (or coding errors, which never happen)
-	    ad_script_abort
+    # to move a photo need write on photo and write on parent album
+    set move_p [expr $write_p && $album_write_p]
+    # build form to move the photo if move_p is 1
+    if $move_p {
+	
+	template::form create move_photo
+	
+	template::element create move_photo photo_id -label "photo ID" \
+	    -datatype integer -widget hidden
+	
+	
+	set albums_list [db_list_of_lists get_albums { *SQL* }]
+	
+	template::element create move_photo new_album_id -label "[_ photo-album._Please]" \
+	    -datatype integer -widget select \
+	    -options $albums_list
+	
+	
+	if { [template::form is_request move_photo] } {
+	    template::element set_properties move_photo photo_id -value $photo_id
+	    template::element create move_photo move_button -widget submit -label "[_ photo-album.Move]"	 
 	}
-
-	db_transaction {
-
-	    # not using content_item move because is only accepts 
-	    # a folder_id as target not another content_item
-
-	    set rel_id [db_string photo_rel_id {}]
-
-	    db_dml photo_move {}
-
-	    db_dml photo_move2 {}
-
-	    db_dml context_update {}
+	
+	
+	if { [template::form is_valid move_photo] } {
+	    set new_album_id [template::element::get_value move_photo new_album_id]
+	    ad_require_permission $new_album_id "pa_create_photo"
 	    
-	} on_error {
-	    # most likely a duplicate name or a double click
-	    
-	    set filename [db_string filename {}]
-
-	    if [db_string duplicate_check {}] {
-		ad_return_complaint 1 "[_ photo-album._Either_4]"
-	    } else {
-		ad_return_complaint 1 "[_ photo-album._We_1]
-
-	    <pre>$errmsg</pre>"
+	    if [string equal [pa_is_album_p $new_album_id] "f"] {
+		# may add some sort of error message
+		# but this case only happens due to url hacking
+		# (or coding errors, which never happen)
+		ad_script_abort
 	    }
 	    
+	    db_transaction {
+		
+		# not using content_item move because is only accepts 
+		# a folder_id as target not another content_item
+		
+		set rel_id [db_string photo_rel_id {}]
+		
+		db_dml photo_move {}
+		
+		db_dml photo_move2 {}
+		
+		db_dml context_update {}
+		
+	    } on_error {
+		# most likely a duplicate name or a double click
+		
+		set filename [db_string filename {}]
+		
+		if [db_string duplicate_check {}] {
+		    ad_return_complaint 1 "[_ photo-album._Either_4]"
+		} else {
+		    ad_return_complaint 1 "[_ photo-album._We_1]
+
+	    <pre>$errmsg</pre>"
+		}
+		
+		ad_script_abort
+	    }
+	    pa_flush_photo_in_album_cache $old_album_id
+	    pa_flush_photo_in_album_cache $new_album_id
+	    
+	    
+	    
+	    #page used to redirect user to the page of new album containing moved photos
+	    set page [pa_page_of_photo_in_album $photo_id $new_album_id]
+	    
+	    ad_returnredirect "album?album_id=$new_album_id&page=$page"
 	    ad_script_abort
+	    
 	}
-	pa_flush_photo_in_album_cache $old_album_id
-	pa_flush_photo_in_album_cache $new_album_id
- 
-
-
-	#page used to redirect user to the page of new album containing moved photos
-	set page [pa_page_of_photo_in_album $photo_id $new_album_id]
-
-	ad_returnredirect "album?album_id=$new_album_id&page=$page"
-	ad_script_abort
-
     }
+    
+    # to delete a photo need delete on photo and write on parent album
+    set delete_p [expr $photo_delete_p && $album_write_p]
+    
+    # determine what album page the photo is on so page can present link back to thumbnail page
+    set page_num [pa_page_of_photo_in_album $photo_id $album_id]
+    
+    set photo_nav_html [pa_pagination_bar $photo_id [pa_all_photos_in_album $album_id] "photo?photo_id=" photo]
+    
+    pa_clipboards_multirow -create_new -force_default $user_id clipboards
+    
+    #proc pa_clipboards_get -photo_id $photo_id -multirow clipped
+    
+    db_multirow clipped get_clips { *SQL* }
+    
 }
-
-# to delete a photo need delete on photo and write on parent album
-set delete_p [expr $photo_delete_p && $album_write_p]
-
-# determine what album page the photo is on so page can present link back to thumbnail page
-set page_num [pa_page_of_photo_in_album $photo_id $album_id]
-
-set photo_nav_html [pa_pagination_bar $photo_id [pa_all_photos_in_album $album_id] "photo?photo_id=" photo]
-
-pa_clipboards_multirow -create_new -force_default $user_id clipboards
-
-#proc pa_clipboards_get -photo_id $photo_id -multirow clipped
-
-db_multirow clipped get_clips { *SQL* }
-

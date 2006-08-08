@@ -1247,15 +1247,26 @@ ad_proc -public photo_album::photo::package_url {
 
     does not include the site part just the path.
 } { 
-    db_0or1row package {
-        SELECT n.node_id, i1.item_id
-        FROM cr_items i1, cr_items i2, pa_package_root_folder_map m, site_nodes n
-        WHERE m.folder_id = i2.item_id
-          and i1.item_id = coalesce((select item_id from cr_revisions where revision_id = :photo_id),:photo_id)
-          and n.object_id = m.package_id
-          and i1.tree_sortkey between i2.tree_sortkey and tree_right(i2.tree_sortkey)
-        limit 1
-    }
+    db_0or1row package_url {}
 
     return [site_node::get_element -node_id $node_id -element url]
+}
+
+ad_proc -public photo_album::get_package_id_from_url {
+    -url
+} { 
+    Returns package_id of instance from URL
+} {
+    array set site_node [site_node::get_from_url -url $url]
+    return $site_node(package_id)
+}
+
+ad_proc -public photo_album::list_albums_in_root_folder {
+    -root_folder_id
+} { 
+    Returns a list of albums for a specific instance of photo-album
+} {
+    # only return albums the current user can see
+    set user_id [ad_conn user_id]
+    return [db_list_of_lists list_albums {} ]
 }

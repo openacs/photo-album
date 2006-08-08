@@ -146,38 +146,6 @@
       </querytext>
 </fullquery>
 
-<fullquery name="pa_load_images.update_photo_data">      
-    <querytext>
-
-        UPDATE pa_photos 
-        SET camera_model = :tmp_exif_Cameramodel,
-            user_filename = :upload_name,
-            date_taken = to_timestamp(:tmp_exif_DateTime,'YYYY-MM-DD HH24:MI:SS'),
-            flash = :tmp_exif_Flashused,
-            aperture = :tmp_exif_Aperture,
-            metering = :tmp_exif_MeteringMode,
-            focal_length = :tmp_exif_Focallength,
-            exposure_time = :tmp_exif_Exposuretime,
-            focus_distance = :tmp_exif_FocusDist,
-            sha256 = :base_sha256
-        WHERE pa_photo_id = :photo_rev_id
-
-    </querytext>
-</fullquery>
-
-<fullquery name="pa_rotate.get_image_files">      
-      <querytext>
-      
-            select i.image_id, crr.content as filename, i.width, i.height
-            from cr_items cri, cr_revisions crr, images i
-            where cri.parent_id = :id
-              and crr.revision_id = cri.latest_revision
-              and i.image_id = cri.latest_revision
-            order by crr.content_length desc
-        
-      </querytext>
-</fullquery>
-
 <fullquery name="photo_album::photo::get.basic">      
     <querytext>
       SELECT
@@ -205,6 +173,37 @@
         and u.user_id = o.creation_user 
         and ci.item_id = :photo_id
     </querytext>
+</fullquery>
+
+<fullquery name="photo_album::photo::package_url.package_url">      
+    <querytext>
+        SELECT n.node_id, i1.item_id
+        FROM cr_items i1, cr_items i2, pa_package_root_folder_map m, site_nodes n
+        WHERE m.folder_id = i2.item_id
+          and i1.item_id = coalesce((select item_id from cr_revisions where revision_id = :photo_id),:photo_id)
+          and n.object_id = m.package_id
+          and i1.tree_sortkey between i2.tree_sortkey and tree_right(i2.tree_sortkey)
+        limit 1
+    </querytext>
+</fullquery>
+
+<fullquery name="photo_album::list_albums_in_root_folder.list_albums">      
+    <querytext>
+        select cr.title, ci1.item_id as album_id, ci1.tree_sortkey
+    from cr_revisions cr, 
+         (select ci.item_id, ci.live_revision, ci.tree_sortkey from
+          cr_items ci, cr_items ci2
+          where ci.content_type = 'pa_album'
+          and ci.tree_sortkey between ci2.tree_sortkey and tree_right(ci2.tree_sortkey)
+          and ci2.item_id = :root_folder_id) ci1
+where ci1.live_revision = cr.revision_id
+and exists (select 1
+            from acs_object_party_privilege_map m
+            where m.object_id = cr.revision_id
+              and m.party_id = :user_id
+              and m.privilege = 'read')
+       order by cr.title
+   </querytext>
 </fullquery>
 
 </queryset>

@@ -46,8 +46,40 @@ order by ccr.order_n
        and image_items.item_id = ccr.child_id
        and image_items.live_revision = i.image_id
        and image_revs.revision_id = image_items.live_revision
-       and photo.item_id = :photo_id;
+       and photo.item_id = :photo_id
      </querytext>
+</fullquery>
+
+<fullquery name="pa_load_images.update_photo_data">      
+    <querytext>
+
+        UPDATE pa_photos 
+        SET camera_model = :tmp_exif_Cameramodel,
+            user_filename = :upload_name,
+            date_taken = to_timestamp(:tmp_exif_DateTime,'YYYY-MM-DD HH24:MI:SS'),
+            flash = :tmp_exif_Flashused,
+            aperture = :tmp_exif_Aperture,
+            metering = :tmp_exif_MeteringMode,
+            focal_length = :tmp_exif_Focallength,
+            exposure_time = :tmp_exif_Exposuretime,
+            focus_distance = :tmp_exif_FocusDist,
+            sha256 = :base_sha256
+        WHERE pa_photo_id = :photo_rev_id
+
+    </querytext>
+</fullquery>
+
+<fullquery name="pa_rotate.get_image_files">      
+      <querytext>
+      
+            select i.image_id, crr.content as filename, i.width, i.height
+            from cr_items cri, cr_revisions crr, images i
+            where cri.parent_id = :id
+              and crr.revision_id = cri.latest_revision
+              and i.image_id = cri.latest_revision
+            order by crr.content_length desc
+        
+      </querytext>
 </fullquery>
 
 </queryset>

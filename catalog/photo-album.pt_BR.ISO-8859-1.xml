@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="photo-album" package_version="5.0d1" locale="pt_BR" charset="ISO-8859-1">
+<message_catalog package_key="photo-album" package_version="5.2.3" locale="pt_BR" charset="ISO-8859-1">
 
   <msg key="_Album">Descrição do Álbum</msg>
   <msg key="_Album_1">Estória do Álbum</msg>
@@ -89,6 +89,9 @@
   <msg key="Flash">Flash</msg>
   <msg key="Hide">Ocultar</msg>
   <msg key="Hide_1">Ocultar:</msg>
+  <msg key="hide_html">Esconder o código-fonte HTML da imagem</msg>
+  <msg key="image_only">Somente a imagem:</msg>
+  <msg key="image_with_link">Imagem com link:</msg>
   <msg key="log_in">log in</msg>
   <msg key="lt_Add_a_collection_of_p">Adicionar uma coleção de fotos a este álbum</msg>
   <msg key="lt_Add_a_single_photo_to">Adicione uma foto a este álbum</msg>
@@ -150,15 +153,18 @@
   <msg key="remove">remover</msg>
   <msg key="screen">tela.</msg>
   <msg key="Sequence">Seqüência:</msg>
+  <msg key="show_html">Mostrar o código-fonte HTML da imagem para copiar e colar</msg>
   <msg key="shutterflycom">shutterfly.com</msg>
   <msg key="Smallernbspimage">Imagem&amp;nbsp;menor</msg>
   <msg key="Story">Estória</msg>
   <msg key="Story_1">Estória:</msg>
   <msg key="Story_story">Estória: %story%</msg>
   <msg key="Submit">Enviar</msg>
+  <msg key="thumbnail_with_link">Imagem miniatura com link:</msg>
   <msg key="Title">Título</msg>
   <msg key="Title_1">Título:</msg>
   <msg key="Upload_a_Photo">Enviar uma Foto</msg>
+  <msg key="Upload_photos">Enviar fotos do diretório do servidor</msg>
   <msg key="You_will_have_to">Você terá que</msg>
   <msg key="Your_clipboards">Seus murais</msg>
 </message_catalog>
