@@ -1,8 +1,5 @@
 # /packages/photo-album/tcl/photo-album-callbacks-procs.tcl
 ad_library {
-<<<<<<< photo-album-callback-procs.tcl
-    Library of callbacks implementations for photo-album
-=======
     TCL library for the photo-album callbacks implementations
 
     @author Enrique Catalan (quio@galileo.edu)
