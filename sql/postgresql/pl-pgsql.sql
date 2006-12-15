@@ -252,9 +252,7 @@ begin
     where parent_id = v_album_id;
 
     if v_num_children > 0 then
-           raise_application_error(-20000,
-          ''The specified album '' || album_id || '' still contains photos.  
-	  An album must be empty before it can be deleted.'');
+           raise exception ''The specified album % still contains photos.  An album must be empty before it can be deleted.'', album_id;
     end if;
     
     -- content_item.delete takes care of all revision
