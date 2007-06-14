@@ -40,7 +40,7 @@ template::element create album_add photographer -html { size 50} \
 template::element create album_add description -html { size 50 } \
   -label "[_ photo-album._Album]" -datatype text -optional
 
-template::element create album_add story -html {cols 50 rows 4 wrap soft} \
+template::element create album_add story -html {cols 50 rows 4} \
   -label "[_ photo-album._Album_1]" -datatype text -widget textarea -optional
 
 if { [template::form is_request album_add] } {

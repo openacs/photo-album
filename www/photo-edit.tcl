@@ -59,7 +59,7 @@ template::element create edit_photo caption -html { size 30 } \
 template::element create edit_photo description -html { size 50} \
   -label "<#_Description#>" -help_text "Displayed when viewing the photo" -optional -datatype text
 
-template::element create edit_photo story -html { cols 50 rows 4 wrap soft } \
+template::element create edit_photo story -html { cols 50 rows 4 } \
   -label "<#_Story#>" -optional -datatype text  -help_text "Displayed when viewing the photo" -widget textarea
 
 template::element create edit_photo submit_b -widget submit \
