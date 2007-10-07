@@ -44,7 +44,7 @@ element create photo_upload caption -html { size 30 } \
 element create photo_upload description -html { size 50} \
   -label "[_ photo-album._Photo]" -optional -help_text "[_ photo-album.lt_OPTIONAL_Displayed_wh]" -datatype text
 
-element create photo_upload story -html { cols 50 rows 4 wrap soft } \
+element create photo_upload story -html { cols 50 rows 4 } \
   -label "[_ photo-album._Photo_1]" -optional -help_text "[_ photo-album.OPTIONAL]" -datatype text -widget textarea
 
 element set_properties photo_upload album_id -value $album_id

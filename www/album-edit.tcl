@@ -47,7 +47,7 @@ template::element create edit_album photographer -html { size 50} \
 template::element create edit_album description -html { size 50} \
   -label "[_ photo-album._Album]"  -datatype text -optional
 
-template::element create edit_album story -html { cols 50 rows 4 wrap soft } \
+template::element create edit_album story -html { cols 50 rows 4 } \
   -label "[_ photo-album._Album_1]" -datatype text -widget textarea -optional
 
 
