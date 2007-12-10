@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<message_catalog package_key="photo-album" package_version="5.2.3" locale="el_GR" charset="utf-8">
+<message_catalog package_key="photo-album" locale="el_GR" charset="utf-8">
 
   <msg key="_Album">Περιγραφή άλμπουμ</msg>
   <msg key="_Album_1">Ιστορία του άλμπουμ</msg>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<message_catalog package_key="photo-album" package_version="5.2.3" locale="zh_CN" charset="utf-8">
+<message_catalog package_key="photo-album" locale="zh_CN" charset="utf-8">
 
   <msg key="_Album">简介</msg>
   <msg key="_Album_1">故事</msg>
