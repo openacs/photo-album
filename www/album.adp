@@ -49,6 +49,7 @@
 </if>
 <if @admin_p@ eq 1>
   <li><a href="/permissions/one?object_id=@album_id@">#photo-album.lt_Modify_this_albums_pe#</a></li>
+  <li><a href="album-export?album_id=@album_id@">#photo-album.lt_Export_this_albums_#</a></li>
 </if>
 <if @delete_p@ eq 1>
   <li><a href="album-delete?album_id=@album_id@">#photo-album.Delete_this_album#</a></li>

@@ -60,3 +60,13 @@ foreach photo_id [pa_all_photos_in_album $album_id] {
 	}
     }
 }
+
+set album_name [db_string filename "select name from pa_albumsx where item_id = :album_id" -default "album"]
+set zipfile "/tmp/${album_name}.zip"
+set file_list [glob -directory /tmp/filerfLiJA *] 
+exec zip -j $zipfile [lindex $file_list 0]
+foreach file [lrange $file_list 1 end] {
+    exec zip -gj $zipfile $file
+}
+ns_set put [ns_conn outputheaders] "Content-Disposition" "attachment; filename=\"${album_name}.zip\""
+ns_returnfile 200 "application/zip" $zipfile
