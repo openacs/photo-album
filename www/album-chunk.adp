@@ -1,7 +1,7 @@
 <table border="1" cellpadding="2" cellspacing="2">
  <tr>
-  <td bgcolor="#cccccc">#photo-album.Name#</td>
-  <td bgcolor="#cccccc">#photo-album.Description#</td>
+  <td style="background-color:#cccccc">#photo-album.Name#</td>
+  <td style="background-color:#cccccc">#photo-album.Description#</td>
  </tr>
 
 <multiple name="child">
