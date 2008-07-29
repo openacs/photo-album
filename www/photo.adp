@@ -97,7 +97,7 @@
       </multiple>
     </if>
     <if @clipboards:rowcount@ gt 1>
-      <br /><a href="clipboards">#photo-album.lt_View_all_your_clipboa#</a>
+      <br><a href="clipboards">#photo-album.lt_View_all_your_clipboa#</a>
     </if>
     
     

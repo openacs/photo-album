@@ -44,7 +44,7 @@
   </else>
   <td>
 <if @child.type@ eq "Folder"><a href="./?folder_id=@child.item_id@"></if><else><a href="album?album_id=@child.item_id@"></else>
-@child.name@</a><if @child.description@ not nil><br />@child.description@</if></td>
+@child.name@</a><if @child.description@ not nil><br>@child.description@</if></td>
  </tr>
 </multiple>
 </table>
