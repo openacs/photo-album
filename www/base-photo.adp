@@ -5,7 +5,7 @@
 <property name="displayed_object_id">@photo_id@</property>
 @photo_nav_html;noquote@
 <div style="text-align: center">
-<img src="images/@path@/@title@" height="@height@" width="@width@" alt="@title@" />
+<img src="images/@path@/@title@" height="@height@" width="@width@" alt="@title@">
 <if @caption@ not nil><p>@caption@</p></if>
 </div>
 <if @description@ not nil>
@@ -18,4 +18,3 @@
 <div style="text-align: center">
 <a href="album?album_id=@album_id@&amp;page=@page_num@">#photo-album.lt_Imagenbspthumbnailnbs#</a> 
 | <a href="photo?photo_id=@photo_id@">#photo-album.Smallernbspimage#</a></div>
-

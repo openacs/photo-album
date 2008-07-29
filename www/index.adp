@@ -38,9 +38,9 @@
 <multiple name="child">
  <if @child.rownum@ odd><tr class="list-odd"></if><else><tr class="list-even"></else>
   <if @child.type@ eq "Folder">
-   <td align="center"><a href="./?folder_id=@child.item_id@"><img src="graphics/folder.gif" alt="@child.name@" border="0" /></a></td>
+   <td align="center"><a href="./?folder_id=@child.item_id@"><img src="graphics/folder.gif" alt="@child.name@" style="border:0"></a></td>
   </if><else>
-   <td align="center"><if @child.iconic@ not nil><a href="album?album_id=@child.item_id@"><img src="images/@child.iconic@" alt="@child.name@" border="0" /></if><else><img src="graphics/album.gif" alt="@child.name@" /></else></a></td>
+   <td align="center"><if @child.iconic@ not nil><a href="album?album_id=@child.item_id@"><img src="images/@child.iconic@" alt="@child.name@" style="border:0"></if><else><img src="graphics/album.gif" alt="@child.name@"></else></a></td>
   </else>
   <td>
 <if @child.type@ eq "Folder"><a href="./?folder_id=@child.item_id@"></if><else><a href="album?album_id=@child.item_id@"></else>
