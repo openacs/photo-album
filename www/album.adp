@@ -19,7 +19,7 @@
 <tr align="center" valign="top">
 </if>
 <if @child_photo.rownum@ le @child_photo:rowcount@>
-<td><a href="photo?photo_id=@child_photo.photo_id@"><img src="images/@child_photo.thumb_path@" height="@child_photo.thumb_height@" width="@child_photo.thumb_width@" alt="@child_photo.caption@" border="0"/></a><br />
+<td><a href="photo?photo_id=@child_photo.photo_id@"><img src="images/@child_photo.thumb_path@" height="@child_photo.thumb_height@" width="@child_photo.thumb_width@" alt="@child_photo.caption@" style="border:0"></a><br>
 <a href="photo?photo_id=@child_photo.photo_id@">@child_photo.caption@</a>
 </td>
 </if>

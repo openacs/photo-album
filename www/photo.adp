@@ -7,17 +7,17 @@
     @photo_nav_html;noquote@
     <div style="text-align: center; margin: 1em;">
       <if @show_base_link@ eq "t">
-        <a href="base-photo?photo_id=@photo_id@"><img src="images/@path@/@title@" height="@height@" width="@width@" alt="@title@" border="0" /></a>
+        <a href="base-photo?photo_id=@photo_id@"><img src="images/@path@/@title@" height="@height@" width="@width@" alt="@title@" style="border:0"></a>
       </if><else>
-        <img src="images/@path@/@title@" height="@height@" width="@width@" alt="@title@" />
+        <img src="images/@path@/@title@" height="@height@" width="@width@" alt="@title@">
       </else>
 	<if @show_html_p@ eq 1>
           <ul style="text-align:left">
-            <li>#photo-album.thumbnail_with_link# <code>&lt;a href="@photo_base_url@photo?photo_id=@photo_id@"&gt;&lt;img src="@photo_base_url@images/@path@/@thumb_image_id@" height="@thumb_height@" width="@thumb_width@" alt="@caption@" /&gt;&lt;/a&gt;</code>
+            <li>#photo-album.thumbnail_with_link# <code>&lt;a href="@photo_base_url@photo?photo_id=@photo_id@"&gt;&lt;img src="@photo_base_url@images/@path@/@thumb_image_id@" height="@thumb_height@" width="@thumb_width@" alt="@caption@"&gt;&lt;/a&gt;</code>
  
-            <li>#photo-album.image_only# <code>&lt;img src="@photo_base_url@images/@path@/@title@" height="@height@" width="@width@" alt="@title@" /&gt;</code>
+            <li>#photo-album.image_only# <code>&lt;img src="@photo_base_url@images/@path@/@title@" height="@height@" width="@width@" alt="@title@"&gt;</code>
  
-            <li>#photo-album.image_with_link# <code>&lt;a href="@photo_base_url@photo?photo_id=@photo_id@"&gt;&lt;img src="@photo_base_url@images/@path@/@title@" height="@height@" width="@width@" alt="@title@" /&gt;&lt;/a&gt;</code>
+            <li>#photo-album.image_with_link# <code>&lt;a href="@photo_base_url@photo?photo_id=@photo_id@"&gt;&lt;img src="@photo_base_url@images/@path@/@title@" height="@height@" width="@width@" alt="@title@"&gt;&lt;/a&gt;</code>
          </ul>
 	</if>
       <if @caption@ not nil>
@@ -81,13 +81,13 @@
           </if>
         </else>
         #photo-album.lt_Save_this_photo_to_pr_1# 
-        <input type="hidden" name="photo_id" value="@photo_id@"></input>
+        <input type="hidden" name="photo_id" value="@photo_id@">
         <select name="collection_id">
           <multiple name="clipboards">
             <option value="@clipboards.collection_id@" @clipboards.selected@>@clipboards.title@</option>
           </multiple>
         </select>
-        <input type="submit" value="#photo-album._Save#"></input>
+        <input type="submit" value="#photo-album._Save#">
       </form>
     </if>
     <if @clipped:rowcount@ gt 0> 
@@ -97,7 +97,7 @@
       </multiple>
     </if>
     <if @clipboards:rowcount@ gt 1>
-      <br /><a href="clipboards">#photo-album.lt_View_all_your_clipboa#</a>
+      <br><a href="clipboards">#photo-album.lt_View_all_your_clipboa#</a>
     </if>
     
     

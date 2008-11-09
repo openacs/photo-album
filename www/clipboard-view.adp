@@ -12,11 +12,11 @@
 
     <if @shutterfly_p@ eq "t">
     <form action="http://www.shutterfly.com/c4p/UpdateCart.jsp" method="POST">
-      <input type="hidden" name="addim" value="1" />
-      <input type="hidden" name="protocol" value="SFP,100" />
-      <input type="hidden" name="pid" value="C4PP" />
-      <input type="hidden" name="psid" value="TEST" />
-      <input type="hidden" name="imnum" value="@images:rowcount@" />
+      <input type="hidden" name="addim" value="1">
+      <input type="hidden" name="protocol" value="SFP,100">
+      <input type="hidden" name="pid" value="C4PP">
+      <input type="hidden" name="psid" value="TEST">
+      <input type="hidden" name="imnum" value="@images:rowcount@">
       <multiple name="images"> 
         <input type="hidden" name="imsel-@images.rownum@" value="1">
         <input type="hidden" name="imraw-@images.rownum@" value="@base_url@@images.base_id@">
@@ -38,7 +38,7 @@
     <else>
       <multiple name="images"> 
         <div class="image" style="display: inline; margin: 10px;">
-          <a href="photo?photo_id=@images.photo_id@"><img src="images/@images.image_id@" width="@images.width@" height="@images.height@" alt="@images.caption@ @images.taken@" /></a>
+          <a href="photo?photo_id=@images.photo_id@"><img src="images/@images.image_id@" width="@images.width@" height="@images.height@" alt="@images.caption@ @images.taken@"></a>
         </div>
       </multiple>
     </else> 
