@@ -26,9 +26,9 @@ for details.
         <maturity>1</maturity>
 
         <provides url="photo-album" version="5.2.3"/>
-        <requires url="acs-content-repository" version="5.3.1a1"/>
-        <requires url="acs-kernel" version="5.3.1a1"/>
-        <requires url="acs-templating" version="5.3.1a1"/>
+        <requires url="acs-content-repository" version="5.5.0"/>
+        <requires url="acs-kernel" version="5.5.0"/>
+        <requires url="acs-templating" version="5.5.0"/>
 
         <callbacks>
             <callback type="before-upgrade"  proc="photo_album::install::package_upgrade"/>
