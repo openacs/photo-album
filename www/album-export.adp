@@ -1,2 +1,3 @@
 <master>
-@path@
+@path@</br>
+@error_message@
