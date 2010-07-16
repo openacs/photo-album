@@ -89,7 +89,7 @@ foreach photo_id [pa_all_photos_in_album $album_id] {
                     set original_destination [file join ${path} ${file_name}]
                     set destination $original_destination
                     while { [file exists $destination] } {
-                        set destination "${original_destination}-$count"
+                        set destination "[string range ${original_destination} 0 end-4]-$count[string range ${original_destination} end-3 end]"
                         incr count 1
                     }
                     
