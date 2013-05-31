@@ -238,8 +238,8 @@ ad_proc -private pa_assert_dir {
         }
         append needed_dir "/$dir"
         if ![file exists $needed_dir] {
-	    ns_log Debug "pa_assert_dir: ns_mkdir $dir"
-            ns_mkdir $needed_dir
+	    ns_log Debug "pa_assert_dir: file mkdir $dir"
+            file mkdir $needed_dir
         }
     }
 }
@@ -625,7 +625,7 @@ ad_proc -public pa_expand_archive {
     of the function 
 } {
     set tmp_dir [file join [file dirname $tmpfile] [ns_mktemp "$dest_dir_base-XXXXXX"]]
-    if [catch { ns_mkdir $tmp_dir } errMsg ] {
+    if [catch { file mkdir $tmp_dir } errMsg ] {
         ns_log Warning "pa_expand_archive: Error creating directory $tmp_dir: $errMsg"
         return -code error "pa_expand_archive: Error creating directory $tmp_dir: $errMsg"
     }
@@ -804,7 +804,7 @@ ad_proc -public pa_load_images {
     set tmp_path [parameter::get -parameter FullTempPhotoDir -package_id $package_id]
     if { ![file exists $tmp_path] } {
         ns_log Debug "pa_load_images: Making: tmp_photo_album_dir_path $tmp_path"
-        ns_mkdir $tmp_path
+        file mkdir $tmp_path
     }
 
     # Fix upload name if missing
