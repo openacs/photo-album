@@ -37,7 +37,7 @@ ad_page_contract {
 set user_id [ad_conn user_id]
 
 # check for read permission on album
-ad_require_permission $album_id read
+permission::require_permission -object_id $album_id -privilege read
 
 # These lines are to uncache the image in Netscape, Mozilla. 
 # IE6 & Safari (mac) have a bug with the images cache

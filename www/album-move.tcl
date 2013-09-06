@@ -22,8 +22,8 @@ set user_id [ad_conn user_id]
 # and pa_create_album on new parent folder (which is check in the is_valid block)
 
 set old_folder_id [db_string get_parent_folder "select parent_id from cr_items where item_id = :album_id"]
-ad_require_permission $album_id write
-ad_require_permission $old_folder_id write
+permission::require_permission -object_id $album_id -privilege write
+permission::require_permission -object_id $old_folder_id -privilege write
 
 db_1row get_album_info {}
 
@@ -59,7 +59,7 @@ if { [template::form is_request move_album] } {
 if { [template::form is_valid move_album] } {
     set new_folder_id [template::element::get_value move_album new_folder_id]
 
-    ad_require_permission $new_folder_id "pa_create_album"
+    permission::require_permission -object_id $new_folder_id -privilege "pa_create_album"
 
     if [string equal [pa_is_folder_p $new_folder_id] "f"] {
 	# may add some sort of error message

@@ -24,7 +24,7 @@ if {! $album_id } {
     ad_return_error "Photo Internal Error" "The photo is either not live or not in an album.  Please inform the webmaster of the error"
 }
 
-ad_require_permission $album_id "write"
+permission::require_permission -object_id $album_id -privilege "write"
 
 db_dml photo_iconic {}
 

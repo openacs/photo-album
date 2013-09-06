@@ -39,7 +39,7 @@ ad_page_contract {
      }
 }
 
-ad_require_permission $photo_id "read"
+permission::require_permission -object_id $photo_id -privilege "read"
 set user_id [ad_conn user_id]
 set context [pa_context_bar_list $photo_id]
 set root_folder_id [pa_get_root_folder]
@@ -76,7 +76,7 @@ ns_set put [ns_conn outputheaders] "Cache-Control" "no-cache"
 # to shut down access to base photos an admin would need to search through
 # database and revoke all such permissions.
 
-set show_base_link [ad_parameter AllowBasePhotoAccessP]
+set show_base_link [parameter::get -parameter AllowBasePhotoAccessP]
 
 # query all the photo and permission info with a single trip to database
 if {![db_0or1row get_photo_info { *SQL* }]} { 
@@ -122,7 +122,7 @@ if {![db_0or1row get_photo_info { *SQL* }]} {
 	
 	if { [template::form is_valid move_photo] } {
 	    set new_album_id [template::element::get_value move_photo new_album_id]
-	    ad_require_permission $new_album_id "pa_create_photo"
+	    permission::require_permission -object_id $new_album_id -privilege "pa_create_photo"
 	    
 	    if [string equal [pa_is_album_p $new_album_id] "f"] {
 		# may add some sort of error message

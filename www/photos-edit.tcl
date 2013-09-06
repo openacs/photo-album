@@ -39,7 +39,7 @@ ns_set put [ns_conn outputheaders] "Cache-Control" "no-cache"
 set user_id [ad_conn user_id]
 
 # check for read permission on album
-ad_require_permission $album_id read
+permission::require_permission -object_id $album_id -privilege read
 
 set context_list [pa_context_bar_list -final "[_ photo-album.Edit_page] $page" $album_id]
 

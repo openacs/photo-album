@@ -19,7 +19,7 @@ ad_page_contract {
     context_list:onevalue
 }
 
-ad_require_permission $album_id "write"
+permission::require_permission -object_id $album_id -privilege "write"
 
 set user_id [ad_conn user_id]
 set context_list [pa_context_bar_list -final "[_ photo-album._Edit]" $album_id]

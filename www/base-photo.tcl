@@ -27,12 +27,12 @@ ad_page_contract {
     width:onevalue
 }
 
-if {![string equal [ad_parameter AllowBasePhotoAccessP] "t"]} {
+if {![string equal [parameter::get -parameter AllowBasePhotoAccessP] "t"]} {
     ad_return_forbidden "[_ photo-album._No]"
     ad_script_abort
 }
 
-ad_require_permission $photo_id "read"
+permission::require_permission -object_id $photo_id -privilege "read"
 
 set user_id [ad_conn user_id]
 set context [pa_context_bar_list -final "[_ photo-album._Full]" $photo_id]

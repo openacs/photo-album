@@ -83,7 +83,7 @@ ad_proc -private pa_new_root_folder {
 	# the grantee can be anything that is or returns a party_id such as an integer, a subquery,
 	# or a function
 	
-	set perm_lst [split [ad_parameter DefaultRootFolderPrivileges] " "]
+	set perm_lst [split [parameter::get -parameter DefaultRootFolderPrivileges] " "]
 
 	foreach {party privilege}  $perm_lst {
 	    # wtem@olywa.net, 2001-10-15
@@ -223,10 +223,10 @@ ad_proc -private pa_assert_dir {
     borrowed from 3.4 download code
 } {  
     if { $check_base_path_p } {
-	set dir_path "[acs_root_dir]/[ad_parameter PhotoDir]/$dir_path"
+	set dir_path "[acs_root_dir]/[parameter::get -parameter PhotoDir]/$dir_path"
 	set needed_dir ""
     } else {
-	set needed_dir "[acs_root_dir]/[ad_parameter PhotoDir]"
+	set needed_dir "[acs_root_dir]/[parameter::get -parameter PhotoDir]"
     }
     
     set dir_list [split $dir_path /]
@@ -314,7 +314,7 @@ ad_proc -public pa_grant_privilege_to_creator {
     if {[empty_string_p $user_id]} {
 	set user_id [ad_conn user_id]
     }
-    set grant_list [split [ad_parameter PrivilegeForCreator] ","]
+    set grant_list [split [parameter::get -parameter PrivilegeForCreator] ","]
     foreach privilege $grant_list {
 	db_exec_plsql grant_privilege {
 	    begin
@@ -340,7 +340,7 @@ ad_proc -public pa_image_width_height {
     I Use ImageMagick instead of aolserver function because it can handle more than
     just gifs and jpegs.  
 } {
-    set identify_string [exec [ad_parameter ImageMagickPath]/identify $filename]
+    set identify_string [exec [parameter::get -parameter ImageMagickPath]/identify $filename]
     regexp {[ ]+([0-9]+)[x]([0-9]+)[\+]*} $identify_string x width height
     uplevel "set $width_var $width"
     uplevel "set $height_var $height"
@@ -371,7 +371,7 @@ ad_proc -public pa_make_new_image {
         set geometry ${geometry}x${geometry}
     }
     ns_log debug "pa_make_new_image: Start convert, making $new_image geometry $geometry"
-    exec [ad_parameter ImageMagickPath]/convert -geometry $geometry -interlace None -sharpen 1x2 $base_image $new_image
+    exec [parameter::get -parameter ImageMagickPath]/convert -geometry $geometry -interlace None -sharpen 1x2 $base_image $new_image
     if {[catch {exec jhead -dt $new_image} errmsg]} { 
         ns_log Warning "pa_make_new_image: jhead failed with error - $errmsg"
     }
@@ -414,7 +414,7 @@ ad_proc -public pa_all_photos_on_page {
     returns a list of the photo_ids on page page of album_id
     list is in ascending order
 } {
-    set images_per_page [ad_parameter ThumbnailsPerPage]
+    set images_per_page [parameter::get -parameter ThumbnailsPerPage]
     set start_index [expr $images_per_page * ($page-1)]
     set end_index [expr $start_index + ($images_per_page - 1)]
     return [lrange [pa_all_photos_in_album $album_id] $start_index $end_index]
@@ -425,7 +425,7 @@ ad_proc -public pa_count_pages_in_album {
 } {
     returns the number of pages in album_id
 } {
-    return [expr int(ceil([pa_count_photos_in_album $album_id] / [ad_parameter ThumbnailsPerPage].0))]
+    return [expr int(ceil([pa_count_photos_in_album $album_id] / [parameter::get -parameter ThumbnailsPerPage].0))]
 }
 
 ad_proc -public pa_page_of_photo_in_album {
@@ -441,7 +441,7 @@ ad_proc -public pa_page_of_photo_in_album {
 	return -1
     }
 
-    return [expr int(ceil(($photo_index + 1)/ [ad_parameter ThumbnailsPerPage].0))]
+    return [expr int(ceil(($photo_index + 1)/ [parameter::get -parameter ThumbnailsPerPage].0))]
 }
 
 ad_proc -public pa_flush_photo_in_album_cache {
@@ -463,7 +463,7 @@ ad_proc -deprecated pa_pagination_paginate_query {
     takes a query and returns a query that accounts for pagination
 } {
 
-    set rows_per_page [ad_parameter ThumbnailsPerPage]
+    set rows_per_page [parameter::get -parameter ThumbnailsPerPage]
     set start_row [expr $rows_per_page*[expr $page-1]+1]
 
     set query "
@@ -489,7 +489,7 @@ ad_proc -deprecated pa_pagination_get_total_pages {} {
     uplevel {
 	return [db_string get_total_pages "
 	select 
-	ceil(count(*) / [ad_parameter ThumbnailsPerPage])
+	ceil(count(*) / [parameter::get -parameter ThumbnailsPerPage])
 	from
 	($sql)
 	"]
@@ -713,7 +713,7 @@ ad_proc -public  pa_file_info {
     if { [catch {set size [file size $file]} errMsg] } { 
         return -code error $errMsg
     } 
-    if { [ catch {set out [exec [ad_parameter ImageMagickPath]/identify -format "%w %h %m %k %q %#" $file]} errMsg]} { 
+    if { [ catch {set out [exec [parameter::get -parameter ImageMagickPath]/identify -format "%w %h %m %k %q %#" $file]} errMsg]} { 
         return -code error $errMsg
     }            
     
@@ -840,7 +840,7 @@ ad_proc -public pa_load_images {
             set new_image [file join $tmp_path "tmp-[file rootname [file tail $image_file]]"]
             if {![empty_string_p $base_colors] && $base_colors < 257} { 
                 # convert it to a png
-                if {[catch {exec [ad_parameter ImageMagickPath]/convert $image_file PNG:$new_image.png} errMsg]} { 
+                if {[catch {exec [parameter::get -parameter ImageMagickPath]/convert $image_file PNG:$new_image.png} errMsg]} { 
                     ns_log Warning "pa_load_images: Failed convert to PNG for $image_file (magicktype $base_type)" 
                 }
                 if { $remove } { 
@@ -850,7 +850,7 @@ ad_proc -public pa_load_images {
                 set remove 1
             } elseif {![empty_string_p $base_colors] && $base_colors > 256} { 
                 # convert it to a jpg
-                if {[catch {exec [ad_parameter ImageMagickPath]/convert $image_file JPG:$new_image.jpg} errMsg]} { 
+                if {[catch {exec [parameter::get -parameter ImageMagickPath]/convert $image_file JPG:$new_image.jpg} errMsg]} { 
                     ns_log Warning "pa_load_images: failed convert to JPG for $image_file (magicktype $base_type)" 
                 }
                 if { $remove } { 
@@ -1147,7 +1147,7 @@ ad_proc pa_rotate {id rotation} {
         # get a list of files to handle sorted by size...
         db_foreach get_image_files {} {
             ns_log Debug "pa_rotate: rotate $id by $rotation [cr_fs_path] $filename $image_id $width $height"
-            if {[catch {exec [ad_parameter ImageMagickPath]/convert -rotate $rotation [cr_fs_path]$filename [cr_fs_path]${filename}.new } errMsg]} { 
+            if {[catch {exec [parameter::get -parameter ImageMagickPath]/convert -rotate $rotation [cr_fs_path]$filename [cr_fs_path]${filename}.new } errMsg]} { 
                 ns_log Warning "pa_rotate: failed rotation of image $image_id -- $errMsg"
             }
             lappend flop $image_id

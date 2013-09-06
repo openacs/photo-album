@@ -31,7 +31,7 @@ ad_page_contract {
 
 
 # check for read permission on folder
-ad_require_permission $folder_id read
+permission::require_permission -object_id $folder_id -privilege read
 
 set user_id [ad_conn user_id]
 set context [pa_context_bar_list $folder_id]

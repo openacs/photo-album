@@ -21,7 +21,7 @@ ad_page_contract {
 }
 
 # check for read permission on folder
-ad_require_permission $album_id pa_create_photo
+permission::require_permission -object_id $album_id -privilege pa_create_photo
 
 set context [pa_context_bar_list -final "[_ photo-album._Upload]" $album_id]
 

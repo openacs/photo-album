@@ -20,7 +20,7 @@ ad_page_contract {
 }
 
 # check for permission
-ad_require_permission $parent_id pa_create_folder
+permission::require_permission -object_id $parent_id -privilege pa_create_folder
 
  
 set context_list [pa_context_bar_list -final "[_ photo-album._Create_1]" $parent_id]

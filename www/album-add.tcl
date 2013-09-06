@@ -19,7 +19,7 @@ ad_page_contract {
     context_list:onevalue
 }
 
-ad_require_permission $parent_id "pa_create_album"
+permission::require_permission -object_id $parent_id -privilege "pa_create_album"
 
 set context_list [pa_context_bar_list -final "[_ photo-album._Create]" $parent_id]
 

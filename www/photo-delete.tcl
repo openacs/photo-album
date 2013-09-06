@@ -29,8 +29,8 @@ ad_page_contract {
 
 # to delete a photo need delete on photo and write on parent album 
 set album_id [db_string get_parent_album "select parent_id from cr_items where item_id = :photo_id"]
-ad_require_permission $photo_id delete
-ad_require_permission $album_id write
+permission::require_permission -object_id $photo_id -privilege delete
+permission::require_permission -object_id $album_id -privilege write
 
 if { [string equal $confirmed_p "t"]  } {
     # they have confirmed that they want to delete the photo

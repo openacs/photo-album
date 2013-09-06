@@ -20,7 +20,7 @@ ad_page_contract {
 }
 
 # check for permission
-ad_require_permission $folder_id write
+permission::require_permission -object_id $folder_id -privilege write
 
 set context_list [pa_context_bar_list -final "[_ photo-album._Edit_1]" $folder_id]
 

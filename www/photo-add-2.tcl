@@ -55,7 +55,7 @@ ns_log Debug "photo-add-2: Done uploading user file, $upload_file"
 set user_id [ad_conn user_id]
 
 #check permission
-ad_require_permission $album_id "pa_create_photo"
+permission::require_permission -object_id $album_id -privilege "pa_create_photo"
 
 set new_photo_ids [pa_load_images \
                        -remove 1 \

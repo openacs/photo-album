@@ -31,8 +31,8 @@ ad_page_contract {
 # to delete a album must have delete permission on the album
 # and write on parent folder
 set parent_folder_id [db_string get_parent "select parent_id from cr_items where item_id = :album_id"]
-ad_require_permission $album_id delete
-ad_require_permission $parent_folder_id write
+permission::require_permission -object_id $album_id -privilege delete
+permission::require_permission -object_id $parent_folder_id -privilege write
 
 if { [string equal $confirmed_p "t"]  } {
     # they have confirmed that they want to delete the album

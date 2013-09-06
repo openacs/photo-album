@@ -31,7 +31,7 @@ ad_page_contract {
 
 #check permission
 set user_id [ad_conn user_id]
-ad_require_permission $album_id "pa_create_photo"
+permission::require_permission -object_id $album_id -privilege "pa_create_photo"
 
 if { ![empty_string_p $upload_file] && 
      [ catch {set tmp_dir [pa_expand_archive $upload_file ${upload_file.tmpfile} pa-$album_id] } errMsg] } { 
