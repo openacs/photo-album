@@ -27,7 +27,7 @@ order by ccr.order_n
       <querytext>
       
 	select 
-	ceil(count(*) / [ad_parameter ThumbnailsPerPage])
+	ceil(count(*) / [parameter::get -parameter ThumbnailsPerPage])
 	from
 	($sql)
 	
