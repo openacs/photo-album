@@ -39,16 +39,18 @@ set context [pa_context_bar_list $folder_id]
 # get all the info about the current folder and permissions with a single trip to database
 db_1row get_folder_info {}
 
-set root_folder_id [pa_get_root_folder]
-set parameter_url_vars [export_url_vars package_id=[ad_conn package_id] return_url=[ad_conn url]]
+set package_id [ad_conn package_id]
+set return_url [ad_conn url]
+set parameter_url_vars [export_vars -url {package_id return_url}]
 
 # to move an album need write on album and write on parent folder
-set move_p [expr $write_p && !($folder_id == $root_folder_id) && $parent_folder_write_p]
+set root_folder_id [pa_get_root_folder]
+set move_p [expr {$write_p && !($folder_id == $root_folder_id) && $parent_folder_write_p}]
 
 # to delete an album, album must be empty, need delete on album, and write on parent folder
-set delete_p [expr !($has_children_p) && !($folder_id == $root_folder_id) && $folder_delete_p && $parent_folder_write_p]
+set delete_p [expr {!($has_children_p) && !($folder_id == $root_folder_id) && $folder_delete_p && $parent_folder_write_p}]
 
-if $has_children_p {
+if {$has_children_p} {
     db_multirow child get_children {}
 } else {
     set child:rowcount 0
