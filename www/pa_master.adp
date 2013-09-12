@@ -1,5 +1,5 @@
 <master>
-<property name="title">#photo-album.lt_Photo_Album_System__t#</property>
+<property name="doc(title)">#photo-album.lt_Photo_Album_System__t#</property>
 
 <h2>@title@</h2>
 

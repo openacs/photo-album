@@ -1,5 +1,5 @@
 <master>
-<property name="title">@folder_name;noquote@</property>
+<property name="doc(title)">@folder_name;noquote@</property>
 <property name="context">@context;noquote@</property>
 
 <if @folder_description@ not nil>

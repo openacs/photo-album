@@ -1,5 +1,5 @@
   <master>
-    <property name="title">#photo-album.Your_clipboards#</property>
+    <property name="doc(title)">#photo-album.Your_clipboards#</property>
     <property name="context">#photo-album.Clipboards#</property>
     <if @user_id@ eq 0> 
       #photo-album.You_will_have_to# <a href="/register/">#photo-album.log_in#</a> #photo-album.or#

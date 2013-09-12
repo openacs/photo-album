@@ -1,5 +1,5 @@
   <master>
-    <property name="title">@title@</property>
+    <property name="doc(title)">@title@</property>
     <property name="context">@context@</property>
     <property name="header_suppress">1</property>
     <property name="displayed_object_id">@photo_id@</property>
