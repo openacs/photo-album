@@ -99,11 +99,11 @@ if { [template::form is_valid move_folder] } {
 	set folder_name [db_string folder_name "
 	select name from cr_items where item_id = :folder_id"]
 	
-	if [db_string duplicate_check "
+	if {[db_string duplicate_check "
 	select count(*)
 	from   cr_items
 	where  name = :folder_name
-	and    parent_id = :new_folder_id"] {
+	and    parent_id = :new_folder_id"]} {
 	    ad_return_complaint 1 "[_ photo-album._Either_3]"
 	} else {
 	    ad_return_complaint 1 "[_ photo-album._We]"

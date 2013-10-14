@@ -91,11 +91,11 @@ if { [template::form is_valid folder_add] } {
     } on_error {
 	# most likely a duplicate name or a double click
         
-	if [db_string duplicate_check "
+	if {[db_string duplicate_check "
 	  select count(*)
 	  from   cr_items
 	  where  (item_id = :folder_id or name = :name)
-	  and    parent_id = :parent_id"] {
+	  and    parent_id = :parent_id"]} {
 	      ad_return_complaint 1 "[_ photo-album._Either_2]"
 	} else {
 	    ad_return_complaint 1 "[_ photo-album._We]"

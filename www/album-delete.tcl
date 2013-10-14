@@ -34,7 +34,7 @@ set parent_folder_id [db_string get_parent "select parent_id from cr_items where
 permission::require_permission -object_id $album_id -privilege delete
 permission::require_permission -object_id $parent_folder_id -privilege write
 
-if { [string equal $confirmed_p "t"]  } {
+if {$confirmed_p == "t"} {
     # they have confirmed that they want to delete the album
 
     db_exec_plsql album_delete "

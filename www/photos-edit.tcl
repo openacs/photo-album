@@ -62,11 +62,11 @@ where ci.live_revision = cr.revision_id
   and ci.item_id = :album_id
 }
 # to move an album need write on album and write on parent folder
-set move_p [expr $write_p  && $folder_write_p]
+set move_p [expr {$write_p  && $folder_write_p}]
 
 # to delete an album, album must be empty, need delete on album, and write on parent folder
-set has_children_p [expr [pa_count_photos_in_album $album_id] > 0]
-set delete_p [expr !($has_children_p) && $album_delete_p && $folder_write_p]
+set has_children_p [expr {[pa_count_photos_in_album $album_id] > 0}]
+set delete_p [expr {!($has_children_p) && $album_delete_p && $folder_write_p}]
 
 set photos_on_page [pa_all_photos_on_page $album_id $page]
 
@@ -146,8 +146,8 @@ if {$has_children_p && [llength $photos_on_page] > 0} {
         set val(viewer_path) $viewer_path
         set val(viewer_height) $viewer_height
         set val(viewer_width) $viewer_width
-        set val(window_height) [expr $viewer_height + 28]
-        set val(window_width) [expr $viewer_width + 24]
+        set val(window_height) [expr {$viewer_height + 28}]
+        set val(window_width) [expr {$viewer_width + 24}]
         set child($photo_id) [array get val]
     }
     

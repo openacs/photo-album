@@ -39,10 +39,10 @@ if {[info exists url]} {
     # Let's add the leading/tailing slashes so the url's will always work
     
     set url [string trim $url]
-    if {![string equal [string index $url 0] "/"]} {
+    if {[string index $url 0] ne "/" } {
         set url "/$url"
     }
-    if {![string equal [string index $url end] "/"]} {
+    if {[string index $url end] ne "/" } {
         set url "$url/"
     }
     

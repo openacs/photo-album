@@ -11,7 +11,7 @@
 
 regexp {^([0-9]+)} [ad_conn path_info] match image_id
 
-if {[parameter::get -parameter CheckPermissionOnImageServeP] eq "t"} {
+if {[parameter::get -parameter CheckPermissionOnImageServeP] == "t"} {
     permission::require_permission -object_id $image_id -privilege "read"
 }
 

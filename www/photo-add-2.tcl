@@ -32,7 +32,7 @@ ad_page_contract {
          
 	    foreach {base_bytes base_width base_height base_type base_mime base_colors base_quantum base_sha256} $photo_info { break } 
  
-	    if [empty_string_p $base_mime] { 
+	    if {$base_mime eq ""} { 
            set base_mime invalid 
 	    }   
  

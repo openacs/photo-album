@@ -52,11 +52,11 @@ set context [pa_context_bar_list $album_id]
 db_1row get_album_info {} 
 
 # to move an album need write on album and write on parent folder
-set move_p [expr $write_p && $folder_write_p]
+set move_p [expr {$write_p && $folder_write_p}]
 
 # to delete an album, album must be empty, need delete on album, and write on parent folder
-set has_children_p [expr [pa_count_photos_in_album $album_id] > 0]
-set delete_p [expr !($has_children_p) && $album_delete_p && $folder_write_p]
+set has_children_p [expr {[pa_count_photos_in_album $album_id] > 0}]
+set delete_p [expr {!($has_children_p) && $album_delete_p && $folder_write_p}]
 
 # Did we get a msg id, if so display it at the top of the page
 # TODO: JCD: We should remove it from vars so it does not propigate

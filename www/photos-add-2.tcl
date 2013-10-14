@@ -18,12 +18,12 @@ ad_page_contract {
 	}
     }
     non_empty -requires {upload_file.tmpfile:notnull} {
-	if {![empty_string_p $upload_file] && (![file exists ${upload_file.tmpfile}] || [file size ${upload_file.tmpfile}] < 4)} {
+	if {$upload_file ne "" && (![file exists ${upload_file.tmpfile}] || [file size ${upload_file.tmpfile}] < 4)} {
 	    ad_complain "The upload failed or the file was empty"
 	}
     }
     directory_exists {
-        if {([info exists upload_file] && ![empty_string_p $upload_file]) && ![file isdirectory [parameter::get -parameter FullTempPhotoDir -package_id [ad_conn package_id]]]} { 
+        if {([info exists upload_file] && $upload_file ne "") && ![file isdirectory [parameter::get -parameter FullTempPhotoDir -package_id [ad_conn package_id]]]} { 
             ad_complain "The directory file does not exist"
         }
     }
@@ -33,7 +33,7 @@ ad_page_contract {
 set user_id [ad_conn user_id]
 permission::require_permission -object_id $album_id -privilege "pa_create_photo"
 
-if { ![empty_string_p $upload_file] && 
+if { $upload_file ne "" && 
      [ catch {set tmp_dir [pa_expand_archive $upload_file ${upload_file.tmpfile} pa-$album_id] } errMsg] } { 
     ad_return_complaint 1 "Unable to expand your archive file"
     ad_script_abort
@@ -42,7 +42,7 @@ if { ![empty_string_p $upload_file] &&
 ReturnHeaders text/html
 ns_write "<html><head><title>Upload Log</title></head><body><h1>Upload Log</h1><hr>\n"
 
-if {![empty_string_p $upload_file]} { 
+if {$upload_file ne ""} { 
     ns_write "starting to load images from file $upload_file<br>\n"
     ns_log Debug "made directory $tmp_dir to extract from ${upload_file.tmpfile} ($upload_file)\n"
     set allfiles [pa_walk $tmp_dir]
@@ -62,6 +62,6 @@ ns_write "<a href=\"album?album_id=$album_id&page=$page\">View the images</a>"
 ns_write "</body></html>"
 
 # Now that we are done working on the upload we delete the tmp file
-if [info exists tmp_dir] { 
+if {[info exists tmp_dir]} { 
     file delete -force $tmp_dir
 }

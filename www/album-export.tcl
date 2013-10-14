@@ -17,7 +17,7 @@ ad_page_contract {
 
 set error_message ""
 # Create the folder
-if {[empty_string_p $path]} {
+if {$path eq ""} {
 
     db_1row get_album_data {    select 
       cr.title as album_name,

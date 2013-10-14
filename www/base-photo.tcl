@@ -27,7 +27,7 @@ ad_page_contract {
     width:onevalue
 }
 
-if {![string equal [parameter::get -parameter AllowBasePhotoAccessP] "t"]} {
+if {[parameter::get -parameter AllowBasePhotoAccessP] != "t" } {
     ad_return_forbidden "[_ photo-album._No]"
     ad_script_abort
 }

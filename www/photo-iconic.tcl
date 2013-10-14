@@ -4,7 +4,7 @@ ad_page_contract {
     photo_id:integer,notnull
 } -validate {
     valid_photo -requires {photo_id:integer} {
-	if ![string equal [pa_is_photo_p $photo_id] "t"] {
+	if {[pa_is_photo_p $photo_id] != "t" } {
 	    ad_complain "The specified photo is not valid."
 	}
     }

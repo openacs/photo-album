@@ -30,7 +30,7 @@ ad_page_contract {
     clipboards:multirow
 } -validate {
      valid_photo -requires {photo_id:integer} {
-	 if { [string equal $photo_id 0] && ![string equal $latest_revision 0] } {
+	 if { $photo_id eq "0" && $latest_revision ne "0" } {
 	     set photo_id $latest_revision
 	 } 
  	 if [string equal [pa_is_photo_p $photo_id] "f"] {
@@ -97,9 +97,9 @@ if {![db_0or1row get_photo_info { *SQL* }]} {
     set path $image_id
 
     # to move a photo need write on photo and write on parent album
-    set move_p [expr $write_p && $album_write_p]
+    set move_p [expr {$write_p && $album_write_p}]
     # build form to move the photo if move_p is 1
-    if $move_p {
+    if {$move_p} {
 	
 	template::form create move_photo
 	
@@ -149,7 +149,7 @@ if {![db_0or1row get_photo_info { *SQL* }]} {
 		
 		set filename [db_string filename {}]
 		
-		if [db_string duplicate_check {}] {
+		if {[db_string duplicate_check {}]} {
 		    ad_return_complaint 1 "[_ photo-album._Either_4]"
 		} else {
 		    ad_return_complaint 1 "[_ photo-album._We_1]
@@ -174,7 +174,7 @@ if {![db_0or1row get_photo_info { *SQL* }]} {
     }
     
     # to delete a photo need delete on photo and write on parent album
-    set delete_p [expr $photo_delete_p && $album_write_p]
+    set delete_p [expr {$photo_delete_p && $album_write_p}]
     
     # determine what album page the photo is on so page can present link back to thumbnail page
     set page_num [pa_page_of_photo_in_album $photo_id $album_id]

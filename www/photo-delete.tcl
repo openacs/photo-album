@@ -32,7 +32,7 @@ set album_id [db_string get_parent_album "select parent_id from cr_items where i
 permission::require_permission -object_id $photo_id -privilege delete
 permission::require_permission -object_id $album_id -privilege write
 
-if { [string equal $confirmed_p "t"]  } {
+if {$confirmed_p == "t"} {
     # they have confirmed that they want to delete the photo
     # delete pa_photo object which drops all associate images and schedules binaries to be deleted
 

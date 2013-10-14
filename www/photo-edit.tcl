@@ -71,7 +71,7 @@ template::element create edit_photo submit_b -widget submit \
 db_1row get_photo_info { *SQL* }
 db_1row get_thumbnail_info { *SQL* }
 
-if [empty_string_p $live_revision] {
+if {$live_revision eq ""} {
     set checked_string "checked"
 } else {
     set checked_string ""
@@ -112,7 +112,7 @@ if { [template::form is_valid edit_photo] } {
 
 	db_exec_plsql set_live_revision {} 
 
-	if $hide {
+	if {$hide} {
 	    db_dml update_hides { *SQL* }
 	} 
     } on_error {

@@ -30,7 +30,7 @@ ad_proc -public pa_get_root_folder {
     a new root folder is created automatically with appropriate permissions
     If value has be previously requested, value pulled from cache
 } { 
-    if [empty_string_p $package_id] {
+    if {$package_id eq ""} {
 	set package_id [ad_conn package_id]
     }
     return [util_memoize "pa_get_root_folder_internal $package_id"]
@@ -45,7 +45,7 @@ ad_proc -private pa_get_root_folder_internal {
 } {
     set folder_id [db_string pa_root_folder "select photo_album.get_root_folder(:package_id) from dual"]
 
-    if { [empty_string_p $folder_id] } {
+    if { $folder_id eq "" } {
 	set folder_id [pa_new_root_folder $package_id]
     }
     return $folder_id
@@ -59,7 +59,7 @@ ad_proc -private pa_new_root_folder {
     code automatically when a new package instance is created.
 
 } {
-    if [empty_string_p $package_id] {
+    if {$package_id eq ""} {
 	set package_id [ad_conn package_id]
     }
 
@@ -146,14 +146,14 @@ ad_proc pa_context_bar_list {
     set root_folder_id [pa_get_root_folder]
 
     if {$item_id == $root_folder_id} {
-        if {![empty_string_p $final]} { 
+        if {$final ne ""} { 
             return [list $final]
         } else { 
             return {}
         }
     }
 
-    if [empty_string_p $final] {
+    if {$final eq ""} {
 	# set start_id and final with a single trip to the database
 
 	db_1row get_start_and_final "select parent_id as start_id,
@@ -198,7 +198,7 @@ ad_proc -public pa_make_file_name {
 } { 
     constructs a filename for an image based on id and extention.
 } {
-    if {![empty_string_p $ext] && ![regexp {^\.} $ext foo]} {
+    if {$ext ne "" && ![regexp {^\.} $ext foo]} {
 	#add back the dot
 	set ext ".${ext}"
     }
@@ -233,11 +233,11 @@ ad_proc -private pa_assert_dir {
     
     foreach dir $dir_list {
 	ns_log Debug "pa_assert_dir: Checking: $dir"
-        if [empty_string_p $dir] {
+        if {$dir eq ""} {
             continue
         }
         append needed_dir "/$dir"
-        if ![file exists $needed_dir] {
+        if {![file exists $needed_dir]} {
 	    ns_log Debug "pa_assert_dir: file mkdir $dir"
             file mkdir $needed_dir
         }
@@ -288,7 +288,7 @@ ad_proc -private pa_is_type_in_package {
     # Since index page accessed often, and the root_folder is within the package this avoids an unecessary
     # trip to the database on a commonly accessed page.
  
-    if {[string equal $content_type "content_folder"] && [string equal $item_id $root_folder]} {
+    if {$content_type eq "content_folder" && $item_id eq $root_folder} {
 	return "t"
     } else {
 	return [db_string check_is_type_in_package "select decode((select 1 
@@ -311,7 +311,7 @@ ad_proc -public pa_grant_privilege_to_creator {
     Grants a set of default privileges stored in parameter PrivilegeForCreator
     on object id to user_id.  If user_id is not specified, uses current user.
 } {
-    if {[empty_string_p $user_id]} {
+    if {$user_id eq ""} {
 	set user_id [ad_conn user_id]
     }
     set grant_list [split [parameter::get -parameter PrivilegeForCreator] ","]
@@ -415,8 +415,8 @@ ad_proc -public pa_all_photos_on_page {
     list is in ascending order
 } {
     set images_per_page [parameter::get -parameter ThumbnailsPerPage]
-    set start_index [expr $images_per_page * ($page-1)]
-    set end_index [expr $start_index + ($images_per_page - 1)]
+    set start_index [expr {$images_per_page * ($page-1)}]
+    set end_index [expr {$start_index + ($images_per_page - 1)}]
     return [lrange [pa_all_photos_in_album $album_id] $start_index $end_index]
 }
 
@@ -464,7 +464,7 @@ ad_proc -deprecated pa_pagination_paginate_query {
 } {
 
     set rows_per_page [parameter::get -parameter ThumbnailsPerPage]
-    set start_row [expr $rows_per_page*[expr $page-1]+1]
+    set start_row [expr $rows_per_page*[expr {$page-1}]+1]
 
     set query "
       select *
@@ -532,10 +532,10 @@ ad_proc -public pa_pagination_context_ids {
     }
 
     # what is the range about which to bracket
-    set start [expr [lsearch -exact  $ids $curr ] - $context]
+    set start [expr {[lsearch -exact  $ids $curr ] - $context}]
     
-    if {[expr $start + 2 * $context + 1] > $n_ids} { 
-        set start [expr $n_ids - 2 * $context - 1]
+    if {[expr {$start + 2 * $context + 1}] > $n_ids} { 
+        set start [expr {$n_ids - 2 * $context - 1}]
     } 
     if {$start < 0} { 
         set start 0
@@ -547,7 +547,7 @@ ad_proc -public pa_pagination_context_ids {
     }
 
     # context
-    foreach id [lrange $ids $start [expr $start + 2 * $context]] { 
+    foreach id [lrange $ids $start [expr {$start + 2 * $context}]] { 
         incr start
         lappend out $id $start
     }
@@ -571,24 +571,24 @@ ad_proc -public pa_pagination_bar {
     creates an html fragment that allows user to navigate to any photo by number 
     next/previous
 } {
-    if { [empty_string_p $cur_id] || [llength $all_ids] < 2 } {
+    if { $cur_id eq "" || [llength $all_ids] < 2 } {
 	return ""
     }
 
     set cur_index [lsearch -exact $all_ids $cur_id]
-    set prev_id [lindex $all_ids [expr $cur_index - 1]]
-    set next_id [lindex $all_ids [expr $cur_index + 1]]
+    set prev_id [lindex $all_ids $cur_index-1]
+    set next_id [lindex $all_ids $cur_index+1]
     set photo_nav_html ""
-    if {![empty_string_p $what]} { 
+    if {$what ne ""} { 
         set what "&nbsp;$what"
     }
     # append the 'prev' link
     append photo_nav_html "<div class=\"photo_album_nav\">\n"
-    if { ![empty_string_p $prev_id] } {
+    if { $prev_id ne "" } {
 	append photo_nav_html "\t<div style=\"text-align: left; float: left; margin-right: 1em; margin-bottom: 1em\">\n\t\t<a href=\"${link}$prev_id\">&lt;&lt;&nbsp;[_ photo-album.Prev]$what</a>\n\t</div>\n"
     }
     # append the 'next' link
-    if { ![empty_string_p $next_id] } {
+    if { $next_id ne "" } {
 	append photo_nav_html "\t<div style=\"text-align: right; float: right; margin-left: 1em; margin-bottom: 1em\">\n\t\t<a href=\"${link}$next_id\">[_ photo-album.Netx]$what&nbsp;&gt;&gt;</a>\n\t</div>\n"
     }
 
@@ -597,7 +597,7 @@ ad_proc -public pa_pagination_bar {
     set i 0
     set last {}
     foreach {id i} [pa_pagination_context_ids $cur_id $all_ids 4] {
-        if {![empty_string_p $last] && [expr $last + 1] != $i} {
+        if {$last ne "" && [expr {$last + 1}] != $i} {
             append photo_nav_html "&#8226;"
         } 
         set last $i
@@ -625,7 +625,7 @@ ad_proc -public pa_expand_archive {
     of the function 
 } {
     set tmp_dir [file join [file dirname $tmpfile] [ns_mktemp "$dest_dir_base-XXXXXX"]]
-    if [catch { file mkdir $tmp_dir } errMsg ] {
+    if {[catch { file mkdir $tmp_dir } errMsg ]} {
         ns_log Warning "pa_expand_archive: Error creating directory $tmp_dir: $errMsg"
         return -code error "pa_expand_archive: Error creating directory $tmp_dir: $errMsg"
     }
@@ -798,7 +798,7 @@ ad_proc -public pa_load_images {
     set peeraddr [ad_conn peeraddr]
 
     # Create the tmp dir if needed 
-    if { [empty_string_p $package_id] } {
+    if { $package_id eq "" } {
         set package_id [ad_conn package_id]
     }
     set tmp_path [parameter::get -parameter FullTempPhotoDir -package_id $package_id]
@@ -812,16 +812,16 @@ ad_proc -public pa_load_images {
 
 
         # Figure out what to call the file...
-        if [empty_string_p $client_name] { 
+        if {$client_name eq ""} { 
             set upload_name $image_file
         } else { 
             set upload_name $client_name
         }
-        if {![empty_string_p $strip_prefix]} { 
+        if {$strip_prefix ne ""} { 
             regsub "^$strip_prefix" $upload_name {} upload_name
         }
 
-        if ![regexp {([^/\\]+)$} $upload_name match client_filename] {
+        if {![regexp {([^/\\]+)$} $upload_name match client_filename]} {
             # couldn't find a match
             set client_filename $upload_name
         }
@@ -836,9 +836,9 @@ ad_proc -public pa_load_images {
         
         # If we don't have a mime type we like we try to make a jpg or png 
         #
-        if [empty_string_p $base_mime] { 
+        if {$base_mime eq ""} { 
             set new_image [file join $tmp_path "tmp-[file rootname [file tail $image_file]]"]
-            if {![empty_string_p $base_colors] && $base_colors < 257} { 
+            if {$base_colors ne "" && $base_colors < 257} { 
                 # convert it to a png
                 if {[catch {exec [parameter::get -parameter ImageMagickPath]/convert $image_file PNG:$new_image.png} errMsg]} { 
                     ns_log Warning "pa_load_images: Failed convert to PNG for $image_file (magicktype $base_type)" 
@@ -848,7 +848,7 @@ ad_proc -public pa_load_images {
                 } 
                 set image_file $new_image.png
                 set remove 1
-            } elseif {![empty_string_p $base_colors] && $base_colors > 256} { 
+            } elseif {$base_colors ne "" && $base_colors > 256} { 
                 # convert it to a jpg
                 if {[catch {exec [parameter::get -parameter ImageMagickPath]/convert $image_file JPG:$new_image.jpg} errMsg]} { 
                     ns_log Warning "pa_load_images: failed convert to JPG for $image_file (magicktype $base_type)" 
@@ -866,7 +866,7 @@ ad_proc -public pa_load_images {
             foreach {base_bytes base_width base_height base_type base_mime base_colors base_quantum base_sha256} [pa_file_info $image_file] { break }
         }
         
-        if {[string equal $base_mime image/jpeg]} { 
+        if {$base_mime eq "image/jpeg"} { 
             array set exif [pa_get_exif_data ${image_file}]
         } else { 
             array unset exif
@@ -874,7 +874,7 @@ ad_proc -public pa_load_images {
 
         set BaseExt [string tolower $base_type]
         
-        if [empty_string_p $base_mime] { 
+        if {$base_mime eq ""} { 
             ns_log Debug "pa_load_images: invalid image type $image_file $type even after convert!"
             continue 
         } 
@@ -959,7 +959,7 @@ ad_proc -public pa_load_images {
                 db_dml update_photo_data {}
             }
 
-	    if $feedback_mode {
+	    if {$feedback_mode} {
 		ns_write "
                           <ul>
                             <li>Loading image <b>$client_filename</b></li>
@@ -1087,7 +1087,7 @@ ad_proc -public pa_get_exif_data {
         set out(Flashused) 0
     }
     
-    if {![empty_string_p $out(Cameramake)]} { 
+    if {$out(Cameramake) ne ""} { 
         set out(Film) Digital
     }
     
@@ -1140,7 +1140,7 @@ ad_proc pa_rotate {id rotation} {
     @creation-date 2002-10-30
 
 } {
-    if {![empty_string_p $rotation] && ![string equal $rotation 0]} { 
+    if {$rotation ne "" && $rotation ne "0" } { 
         set flop [list]
         set files [list]
 
@@ -1169,7 +1169,7 @@ ad_proc pa_rotate {id rotation} {
             } errMsg
         } else { 
             # flop images that need flopping.
-            if {[string equal $rotation 90] || [string equal $rotation 270]} { 
+            if {$rotation eq "90" || $rotation eq "270"} { 
                 db_dml flop_image_size "update images set width = height, height = width where image_id in ([join $flop ,])"
             }
         }
@@ -1220,7 +1220,7 @@ ad_proc -public photo_album::photo::get {
 } {
     upvar $array row
 
-    if {[empty_string_p $user_id]} {
+    if {$user_id eq ""} {
         if {[ad_conn isconnected]} { 
             set user_id [ad_conn user_id]
         } else {

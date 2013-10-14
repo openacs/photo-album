@@ -42,7 +42,7 @@ set parent_folder_id [db_string get_parent "select parent_id from cr_items where
 permission::require_permission -object_id $folder_id -privilege delete
 permission::require_permission -object_id $parent_folder_id -privilege write
 
-if { [string equal $confirmed_p "t"]  } {
+if {$confirmed_p == "t"} {
     # they have confirmed that they want to delete the folder
 
     db_exec_plsql folder_delete "

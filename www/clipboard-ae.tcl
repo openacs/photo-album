@@ -36,7 +36,7 @@ ad_form -name clip_ae -export {photo_id} -form {
             set title = :title 
             where collection_id = :collection_id"
 } -after_submit {
-    if {![empty_string_p $photo_id]} { 
+    if {$photo_id ne ""} { 
         ad_returnredirect "clipboard-attach?photo_id=$photo_id&collection_id=$collection_id"
     } else { 
         ad_returnredirect "clipboards"
