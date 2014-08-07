@@ -8,7 +8,7 @@ ad_page_contract {
     @creation-date 12/8/2000
     @cvs-id $Id$
 } {
-    album_id:integer,notnull
+    album_id:naturalnum,notnull
     {path ""}
 } -validate {
 } -properties {

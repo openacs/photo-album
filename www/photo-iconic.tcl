@@ -1,7 +1,7 @@
 ad_page_contract { 
     Make a given photo the cover photo for the album.
 } { 
-    photo_id:integer,notnull
+    photo_id:naturalnum,notnull
 } -validate {
     valid_photo -requires {photo_id:integer} {
 	if {[pa_is_photo_p $photo_id] != "t" } {

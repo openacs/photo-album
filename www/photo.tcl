@@ -9,8 +9,8 @@ ad_page_contract {
     @cvs-id $Id$
 } {
     {latest_revision 0}
-    {photo_id:integer 0}
-    {collection_id:integer,optional {}}
+    {photo_id:naturalnum,notnull 0}
+    {collection_id:naturalnum,optional {}}
     {show_html_p 0}
 } -properties {
     context:onevalue

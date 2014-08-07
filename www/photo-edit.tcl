@@ -9,7 +9,7 @@ ad_page_contract {
     @cvs-id $Id$
 } {
     {hide:integer 0}
-    {photo_id:integer 0}
+    {photo_id:naturalnum,notnull 0}
     d:array,integer,optional
 } -properties {
     path:onevalue

@@ -11,7 +11,7 @@ ad_page_contract {
     @creation-date 12/21/2000
     @cvs-id $Id$
 } {
-    photo_id:integer,notnull
+    photo_id:naturalnum,notnull
     {confirmed_p "f"}
 } -validate {
     valid_photo -requires {photo_id:integer} {

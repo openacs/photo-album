@@ -7,8 +7,8 @@ ad_page_contract {
     @creation-date 10/30/2002
     @cvs-id $Id$
 } {
-    photo_id:integer,notnull
-    collection_id:integer,notnull
+    photo_id:naturalnum,notnull
+    collection_id:naturalnum,notnull
 }
 
 auth::require_login

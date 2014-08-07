@@ -8,7 +8,7 @@ ad_page_contract {
     @creation-date 1/8/2000
     @cvs-id $Id$
 } {
-    album_id:integer,notnull
+    album_id:naturalnum,notnull
     {confirmed_p "f"}
 } -validate {
     valid_album -requires {album_id:integer} {

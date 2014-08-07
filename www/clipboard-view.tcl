@@ -5,7 +5,7 @@ ad_page_contract {
     @creation-date 2002-10-30
     @cvs-id $Id$
 } { 
-    collection_id:integer,notnull
+    collection_id:naturalnum,notnull
 } -properties { 
     context:onevalue
     title:onevalue

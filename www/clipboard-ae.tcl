@@ -8,8 +8,8 @@ ad_page_contract {
     @creation-date 10/30/2002
     @cvs-id $Id$
 } {
-    collection_id:optional
-    {photo_id:integer,optional {}}
+    collection_id:naturalnum,optional
+    {photo_id:naturalnum,optional {}}
 }
 
 set user_id [ad_conn user_id]

@@ -9,7 +9,7 @@ ad_page_contract {
     @creation-date 2/1/2000
     @cvs-id $Id$
 } {
-    photo_id:integer,notnull
+    photo_id:naturalnum,notnull
 } -validate {
     valid_photo -requires {photo_id:integer} {
 	if [string equal [pa_is_photo_p $photo_id] "f"] {

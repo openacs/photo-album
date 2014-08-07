@@ -6,7 +6,7 @@ ad_page_contract {
     @creation-date 06/27/2003
     @cvs-id $Id$
 } {
-    collection_id
+    collection_id:naturalnum,notnull
 }
 
 permission::require_permission -object_id $collection_id -privilege delete

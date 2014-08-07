@@ -8,7 +8,7 @@ ad_page_contract {
     @creation-date 12/8/2000
     @cvs-id $Id$
 } {
-    parent_id:integer,notnull
+    parent_id:naturalnum,notnull
 } -validate {
     valid_parent_folder -requires {parent_id:integer} {
 	if [string equal [pa_is_folder_p $parent_id] "f"] {

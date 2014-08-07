@@ -9,7 +9,7 @@ ad_page_contract {
     @creation-date 1/8/2000
     @cvs-id $Id$
 } {
-    folder_id:integer,notnull
+    folder_id:naturalnum,notnull
     {confirmed_p "f"}
 } -validate {
     valid_folder -requires {folder_id:integer} {

@@ -1,7 +1,7 @@
 ad_page_contract { 
     Bulk edit a set of images.
 } { 
-    album_id:integer,notnull
+    album_id:naturalnum,notnull
     {page:integer,notnull "1"}
     d:array,integer,optional
     hide:array,optional

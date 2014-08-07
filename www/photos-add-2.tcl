@@ -10,7 +10,7 @@ ad_page_contract {
 } {
     {upload_file:optional,trim ""}
     upload_file.tmpfile:optional,tmpfile
-    album_id:integer,notnull
+    album_id:naturalnum,notnull
 } -validate {
     valid_album -requires {album_id:integer} {
 	if [string equal [pa_is_album_p $album_id] "f"] {

@@ -10,8 +10,8 @@ ad_page_contract {
 } {
     upload_file:notnull,trim
     upload_file.tmpfile:tmpfile
-    album_id:integer,notnull
-    photo_id:integer,notnull
+    album_id:naturalnum,notnull
+    photo_id:naturalnum,notnull
     {description [db_null]}
     {caption [db_null]}
     {story [db_null]}

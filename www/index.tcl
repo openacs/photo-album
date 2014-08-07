@@ -7,7 +7,7 @@ ad_page_contract {
     @creation-date 12/7/2000
     @cvs-id $Id$
 } {
-    {folder_id:integer [pa_get_root_folder]}
+    {folder_id:naturalnum,notnull [pa_get_root_folder]}
 } -validate {
     valid_folder -requires {folder_id:integer} {
 	if [string equal [pa_is_folder_p $folder_id] "f"] {
