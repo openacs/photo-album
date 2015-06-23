@@ -585,11 +585,19 @@ ad_proc -public pa_pagination_bar {
     # append the 'prev' link
     append photo_nav_html "<div class=\"photo_album_nav\">\n"
     if { $prev_id ne "" } {
-	append photo_nav_html "\t<div style=\"text-align: left; float: left; margin-right: 1em; margin-bottom: 1em\">\n\t\t<a href=\"${link}$prev_id\">&lt;&lt;&nbsp;[_ photo-album.Prev]$what</a>\n\t</div>\n"
+	append photo_nav_html [subst {
+	    <div style="text-align: left; float: left; margin-right: 1em; margin-bottom: 1em">
+	    <a href="[ns_quotehtml ${link}$prev_id]">&lt;&lt;&nbsp;[_ photo-album.Prev]$what</a>
+	    </div>
+	}]
     }
     # append the 'next' link
     if { $next_id ne "" } {
-	append photo_nav_html "\t<div style=\"text-align: right; float: right; margin-left: 1em; margin-bottom: 1em\">\n\t\t<a href=\"${link}$next_id\">[_ photo-album.Netx]$what&nbsp;&gt;&gt;</a>\n\t</div>\n"
+	append photo_nav_html [subst {
+	    <div style="text-align: right; float: right; margin-left: 1em; margin-bottom: 1em">
+	    <a href="[ns_quotehtml ${link}$next_id]">[_ photo-album.Netx]$what&nbsp;&gt;&gt;</a>
+	    </div>
+	}]
     }
 
     # append page number links for all pages except for this page
@@ -604,7 +612,7 @@ ad_proc -public pa_pagination_bar {
 	if { $cur_id == $id } {
 	    append photo_nav_html "\t\t<strong>$i</strong>\n"
 	} else {
-	    append photo_nav_html "\t\t<a href=\"${link}$id\">$i</a>\n"
+	    append photo_nav_html [subst {<a href="[ns_quotehtml ${link}$id]">$i</a>}]
 	}
 	
     }

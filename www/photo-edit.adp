@@ -8,15 +8,15 @@
   <table>
     <tr bgcolor="#F0F0F0">
       <td>&nbsp;</td>
-      <td align=center>
-	<input type=radio name="d.@photo_id@" value=0 checked>
+      <td align="center">
+	<input type="radio" name="d.@photo_id@" value="0" checked>
       </td>
       <td>&nbsp;</td>
-      <td rowspan=3>
+      <td rowspan="3">
 	<table>
           <tr>
 	    <td>
-	      #photo-album.Hide#: <input @checked_string@ type=checkbox name="hide" value=1>
+	      #photo-album.Hide#: <input @checked_string@ type="checkbox" name="hide" value="1">
 	    </td>
 	  </tr>
           <tr>
@@ -44,21 +44,21 @@
     </tr>
     <tr bgcolor="#F0F0F0">
       <td>
-	<input type=radio name="d.@photo_id@" value=90>
+	<input type="radio" name="d.@photo_id@" value="90">
       </td>
-      <td align=center>
+      <td align="center">
 	<img src="images/@thumb_path@" width="@thumb_width@" height="@thumb_height@">
       </td>
       <td>
-	<input type=radio name="d.@photo_id@" value=270>
+	<input type="radio" name="d.@photo_id@" value="270">
       </td>
     </tr>
     <tr bgcolor="#F0F0F0">
       <td>
 	&nbsp;
       </td>
-      <td align=center>
-	<input type=radio name="d.@photo_id@" value=180>
+      <td align="center">
+	<input type="radio" name="d.@photo_id@" value="180">
       </td>
       <td>
 	&nbsp;

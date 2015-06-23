@@ -31,8 +31,8 @@
 
 <table border="0">
  <tr class="list-header">
-  <td align=center>#photo-album.Name#</td>
-  <td align=center>#photo-album.Description#</td>
+  <td align="center">#photo-album.Name#</td>
+  <td align="center">#photo-album.Description#</td>
  </tr>
 
 <multiple name="child">

@@ -32,10 +32,10 @@
     </if>
     <if @write_p@ eq 1 or @move_p@ eq 1 or @delete_p@ eq 1><ul>
 	<if @show_html_p@ eq 1>
-          <li><a href="photo.tcl?photo_id=@photo_id@&show_html_p=0">#photo-album.hide_html#</a></li>  
+          <li><a href="photo.tcl?photo_id=@photo_id@&amp;show_html_p=0">#photo-album.hide_html#</a></li>  
 	</if>
 	<else>
-          <li><a href="photo.tcl?photo_id=@photo_id@&show_html_p=1">#photo-album.show_html#</a></li>  
+          <li><a href="photo.tcl?photo_id=@photo_id@&amp;show_html_p=1">#photo-album.show_html#</a></li>  
 	</else>
         <if @write_p@ eq 1>
           <li><a href="photo-iconic?photo_id=@photo_id@">#photo-album.lt_Make_this_photo_the_i#</a>
@@ -93,7 +93,7 @@
     <if @clipped:rowcount@ gt 0> 
       #photo-album.lt_This_photo_clipped_to# 
       <multiple name="clipped"> 
-        <a href="clipboard-view?collection_id=@clipped.collection_id@">@clipped.title@</a>&nbsp;[<a href="clipboard-remove?collection_id=@clipped.collection_id@&photo_id=@photo_id@">#photo-album.remove#</a>]&nbsp;
+        <a href="clipboard-view?collection_id=@clipped.collection_id@">@clipped.title@</a>&nbsp;[<a href="clipboard-remove?collection_id=@clipped.collection_id@&amp;photo_id=@photo_id@">#photo-album.remove#</a>]&nbsp;
       </multiple>
     </if>
     <if @clipboards:rowcount@ gt 1>

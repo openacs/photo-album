@@ -4,13 +4,13 @@
 
 <image src="images/@path@" height=@height@ width=@width@>
 <form method=POST action=photo-delete>
-<input type=hidden name=photo_id value=@photo_id@>
-<input type=hidden name=confirmed_p value="t">
+<input type="hidden" name="photo_id" value="@photo_id@">
+<input type="hidden" name="confirmed_p" value="t">
 
 <p>#photo-album.lt_Are_you_sure_you_want_2#
 <p>
 <center>
-<input type=submit value="#photo-album._Yes_Delete#">
+<input type="submit" value="#photo-album._Yes_Delete#">
 </center>
 
 </form>
