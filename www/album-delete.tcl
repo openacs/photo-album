@@ -9,7 +9,7 @@ ad_page_contract {
     @cvs-id $Id$
 } {
     album_id:naturalnum,notnull
-    {confirmed_p "f"}
+    {confirmed_p:boolean "f"}
 } -validate {
     valid_album -requires {album_id:integer} {
 	if [string equal [pa_is_album_p $album_id] "f"] {

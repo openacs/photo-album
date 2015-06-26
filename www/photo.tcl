@@ -11,7 +11,7 @@ ad_page_contract {
     {latest_revision 0}
     {photo_id:naturalnum,notnull 0}
     {collection_id:naturalnum,optional {}}
-    {show_html_p 0}
+    {show_html_p:boolean 0}
 } -properties {
     context:onevalue
     title:onevalue

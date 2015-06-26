@@ -12,7 +12,7 @@ ad_page_contract {
     @cvs-id $Id$
 } {
     photo_id:naturalnum,notnull
-    {confirmed_p "f"}
+    {confirmed_p:boolean "f"}
 } -validate {
     valid_photo -requires {photo_id:integer} {
 	if [string equal [pa_is_photo_p $photo_id] "f"] {
