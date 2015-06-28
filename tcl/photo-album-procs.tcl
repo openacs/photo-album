@@ -840,7 +840,7 @@ ad_proc -public pa_load_images {
             continue
         }
 
-        foreach {base_bytes base_width base_height base_type base_mime base_colors base_quantum base_sha256} $base_info { break }
+        lassign $base_info base_bytes base_width base_height base_type base_mime base_colors base_quantum base_sha256
         
         # If we don't have a mime type we like we try to make a jpg or png 
         #
@@ -871,7 +871,7 @@ ad_proc -public pa_load_images {
             }
 
             # get info again
-            foreach {base_bytes base_width base_height base_type base_mime base_colors base_quantum base_sha256} [pa_file_info $image_file] { break }
+            lassign [pa_file_info $image_file] base_bytes base_width base_height base_type base_mime base_colors base_quantum base_sha256
         }
         
         if {$base_mime eq "image/jpeg"} { 

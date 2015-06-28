@@ -30,7 +30,7 @@ ad_page_contract {
             ad_complain "error" 
 	    } 
          
-	    foreach {base_bytes base_width base_height base_type base_mime base_colors base_quantum base_sha256} $photo_info { break } 
+	    lassign $photo_info base_bytes base_width base_height base_type base_mime base_colors base_quantum base_sha256 
  
 	    if {$base_mime eq ""} { 
            set base_mime invalid 

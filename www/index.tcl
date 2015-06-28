@@ -41,7 +41,7 @@ db_1row get_folder_info {}
 
 set package_id [ad_conn package_id]
 set return_url [ad_conn url]
-set parameter_url_vars [export_vars -url {package_id return_url}]
+set parameter_url_vars [export_vars {package_id return_url}]
 
 # to move an album need write on album and write on parent folder
 set root_folder_id [pa_get_root_folder]

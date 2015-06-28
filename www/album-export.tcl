@@ -34,7 +34,7 @@ if {$path eq ""} {
       and ci.item_id = :album_id
     }
 
-    #    set path [ns_tmpnam]
+    #    set path [ad_tmpnam]
     regsub -all -- {[^a-zA-Z0-9\.-]} $album_name {_} album_name
     set original_path [file join [acs_root_dir] album-exports $album_name]
     set path $original_path

@@ -116,7 +116,7 @@ if {$has_children_p && [llength $photos_on_page] > 0} {
     for {set i 1} {$i <= $total_pages} {incr i} {
         lappend pages $i
     }
-    set page_nav [pa_pagination_bar $page $pages "album?[export_vars -url {album_id}]&amp;page=" page]
+    set page_nav [pa_pagination_bar $page $pages "[export_vars -base album {album_id}]&page="]
 
 } else {
     # don't bother querying for children if we know they don't exist

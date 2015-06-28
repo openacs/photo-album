@@ -170,7 +170,7 @@ if {$has_children_p && [llength $photos_on_page] > 0} {
     for {set i 1} {$i <= $total_pages} {incr i} {
         lappend pages $i
     }
-    set page_nav [pa_pagination_bar $page $pages "photos-edit?[export_vars -url {album_id}]&page="]
+    set page_nav [pa_pagination_bar $page $pages "[export_vars -base photos-edit {album_id}]&page="]
 
 
 } else {
