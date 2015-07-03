@@ -1,6 +1,6 @@
 <master>
-<property name="doc(title)">@title@</property>
-<property name="context">@context_list@</property>
+<property name="doc(title)">@title;literal@</property>
+<property name="context">@context_list;literal@</property>
 
 #photo-album.lt_Your_text_updates_hav#
 <p>

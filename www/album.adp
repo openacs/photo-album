@@ -1,8 +1,8 @@
 <master>
-<property name="doc(title)">@title@</property>
-<property name="context">@context@</property>
+<property name="doc(title)">@title;literal@</property>
+<property name="context">@context;literal@</property>
 <property name="header_suppress">1</property>
-<property name="displayed_object_id">@album_id@</property>
+<property name="displayed_object_id">@album_id;literal@</property>
 @page_nav;noquote@
 @message;noquote@
 <h2>@photographer@</h2>

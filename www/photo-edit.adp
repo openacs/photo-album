@@ -1,6 +1,6 @@
 <master>
-<property name="doc(title)">@title@</property>
-<property name="context">@context_list@</property>
+<property name="doc(title)">@title;literal@</property>
+<property name="context">@context_list;literal@</property>
 <image src="images/@path@" height=@height@ width=@width@>
 <p>
 

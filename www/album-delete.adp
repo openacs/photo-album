@@ -1,6 +1,6 @@
 <master>
-<property name="doc(title)">@title@</property>
-<property name="context">@context_list@</property>
+<property name="doc(title)">@title;literal@</property>
+<property name="context">@context_list;literal@</property>
 
 <form method=POST action=album-delete>
 <input type="hidden" name="album_id" value="@album_id@">

@@ -1,6 +1,6 @@
 <master>
-<property name="doc(title)">@title@</property>
-<property name="context">@context_list@</property>
+<property name="doc(title)">@title;literal@</property>
+<property name="context">@context_list;literal@</property>
 
 <p>#photo-album.Name#: @title@ 
 <if @description@ not nil>
