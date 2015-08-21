@@ -6,7 +6,9 @@
 <body>
 <div class="BOOK">
 <a name="AEN1" id="AEN1"></a><div class="TITLEPAGE">
-<h1 class="title"><a name="AEN1" id="AEN1">Photo Album</a></h1><h3 class="author"><a name="AEN5" id="AEN5">Tom Baginski</a></h3><div class="affiliation"><div class="address"><p class="address">bags\@arsdigita.com</p></div></div>
+<h1 class="title"><a name="AEN1" id="AEN1">Photo Album</a></h1><h3 class="author">
+<a name="AEN1" id="AEN1"></a><a name="AEN5" id="AEN5">Tom Baginski</a>
+</h3><div class="affiliation"><div class="address"><p class="address">bags\@arsdigita.com</p></div></div>
 </div><div class="TOC"><dl>
 <dt><b>Table of Contents</b></dt><dt>1. <a href="for-everyone">Introduction</a>
 </dt><dt>2. <a href="release-notes">Release Notes for Photo Album
