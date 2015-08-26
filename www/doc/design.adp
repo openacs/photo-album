@@ -2,14 +2,13 @@
 <property name="context">{/doc/photo-album {Photo Album}} {ACS 4 Photo Album Package Design Documentation}</property>
 <property name="doc(title)">ACS 4 Photo Album Package Design Documentation</property>
 <master>
-
-<body>
 <div class="NAVHEADER"><table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr><th colspan="3" align="center">Photo Album</th></tr><tr>
 <td width="10%" align="left" valign="bottom"><a href="dev-guide">Prev</a></td><td width="80%" align="center" valign="bottom">Chapter 4.
 Developer's guide</td><td width="10%" align="right" valign="bottom"> </td>
 </tr>
-</table></div><div class="sect1">
+</table></div>
+<div class="sect1">
 <h1 class="sect1"><a name="design" id="design">4.2. ACS 4 Photo
 Album Package Design Documentation</a></h1><div class="TOC"><dl>
 <dt><b>Table of Contents</b></dt><dt>4.2.1. <a href="design">Essentials</a>
@@ -549,7 +548,8 @@ Data Model sections.</td><td align="left" valign="middle">2/5/2001</td><td align
 </table>
 </div><p><a href="mailto:bags\@arsdigita.com" target="_top">bags\@arsdigita.com</a></p>
 </div>
-</div><div class="NAVFOOTER">
+</div>
+<div class="NAVFOOTER">
 <hr size="1" noshade="noshade" align="left" width="100%"><table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr>
 <td width="33%" align="left" valign="top"><a href="dev-guide">Prev</a></td><td width="34%" align="center" valign="top"><a href="index">Home</a></td><td width="33%" align="right" valign="top"> </td>
@@ -558,4 +558,3 @@ Data Model sections.</td><td align="left" valign="middle">2/5/2001</td><td align
 </tr>
 </table>
 </div>
-</body>

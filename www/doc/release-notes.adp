@@ -2,13 +2,12 @@
 <property name="context">{/doc/photo-album {Photo Album}} {Release Notes for Photo Album 4.0.1 Final Release}</property>
 <property name="doc(title)">Release Notes for Photo Album 4.0.1 Final Release</property>
 <master>
-
-<body>
 <div class="NAVHEADER"><table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr><th colspan="3" align="center">Photo Album</th></tr><tr>
 <td width="10%" align="left" valign="bottom"><a href="for-everyone">Prev</a></td><td width="80%" align="center" valign="bottom"></td><td width="10%" align="right" valign="bottom"><a href="acs-admin-guide">Next</a></td>
 </tr>
-</table></div><div class="chapter">
+</table></div>
+<div class="chapter">
 <h1><a name="release-notes" id="release-notes">Chapter 2. Release
 Notes for Photo Album 4.0.1 Final Release</a></h1><p>Changes from 4.0.1 beta to 4.0.1 final.</p><ul>
 <li><p class="listitem">Removed photo level premission checks. Load
@@ -32,7 +31,8 @@ and docbook format.</p></li><li><p class="listitem">Fixed name conflicts with ph
 need to mannually run <tt class="computeroutput">photo-album/sql/plsql-packages.sql</tt> through
 sqlplus to update the packages inside oracle when upgrading from
 the beta to final version of the photo-album.</p>
-</div><div class="NAVFOOTER">
+</div>
+<div class="NAVFOOTER">
 <hr size="1" noshade="noshade" align="left" width="100%"><table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr>
 <td width="33%" align="left" valign="top"><a href="for-everyone">Prev</a></td><td width="34%" align="center" valign="top"><a href="index">Home</a></td><td width="33%" align="right" valign="top"><a href="acs-admin-guide">Next</a></td>
@@ -42,4 +42,3 @@ Guide</td>
 </tr>
 </table>
 </div>
-</body>

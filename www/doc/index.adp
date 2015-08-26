@@ -2,8 +2,6 @@
 <property name="context">{/doc/photo-album {Photo Album}} {Photo Album}</property>
 <property name="doc(title)">Photo Album</property>
 <master>
-
-<body>
 <div class="BOOK">
 <a name="AEN1" id="AEN1"></a><div class="TITLEPAGE">
 <h1 class="title"><a name="AEN1" id="AEN1">Photo Album</a></h1><h3 class="author">
@@ -60,7 +58,8 @@ History</a>
 </dl></dd>
 </dl></dd>
 </dl></div>
-</div><div class="NAVFOOTER">
+</div>
+<div class="NAVFOOTER">
 <hr size="1" noshade="noshade" align="left" width="100%"><table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr>
 <td width="33%" align="left" valign="top"> </td><td width="34%" align="center" valign="top"> </td><td width="33%" align="right" valign="top"><a href="for-everyone">Next</a></td>
@@ -69,4 +68,3 @@ History</a>
 </tr>
 </table>
 </div>
-</body>

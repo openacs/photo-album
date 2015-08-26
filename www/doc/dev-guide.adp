@@ -2,13 +2,12 @@
 <property name="context">{/doc/photo-album {Photo Album}} {Developer's guide}</property>
 <property name="doc(title)">Developer's guide</property>
 <master>
-
-<body>
 <div class="NAVHEADER"><table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr><th colspan="3" align="center">Photo Album</th></tr><tr>
 <td width="10%" align="left" valign="bottom"><a href="acs-admin-guide">Prev</a></td><td width="80%" align="center" valign="bottom"></td><td width="10%" align="right" valign="bottom"><a href="design">Next</a></td>
 </tr>
-</table></div><div class="chapter">
+</table></div>
+<div class="chapter">
 <h1><a name="dev-guide" id="dev-guide">Chapter 4. Developer's
 guide</a></h1><div class="sect1">
 <h1 class="sect1"><a name="requirements" id="requirements">4.1. ACS
@@ -424,7 +423,8 @@ experience</td><td align="left" valign="middle">2/2/2000</td><td align="left" va
 </div><p><a href="mailto:bags\@arsdigita.com" target="_top">bags\@arsdigita.com</a></p><p>Last Modified: $Date$</p>
 </div>
 </div>
-</div><div class="NAVFOOTER">
+</div>
+<div class="NAVFOOTER">
 <hr size="1" noshade="noshade" align="left" width="100%"><table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr>
 <td width="33%" align="left" valign="top"><a href="acs-admin-guide">Prev</a></td><td width="34%" align="center" valign="top"><a href="index">Home</a></td><td width="33%" align="right" valign="top"><a href="design">Next</a></td>
@@ -435,4 +435,3 @@ Package Design Documentation</td>
 </tr>
 </table>
 </div>
-</body>
