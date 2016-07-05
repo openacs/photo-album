@@ -196,13 +196,9 @@
           where ci.content_type = 'pa_album'
           and ci.tree_sortkey between ci2.tree_sortkey and tree_right(ci2.tree_sortkey)
           and ci2.item_id = :root_folder_id) ci1
-where ci1.live_revision = cr.revision_id
-and exists (select 1
-            from acs_object_party_privilege_map m
-            where m.object_id = cr.revision_id
-              and m.party_id = :user_id
-              and m.privilege = 'read')
-       order by cr.title
+    where ci1.live_revision = cr.revision_id
+    and acs_permission__permission_p(cr.revision_id, :user_id, 'read')
+    order by cr.title
    </querytext>
 </fullquery>
 
