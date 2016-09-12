@@ -5,13 +5,13 @@
 <div class="NAVHEADER"><table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr><th colspan="3" align="center">Photo Album</th></tr><tr>
 <td width="10%" align="left" valign="bottom"><a href="dev-guide">Prev</a></td><td width="80%" align="center" valign="bottom">Chapter 4.
-Developer's guide</td><td width="10%" align="right" valign="bottom"> </td>
+Developer&#39;s guide</td><td width="10%" align="right" valign="bottom"> </td>
 </tr>
 </table></div>
 <div class="sect1">
 <h1 class="sect1"><a name="design" id="design">4.2. ACS 4 Photo
 Album Package Design Documentation</a></h1><div class="TOC"><dl>
-<dt><b>Table of Contents</b></dt><dt>4.2.1. <a href="design">Essentials</a>
+<dt><strong>Table of Contents</strong></dt><dt>4.2.1. <a href="design">Essentials</a>
 </dt><dt>4.2.2. <a href="design">Introduction</a>
 </dt><dt>4.2.3. <a href="design">Historical
 Considerations</a>
@@ -67,7 +67,8 @@ albums, and photos along with admin pages. Instances can be mounted
 to different subsite and managed independently. The grouping is
 included within the instance so that the albums maintain a
 consistent url even if they are re-sorted to different folders
-within the instance (as long as the subsite url isn't changed).</p><p>The display, grouping, and administration functionality of the
+within the instance (as long as the subsite url isn&#39;t
+changed).</p><p>The display, grouping, and administration functionality of the
 photo album package will be included in the initial release of the
 package. This is intended to be one part of a larger system that
 will allow bulk uploading and purchasing of photos. These two
@@ -104,9 +105,9 @@ photographers. In contrast, the photo album application provides a
 general system for storing and displaying user uploaded photos,
 which can be customized to any particular client application.</p>
 </div><div class="sect2">
-<h2 class="sect2"><a name="design-competitive-analysis" id="design-competitive-analysis">4.2.4. Competitive Analysis</a></h2><p>Not done. A google search for "photo album web application"
-returns links for several shareware photo album applications. I did
-not install or test any of these.</p>
+<h2 class="sect2"><a name="design-competitive-analysis" id="design-competitive-analysis">4.2.4. Competitive Analysis</a></h2><p>Not done. A google search for "photo album web
+application" returns links for several shareware photo album
+applications. I did not install or test any of these.</p>
 </div><div class="sect2">
 <h2 class="sect2"><a name="design-design-tradeoffs" id="design-design-tradeoffs">4.2.5. Design Tradeoffs</a></h2><p>The package uses/requires the convert and identify <a href="http://www.simplesystems.org/ImageMagick/" target="_top">ImageMagick</a> binaries to be installed on the host
 computer at the location specified in the ImageMagickPath
@@ -266,7 +267,7 @@ revision of a pa_photo</p><pre class="programlisting">
 <tt class="computeroutput">pa_photo.delete</tt>
 deletes a pa_photo object, all revision of a pa_photo, and all
 associated pa_images (including binaries). Basically nukes a photo,
-so be careful using this one, because it can't be undone.</p><pre class="programlisting">
+so be careful using this one, because it can&#39;t be undone.</p><pre class="programlisting">
     
       procedure delete (
         item_id             in acs_objects.object_id%TYPE
@@ -356,12 +357,13 @@ in a query.</p><pre class="programlisting">
 currently implemented as tcl procedures.</p><ul>
 <li><p class="listitem">
 <tt class="computeroutput">pa_get_root_folder
-{package_id ""}</tt> Returns the folder_id of the root folder for
-an instance of the photo album system. If no root folder exists, as
-when a new package instance is accessed for the first time, a new
-root folder is created automatically with appropriate permissions
-If value has be previously requested, value pulled from cache. If
-pakage_id is not specified, procedure uses value from <tt class="computeroutput">[ad_conn package_id]</tt>
+{package_id ""}</tt> Returns the folder_id of the root
+folder for an instance of the photo album system. If no root folder
+exists, as when a new package instance is accessed for the first
+time, a new root folder is created automatically with appropriate
+permissions If value has be previously requested, value pulled from
+cache. If pakage_id is not specified, procedure uses value from
+<tt class="computeroutput">[ad_conn package_id]</tt>
 </p></li><li><p class="listitem">
 <tt class="computeroutput">pa_context_bar_list
 {-final ""} item_id</tt> Constructs the list to be fed to
@@ -369,27 +371,34 @@ ad_context_bar appropriate for item_id. If -final is specified,
 that string will be the last item in the context bar. Otherwise,
 the name corresponding to item_id will be used.</p></li><li><p class="listitem">
 <tt class="computeroutput">pa_make_file_name
-{-assert:boolean} {-ext ""} id</tt> Constructs a filename for an
-image based on id and extention. Files are created into a 3 tier
-directory structure: year/xx/zz/ for a photo_id 1234xxzz.jpg Same
-file would return year/xx/zz/1234xxzz.jpg. If -assert specified,
-proc creates directory and any parent directories if necessary</p></li><li><p class="listitem">
+{-assert:boolean} {-ext ""} id</tt> Constructs a filename
+for an image based on id and extention. Files are created into a 3
+tier directory structure: year/xx/zz/ for a photo_id 1234xxzz.jpg
+Same file would return year/xx/zz/1234xxzz.jpg. If -assert
+specified, proc creates directory and any parent directories if
+necessary</p></li><li><p class="listitem">
 <tt class="computeroutput">pa_is_folder_p
-folder_id {package_id ""}</tt> Returns "t" if folder_id is a folder
-that is a child of the root folder for the package, else "f". If
-package_id is not given procedure uses value from <tt class="computeroutput"> [ad_conn package_id]</tt>.</p></li><li><p class="listitem">
+folder_id {package_id ""}</tt> Returns "t" if
+folder_id is a folder that is a child of the root folder for the
+package, else "f". If package_id is not given procedure
+uses value from <tt class="computeroutput"> [ad_conn
+package_id]</tt>.</p></li><li><p class="listitem">
 <tt class="computeroutput">pa_is_album_p
-album_id {package_id ""}</tt> Returns "t" if album_id is a album
-that is a child of the root folder for the package, else "f" If
-package_id is not given procedure uses value from <tt class="computeroutput"> [ad_conn package_id]</tt>.</p></li><li><p class="listitem">
+album_id {package_id ""}</tt> Returns "t" if
+album_id is a album that is a child of the root folder for the
+package, else "f" If package_id is not given procedure
+uses value from <tt class="computeroutput"> [ad_conn
+package_id]</tt>.</p></li><li><p class="listitem">
 <tt class="computeroutput">pa_is_photo_p
-photo_id {package_id ""}</tt> Returns "t" if photo_id is a photo
-that is a child of the root folder for the package, else "f" If
-package_id is not given procedure uses value from <tt class="computeroutput"> [ad_conn package_id]</tt>.</p></li><li><p class="listitem">
+photo_id {package_id ""}</tt> Returns "t" if
+photo_id is a photo that is a child of the root folder for the
+package, else "f" If package_id is not given procedure
+uses value from <tt class="computeroutput"> [ad_conn
+package_id]</tt>.</p></li><li><p class="listitem">
 <tt class="computeroutput">pa_grant_privilege_to_creator object_id {user_id
-""}</tt> Grants a set of default privileges stored in parameter
-PrivilegeForCreator on object id to user_id. If user_id is not
-specified, uses current user.</p></li><li><p class="listitem">
+""}</tt> Grants a set of default privileges stored in
+parameter PrivilegeForCreator on object id to user_id. If user_id
+is not specified, uses current user.</p></li><li><p class="listitem">
 <tt class="computeroutput">pa_image_width_height filename width_var
 height_var</tt> Uses ImageMagick program to get the width and
 height in pixels of filename. Sets height to the variable named in
@@ -504,19 +513,23 @@ Photo Upload</p><p class="listitem">Default: image/jpeg,image/gif</p>
 </dd><dt class="listitem"><tt class="varname">DefaultRootFolderPrivileges</tt></dt><dd>
 <p class="listitem">Description: List of grantee privilege pairs
 for new root folders. Grantee is an integer or function that
-returns a party_id. Format as a space separated list</p><p class="listitem">Default: acs.magic_object_id('the_public') read
+returns a party_id. Format as a space separated list</p><p class="listitem">Default:
+acs.magic_object_id('the_public') read
 acs.magic_object_id('registered_users') pa_create_album
-acs.magic_object_id('registered_users') pa_create_folder</p>
+acs.magic_object_id('registered_users')
+pa_create_folder</p>
 </dd><dt class="listitem"><tt class="varname">AllowBasePhotoAccessP</tt></dt><dd>
-<p class="listitem">Description: If set to "t", users are presented
-a link to display the full sized base image from photo page.</p><p class="listitem">Default: t</p>
+<p class="listitem">Description: If set to "t", users are
+presented a link to display the full sized base image from photo
+page.</p><p class="listitem">Default: t</p>
 </dd><dt class="listitem"><tt class="varname">CheckPermissionOnImageServeP</tt></dt><dd>
-<p class="listitem">If set to "t", the images/index.vuh file runs a
-query to check if user has read access to photo prior to serving
-it. Note, setting to "t" can impact performance on high volume
-sites. The urls for images also change depending on this parameter.
-If "t" url contains the pa_image_id, else contains the path to the
-pa_image in file-system.</p><p class="listitem">Default: f</p>
+<p class="listitem">If set to "t", the images/index.vuh
+file runs a query to check if user has read access to photo prior
+to serving it. Note, setting to "t" can impact
+performance on high volume sites. The urls for images also change
+depending on this parameter. If "t" url contains the
+pa_image_id, else contains the path to the pa_image in
+file-system.</p><p class="listitem">Default: f</p>
 </dd>
 </dl></div>
 </div><div class="sect2">
@@ -554,7 +567,8 @@ Data Model sections.</td><td align="left" valign="middle">2/5/2001</td><td align
 <tr>
 <td width="33%" align="left" valign="top"><a href="dev-guide">Prev</a></td><td width="34%" align="center" valign="top"><a href="index">Home</a></td><td width="33%" align="right" valign="top"> </td>
 </tr><tr>
-<td width="33%" align="left" valign="top">Developer's guide</td><td width="34%" align="center" valign="top"><a href="dev-guide">Up</a></td><td width="33%" align="right" valign="top"> </td>
+<td width="33%" align="left" valign="top">Developer&#39;s
+guide</td><td width="34%" align="center" valign="top"><a href="dev-guide">Up</a></td><td width="33%" align="right" valign="top"> </td>
 </tr>
 </table>
 </div>

@@ -1,6 +1,6 @@
 
-<property name="context">{/doc/photo-album {Photo Album}} {Developer's guide}</property>
-<property name="doc(title)">Developer's guide</property>
+<property name="context">{/doc/photo-album {Photo Album}} {Developer&#39;s guide}</property>
+<property name="doc(title)">Developer&#39;s guide</property>
 <master>
 <div class="NAVHEADER"><table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr><th colspan="3" align="center">Photo Album</th></tr><tr>
@@ -8,11 +8,11 @@
 </tr>
 </table></div>
 <div class="chapter">
-<h1><a name="dev-guide" id="dev-guide">Chapter 4. Developer's
+<h1><a name="dev-guide" id="dev-guide">Chapter 4. Developer&#39;s
 guide</a></h1><div class="sect1">
 <h1 class="sect1"><a name="requirements" id="requirements">4.1. ACS
 4.0 Photo Album Application Requirements</a></h1><div class="TOC"><dl>
-<dt><b>Table of Contents</b></dt><dt>4.1.1. <a href="dev-guide">Introduction</a>
+<dt><strong>Table of Contents</strong></dt><dt>4.1.1. <a href="dev-guide">Introduction</a>
 </dt><dt>4.1.2. <a href="dev-guide">Vision
 Statement</a>
 </dt><dt>4.1.3. <a href="dev-guide">System/Application
@@ -88,7 +88,8 @@ albums, and photos along with admin pages. Instances can be mounted
 to different subsite and managed independently. The grouping is
 included within the instance so that the albums maintain a
 consistent url even if they are re-sorted to different folders
-within the instance (as long as the subsite url isn't changed).</p><p>The display, grouping, and administration functionality of the
+within the instance (as long as the subsite url isn&#39;t
+changed).</p><p>The display, grouping, and administration functionality of the
 photo album package will be included in the initial release of the
 package. This is intended to be one part of a larger system that
 will allow bulk uploading and purchasing of photos. These two
@@ -121,11 +122,12 @@ to share with friends and family all over the world.</p><p>The couple scans the 
 Most of the images were scanned from the negatives at processing
 time making it easy for the couple to obtain digital versions of
 their photographs. The couple creates a new photo album for their
-wedding, and then adds the following folders: "Engagement photo
-shoot," "Rehearsal dinner," "Ceremony," "Reception," and
-"Honeymoon." The honeymoon itself was spent in two different
-places. The couple creates subfolders for each of these places in
-their Honeymoon folder.</p><p>Now the folder hierarchy looks like:</p><pre class="programlisting">
+wedding, and then adds the following folders: "Engagement
+photo shoot," "Rehearsal dinner,"
+"Ceremony," "Reception," and
+"Honeymoon." The honeymoon itself was spent in two
+different places. The couple creates subfolders for each of these
+places in their Honeymoon folder.</p><p>Now the folder hierarchy looks like:</p><pre class="programlisting">
     
     - Wedding
         - Engagement Photo Shoot
@@ -145,12 +147,12 @@ parents administrative access to a couple folders. Now their
 parents can upload additional photos to those folders or modify the
 attributes of any given photo.</p><p class="listitem"> </p>
 </li><li>
-<p>The administrator of the "Dogs of the World" subsite on the "All
-Furry Creatures" web sites wants to provide a way to show pictures
-of various dog breads. Since the admin is a busy person she doesn't
-want to upload and manage all of the images herself. She does,
-however, want to specify the general layout of the various albums
-and control who can upload images.</p><p>She creates an instance of the photo album within her subsite.
+<p>The administrator of the "Dogs of the World" subsite
+on the "All Furry Creatures" web sites wants to provide a
+way to show pictures of various dog breads. Since the admin is a
+busy person she doesn&#39;t want to upload and manage all of the
+images herself. She does, however, want to specify the general
+layout of the various albums and control who can upload images.</p><p>She creates an instance of the photo album within her subsite.
 Then goes about creating a folder structure such as:</p><pre class="programlisting">
     
     - Dogs of the World
@@ -178,12 +180,12 @@ to all albums within her subsite to the general public.</p>
 <h2 class="sect2"><a name="requirements-related-links" id="requirements-related-links">4.1.5. Related Links</a></h2><ul>
 <li><p class="listitem">System/Package "coversheet"</p></li><li><p class="listitem"><a href="design">ACS 4 Photo Album Package
 Design Documentation</a></p></li><li><p class="listitem"><a href="dev-guide">Photo Album
-Developer's Guide</a></p></li><li><p class="listitem">User's guide</p></li><li><p class="listitem">Test plan</p></li><li><p class="listitem">
+Developer&#39;s Guide</a></p></li><li><p class="listitem">User&#39;s guide</p></li><li><p class="listitem">Test plan</p></li><li><p class="listitem">
 <a href="http://camp-dev.arsdigita.com/camparent/campsunshine/album/" target="_top">IluvCamp photo albums</a> (Call or email me for log
 in information)</p></li><li>
 <p class="listitem">Competitive system(s)</p><ul>
-<li><p class="listitem"><a href="http://www.ophoto.com" target="_top">Ophoto</a></p></li><li><p class="listitem"><a href="http://www.photoaccess.com" target="_top">PhotoAccess</a></p></li><li><p class="listitem"><a href="http://www.zing.com" target="_top">Zing, note zing's photo albums crashed my netscape browser
-on Linux</a></p></li><li><p class="listitem"><a href="http://www.shutterfly.com" target="_top">ShutterFly</a></p></li>
+<li><p class="listitem"><a href="http://www.ophoto.com" target="_top">Ophoto</a></p></li><li><p class="listitem"><a href="http://www.photoaccess.com" target="_top">PhotoAccess</a></p></li><li><p class="listitem"><a href="http://www.zing.com" target="_top">Zing, note zing&#39;s photo albums crashed my netscape
+browser on Linux</a></p></li><li><p class="listitem"><a href="http://www.shutterfly.com" target="_top">ShutterFly</a></p></li>
 </ul>
 </li>
 </ul>
@@ -322,7 +324,7 @@ conversion. (This requirement will be delayed until a future
 version)</p></li>
 </ul>
 </li></ul>
-</li><li><p class="listitem">VI.D.30 Admin can edit other people's
+</li><li><p class="listitem">VI.D.30 Admin can edit other people&#39;s
 albums.</p></li><li><p class="listitem">VI.D.40 Admin designates default permissions
 for hierarchy levels. So various users can view, create, edit, and
 upload to different levels.</p></li><li><p class="listitem">VI.D.50 Admin can allow user to access the page

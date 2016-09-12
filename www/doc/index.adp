@@ -8,12 +8,12 @@
 <a name="AEN1" id="AEN1"></a><a name="AEN5" id="AEN5">Tom Baginski</a>
 </h3><div class="affiliation"><div class="address"><p class="address">bags\@arsdigita.com</p></div></div>
 </div><div class="TOC"><dl>
-<dt><b>Table of Contents</b></dt><dt>1. <a href="for-everyone">Introduction</a>
+<dt><strong>Table of Contents</strong></dt><dt>1. <a href="for-everyone">Introduction</a>
 </dt><dt>2. <a href="release-notes">Release Notes for Photo Album
 4.0.1 Final Release</a>
 </dt><dt>3. <a href="acs-admin-guide">ACS Administration
 Guide</a>
-</dt><dt>4. <a href="dev-guide">Developer's guide</a>
+</dt><dt>4. <a href="dev-guide">Developer&#39;s guide</a>
 </dt><dd><dl>
 <dt>4.1. <a href="dev-guide">ACS 4.0 Photo Album
 Application Requirements</a>
