@@ -1,4 +1,4 @@
-# /packages/photo-album/www/images/index.vuh
+# -*- Tcl -*- /packages/photo-album/www/images/index.vuh
 # @author Tom Baginski, bags@arsdigita.com
 # #cvs-id $Id$
 #
@@ -10,6 +10,10 @@
 # fully reworked
 
 regexp {^([0-9]+)} [ad_conn path_info] match image_id
+if {![info exists image_id] || ![string is integer -strict $image_id]} {
+    ad_page_contract_handle_datasource_error "image_id is not valid"
+    ad_script_abort
+}
 
 if {[parameter::get -parameter CheckPermissionOnImageServeP] == "t"} {
     permission::require_permission -object_id $image_id -privilege "read"
