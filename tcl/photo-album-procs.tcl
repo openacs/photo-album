@@ -196,7 +196,7 @@ ad_proc -public pa_make_file_name {
     {-ext ""}
     id
 } { 
-    constructs a filename for an image based on id and extention.
+    constructs a filename for an image based on id and extension.
 } {
     if {$ext ne "" && ![regexp {^\.} $ext foo]} {
 	#add back the dot
@@ -284,9 +284,10 @@ ad_proc -private pa_is_type_in_package {
 } {
     set root_folder [pa_get_root_folder $package_id]
 
-    # I check for the case that item is the root_folder first because this happens on the index page.
-    # Since index page accessed often, and the root_folder is within the package this avoids an unecessary
-    # trip to the database on a commonly accessed page.
+    # I check for the case that item is the root_folder first because
+    # this happens on the index page.  Since index page accessed
+    # often, and the root_folder is within the package this avoids an
+    # unnecessary trip to the database on a commonly accessed page.
  
     if {$content_type eq "content_folder" && $item_id eq $root_folder} {
 	return "t"

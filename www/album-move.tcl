@@ -35,7 +35,7 @@ template::element create move_album album_id -label "album ID" \
   -datatype integer -widget hidden
 
 
-# options query retreive all folders in package that user can add an album to
+# options query retrieve all folders in package that user can add an album to
 set root_folder_id [pa_get_root_folder]
 
 template::element create move_album new_folder_id -label "[_ photo-album._Choose]" \

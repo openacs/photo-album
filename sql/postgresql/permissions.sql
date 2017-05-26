@@ -10,7 +10,7 @@
 --
 -- Added custom create privileges so that creation
 -- of folders, albums, and photos can be controlled
--- independantly.  Allows one user to control folder
+-- independently.  Allows one user to control folder
 -- structure while other users add albums and photos
 
 select acs_privilege__create_privilege('pa_create_album', null, null);

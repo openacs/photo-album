@@ -213,7 +213,7 @@ implementation.</p><ul>
 <li><p class="listitem">VI.A.40.10 System specified attributes. Certain
 attributes will be specified and maintained by the system. These
 attributes will include: uploading_user, user_filename,
-original_file_size, original_width, orginal_height, orginal_path,
+original_file_size, original_width, original_height, original_path,
 thumb_width, thumb_height, thumb_file_size, thumb_path, view_width,
 view_height, view_file_size, view_path, caption, upload_date. Other
 attributes will be determined during the design process.</p></li><li><p class="listitem">VI.A.40.20 Administrator specified attributes.
@@ -295,7 +295,7 @@ on the page level but order field included to support arbitrary
 sorting.</p></li><li><p class="listitem">VI.C.30 Admin (exact permission required, to be
 determined) can add/consolidate hierarchy levels.</p></li><li><p class="listitem">VI.C.40 Admin (exact permission required, to be
 determined) can move items around in hierarchy.</p></li><li><p class="listitem">VI.C.50 Admin (exact permission required, to be
-determined) can resrict the creation of new heirarchy levels.</p></li>
+determined) can resrict the creation of new hierarchy levels.</p></li>
 </ul>
 </div><div class="sect3">
 <h3 class="sect3"><a name="requirements--administrative-control" id="requirements--administrative-control">4.1.6.4. Administrative

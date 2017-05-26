@@ -3,7 +3,7 @@
 ad_page_contract {
 
     Display page for base sized image.
-    Only accessable if parameter set for package
+    Only accessible if parameter set for package
     
     @author Tom Baginski (bags@arsdigita.com)
     @creation-date 2/1/2000

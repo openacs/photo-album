@@ -10,7 +10,7 @@
 <div class="chapter">
 <h1><a name="release-notes" id="release-notes">Chapter 2. Release
 Notes for Photo Album 4.0.1 Final Release</a></h1><p>Changes from 4.0.1 beta to 4.0.1 final.</p><ul>
-<li><p class="listitem">Removed photo level premission checks. Load
+<li><p class="listitem">Removed photo level permission checks. Load
 testing showed that allowing different photos within the same album
 to have different permissions made the queries to get the photos in
 a large album very slow. I changed the application logic so that
@@ -24,8 +24,8 @@ base sized photo.</p></li><li><p class="listitem">When uploading a photo, the th
 created from the viewer sized image rather from the base sized
 image. Creating a small image from a medium-sized image is much
 faster than creating a small image from a large image and does not
-noticably change the image quality.</p></li><li><p class="listitem">Minor revisions to plsql packages to improve
-compatability with acs-content-repository.</p></li><li><p class="listitem">Added more detailed documentation in both html
+noticeably change the image quality.</p></li><li><p class="listitem">Minor revisions to plsql packages to improve
+compatibility with acs-content-repository.</p></li><li><p class="listitem">Added more detailed documentation in both html
 and docbook format.</p></li><li><p class="listitem">Fixed name conflicts with photo album lite.</p></li>
 </ul><p>Besides upgrading the rest of your acs intall to 4.1.1, you will
 need to mannually run <tt class="computeroutput">photo-album/sql/plsql-packages.sql</tt> through

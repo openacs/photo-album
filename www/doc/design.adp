@@ -144,7 +144,7 @@ between the binaries and the attribute info is maintained as a
 relationship between the two content_items. This decision was made
 so the the number of image sizes per photo could be changed with
 minor code revision and no datamodel changes. This flexibility
-comes at a cost, the queries to retreive and serve the appropriate
+comes at a cost, the queries to retrieve and serve the appropriate
 version of a photo need to join in several tables to do so. There
 also is not an easy way to store the relation between different
 versions of the photo-attribute info such as caption and the
@@ -211,7 +211,7 @@ the file-system by a sweep procedure</p><pre class="programlisting">
 <p class="listitem">
 <tt class="computeroutput">pa_image.delete</tt>
 deletes a pa_image and all revisions Also schedules the binary
-files for deletion from the file-sytem.</p><pre class="programlisting">
+files for deletion from the file-system.</p><pre class="programlisting">
     
       procedure delete (
         item_id         in cr_items.item_id%TYPE
@@ -372,7 +372,7 @@ that string will be the last item in the context bar. Otherwise,
 the name corresponding to item_id will be used.</p></li><li><p class="listitem">
 <tt class="computeroutput">pa_make_file_name
 {-assert:boolean} {-ext ""} id</tt> Constructs a filename
-for an image based on id and extention. Files are created into a 3
+for an image based on id and extension. Files are created into a 3
 tier directory structure: year/xx/zz/ for a photo_id 1234xxzz.jpg
 Same file would return year/xx/zz/1234xxzz.jpg. If -assert
 specified, proc creates directory and any parent directories if
@@ -456,7 +456,7 @@ photo, one for its thumbnail image, and one child pa_image for its
 viewer image. The pa_images are created by the server whenever a
 pa_photo is added or edited.</p><p>The root folder for each package instance is stored in
 pa_root_folder_package_map. All folders, albums, photos, and images
-within a package instance are decendants of the root folder for
+within a package instance are descendants of the root folder for
 that package.</p><p>Image files scheduled for deletion are stored in
 pa_files_to_delete. A nightly web-server process deletes the files
 in this table and then removes them from the table. This table
