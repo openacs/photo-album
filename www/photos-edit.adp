@@ -10,22 +10,22 @@
 <p>#photo-album.Story_story#
 </if>
 <ul>
-<if @photo_p@ eq 1>
+<if @photo_p;literal@ true>
   <li><a href="photo-add?album_id=@album_id@">#photo-album.lt_Add_a_single_photo_to#</a>
 </if>
-<if @photo_p@ eq 1>
+<if @photo_p;literal@ true>
   <li><a href="photos-add?album_id=@album_id@">#photo-album.lt_Add_a_collection_of_p#</a>
 </if>
-<if @write_p@ eq 1>
+<if @write_p;literal@ true>
   <li><a href="album-edit?album_id=@album_id@">#photo-album.lt_Edit_album_attributes#</a>
 </if>
-<if @move_p@ eq 1>
+<if @move_p;literal@ true>
   <li><a href="album-move?album_id=@album_id@">#photo-album.lt_Move_album_to_another#</a>
 </if>
-<if @delete_p@ eq 1>
+<if @delete_p;literal@ true>
   <li><a href="album-delete?album_id=@album_id@">#photo-album.Delete_this_album#</a>
 </if>
-<if @admin_p@ eq 1>
+<if @admin_p;literal@ true>
   <li><a href="/permissions/one?object_id=@album_id@">#photo-album.lt_Modify_album_permissi#</a>
 </if>
 </ul>

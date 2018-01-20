@@ -6,22 +6,22 @@
 <p>@folder_description;noquote@</p>
 </if>
 <div style="float: right"><ul>
-<if @subfolder_p@ eq 1>
+<if @subfolder_p;literal@ true>
   <li><a href="folder-add?parent_id=@folder_id@">#photo-album.Add_a_new_folder#</a></li>
 </if>
-<if @album_p@ eq 1>
+<if @album_p;literal@ true>
   <li><a href="album-add?parent_id=@folder_id@">#photo-album.Add_a_new_album#</a></li>
 </if>
-<if @write_p@ eq 1>
+<if @write_p;literal@ true>
   <li><a href="folder-edit?folder_id=@folder_id@">#photo-album.lt_Edit_folder_informati#</a></li>
 </if>
-<if @move_p@ eq 1>
+<if @move_p;literal@ true>
   <li><a href="folder-move?folder_id=@folder_id@">#photo-album.lt_Move_this_folder_to_a#</a></li>
 </if>
-<if @delete_p@ eq 1>
+<if @delete_p;literal@ true>
   <li><a href="folder-delete?folder_id=@folder_id@">#photo-album.Delete_this_folder#</a></li>
 </if>
-<if @admin_p@ eq 1>
+<if @admin_p;literal@ true>
   <li><a href="/permissions/one?object_id=@folder_id@">#photo-album.lt_Modify_this_folders_p#</a></li>
   <li><a href="/shared/parameters?@parameter_url_vars@">#photo-album.Modify_this_pack#</a> </li>
 </if>
@@ -57,7 +57,7 @@
 <p><a href="clipboards">#photo-album.lt_View_all_of_your_clip#</a>.</p>
 </if>
 
-<if @shutterfly_p@ eq "t">
+<if @shutterfly_p;literal@ true>
     <p class="hint">
       #photo-album.lt_To_order_prints_of_th#
       <a href="http://shutterfly.com">#photo-album.shutterflycom#</a> #photo-album.lt_for______printing_fro# <a href="clipboards">#photo-album.clipboard#</a> #photo-album.screen#

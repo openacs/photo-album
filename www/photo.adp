@@ -11,7 +11,7 @@
       </if><else>
         <img src="images/@path@/@title@" height="@height@" width="@width@" alt="@title@">
       </else>
-	<if @show_html_p@ eq 1>
+	<if @show_html_p;literal@ true>
           <ul style="text-align:left">
             <li>#photo-album.thumbnail_with_link# <code>&lt;a href="@photo_base_url@photo?photo_id=@photo_id@"&gt;&lt;img src="@photo_base_url@images/@path@/@thumb_image_id@" height="@thumb_height@" width="@thumb_width@" alt="@caption@"&gt;&lt;/a&gt;</code>
  
@@ -31,13 +31,13 @@
       <p>#photo-album.Story_story#</p>
     </if>
     <if @write_p@ eq 1 or @move_p@ eq 1 or @delete_p@ eq 1><ul>
-	<if @show_html_p@ eq 1>
+	<if @show_html_p;literal@ true>
           <li><a href="photo.tcl?photo_id=@photo_id@&amp;show_html_p=0">#photo-album.hide_html#</a></li>  
 	</if>
 	<else>
           <li><a href="photo.tcl?photo_id=@photo_id@&amp;show_html_p=1">#photo-album.show_html#</a></li>  
 	</else>
-        <if @write_p@ eq 1>
+        <if @write_p;literal@ true>
           <li><a href="photo-iconic?photo_id=@photo_id@">#photo-album.lt_Make_this_photo_the_i#</a>
             <li><a href="photo-edit?photo_id=@photo_id@">#photo-album.lt_Edit_photo_attributes#</a>
         </if>
@@ -53,7 +53,7 @@
 	      <formwidget id="move_button"></formwidget>
 	    </formtemplate>
         </if>
-        <if @delete_p@ eq 1>
+        <if @delete_p;literal@ true>
           <li><a href="photo-delete?photo_id=@photo_id@">#photo-album.Delete_this_photo#</a>
         </if>
       </ul>

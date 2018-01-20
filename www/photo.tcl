@@ -85,6 +85,7 @@ if {![db_0or1row get_photo_info { *SQL* }]} {
                                  <li>[_ photo-album._For]</li>
                                  <li>[_ photo-album._Your]</li>
                              </ul>"
+    ad_script_abort
 } else {
     set thumb_image_id ""
     set thumb_photo_id ""

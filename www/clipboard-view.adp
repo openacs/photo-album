@@ -10,7 +10,7 @@
 
     <p>
 
-    <if @shutterfly_p@ eq "t">
+    <if @shutterfly_p;literal@ true>
     <form action="http://www.shutterfly.com/c4p/UpdateCart.jsp" method="POST">
       <input type="hidden" name="addim" value="1">
       <input type="hidden" name="protocol" value="SFP,100">
