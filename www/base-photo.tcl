@@ -40,6 +40,8 @@ set context [pa_context_bar_list -final "[_ photo-album._Full]" $photo_id]
 # query all the photo and permission info with a single trip to database
 if {![db_0or1row get_photo_info {}]} {
     ad_return_error "[_ photo-album.No_Photo]" "[_ photo-album.lt_No_Photo_was_found_fo]"
+    ad_script_abort
+
 } else {
     set path $image_id
 

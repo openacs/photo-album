@@ -21,7 +21,10 @@ set album_id [db_string get_album_id {
 
 # If we did not get an album ID 
 if {! $album_id } { 
-    ad_return_error "Photo Internal Error" "The photo is either not live or not in an album.  Please inform the webmaster of the error"
+    ad_return_error \
+	"Photo Internal Error" \
+	"The photo is either not live or not in an album.  Please inform the webmaster of the error"
+    ad_script_abort
 }
 
 permission::require_permission -object_id $album_id -privilege "write"
