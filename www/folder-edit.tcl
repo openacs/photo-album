@@ -44,7 +44,7 @@ if { [template::form is_request folder_edit] } {
 }
 
 if { [template::form is_valid folder_edit] } {
-    # vaild new sub-folder submission so create new subfolder
+    # valid new sub-folder submission so create new subfolder
 
     set folder_id [template::element::get_value folder_edit folder_id]
     set label [template::element::get_value folder_edit label]

@@ -358,9 +358,9 @@ ad_proc -public pa_make_new_image {
 
     ImageMagick will retain the aspect ratio of the base_image when creating the new_image
      
-     jhead -dt is called to delete any embeded thumbnail since digital camera thumbnails
+     jhead -dt is called to delete any embedded thumbnail since digital camera thumbnails
      can be quite large and imagemagick does not remove them when converting (so thumbnails
-     can end up being 8k for the thumbnail + 32k for the embeded thumbnail). 
+     can end up being 8k for the thumbnail + 32k for the embedded thumbnail). 
 
     @param base_image original image filename 
     @param new_image new image filename 

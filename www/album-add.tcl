@@ -50,7 +50,7 @@ if { [template::form is_request album_add] } {
 }
 
 if { [template::form is_valid album_add] } {
-    # vaild new album submission so create new album
+    # valid new album submission so create new album
     set user_id [ad_conn user_id]
     set peeraddr [ad_conn peeraddr]
     set album_id [template::element::get_value album_add album_id]

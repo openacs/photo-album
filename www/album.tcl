@@ -59,7 +59,7 @@ set has_children_p [expr {[pa_count_photos_in_album $album_id] > 0}]
 set delete_p [expr {!($has_children_p) && $album_delete_p && $folder_write_p}]
 
 # Did we get a msg id, if so display it at the top of the page
-# TODO: JCD: We should remove it from vars so it does not propigate
+# TODO: JCD: We should remove it from vars so it does not propagate
 array set msgtext { 
     1 {<strong>Your text changes have been saved and any image changes such as rotations 
         are being carried out in the background</strong>}
