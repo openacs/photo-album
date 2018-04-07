@@ -465,7 +465,7 @@ ad_proc -deprecated pa_pagination_paginate_query {
 } {
 
     set rows_per_page [parameter::get -parameter ThumbnailsPerPage]
-    set start_row [expr $rows_per_page*[expr {$page-1}]+1]
+    set start_row [expr {$rows_per_page*($page-1) + 1}]
 
     set query "
       select *
@@ -535,7 +535,7 @@ ad_proc -public pa_pagination_context_ids {
     # what is the range about which to bracket
     set start [expr {[lsearch -exact  $ids $curr ] - $context}]
     
-    if {[expr {$start + 2 * $context + 1}] > $n_ids} { 
+    if {($start + 2 * $context + 1) > $n_ids} { 
         set start [expr {$n_ids - 2 * $context - 1}]
     } 
     if {$start < 0} { 
@@ -606,7 +606,7 @@ ad_proc -public pa_pagination_bar {
     set i 0
     set last {}
     foreach {id i} [pa_pagination_context_ids $cur_id $all_ids 4] {
-        if {$last ne "" && [expr {$last + 1}] != $i} {
+        if {$last ne "" && ($last + 1) != $i} {
             append photo_nav_html "&#8226;"
         } 
         set last $i
