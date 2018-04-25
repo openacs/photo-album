@@ -695,7 +695,7 @@ ad_proc -public pa_walk {
     Walk starting at a given directory and return a list
     of all the plain files found
 } { 
-    set files [list]
+    set files {}
     foreach f [glob -nocomplain [file join $dir *]] {
         set type [file type $f]
         switch $type { 
@@ -718,7 +718,7 @@ ad_proc -public  pa_file_info {
 } {
     return the image information from a given file
 } { 
-    set info [list]
+    set info {}
     if { [catch {set size [file size $file]} errMsg] } { 
         return -code error $errMsg
     } 
@@ -803,7 +803,7 @@ ad_proc -public pa_load_images {
     @param package_id Optionally specify the package_id owning the album, if this is not called
                       from a page within the photo-album package itself.
 } { 
-    set new_ids [list]
+    set new_ids {}
     set peeraddr [ad_conn peeraddr]
 
     # Create the tmp dir if needed 
@@ -1150,8 +1150,8 @@ ad_proc pa_rotate {id rotation} {
 
 } {
     if {$rotation ne "" && $rotation ne "0" } { 
-        set flop [list]
-        set files [list]
+        set flop {}
+        set files {}
 
         # get a list of files to handle sorted by size...
         db_foreach get_image_files {} {

@@ -110,7 +110,7 @@ if {$has_children_p && [llength $photos_on_page] > 0} {
     }
     set child_photo:rowcount $counter
 
-    set pages [list]
+    set pages {}
     set total_pages [pa_count_pages_in_album $album_id]
 
     for {set i 1} {$i <= $total_pages} {incr i} {
