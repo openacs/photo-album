@@ -26,8 +26,8 @@ ns_set put [ns_conn outputheaders] "Cache-Control" "no-cache"
 
 set context_list [pa_context_bar_list -final "Edit page $page" $album_id]
 
-set hides {}
-set shows {}
+set hides [list]
+set shows [list]
 foreach id [array names caption] { 
     # create a list of hide and show images.
     if {[info exists hide($id)]} { 
