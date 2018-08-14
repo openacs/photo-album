@@ -338,7 +338,7 @@ ad_proc -public pa_image_width_height {
     Sets height to the variable named in height_var in the calling level.
     Sets width_var to the variable named in width_var in the calling level.
 
-    I Use ImageMagick instead of aolserver function because it can handle more than
+    I Use ImageMagick instead of AOLserver function because it can handle more than
     just gifs and jpegs.  
 } {
     set identify_string [exec [parameter::get -parameter ImageMagickPath]/identify $filename]
