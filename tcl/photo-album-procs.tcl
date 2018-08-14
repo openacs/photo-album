@@ -79,7 +79,7 @@ ad_proc -private pa_new_root_folder {
     
 	# grant default permissions to new root folder
 
-	# default permissions stored in package parmeter as a list of grantee privilege pairs
+	# default permissions stored in package parameter as a list of grantee privilege pairs
 	# the grantee can be anything that is or returns a party_id such as an integer, a subquery,
 	# or a function
 	
@@ -568,7 +568,7 @@ ad_proc -public pa_pagination_bar {
     link
     {what {}}
 } {
-    given a current photo_id and and an ordered list of all the photo_id in an album
+    given a current photo_id and an ordered list of all the photo_id in an album
     creates an html fragment that allows user to navigate to any photo by number 
     next/previous
 } {
@@ -655,7 +655,7 @@ ad_proc -public pa_expand_archive {
         set type "Unknown type"
     }
 
-    # DRB: on Mac OS X the "verify" option to tar appears to return the file
+    # DRB: on macOS the "verify" option to tar appears to return the file
     # list on stderr rather than stdout, causing the catch to trigger.  Non-GNU
     # versions of tar don't understand fancy options (those starting with --)
 

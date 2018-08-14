@@ -360,7 +360,7 @@ TARGET="_top"
       two different content types (pa_photos and pa_images).  The linkage
       between the binaries and the attribute info is maintained as a 
       relationship between the two content_items.  This decision was made
-      so the the number of image sizes per photo could be changed with minor
+      so the number of image sizes per photo could be changed with minor
       code revision and no datamodel changes.  This flexibility comes at a
       cost, the queries to retrieve and serve the appropriate version of
       a photo need to join in several tables to do so.  There also is not
@@ -781,7 +781,7 @@ CLASS="computeroutput"
 	  Sets height to the variable named in height_var in the calling level.
 	  Sets width_var to the variable named in width_var in the calling level.
 
-	  I Use ImageMagick instead of aolsever funcition because it can handle more than
+	  I Use ImageMagick instead of AOLserver function because it can handle more than
 	  just gifs and jpegs.  
 	  </P
 ></LI
@@ -878,7 +878,7 @@ CLASS="listitem"
 CLASS="computeroutput"
 >pa_photo_number_links cur_id all_ids</TT
 >
-	  Given a current photo_id and and an ordered list of all the photo_id in an album,
+	  Given a current photo_id and an ordered list of all the photo_id in an album,
 	  creates an html fragment that allows user to navigate to any photo by number,
 	  or next/previous.  Pulls url from connection so should work on page showing a single photo 
 	  based on photo_id (such as viewer size display page or base size display page).
@@ -1132,7 +1132,7 @@ CLASS="varname"
 CLASS="listitem"
 >&#13;	    If set to "t", the images/index.vuh file runs a query to check
 	    if user has read access to photo prior to serving it. Note, setting to
-            "t" can impact performance on high volume sites.  The urls for images
+            "t" can impact performance on high volume sites.  The URLs for images
 	    also change depending on this parameter.  If "t" url contains the 
 	    pa_image_id, else contains the path to the pa_image in file-system.</P
 ><P

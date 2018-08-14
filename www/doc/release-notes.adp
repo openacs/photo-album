@@ -27,8 +27,8 @@ faster than creating a small image from a large image and does not
 noticeably change the image quality.</p></li><li><p class="listitem">Minor revisions to plsql packages to improve
 compatibility with acs-content-repository.</p></li><li><p class="listitem">Added more detailed documentation in both html
 and docbook format.</p></li><li><p class="listitem">Fixed name conflicts with photo album lite.</p></li>
-</ul><p>Besides upgrading the rest of your acs intall to 4.1.1, you will
-need to mannually run <tt class="computeroutput">photo-album/sql/plsql-packages.sql</tt> through
+</ul><p>Besides upgrading the rest of your acs install to 4.1.1, you will
+need to manually run <tt class="computeroutput">photo-album/sql/plsql-packages.sql</tt> through
 sqlplus to update the packages inside oracle when upgrading from
 the beta to final version of the photo-album.</p>
 </div>

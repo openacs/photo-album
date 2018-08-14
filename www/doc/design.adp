@@ -142,7 +142,7 @@ true cost of using a .vuh file.</p><p>The photo attribute information and binary
 two different content types (pa_photos and pa_images). The linkage
 between the binaries and the attribute info is maintained as a
 relationship between the two content_items. This decision was made
-so the the number of image sizes per photo could be changed with
+so the number of image sizes per photo could be changed with
 minor code revision and no datamodel changes. This flexibility
 comes at a cost, the queries to retrieve and serve the appropriate
 version of a photo need to join in several tables to do so. There
@@ -381,20 +381,17 @@ necessary</p></li><li><p class="listitem">
 folder_id {package_id ""}</tt> Returns "t" if
 folder_id is a folder that is a child of the root folder for the
 package, else "f". If package_id is not given procedure
-uses value from <tt class="computeroutput"> [ad_conn
-package_id]</tt>.</p></li><li><p class="listitem">
+uses value from <tt class="computeroutput">[ad_conn package_id]</tt>.</p></li><li><p class="listitem">
 <tt class="computeroutput">pa_is_album_p
 album_id {package_id ""}</tt> Returns "t" if
 album_id is a album that is a child of the root folder for the
 package, else "f" If package_id is not given procedure
-uses value from <tt class="computeroutput"> [ad_conn
-package_id]</tt>.</p></li><li><p class="listitem">
+uses value from <tt class="computeroutput">[ad_conn package_id]</tt>.</p></li><li><p class="listitem">
 <tt class="computeroutput">pa_is_photo_p
 photo_id {package_id ""}</tt> Returns "t" if
 photo_id is a photo that is a child of the root folder for the
 package, else "f" If package_id is not given procedure
-uses value from <tt class="computeroutput"> [ad_conn
-package_id]</tt>.</p></li><li><p class="listitem">
+uses value from <tt class="computeroutput">[ad_conn package_id]</tt>.</p></li><li><p class="listitem">
 <tt class="computeroutput">pa_grant_privilege_to_creator object_id {user_id
 ""}</tt> Grants a set of default privileges stored in
 parameter PrivilegeForCreator on object id to user_id. If user_id
@@ -404,7 +401,7 @@ height_var</tt> Uses ImageMagick program to get the width and
 height in pixels of filename. Sets height to the variable named in
 height_var in the calling level. Sets width_var to the variable
 named in width_var in the calling level. I Use ImageMagick instead
-of aolsever funcition because it can handle more than just gifs and
+of AOLserver function because it can handle more than just gifs and
 jpegs.</p></li><li><p class="listitem">
 <tt class="computeroutput">pa_make_new_image
 base_image new_image max_width {max_height ""}</tt> Uses
@@ -435,7 +432,7 @@ an album.</p></li><li><p class="listitem">
 total_pages</tt> Returns html table fragament for navigating pages
 of an album.</p></li><li><p class="listitem">
 <tt class="computeroutput">pa_photo_number_links cur_id all_ids</tt> Given a
-current photo_id and and an ordered list of all the photo_id in an
+current photo_id and an ordered list of all the photo_id in an
 album, creates an html fragment that allows user to navigate to any
 photo by number, or next/previous. Pulls url from connection so
 should work on page showing a single photo based on photo_id (such
@@ -526,7 +523,7 @@ page.</p><p class="listitem">Default: t</p>
 <p class="listitem">If set to "t", the images/index.vuh
 file runs a query to check if user has read access to photo prior
 to serving it. Note, setting to "t" can impact
-performance on high volume sites. The urls for images also change
+performance on high volume sites. The URLs for images also change
 depending on this parameter. If "t" url contains the
 pa_image_id, else contains the path to the pa_image in
 file-system.</p><p class="listitem">Default: f</p>

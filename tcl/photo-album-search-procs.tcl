@@ -39,7 +39,7 @@ ad_proc -private photo_album::search::album::datasource { album_id } {
 }
 
 ad_proc -private  photo_album::search::album::url { album_id } {
-    returns a url for a message to the search package
+    returns a URL for a message to the search package
 
     @param album_id - either a revision_id or an item_id for an album
 
@@ -116,7 +116,7 @@ ad_proc -private photo_album::search::photo::datasource { photo_id } {
 }
 
 ad_proc -private  photo_album::search::photo::url { photo_id } {
-    returns a url for a message to the search package
+    returns a URL for a message to the search package
 
     @param photo_id - either a revision_id or an item_id for an album
 
