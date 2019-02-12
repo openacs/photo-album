@@ -12,9 +12,9 @@ ad_page_contract {
     upload_file.tmpfile:tmpfile
     album_id:naturalnum,notnull
     photo_id:naturalnum,notnull
-    {description [db_null]}
-    {caption [db_null]}
-    {story [db_null]}
+    {description ""}
+    {caption ""}
+    {story ""}
 } -validate {
     valid_album -requires {album_id:integer} {
 	if [string equal [pa_is_album_p $album_id] "f"] {
